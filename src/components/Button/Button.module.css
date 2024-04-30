@@ -1,0 +1,42 @@
+.button {
+    
+}
+
+.small {
+    font-size: .8rem;
+    padding: .4rem 3rem;
+}
+
+.middle {
+    font-size: 1rem;
+    padding: .6rem 4rem;
+}
+
+.large {
+    font-size: 1.2rem;
+    padding: .8rem 5rem;
+}
+
+.bordered {
+    color: #fff;
+    border: 1px solid #fff;
+}
+.bordered:hover {
+    background-color: rgba(255,255,255,0.8);
+    color: #444;
+}
+
+.gradient{
+    color: #fff;
+    background: linear-gradient(to right, #008B28, #0FBB40);
+    
+}
+
+.gradient:hover{
+    color: #fff;
+    background: linear-gradient(to right, #0FBB40, #008B28);
+}
+
+.solid {
+
+}
