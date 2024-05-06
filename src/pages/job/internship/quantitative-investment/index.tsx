@@ -25,10 +25,13 @@ import Outline from '@/pages/job/components/Outline/Outline';
 import { fullStackDevFAQData, fullStackDevOutlineData } from '@/data/full_stack_dev_internship';
 import { investmentBankingModelingFAQData, investmentBankingModelingOutlineData } from '@/data/investment_banking_modeling_internship';
 import { quantitativeInvestmentFAQData, quantitativeInvestmentOutlineData } from '@/data/quantitative_investment_internship';
+import VideoModal from '@/components/VideoModal/VideoModal';
 
 export const DataAnalysisPage: NextPage = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
-
+  const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
+  const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
+  
   const onFloatMenuChange = (newIndex: number) => {
     setActiveFloatMenuIndex(newIndex)
 
@@ -83,8 +86,13 @@ export const DataAnalysisPage: NextPage = () => {
                       text="咨询项目" />
               </div>
               <VideoCard 
+                className='flex-1'
                 image={bannerVideoImage} 
-                videoPath='https://xxx.com/test.mp4'/>
+                videoPath='https://xxx.com/test.mp4'
+                onClick={()=>{
+                  setVideoModalPath('https://xxx.com/test.mp4');
+                  setVideoModalOpen(true);
+                }}/>
 
               <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
                 <div className='flex-1'>
@@ -193,6 +201,13 @@ export const DataAnalysisPage: NextPage = () => {
           data={internshipMenusData} 
           activeIndex={activeFloatMenuIndex}
           onChange={onFloatMenuChange}/>
+
+        <VideoModal
+          videoPath={videoModalPath} 
+          open={videoModalOpen} 
+          onClose={()=>{
+            setVideoModalOpen(false);
+          }}/>
       </main>
 
       <Footer />

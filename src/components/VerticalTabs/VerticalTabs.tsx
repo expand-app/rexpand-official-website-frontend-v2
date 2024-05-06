@@ -24,7 +24,7 @@ const VerticalTabs = ({data = [],}: Props) => {
                 </li>
             })}            
         </ul>
-        <ul className={styles.contents}>
+        <ul className={clsx('flex items-center justify-center', styles.contents)}>
             {data?.map((item, index)=>{
                 return <li key={item.title} 
                     className={clsx(styles.content_item, 'px-4 py-4',{[styles.active]: activeIndex === index})}>

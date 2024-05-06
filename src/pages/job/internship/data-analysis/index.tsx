@@ -70,7 +70,7 @@ export const DataAnalysisPage: NextPage = () => {
             }}>
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-3/4'>
-              <div className="z-10 pt-0">
+              <div className="z-10 pt-0 flex-1">
                   <h1 className='text-4xl text-white z-10 mb-3'>数据分析实习</h1>
                   <h2 className='text-base text-white opacity-70 z-10  mb-16'>使用SQL进行数据清理和分析，搭建客户需要的电子邮件营销数据管线，分析营销数据表现</h2>
 
@@ -81,6 +81,7 @@ export const DataAnalysisPage: NextPage = () => {
                       text="咨询项目" />
               </div>
               <VideoCard 
+                className='flex-1'
                 image={bannerVideoImage} 
                 videoPath='https://xxx.com/test.mp4' 
                 onClick={()=>{

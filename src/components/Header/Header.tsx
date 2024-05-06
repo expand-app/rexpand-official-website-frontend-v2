@@ -11,11 +11,15 @@ import Link from 'next/link';
 const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
   const [open, setOpen] = useState<boolean>(false);
 
-  let combinedClassName = `absolute w-full z-30 top-0 text-white shadow-md ${className ?? ''}`;
+  let combinedClassName = `absolute w-full z-30 top-0 text-white ${className ?? ''}`;
 
-  if (theme === Theme.LIGHT) {
-    combinedClassName = clsx(combinedClassName, ['bg-white'])
+  if (theme !== Theme.TRANSPARENT) {
+    combinedClassName = clsx(combinedClassName, 'shadow-md');
   }
+  
+  if (theme === Theme.LIGHT) {
+    combinedClassName = clsx(combinedClassName, ['bg-white']);
+  } 
 
   const handleJobConsultClick = ()=>{
     setOpen(true);

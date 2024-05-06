@@ -71,8 +71,8 @@ export const DataAnalysisPage: NextPage = () => {
               backgroundPosition: '0 0',
             }}>
            
-            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-64 w-3/4'>
-              <div className="z-10 pt-0">
+            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center w-3/4'>
+              <div className="z-10 pt-0 flex-1">
                   <h1 className='text-4xl text-white mb-6'>面试集训营</h1>
                   <h2 className='text-base text-white mb-1'>只要99元，5天时间全面掌握北美面试技巧</h2>
                   <h3 className='text-sm text-white mb-16'>下次开课：{formatDate(nextCourceTime)} 倒计时：<span className='bg-white text-black px-1 mr-1'>{courseDaysLeft}</span>天</h3>
@@ -83,7 +83,7 @@ export const DataAnalysisPage: NextPage = () => {
                       size={ButtonSize.MIDDLE} 
                       text="咨询项目" />
               </div>
-              <Image src={bannerRightImage} alt="Banner" className={styles.banner_img}/>
+              <Image src={bannerRightImage} alt="Banner" className={clsx('flex-1',styles.banner_img)}/>
             
               <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
                 <div className='flex-1'>

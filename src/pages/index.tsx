@@ -28,7 +28,8 @@ export const HomePage: NextPage = () => {
             text="了解更多" />
         </div>
 
-        <div className='bg-white py-16 px-16 flex flex-col items-center '>
+        <div className='bg-white py-16 px-16 flex flex-col items-center'>
+          <div className="container mx-auto px-4 md:px-20">
             <SectionTitle 
               className='mb-4'
               title='保Offer求职项目'
@@ -42,6 +43,7 @@ export const HomePage: NextPage = () => {
               size={ButtonSize.MIDDLE} 
               color={ButtonColor.GREEN}
               text="查看详情" />
+          </div>
 
         </div>
 
@@ -54,7 +56,7 @@ export const HomePage: NextPage = () => {
           }}>
           
           <div className="relative sm:px-0 md:px-10">
-            <div className="container px-4 md:px-20">
+            <div className="container mx-auto px-4 md:px-20">
               <SectionTitle 
                 className="mb-12"
                 title='实习项目'
@@ -71,7 +73,7 @@ export const HomePage: NextPage = () => {
         </div>
 
         <div className='bg-white py-16 text-center'>
-          <div className="container px-4 md:px-20">
+          <div className="container mx-auto px-4 md:px-20">
             <SectionTitle 
               title='面试集训营'
               subtitle='超强指导，助力每个机会'/>

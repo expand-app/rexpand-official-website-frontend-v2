@@ -22,9 +22,12 @@ import FloatMenu from '@/components/FloatMenu/FloatMenu';
 import { internshipMenusData } from '@/data/internship';
 import Outline from '@/pages/job/components/Outline/Outline';
 import { fullStackDevFAQData, fullStackDevOutlineData } from '@/data/full_stack_dev_internship';
+import VideoModal from '@/components/VideoModal/VideoModal';
 
 export const DataAnalysisPage: NextPage = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
+  const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
+  const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
 
   const onFloatMenuChange = (newIndex: number) => {
     setActiveFloatMenuIndex(newIndex)
@@ -69,7 +72,7 @@ export const DataAnalysisPage: NextPage = () => {
             }}>
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-3/4'>
-              <div className="z-10 pt-0">
+              <div className="z-10 pt-0 flex-1">
                   <h1 className='text-4xl text-white z-10 mb-3'>全栈开发实习</h1>
                   <h2 className='text-base text-white opacity-70 z-10  mb-16'>从前后端编写到云部署的全流程，使用JavaScript、Python、Java，以及MySQL和PostgreSQL数据库，依托AWS和Azure平台，提供全面的现代应用开发经验</h2>
 
@@ -81,7 +84,12 @@ export const DataAnalysisPage: NextPage = () => {
               </div>
               <VideoCard 
                 image={bannerVideoImage} 
-                videoPath='https://xxx.com/test.mp4'/>
+                videoPath='https://xxx.com/test.mp4'
+                className='flex-1'
+                onClick={()=>{
+                  setVideoModalPath('https://xxx.com/test.mp4');
+                  setVideoModalOpen(true);
+                }}/>
 
               <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
                 <div className='flex-1'>
@@ -190,6 +198,13 @@ export const DataAnalysisPage: NextPage = () => {
           data={internshipMenusData} 
           activeIndex={activeFloatMenuIndex}
           onChange={onFloatMenuChange}/>
+
+        <VideoModal
+          videoPath={videoModalPath} 
+          open={videoModalOpen} 
+          onClose={()=>{
+            setVideoModalOpen(false);
+          }}/>
       </main>
 
       <Footer />
