@@ -1,0 +1,14 @@
+.float_menu {
+    z-index: 50;
+}
+
+.menu_item {
+    color: #008A27;
+    background-color: #fff;
+    border:1px solid #008A27;
+}
+
+.active {
+    color: #fff;
+    background-color: #008A27;
+}

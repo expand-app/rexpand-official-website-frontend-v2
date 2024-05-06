@@ -1,10 +1,14 @@
 import React from 'react';
 
-const SectionTitle = ({title, subtitle}: Props) => {
+const SectionTitle = ({title, subtitle, className}: Props) => {
+    
+    const baseClassName = 'flex flex-col items-center';
+    const combinedClassName = `${baseClassName} ${className ?? ''}`;
+
     return (
-        <div className="flex flex-col items-center">
-            <h1 className='text-2xl font-bold'>{title}</h1>
-            <h2 className='text-base text-gray-500'>{subtitle}</h2>
+        <div className={combinedClassName}>
+            <h1 className='text-4xl mb-3'>{title}</h1>
+            {subtitle? <h2 className='text-base text-gray-800'>{subtitle}</h2>: null}
         </div>
     );
 }
@@ -13,5 +17,6 @@ export default SectionTitle;
 
 interface Props {
     title: string;
-    subtitle: string;
+    subtitle?: string;
+    className?: string;
 }

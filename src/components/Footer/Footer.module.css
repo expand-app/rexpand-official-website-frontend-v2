@@ -1,0 +1,9 @@
+.footer {
+    background-color: #F9F8F8;
+    border-top:1px solid #eee;
+}
+.copy_right{
+    background-color: #008A27;
+    color: #fff;
+    text-align: center;
+}

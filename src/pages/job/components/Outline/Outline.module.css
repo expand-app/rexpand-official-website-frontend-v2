@@ -1,0 +1,37 @@
+.outline {
+
+}
+
+.subject_buttons {
+
+}
+
+.subject_button {
+    cursor: pointer;
+    background-color: #F7FCFA;
+    color: #008A27;
+}
+.subject_button.active {
+    background-color: #008A27;
+    color: #fff;
+}
+
+.subject_detail {
+
+}
+
+.detail_header {
+    background-image: linear-gradient(to bottom, #008a2719, #008a2704);
+}
+
+.detail_footer {
+    background-color: #008a2719;
+}
+
+.subject_name{
+    color:#008A27;
+}
+
+.subject_tags{
+    
+}

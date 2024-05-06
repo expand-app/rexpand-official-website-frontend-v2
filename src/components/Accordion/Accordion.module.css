@@ -1,0 +1,81 @@
+.accordion{
+    list-style: none;
+    perspective: 900;
+    padding: 0;
+    margin: 0;
+}
+.accordion_item {
+    position: relative;
+    background-color: #f8f8f8;
+    margin-bottom: 1rem;
+}
+.active {
+    background-color: #E8FAF2;
+ 
+}
+.active > .title {
+    border-left: 4px solid #008A27;
+}
+.active > .content {
+    background-color: #EDF9F6;
+}
+.accordion_item > i {
+    position: absolute;
+    display: inline-block;
+    top:2rem;
+    right: 2rem;
+}
+.accordion_item > i::before,
+.accordion_item > i::after {
+    content: "";
+    /* @extend .transition */
+    position: absolute;
+    background-color: #999;
+    width: 3px;
+    height: 9px;
+}
+
+.accordion_item > i::before {
+    transform: translate( -2px , 0 ) rotate( 45deg )
+}
+
+.accordion_item > i::after {
+    transform: translate( 2px , 0 ) rotate( -45deg )
+}
+.accordion_item > input[type='checkbox'] {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    left:0;
+    top:0;
+}
+.accordion_item > input[type='checkbox']:not(:checked) ~ div.content{
+    display: none;
+}
+
+.accordion_item > input[type='checkbox']:checked ~ i:before {
+    transform: translate(2px, 0) rotate(45deg);
+}
+.accordion_item > input[type='checkbox']:checked ~ i:after {
+    transform: translate(-2px, 0) rotate(-45deg);
+}
+
+.title {
+    display: block;
+    margin: 0;
+    cursor: pointer;
+}
+
+.content {
+    position: relative;
+    overflow: hidden;
+    opacity: 1;
+    z-index: 2;
+    
+}
+
+.list {
+}

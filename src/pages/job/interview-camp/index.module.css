@@ -1,0 +1,14 @@
+.banner_img {
+    /* position: absolute;
+    right:;
+    bottom:0;
+    user-select: none; */
+    height: 320px;
+    width: auto;
+}
+
+.banner_overlay {
+    position: absolute;
+    left:0;
+    bottom:0;
+}

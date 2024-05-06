@@ -1,78 +1,68 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import qrRexpandImg from '@/assets/qr_rexpand.png';
+import qrDaeImg from '@/assets/qr_dae.png';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Footer = () => {
-    return <footer className="bg-white">
+    return <footer className={styles.footer}>
       <div className="container mx-auto px-8">
         <div className="w-full flex flex-col md:flex-row py-6">
-          <div className="flex-1 mb-6 text-black">
-            <a className="text-pink-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl" href="#">
-              <svg className="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
-                <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)" />
-                <path
-                  className="plane-take-off"
-                  d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "
-                />
-              </svg>
-              LANDING
-            </a>
-          </div>
           <div className="flex-1">
-            <p className="uppercase text-gray-500 md:mb-6">Links</p>
+            <p className="text-black md:mb-6 font-bold text-base">求职课程及服务</p>
             <ul className="list-reset mb-6">
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">FAQ</a>
+                <a href="#" className="text-sm no-underline text-gray-500 hover:text-green-500">求职项目</a>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Help</a>
+                <Link href='/success-cases' className="text-sm no-underline text-gray-500 hover:text-green-500">成功案例</Link>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Support</a>
+                <Link href="/free-resources" className="text-sm no-underline text-gray-500 hover:text-green-500">免费资源</Link>
+              </li>
+              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
+                <Link href="/about" className="text-sm no-underline text-gray-500 hover:text-green-500">关于我们</Link>
               </li>
             </ul>
           </div>
           <div className="flex-1">
-            <p className="uppercase text-gray-500 md:mb-6">Legal</p>
+            <p className="text-black md:mb-6 font-bold text-base">条款与政策</p>
             <ul className="list-reset mb-6">
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Terms</a>
+            <li className="mt-2 inline-block mr-2 md:block md:mr-0">
+                <Link href="/privacy-policy" className="text-sm no-underline text-gray-500 hover:text-green-500">隐私条款</Link>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Privacy</a>
+                <Link href="/user-service-agreement" className="text-sm no-underline text-gray-500 hover:text-green-500">用户服务协议</Link>
+              </li>
+              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
+                <Link href="/mentor-service-agreement" className="text-sm no-underline text-gray-500 hover:text-green-500">导师服务协议</Link>
               </li>
             </ul>
           </div>
+          
           <div className="flex-1">
-            <p className="uppercase text-gray-500 md:mb-6">Social</p>
-            <ul className="list-reset mb-6">
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Facebook</a>
+            <p className="text-black md:mb-6 font-bold text-base">关于我们</p>
+            <ul className="list-reset flex flex-row gap-10">
+              <li className="mt-2 mr-2 md:block md:mr-0 w-20 text-center">
+                <Image
+                  src={qrRexpandImg} 
+                  alt='微信公众号' 
+                  />
+                <div className='text-xs'>微信公众号</div>
               </li>
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Linkedin</a>
-              </li>
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Twitter</a>
-              </li>
-            </ul>
-          </div>
-          <div className="flex-1">
-            <p className="uppercase text-gray-500 md:mb-6">Company</p>
-            <ul className="list-reset mb-6">
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Official Blog</a>
-              </li>
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">About Us</a>
-              </li>
-              <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="#" className="no-underline hover:underline text-gray-800 hover:text-pink-500">Contact</a>
+              <li className="mt-2 mr-2 md:block md:mr-0 w-20 text-center">
+                <Image
+                  src={qrDaeImg} 
+                  alt='微信公众号' 
+                  />
+                  <div className='text-xs'>求职咨询联系Dae老师</div>
               </li>
             </ul>
           </div>
         </div>
       </div>
-      <a href="#" className="text-gray-500">Created by rexpand</a>
+      <div className={`${styles.copy_right} py-4 text-sm`}>© 2022-2024 Rexpand  All rights reserved.  <a href="#">京ICP备2022032082号-1</a></div>
     </footer>;
 }
 

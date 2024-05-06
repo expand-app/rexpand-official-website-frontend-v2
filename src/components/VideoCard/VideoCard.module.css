@@ -1,0 +1,15 @@
+.video_card {
+
+}
+
+.icon_play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.icon_play:hover{
+    opacity: 0.9;
+}

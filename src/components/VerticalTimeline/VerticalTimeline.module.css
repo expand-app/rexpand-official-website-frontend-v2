@@ -1,0 +1,24 @@
+.timeline {
+    list-style: none;
+}
+
+.timeline > li {
+    border-left: 1px #008A27 dashed;
+    margin: 0 0 0 20px;
+}
+
+.timeline_content {
+    position: relative;
+    top: -24px;
+    padding: 18px 10px 12px 20px;
+}
+.timeline_content:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #008A27;
+    position: absolute;
+    left: -6px;
+    top: 24px;
+    border-radius: 100%;
+}

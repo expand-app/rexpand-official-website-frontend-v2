@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body{
+    background-color: #F7F7F7;
+}
+
+.text-primary-green {
+    color: #008A27;
+}
+
+.bg-primary-green {
+    background-color: #008A27;
+}

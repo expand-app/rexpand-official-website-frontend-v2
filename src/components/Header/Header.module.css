@@ -1,0 +1,40 @@
+
+.menu {
+
+}
+.submenu {
+    /* position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%); */
+    background-color: rgba(255,255,255,0.8);
+    margin-top:20px;
+}
+.submenu_container {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0;
+    display: none;
+    z-index: 10;
+    height: fit-content;
+}
+
+.submenu > li {
+    white-space: nowrap;
+}
+.submenu > li > a {
+    display: block;
+    padding: .9rem 2rem;
+}
+.menu > li:hover {
+    border-bottom: 2px solid #008A27;
+}
+.menu > li:hover .submenu_container {
+    display: block;
+}
+
+.submenu > li:hover {
+    background-color: rgba(255,255,255,0.4);
+}

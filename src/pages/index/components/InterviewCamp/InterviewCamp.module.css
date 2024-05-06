@@ -1,0 +1,11 @@
+.bg {
+    height: 100%;
+}
+
+.title {
+    position: absolute;
+    top: 3rem;
+    left: 3rem;
+    text-align: left;
+    padding-right: 5rem;
+}
