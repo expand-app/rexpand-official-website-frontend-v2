@@ -64,8 +64,8 @@ export const DataAnalysisPage: NextPage = () => {
           })}
         </script>
       </Head>
-      <Header theme={Theme.LIGHT}/>
-      <main className='mt-20 mb-12'>
+      <Header theme={Theme.TRANSPARENT}/>
+      <main className='mb-12'>
         <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerImage.src}),linear-gradient(to right, #007722, #96D8BA)`,
@@ -117,82 +117,91 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className={clsx('bg-white', styles.section1)}>
-          <SectionTitle title='实习介绍' />
-          <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-3/4'>
-            <div className='flex-1 flex justify-end'>
-              <Image src={introImage} alt='实习介绍' className='mr-24 h-full w-auto'/>
-            </div>
-            
-            <div className='flex-1 leading-7 text-gray-500 flex items-center'>
-              <div>实习生将在一家咨询公司的Transaction Advisory Services (TAS) 部门任职，将为客户提供交易和并购过程中的金融建模（Financial Modeling)支持，协助进行公司估值(Valuation) 和财务预测(Financial Planning)。利用Excel作为主要的建模工具，展现出深厚的财务知识基础，精通阅读和分析财务报表。能够高效地将客户的商业模式转化为详细的Excel模型，从而辅助企业客户在财务规划和决策过程中做出更加精确的预测和评估。</div>
-            </div>
-
-          </div>
-        </div>
-
-        <div className='bg-white'>
-          <SectionTitle title='项目亮点' />
-          <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
-            <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-5/6'>
-              <div className='flex-1 flex justify-end'>
-                <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+        <div className={clsx('bg-white section', styles.section1)}>
+          <div className='container mx-auto'>
+            <SectionTitle title='实习介绍' />
+            <div className='flex flex-col md:flex-row h-96'>
+              <div className='flex justify-end'>
+                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
               </div>
               
-              <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6 m-1 min-h-36'>
-                    <Image src={arrowUpImg} alt='增加经验' width={26} />
-                    <h1 className='font-bold'>增加经验</h1>
-                    <div className='text-sm text-gray-500'>简历上一份实习/全职工作经验</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                    <Image src={consultImg} alt='全流程顾问式服务' width={26} />
-                    <h1 className='font-bold'>全流程顾问式服务</h1>
-                    <div className='text-sm text-gray-500'>帮助过上百名Entry Level金融专业的同学入行</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                    <Image src={sendImg} alt='求职无忧' width={26} />
-                    <h1 className='font-bold'>求职无忧</h1>
-                    <div className='text-sm text-gray-500'>帮助想转行做FP&A方向的同学添加相关简历经验</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                    <Image src={rocketImg} alt='技能提升' width={26} />
-                    <h1 className='font-bold'>技能提升</h1>
-                    <div className='text-sm text-gray-500'>真实业务场景下学习财务建模核心技能</div>
-                  </div>
-                </div>
-
+              <div className='flex-1 leading-7 text-gray-500 flex items-center internship_practise_intro_text'>
+                <div>实习生将在一家咨询公司的Transaction Advisory Services (TAS) 部门任职，将为客户提供交易和并购过程中的金融建模（Financial Modeling)支持，协助进行公司估值(Valuation) 和财务预测(Financial Planning)。利用Excel作为主要的建模工具，展现出深厚的财务知识基础，精通阅读和分析财务报表。能够高效地将客户的商业模式转化为详细的Excel模型，从而辅助企业客户在财务规划和决策过程中做出更加精确的预测和评估。</div>
               </div>
             </div>
+          </div>
+        </div>
 
+        <div className='bg-white section'>
+          <div className='container mx-auto'>
+            <SectionTitle title='项目亮点' />
+            <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
+              <div className='flex flex-col md:flex-row h-96'>
+                <div className='flex-1 flex justify-end'>
+                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+                </div>
+                
+                <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6 m-1 min-h-36'>
+                      <Image src={arrowUpImg} alt='增加经验' width={26} />
+                      <h1 className='font-bold'>增加经验</h1>
+                      <div className='text-sm text-gray-500'>简历上一份实习/全职工作经验</div>
+                    </div>
+                  </div>
+
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
+                      <Image src={consultImg} alt='全流程顾问式服务' width={26} />
+                      <h1 className='font-bold'>全流程顾问式服务</h1>
+                      <div className='text-sm text-gray-500'>帮助过上百名Entry Level金融专业的同学入行</div>
+                    </div>
+                  </div>
+
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
+                      <Image src={sendImg} alt='求职无忧' width={26} />
+                      <h1 className='font-bold'>求职无忧</h1>
+                      <div className='text-sm text-gray-500'>帮助想转行做FP&A方向的同学添加相关简历经验</div>
+                    </div>
+                  </div>
+
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
+                      <Image src={rocketImg} alt='技能提升' width={26} />
+                      <h1 className='font-bold'>技能提升</h1>
+                      <div className='text-sm text-gray-500'>真实业务场景下学习财务建模核心技能</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          
           </div>
         </div>
 
 
-        <div className='bg-white'>
-          <SectionTitle title='项目大纲' />
+        <div className='bg-white section'>
+          <div className='container mx-auto'>
 
-          <div className='container mx-auto flex flex-col md:flex-row md:w-5/6'>
-            <Outline data={investmentBankingModelingOutlineData} />
+            <SectionTitle title='项目大纲' />
+
+            <div className='flex flex-col md:flex-row'>
+              <Outline data={investmentBankingModelingOutlineData} />
+            </div>
           </div>
         </div>
 
 
-        <div className='bg-white'>
-          <SectionTitle title='常见问题' />
+        <div className='bg-white section'>
+          <div className='container mx-auto'>
+            <SectionTitle title='常见问题' />
 
-          <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
-            <Accordion data={investmentBankingModelingFAQData}/>
+            <div className='flex flex-col justify-center py-12 md:flex-row'>
+              <Accordion data={investmentBankingModelingFAQData}/>
+            </div>
           </div>
         </div>
 

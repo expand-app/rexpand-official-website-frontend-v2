@@ -60,8 +60,8 @@ export const DataAnalysisPage: NextPage = () => {
           })}
         </script>
       </Head>
-      <Header theme={Theme.LIGHT}/>
-      <main className='mt-20 mb-12'>
+      <Header theme={Theme.TRANSPARENT}/>
+      <main className='mb-12'>
         <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerImage.src}),linear-gradient(to right, #007722, #96D8BA)`,
@@ -113,81 +113,92 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className={clsx('bg-white', styles.section1)}>
-          <SectionTitle title="实习介绍" />
-          <div className='container mx-auto flex flex-col md:flex-row md:w-4/5'>
-            <div className='flex-1 flex justify-end'>
-              <Image src={introImage} alt='实习介绍' className='mr-24 h-full w-auto'/>
-            </div>
-            
-            <div className={clsx('flex-1 flex items-center internship_practise_intro_text')}>
-              <div>实习生将在一家咨询公司的Marketing Analytics Services (MAS) 部门任职，将负责协助企业客户从策略概念化到执行的全过程，构建和实施数字营销策略(Digital Marketing)。通过数据驱动方法，为客户提供高效率的客户获取解决方案。工作职责包括使用SQL作为主要的数据处理和分析工具，构建必要的数据管线(Data Pipeline) 以支持工程化的市场营销活动。此外，利用Tableau和Excel等工具进行深入的营销数据分析和结果可视化(Visualization)，进一步优化并提升客户的数字营销效果。</div>
-            </div>
-
-          </div>
-        </div>
-
-        <div className={clsx('bg-white', styles.section2)}>
-          <SectionTitle title="项目亮点" className={styles.section2_title}/>
-          <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
-            <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-5/6'>
-              <div className='flex-1 flex justify-end'>
-                <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+        <div className={clsx('bg-white section', styles.section1)}>
+          <div className='container mx-auto'>
+            <SectionTitle title="实习介绍" />
+           
+            <div className='flex flex-col md:flex-row'>
+              <div className='flex justify-end'>
+                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
               </div>
               
-              <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6 m-1'>
-                    <Image src={arrowUpImg} alt='增加经验' width={33} />
-                    <h1 className='sight_title'>增加经验</h1>
-                    <div className='sight_subtitle'>简历上一份实习/全职工作经验</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1'>
-                    <Image src={consultImg} alt='全流程顾问式服务' width={33} />
-                    <h1 className='font-bold'>全流程顾问式服务</h1>
-                    <div className='text-sm text-gray-500'>助力上百Entry Level数据专业同学入行</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1'>
-                    <Image src={sendImg} alt='求职无忧' width={33} />
-                    <h1 className='font-bold'>求职无忧</h1>
-                    <div className='text-sm text-gray-500'>助力转行数据方向的同学添加相关经验</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1'>
-                    <Image src={rocketImg} alt='技能提升' width={33} />
-                    <h1 className='font-bold'>技能提升</h1>
-                    <div className='text-sm text-gray-500'>真实业务场景下学习数据分析核心技能SQL</div>
-                  </div>
-                </div>
-
+              <div className={clsx('flex-1 flex items-center internship_practise_intro_text')}>
+                <div>实习生将在一家咨询公司的Marketing Analytics Services (MAS) 部门任职，将负责协助企业客户从策略概念化到执行的全过程，构建和实施数字营销策略(Digital Marketing)。通过数据驱动方法，为客户提供高效率的客户获取解决方案。工作职责包括使用SQL作为主要的数据处理和分析工具，构建必要的数据管线(Data Pipeline) 以支持工程化的市场营销活动。此外，利用Tableau和Excel等工具进行深入的营销数据分析和结果可视化(Visualization)，进一步优化并提升客户的数字营销效果。</div>
               </div>
             </div>
 
           </div>
         </div>
 
+        <div className={clsx('bg-white section', styles.section2)}>
+          <div className='container mx-auto'>
+            <SectionTitle title="项目亮点" className={styles.section2_title}/>
+            <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
+              <div className='flex flex-col md:flex-row h-96'>
+                
+                <div className='flex justify-end'>
+                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+                </div>
+                
+                <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6 m-1'>
+                      <Image src={arrowUpImg} alt='增加经验' width={33} />
+                      <h1 className='sight_title'>增加经验</h1>
+                      <div className='sight_subtitle'>简历上一份实习/全职工作经验</div>
+                    </div>
+                  </div>
 
-        <div className={clsx('bg-white', styles.section2)}>
-          <SectionTitle className={styles.outline_title} title="项目大纲" />
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1'>
+                      <Image src={consultImg} alt='全流程顾问式服务' width={33} />
+                      <h1 className='sight_title'>全流程顾问式服务</h1>
+                      <div className='sight_subtitle'>助力上百Entry Level数据专业同学入行</div>
+                    </div>
+                  </div>
 
-          <div className='container mx-auto flex flex-col md:flex-row md:w-5/6'>
-            <Outline data={dataAnalysisOutlineData} />
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1'>
+                      <Image src={sendImg} alt='求职无忧' width={33} />
+                      <h1 className='font-bold'>求职无忧</h1>
+                      <div className='text-sm text-gray-500'>助力转行数据方向的同学添加相关经验</div>
+                    </div>
+                  </div>
+
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1'>
+                      <Image src={rocketImg} alt='技能提升' width={33} />
+                      <h1 className='font-bold'>技能提升</h1>
+                      <div className='text-sm text-gray-500'>真实业务场景下学习数据分析核心技能SQL</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
+        </div>
+
+
+        <div className={clsx('bg-white section', styles.section2)}>
+          <div className='container mx-auto'>
+            <SectionTitle className={styles.outline_title} title="项目大纲" />
+
+            <div className='flex flex-col md:flex-row'>
+              <Outline data={dataAnalysisOutlineData} />
+            </div>
           </div>
         </div>
 
-        <div className='bg-white'>
-          <SectionTitle className={styles.faq_title} title="常见问题" />
+        <div className='bg-white section'>
+          <div className='container mx-auto'>
+            <SectionTitle className={styles.faq_title} title="常见问题" />
 
-          <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
-            <Accordion data={dataAnalysisFAQData}/>
+            <div className='flex flex-col justify-center py-12 md:flex-row'>
+              <Accordion data={dataAnalysisFAQData}/>
+            </div>
           </div>
         </div>
 

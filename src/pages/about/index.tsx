@@ -65,13 +65,13 @@ export const AboutPage: NextPage = () => {
             <Image src={bannerImg} alt="让内推引领求职" layout="reponsive" className='w-full h-auto'/> */}
           </div>    
 
-          <div className={clsx('bg-white', styles.section1)}>
-            <div className={clsx('px-4 md:px-12 text-center',styles.advantage_container)}>
+          <div className={clsx('bg-white section', styles.section1)}>
+            <div className={clsx('container mx-auto text-center',styles.advantage_container)}>
               <SectionTitle title='我们的优势' subtitle='以内推为服务核心，顶级辅导团队'/>
               
               <div className={clsx("flex items-center",styles.advantage_text_container)}>
                 {/* 左侧引号图片 */}
-                <Image src={leftQuoteIamge} alt="Left Quote" className='self-start -mt-10' />
+                <Image src={leftQuoteIamge} alt="Left Quote" className='self-start -mt-16' />
 
                 {/* 文字 */}
                 <p className={styles.advantage_text} >
@@ -85,32 +85,32 @@ export const AboutPage: NextPage = () => {
             </div>            
           </div>
 
-          <div className={clsx('bg-white', styles.section2)} style={{backgroundColor: '#F2F9F4'}}>
-            <div className='flex flex-col md:flex-row gap-12 md:gap-0'>
+          <div className={clsx('bg-white section', styles.section2)} style={{backgroundColor: '#F2F9F4'}}>
+            <div className='container mx-auto flex flex-col md:flex-row gap-12 md:gap-0'>
               <div className='flex-1 flex flex-col items-center gap-2'>
                 <Image src={groupImage} alt='资深导师' width={38} height={38}/>
-                <h1 className='text-green-600 text-3xl mt-6'>资深导师</h1>
-                <h2 className='text-xs text-gray-500'>自于高盛、亚马逊、安永等国际知名企业</h2>
+                <h1 className='text-green-600 font-46 font-w500 mt-6 font-m'>资深导师</h1>
+                <h2 className='font-14 font-w400 opacity-60'>自于高盛、亚马逊、安永等国际知名企业</h2>
               </div>
 
               <div className='flex-1 flex flex-col items-center gap-2'>
                 <Image src={aiImage} alt='AI技术驱动' width={38} height={38}/>
-                <h1 className='text-green-600 text-3xl mt-6'>AI技术驱动</h1>
-                <h2 className='text-xs text-gray-500'>用AI技术驱动求职服务</h2>
+                <h1 className='text-green-600  font-46 font-w500 mt-6 font-m'>AI技术驱动</h1>
+                <h2 className='font-14 font-w400 opacity-60'>用AI技术驱动求职服务</h2>
               </div>
 
 
               <div className='flex-1 flex flex-col items-center gap-2'>
                 <Image src={studentImage} alt='2000+学员' width={38} height={38} />
-                <h1 className='text-green-600 text-3xl mt-6'>2000+学员</h1>
-                <h2 className='text-xs text-gray-500'>帮助每一位美国留学生实现自己的职场梦想</h2>
+                <h1 className='text-green-600  font-46 font-w500 mt-6 font-m'>2000+学员</h1>
+                <h2 className='font-14 font-w400 opacity-60'>帮助每一位美国留学生实现自己的职场梦想</h2>
               </div>
             </div>
           </div>
 
 
-          <div className={clsx('', styles.section3)} style={{backgroundColor: '#008A27', backgroundImage: `url(${xpqnBgImage.src})`, backgroundSize: '100% auto'}}>
-            <div className='flex flex-col md:flex-row gap-12 px-12'>
+          <div className={clsx('section', styles.section3)} style={{backgroundColor: '#008A27', backgroundImage: `url(${xpqnBgImage.src})`, backgroundSize: '100% auto'}}>
+            <div className='container mx-auto flex flex-col md:flex-row gap-12 px-12'>
               <div className='flex-1 flex flex-col gap-2'>
                 <div className='flex flex-row items-center gap-2'>
                   <Image src={pushImage} alt='独一无二的内推服务' />
@@ -137,13 +137,15 @@ export const AboutPage: NextPage = () => {
             </div>
           </div>
 
-          <div className={clsx('', styles.section4)} style={{background: `linear-gradient(180deg, #EEFFFC 0%, #7DD193 100%)`}}>
-            <SectionTitle title='专业导师团队' subtitle='导师均来自于北美顶级企业，平均5年+求职辅导经验' />
+          <div className={clsx('section', styles.section4)} style={{background: `linear-gradient(180deg, rgba(238, 255, 252, 0.3) 0%, rgba(125, 209, 147, 0.3) 100%)`}}>
+            <div className='container mx-auto'>
+              <SectionTitle title='专业导师团队' subtitle='导师均来自于北美顶级企业，平均5年+求职辅导经验' />
 
-            <div className='grid grid-cols-4 gap-6 px-24'>
-              {membersData?.map((item)=>{ 
-                return <TeamMemberCard key={item.id} data={item}/>
-              })}
+              <div className='grid grid-cols-4 gap-6'>
+                {membersData?.map((item)=>{ 
+                  return <TeamMemberCard key={item.id} data={item}/>
+                })}
+              </div>
             </div>
           </div>
         </div>

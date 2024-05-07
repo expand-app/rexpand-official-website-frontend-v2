@@ -23,6 +23,7 @@ import { internshipMenusData } from '@/data/internship';
 import Outline from '@/pages/job/components/Outline/Outline';
 import { fullStackDevFAQData, fullStackDevOutlineData } from '@/data/full_stack_dev_internship';
 import VideoModal from '@/components/VideoModal/VideoModal';
+import SectionTitle from '@/components/SectionTitle/SectionTitle';
 
 export const DataAnalysisPage: NextPage = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
@@ -61,8 +62,8 @@ export const DataAnalysisPage: NextPage = () => {
           })}
         </script>
       </Head>
-      <Header theme={Theme.LIGHT}/>
-      <main className='mt-20 mb-12'>
+      <Header theme={Theme.TRANSPARENT}/>
+      <main className='mb-12'>
         <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerImage.src}),linear-gradient(to right, #007722, #96D8BA)`,
@@ -114,82 +115,91 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className={clsx('bg-white', styles.section1)}>
-          <h1 className='text-4xl text-center pt-12 pb-6'>实习介绍</h1>
-          <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-3/4'>
-            <div className='flex-1 flex justify-end'>
-              <Image src={introImage} alt='实习介绍' className='mr-24 h-full w-auto'/>
-            </div>
-            
-            <div className='flex-1 leading-7 text-gray-500 flex items-center'>
-              <div>实习生在一家科技公司任职，参与开发一个与小红书相似的食物分享应用的移动端项目。此职位涵盖了全面的项目开发流程，包括前后端代码的编写、优化和最终部署到云平台。您将负责设计数据结构，参与DevOps相关工作，确保项目从概念到发布的每个阶段都高效、顺利进行。在技术选型方面，项目将采用JavaScript、Python和Java作为主要开发语言，使用MySQL和PostgreSQL作为数据库解决方案，同时，云基础设施将主要依托于AWS和Azure平台。此岗位旨在为实习生提供一个全面深入了解和参与现代应用开发的机会。</div>
-            </div>
-
-          </div>
-        </div>
-
-        <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>项目亮点</h1>
-          <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
-            <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-5/6'>
-              <div className='flex-1 flex justify-end'>
-                <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+        <div className={clsx('bg-white section', styles.section1)}>
+          <div className='container mx-auto'>
+            <SectionTitle title="实习介绍" />
+           
+            <div className='flex flex-col md:flex-row h-96'>
+              <div className='flex justify-end'>
+                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
               </div>
               
-              <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6 m-1 min-h-36'>
-                    <Image src={arrowUpImg} alt='增加经验' width={26} />
-                    <h1 className='font-bold'>增加经验</h1>
-                    <div className='text-sm text-gray-500'>简历上一份实习/全职工作经验</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                    <Image src={consultImg} alt='全流程顾问式服务' width={26} />
-                    <h1 className='font-bold'>全流程顾问式服务</h1>
-                    <div className='text-sm text-gray-500'>助力上百名Entry Level computer science专业同学入行</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                    <Image src={sendImg} alt='求职无忧' width={26} />
-                    <h1 className='font-bold'>求职无忧</h1>
-                    <div className='text-sm text-gray-500'>帮助想转行做SDE方向的同学添加相关简历经验</div>
-                  </div>
-                </div>
-
-                <div className='w-full md:w-1/2'>
-                  <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                    <Image src={rocketImg} alt='技能提升' width={26} />
-                    <h1 className='font-bold'>技能提升</h1>
-                    <div className='text-sm text-gray-500'>真实业务场景下应用全栈开发技术</div>
-                  </div>
-                </div>
-
+              <div className='flex-1 leading-7 text-gray-500 flex items-center internship_practise_intro_text'>
+                <div>实习生在一家科技公司任职，参与开发一个与小红书相似的食物分享应用的移动端项目。此职位涵盖了全面的项目开发流程，包括前后端代码的编写、优化和最终部署到云平台。您将负责设计数据结构，参与DevOps相关工作，确保项目从概念到发布的每个阶段都高效、顺利进行。在技术选型方面，项目将采用JavaScript、Python和Java作为主要开发语言，使用MySQL和PostgreSQL作为数据库解决方案，同时，云基础设施将主要依托于AWS和Azure平台。此岗位旨在为实习生提供一个全面深入了解和参与现代应用开发的机会。</div>
               </div>
+
             </div>
+          </div>
+        </div>
 
+        <div className='bg-white section'>
+          <div className='container mx-auto'>
+            <SectionTitle title="项目亮点" className={styles.section2_title}/>
+            <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
+              <div className='flex flex-col md:flex-row h-96'>
+                <div className='flex-1 flex justify-end'>
+                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+                </div>
+                
+                <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6 m-1 min-h-36'>
+                      <Image src={arrowUpImg} alt='增加经验' width={26} />
+                      <h1 className='font-bold'>增加经验</h1>
+                      <div className='text-sm text-gray-500'>简历上一份实习/全职工作经验</div>
+                    </div>
+                  </div>
+
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
+                      <Image src={consultImg} alt='全流程顾问式服务' width={26} />
+                      <h1 className='font-bold'>全流程顾问式服务</h1>
+                      <div className='text-sm text-gray-500'>助力上百名Entry Level computer science专业同学入行</div>
+                    </div>
+                  </div>
+
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
+                      <Image src={sendImg} alt='求职无忧' width={26} />
+                      <h1 className='font-bold'>求职无忧</h1>
+                      <div className='text-sm text-gray-500'>帮助想转行做SDE方向的同学添加相关简历经验</div>
+                    </div>
+                  </div>
+
+                  <div className='w-full md:w-1/2'>
+                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
+                      <Image src={rocketImg} alt='技能提升' width={26} />
+                      <h1 className='font-bold'>技能提升</h1>
+                      <div className='text-sm text-gray-500'>真实业务场景下应用全栈开发技术</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
           </div>
         </div>
 
 
-        <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>项目大纲</h1>
+        <div className='bg-white section'>
+          <div className='container mx-auto'>
+            <SectionTitle className={styles.outline_title} title="项目大纲" />
 
-          <div className='container mx-auto flex flex-col md:flex-row md:w-5/6'>
-            <Outline data={fullStackDevOutlineData} />
+            <div className='flex flex-col md:flex-row'>
+              <Outline data={fullStackDevOutlineData} />
+            </div>
           </div>
         </div>
 
 
-        <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>常见问题</h1>
+        <div className='bg-white section'>
+          <div className='container mx-auto'>
+            <SectionTitle className={styles.faq_title} title="常见问题" />
 
-          <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
-            <Accordion data={fullStackDevFAQData}/>
+            <div className='flex flex-col justify-center py-12 md:flex-row'>
+              <Accordion data={fullStackDevFAQData}/>
+            </div>
           </div>
         </div>
 

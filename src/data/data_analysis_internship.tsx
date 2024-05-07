@@ -1,5 +1,5 @@
 import { AccordionData } from '@/components/Accordion/Accordion';
-import { OutlineData } from '@/pages/job/internship/components/Outline/Outline';
+import { OutlineData } from '@/pages/job/components/Outline/Outline';
 
 export const dataAnalysisFAQData: AccordionData[] = [
     {

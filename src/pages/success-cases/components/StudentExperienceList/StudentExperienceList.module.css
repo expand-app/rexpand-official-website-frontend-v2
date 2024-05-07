@@ -1,7 +1,19 @@
 .student_experience_list{
-    
+    gap: 30px;
 }
 
+.top_offer_item {
+    padding:7px 7px 0 7px;
+    cursor: pointer;
+}
+
+
+.header_img{
+    transition: transform 0.5s ease; 
+}
+.top_offer_item:hover .header_img {
+    transform: scale(1.1);
+}
 .usename{
     font-size: 16px;
     font-weight: 500;
@@ -11,7 +23,6 @@
 }
 
 .university {
-    font-size: 16px;
     font-weight: 400;
     line-height: 22.4px;
     gap: 5px;
@@ -24,6 +35,8 @@
     background-color: #CCE8D4;
     padding:.15rem .6rem;
     border-radius: 4px;
+}
 
-
+.body {
+    padding: 24px 0 39px 20px ;
 }

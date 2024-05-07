@@ -110,7 +110,7 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
        
 
-        <div className='bg-white pt-48 pb-24' style={{background: 'linear-gradient(180deg, #EEFFFC00 0%, #7DD19366 100%)'}}>
+        <div className='bg-white pt-48 pb-24 section' style={{background: 'linear-gradient(180deg, #EEFFFC00 0%, #7DD19366 100%)'}}>
             <div className='container mx-auto w-3/4'>
               <SectionTitle 
                 title='为什么要参加？' 
@@ -120,7 +120,7 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className='bg-white py-24' style={{
+        <div className='bg-white py-24 section' style={{
           backgroundImage: `url(${courceBgImg.src})`,
           backgroundSize: '100% auto',
           backgroundPosition: '0,0'
@@ -135,9 +135,10 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
 
 
-        <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>常见问题</h1>
-
+        <div className='bg-white section'>
+          <SectionTitle 
+                    title='常见问题' 
+                    className='mb-12'/>
           <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
             <Accordion data={interviewCampFAQData}/>
           </div>

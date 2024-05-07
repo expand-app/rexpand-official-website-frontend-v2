@@ -2,7 +2,7 @@ import React, { MouseEventHandler } from 'react';
 import styles from './Button.module.css';
 import clsx from 'clsx';
 
-const Button = ({text, size,type,color = ButtonColor.WHITE, className, onClick }: Props) => {
+const Button = ({text, size,type,color = ButtonColor.WHITE, radius = ButtonRadius.ROUNDED, className, onClick }: Props) => {
 
     let buttonClassName = clsx(
         styles.button,
@@ -12,6 +12,8 @@ const Button = ({text, size,type,color = ButtonColor.WHITE, className, onClick }
         {[styles.bordered]: ButtonType.BORDERED === type},
         {[styles.gradient]: ButtonType.GRADIENT === type},
         {[styles.solid]: ButtonType.SOLID === type},
+
+        {'radius-8': ButtonRadius.ROUNDED === radius},
     );
     if (type === ButtonType.BORDERED) {
         buttonClassName = clsx(
@@ -46,11 +48,17 @@ export enum ButtonSize {
     LARGE,
 }
 
+export enum ButtonRadius {
+    NONE,
+    ROUNDED,
+}
+
 export interface Props { 
     text: string;
     size: ButtonSize;
     type: ButtonType;
     color?: ButtonColor;
     className?: string;
+    radius?:ButtonRadius;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }

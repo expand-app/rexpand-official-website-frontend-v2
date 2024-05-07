@@ -3,18 +3,66 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: 'PingFang SC';
-    src: url('/fonts/PingFang-SC-Regular.ttf') format('truetype'); 
+    font-family: 'PingFang_Light';
+    src: url('/fonts/PingFang_Light.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'PingFang_Regular';
+    src: url('/fonts/PingFang_Regular.ttf') format('truetype'); 
+}
+
+@font-face {
+    font-family: 'PingFang_Medium';
+    src: url('/fonts/PingFang_Medium.ttf') format('truetype'); 
 }
 
 body{
-    font-family: 'PingFang SC';
+    font-family: 'PingFang_Regular';
     background-color: #F7F7F7;
     letter-spacing: 0.2px;
     font-size: 14px;
     color: #333333;
 }
-
+.transition{
+    transition: all 0.25 ease;
+}
+.font-l{
+    font-family: 'PingFang_Light';
+}
+.font-m{
+    font-family: 'PingFang_Medium';
+}
+.font-14{
+    font-size: 14px;
+}
+.font-16{
+    font-size: 16px;
+}
+.font-46{
+    font-size: 46px;
+}
+.font-48{
+    font-size: 48px;
+}
+.font-w400 {
+    font-weight: 400;
+}
+.font-w500 {
+    font-weight: 500;
+}
+.opacity-60{
+    opacity: 0.6;
+}
+.mb-10px {
+    margin-bottom: 10px;
+}
+.mb-12px {
+     margin-bottom: 12px;
+}
+.radius-8 {
+    border-radius: 8px;
+}
 .text-primary-green {
     color: #008A27;
 }
@@ -25,4 +73,12 @@ body{
 
 .page-banner{
     height: 920px;
+}
+
+.section {
+}
+
+.section .container {
+    width: 85%;
+    /* border:1px solid #ccc; */
 }

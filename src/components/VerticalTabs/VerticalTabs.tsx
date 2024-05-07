@@ -16,7 +16,7 @@ const VerticalTabs = ({data = [],}: Props) => {
     return (<div className={`${styles.vertical_tabs} flex flex-row w-full overflow-hidden`}>
         <ul className={styles.tabs}>
             {data?.map((item, index)=>{
-                return <li key={item.title}
+                return <li key={item.id}
                     onClick={()=>(handleTabClick(item,index))} 
                     className={clsx(styles.tab_item,{[styles.active]: activeIndex === index})}>
                     <div className={styles.title}>{item.title}</div>
@@ -26,11 +26,11 @@ const VerticalTabs = ({data = [],}: Props) => {
         </ul>
         <ul className={clsx('flex items-center justify-center', styles.contents)}>
             {data?.map((item, index)=>{
-                return <li key={item.title} 
+                return <li key={item.id} 
                     className={clsx(styles.content_item, 'px-4 py-4',{[styles.active]: activeIndex === index})}>
                     <Image 
                         src={item.image} 
-                        alt={item.title} 
+                        alt={''} 
                         layout='reposive'
                     />
                 </li>
@@ -47,7 +47,8 @@ export interface Props {
 }
 
 export interface TabItem {
-    title: string;
+    id: number,
+    title: JSX.Element;
     subtitle: string;
     image: StaticImageData;
     // content: JSX.Element;

@@ -87,8 +87,8 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
        
 
-        <div className={clsx('bg-white pt-24 pb-12', styles.section1)} style={{
-          background: 'linear-gradient(180deg, #EEFFFC33 0%, #7DD19333 100%)'
+        <div className={clsx('bg-white pt-24 pb-12 section', styles.section1)} style={{
+          background: '#F7FBF8'
         }}>
             <div className='container mx-auto w-2/3'>
               <SectionTitle 
@@ -108,7 +108,7 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className={clsx('bg-white', styles.section2)}>
+        <div className={clsx('bg-white section', styles.section2)}>
           <div className='container mx-auto w-2/3'>
             <SectionTitle 
                     title='个性化安排课程' 
@@ -118,7 +118,7 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <div  className={styles.section3}>
+        <div  className={clsx('section', styles.section3)}>
           <div className='container mx-auto w-3/4'>
             <SectionTitle 
                     title='项目安排' 
@@ -128,11 +128,15 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>常见问题</h1>
+        <div className={clsx('bg-white section', styles.section4)}>
+          <div className='container mx-auto'>
+            <SectionTitle 
+                      title='常见问题' 
+                      className='mb-12'/>
 
-          <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
-            <Accordion data={offerGuaranteeFAQData}/>
+              <Accordion data={offerGuaranteeFAQData}/>
+            {/* <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
+            </div> */}
           </div>
         </div>
 

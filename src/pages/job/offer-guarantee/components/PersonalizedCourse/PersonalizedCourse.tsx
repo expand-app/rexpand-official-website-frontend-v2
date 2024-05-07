@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PersonalizedCourse.module.css';
-import personalizedCourseImg from '@/assets/job/offer-guarantee/personalized_course.svg';
+import personalizedCourseImg from '@/assets/job/offer-guarantee/personalized_course.png';
 import Image from 'next/image';
 import clsx from 'clsx';
 

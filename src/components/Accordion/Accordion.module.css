@@ -9,6 +9,9 @@
     background-color: #f8f8f8;
     margin-bottom: 1rem;
 }
+.accordion_item:last-child {
+    margin-bottom: 0;
+}
 .active {
     background-color: #E8FAF2;
  

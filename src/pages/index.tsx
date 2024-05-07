@@ -32,8 +32,8 @@ export const HomePage: NextPage = () => {
           </Link>
         </div>
 
-        <div className={clsx('bg-white px-16', styles.section)}>
-          <div className="container mx-auto px-4 md:px-20 flex flex-col items-center">
+        <div className={clsx('bg-white section', styles.section)}>
+          <div className="container mx-auto flex flex-col items-center">
             <SectionTitle 
               className={styles.section_title}
               title='保Offer求职项目'
@@ -52,21 +52,19 @@ export const HomePage: NextPage = () => {
         </div>
 
         <div 
-          className={clsx('bg-white relative',styles.section)}
+          className={clsx('bg-white relative section',styles.section)}
           style={{
             backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 1)), url(${internshipProjectBgImg.src})`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'cover',
           }}>
           
-          <div className="relative sm:px-0 md:px-10">
-            <div className="container mx-auto px-4 md:px-20 overflow-auto">
-              <SectionTitle 
-                className={styles.section_title}
-                title='实习项目'
-                subtitle='超多机会，领航职业起点'/>
-              <InternshipProjectCards data={internshipProjectCardsData} />
-            </div>
+          <div className="container mx-auto overflow-auto">
+            <SectionTitle 
+              className={styles.section_title}
+              title='实习项目'
+              subtitle='超多机会，领航职业起点'/>
+            <InternshipProjectCards data={internshipProjectCardsData} />
           </div>
           
           {/* <div className={'absolute top-0 left-0 w-full h-full z-0 grayscale'} style={{
@@ -76,8 +74,8 @@ export const HomePage: NextPage = () => {
           }}></div> */}
         </div>
 
-        <div className={clsx('bg-white text-center',styles.section)}>
-          <div className="container mx-auto px-4 md:px-20 overflow-auto">
+        <div className={clsx('bg-white text-center section',styles.section)}>
+          <div className="container mx-auto overflow-auto">
             <SectionTitle 
               className={styles.section_title}
               title='面试集训营'

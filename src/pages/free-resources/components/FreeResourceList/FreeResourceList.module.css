@@ -12,7 +12,7 @@
 
     margin-bottom: 24px;
 }
-.summary {
+.summary_container {
     background: #F6FDF9;
     font-size: 14px;
     font-weight: 400;
@@ -21,6 +21,13 @@
     margin-bottom: 24px;
 }
 
+.summary {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    -webkit-line-clamp: 3;
+}
+
 .bottom {
-    padding: 24px 24px 17px 24px;
+    padding: 24px 24px 24px 24px;
 }

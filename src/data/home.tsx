@@ -13,25 +13,29 @@ import interviewCampImg3 from '@/assets/home/interview_3.png';
 
 export const offerGuaranteeTabsData: TabItem[] = [
     {
-        title:'H1b Offer保障',
+        id: 1,
+        title:<><span style={{color:'#008A27'}}>H1b</span> Offer保障</>,
         subtitle: '高频内推、简历代投、求职辅导全方位保证成功率',
         image: offerGuaranteeImg1,
         //content: <Image src={offerGuaranteeImg1} height={200} alt='H1b Offer保障'/>
     },
     {
-        title:'周均20+次内推',
+        id: 2,
+        title:<>周均<span style={{color:'#008A27'}}>20+</span>次内推</>,
         subtitle: '数千家美国名企内推，直接对接岗位招聘官',
         image: offerGuaranteeImg2,
         // content: <Image src={offerGuaranteeImg2} height={200} alt='周均20+次内推'/>
     },
     {
-        title:'1000+名企导师保驾护航',
+        id: 3,
+        title:<><span style={{color:'#008A27'}}>1000+</span>名企导师保驾护航</>,
         subtitle: '全部来自于高盛、谷歌等超一线名企，平均工作经验超过5年',
         image: offerGuaranteeImg3,
         // content: <Image src={offerGuaranteeImg3} height={200} alt='1000+名企导师保驾护航'/>
     },
     {
-        title:'美国实习提升求职竞争力',
+        id: 4,
+        title:<><span style={{color:'#008A27'}}>美国实习</span>提升求职竞争力</>,
         subtitle: '数据、金融、工程等方向企业级项目，秒提简历过筛率',
         image: offerGuaranteeImg4,
         // content: <Image src={offerGuaranteeImg4} height={200} alt='美国实习提升求职竞争力'/>
