@@ -43,9 +43,13 @@ const FreeResourcesPage: NextPage = () => {
         <main className='mt-20 mb-12'>
             <div className={styles.page}>
             <Header theme={Theme.LIGHT}/>
-                <div className='container mx-auto'>
-                    <div>
-                        <LinkFilter current={currentFilterIndex} data={['全部','求职规划','面试技巧', '行业知识']} onChange={handleFilterChange}/>
+                
+                <div className='container mx-auto w-3/4'>
+                    <div className='pl-2 overflow-auto'>
+                        <LinkFilter 
+                            className={styles.filter}
+                            current={currentFilterIndex} 
+                            data={['全部','求职规划','面试技巧', '行业知识']} onChange={handleFilterChange}/>
                     </div>
                     <div className='pb-12'>
                         <FreeResourceList data={freeResourceListData} />

@@ -1,3 +1,29 @@
 .student_experience_list{
     
 }
+
+.usename{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.4px;
+    margin-bottom: 16px;
+    gap: 5px;
+}
+
+.university {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22.4px;
+    gap: 5px;
+}
+.tag {
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 14px;
+    color:#008A27;
+    background-color: #CCE8D4;
+    padding:.15rem .6rem;
+    border-radius: 4px;
+
+
+}

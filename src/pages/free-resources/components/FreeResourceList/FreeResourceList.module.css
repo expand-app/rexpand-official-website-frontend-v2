@@ -1,6 +1,26 @@
 .free_resource_list {
 }
 
+.card {
+    padding:7px;
+}
+.title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+
+    margin-bottom: 24px;
+}
 .summary {
-    background-color: #F6FDF9;
+    background: #F6FDF9;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 25.2px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.bottom {
+    padding: 24px 24px 17px 24px;
 }

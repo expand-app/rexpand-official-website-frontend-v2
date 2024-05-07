@@ -8,8 +8,10 @@
 }
 
 .middle {
-    font-size: 1rem;
-    padding: .6rem 4rem;
+    width: 220px;
+    height: 70px;
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .large {
@@ -18,7 +20,7 @@
 }
 
 .bordered {
-    
+        
 }
 .border_white{
     color: #fff;
@@ -54,8 +56,10 @@
     background-color: #008A27;
     color: white;
     border-radius: 4px;
+
+    transition: all 0.25s ease;
 }
 
 .solid:hover {
-    background-color: #008a27f6;
+    background-color: #008a27ee;
 }

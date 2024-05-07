@@ -1,12 +1,13 @@
 
 .menu {
-
+    font-size: 16px;
+}
+.menu_item {
+    line-height: 22.4px;
+    font-weight: 300;
 }
 .submenu {
-    /* position: absolute;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%); */
+    /* border-top: 4px solid #008A27; */
     background-color: rgba(255,255,255,0.8);
     margin-top:20px;
 }
@@ -28,13 +29,25 @@
     display: block;
     padding: .9rem 2rem;
 }
-.menu > li:hover {
-    border-bottom: 2px solid #008A27;
-}
+
 .menu > li:hover .submenu_container {
     display: block;
 }
 
 .submenu > li:hover {
     background-color: rgba(255,255,255,0.4);
+}
+
+.consult_btn{
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 25.2px;
+    
+    width: 124px;
+    height: 45px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 8px;
+    opacity: 0px;
+
 }

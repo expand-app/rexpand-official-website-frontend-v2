@@ -7,8 +7,7 @@ import styles from './index.module.css';
 import Image from 'next/image';
 import bannerRightImage from '@/assets/interview-camp/banner_right.png';
 import Button, { ButtonSize, ButtonType } from '@/components/Button/Button';
-import VideoCard from '@/components/VideoCard/VideoCard';
-import bannerVideoImage from '@/assets/job/internship/data-analysis/banner_video.png';
+import courceBgImg from '@/assets/interview-camp/course_bg.png';
 import clsx from 'clsx';
 import Accordion from '@/components/Accordion/Accordion';
 import FloatMenu from '@/components/FloatMenu/FloatMenu';
@@ -18,8 +17,9 @@ import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import VerticalTabs from '@/components/VerticalTabs/VerticalTabs';
 import { offerGuaranteeTabsData } from '@/data/home';
 import { daysToNow, formatDate } from '@/utils/Utils';
-import { interviewCampFAQData, whyJoinData } from '@/data/interview_camp';
+import { courceArrangementData, interviewCampFAQData, whyJoinData } from '@/data/interview_camp';
 import WhyJoinList from './WhyJoinList/WhyJoinList';
+import CourseArrangement from './CourseArrangement/CourseArrangement';
 
 const nextCourceTime = new Date('2024-05-12');
 
@@ -83,7 +83,9 @@ export const DataAnalysisPage: NextPage = () => {
                       size={ButtonSize.MIDDLE} 
                       text="咨询项目" />
               </div>
-              <Image src={bannerRightImage} alt="Banner" className={clsx('flex-1',styles.banner_img)}/>
+              <div className='flex-1'>
+                <Image src={bannerRightImage} alt="Banner" className={clsx('',styles.banner_img)}/>
+              </div>
             
               <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
                 <div className='flex-1'>
@@ -108,7 +110,7 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
        
 
-        <div className='bg-white pt-48 pb-12' style={{background: 'linear-gradient(180deg, #EEFFFC00 0%, #7DD19388 100%)'}}>
+        <div className='bg-white pt-48 pb-24' style={{background: 'linear-gradient(180deg, #EEFFFC00 0%, #7DD19366 100%)'}}>
             <div className='container mx-auto w-3/4'>
               <SectionTitle 
                 title='为什么要参加？' 
@@ -118,12 +120,17 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className='bg-white py-24'>
+        <div className='bg-white py-24' style={{
+          backgroundImage: `url(${courceBgImg.src})`,
+          backgroundSize: '100% auto',
+          backgroundPosition: '0,0'
+        }}>
           <div className='container mx-auto w-2/3'>
             <SectionTitle 
                     title='面试集训营 课程安排' 
                     className='mb-12'/>
             
+            <CourseArrangement data={courceArrangementData}/>
           </div>
         </div>
 

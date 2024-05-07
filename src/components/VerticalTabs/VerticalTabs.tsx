@@ -13,14 +13,14 @@ const VerticalTabs = ({data = [],}: Props) => {
         setActiveIndex(index);
     }
 
-    return (<div className={`${styles.vertical_tabs} flex flex-row w-full`}>
+    return (<div className={`${styles.vertical_tabs} flex flex-row w-full overflow-hidden`}>
         <ul className={styles.tabs}>
             {data?.map((item, index)=>{
                 return <li key={item.title}
                     onClick={()=>(handleTabClick(item,index))} 
-                    className={clsx(styles.tab_item,'px-4 py-6',{[styles.active]: activeIndex === index})}>
-                    <div className='text-base mb-1'>{item.title}</div>
-                    <div className='text-sm text-gray-500'>{item.subtitle}</div>
+                    className={clsx(styles.tab_item,{[styles.active]: activeIndex === index})}>
+                    <div className={styles.title}>{item.title}</div>
+                    <div className={styles.subtitle}>{item.subtitle}</div>
                 </li>
             })}            
         </ul>

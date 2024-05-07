@@ -57,15 +57,18 @@ export const internshipProjectCardsData: CardItem[] = [{
 }];
 
 export const interviewCampData: InterviewCampData[] = [{
-    title: '90%面试通过率',
+    id: 1,
+    title: <><span style={{color:'#008A27'}}>90%</span>面试通过率</>,
     subtitle: '90%面试通过率',
     image: interviewCampImg1,
 },{
-    title: '5天时间快速准备',
+    id: 2,
+    title: <>5天时间快速准备</>,
     subtitle: '从Hirevue到经典行为面试问题，五天五个不同主题涵盖面试全流程',
     image: interviewCampImg2,
 },{
-    title: '上千名留学生好评',
+    id: 3,
+    title: <>上千名留学生好评</>,
     subtitle: '每月直播开课，已有上千留学生报名且认可集训营价值',
     image: interviewCampImg3,
 }];

@@ -8,3 +8,18 @@
     bottom:0;
     transform: translateX(-50%);
 }
+.section1 {
+    padding-top: 73px;
+    padding-bottom: 0;
+}
+.section_title1 {
+    margin-bottom: 100px;
+}
+
+.section2 {
+    padding: 90px 0 214px 0;
+}
+
+.section_title2 {
+    margin-bottom: 100px;
+}

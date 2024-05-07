@@ -4,6 +4,7 @@ import whyJoin1Img from '@/assets/interview-camp/icon_whyjoin_1.png';
 import whyJoin2Img from '@/assets/interview-camp/icon_whyjoin_2.png';
 import whyJoin3Img from '@/assets/interview-camp/icon_whyjoin_3.png';
 import whyJoin4Img from '@/assets/interview-camp/icon_whyjoin_4.png';
+import { CourceArrangement } from '@/pages/job/interview-camp/CourseArrangement/CourseArrangement';
 
 export const interviewCampFAQData: AccordionData[] = [
     {
@@ -54,3 +55,25 @@ export const whyJoinData: WhyJoinData[] = [{
     title: '每月开课',
     description: '每月循环开课，上千名留学生报名',
 }];
+
+export const courceArrangementData: CourceArrangement[] = [{
+    id: 1,
+    title: '面试前48小时攻略，锁定Offer',
+    content: ['听课福利：面试百宝书Interview 64问 (含答案)'],
+},{
+    id: 2,
+    title: '不再害怕在线评估，HireVue终极指南',
+    content: ['听课福利：Goldman Sachs等公司 HireVue面试真题及答案'],
+},{
+    id: 3,
+    title: '所有面试的三个通用逻辑',
+    content: ['听课福利：个人专属BQ 面试答案 (背诵版)'],
+},{
+    id: 4,
+    title: 'Mock Interview，让真实面试变得简单',
+    content: ['听课福利：美国名企职位内推机会'],
+},{
+    id: 5,
+    title: '别人还在等待，教你用内推获取更多机会',
+    content: ['听课福利：Networking 万能白皮书'],
+}]

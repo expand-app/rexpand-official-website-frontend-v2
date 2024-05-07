@@ -73,8 +73,8 @@ export const DataAnalysisPage: NextPage = () => {
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-10/12'>
               <div className="z-10 pt-0 pl-20 flex-1">
-                  <h1 className='text-4xl text-white z-10 mb-3'>保offer项目</h1>
-                  <h2 className='text-base text-white opacity-70 z-10  mb-16'>超高频次内推，全流程求职服务，保证高薪名企Offer</h2>
+                  <h1 className={clsx('text-4xl text-white z-10 mb-3', styles.banner_title)}>保offer项目</h1>
+                  <h2 className={clsx('text-base text-white opacity-70 z-10  mb-16', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企Offer</h2>
 
                   <Button
                       className="z-10"
@@ -87,7 +87,9 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
        
 
-        <div className='bg-white pt-24 pb-12' >
+        <div className={clsx('bg-white pt-24 pb-12', styles.section1)} style={{
+          background: 'linear-gradient(180deg, #EEFFFC33 0%, #7DD19333 100%)'
+        }}>
             <div className='container mx-auto w-2/3'>
               <SectionTitle 
                 title='什么是保Offer项目' 
@@ -106,7 +108,7 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className='bg-white py-24'>
+        <div className={clsx('bg-white', styles.section2)}>
           <div className='container mx-auto w-2/3'>
             <SectionTitle 
                     title='个性化安排课程' 
@@ -116,8 +118,7 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-
-        <div  className='py-24'>
+        <div  className={styles.section3}>
           <div className='container mx-auto w-3/4'>
             <SectionTitle 
                     title='项目安排' 

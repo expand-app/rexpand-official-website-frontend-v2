@@ -3,8 +3,8 @@
     right:;
     bottom:0;
     user-select: none; */
-    height: 320px;
-    width: auto;
+    height: auto;
+    max-width: 30vw;
 }
 
 .banner_overlay {

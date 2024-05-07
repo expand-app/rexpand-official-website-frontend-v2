@@ -5,31 +5,41 @@ import clsx from "clsx";
 import Avatar from '@/components/Avatar/Avatar';
 import Pagination from '@/components/Pagination/Pagination';
 
+const topBorderStyles = [
+    styles.tborder_deloitte,
+    styles.tborder_bain,
+    styles.tborder_goldmansachs,
+    styles.tborder_spotify,
+    styles.tborder_oracle,
+    styles.tborder_pwc,
+]
 const TopOfferList = ({data}: Props) => {
     return (
-        <div className={styles.top_offer_list}>
+        <div className={clsx('overflow-auto', styles.top_offer_list)}>
             <div className="flex flex-col md:flex-row gap-4">
-                {data?.map((item)=>{
-                    return <div className={clsx('shadow-lg relative flex-1 bg-white border border-t-2 border-t-green-400 flex flex-col',styles.top_offer_item)}>
-                        <div className='px-0 flex flex-col items-center justify-center h-44'>
-                            <Image src={item.companyLogo} alt={item.companyName} />
-                            <div className='text-sm mt-2 font-bold'>{item.companyName}</div>
-                            <div className='text-sm'>{item.jobTitle}</div>
+                {data?.map((item, index)=>{
+                    return <div className={clsx('relative flex-1 bg-white flex flex-col',styles.top_offer_item, topBorderStyles[index])}>
+                        <div className={clsx('px-0 flex flex-col items-center justify-center', styles.top)}>
+                            <div className={styles.logo_container}>
+                                <Image src={item.companyLogo} alt={item.companyName} width={100}/>
+                            </div>
+                            <div className={styles.company_name}>{item.companyName}</div>
+                            <div className={styles.job_title}>{item.jobTitle}</div>
                         </div>
 
                         <div className={clsx('w-full flex-1 relative px-2', styles.bottom)}>
                             <Avatar className={styles.avatar} data={{userName: item.userName}} />
                         
-                            <div className='pt-8 pb-4 text-sm'>
-                                <div className='font-bold'>{item.university}</div>
-                                <div className='text-gray-500'>{item.major}</div>
+                            <div>
+                                <div className={styles.university}>{item.university}</div>
+                                <div className={styles.major}>{item.major}</div>
                             </div>
                         </div>
                     </div>;
                 })}
             </div>
 
-            <div className='flex justify-center py-12'>
+            <div className={clsx('flex justify-center', styles.pagination)}>
                 <Pagination page={1} pageSize={6} totalCount={6} />
             </div>
         </div>

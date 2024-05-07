@@ -9,17 +9,17 @@ const InterviewCamp = ({data, className}: Props) => {
     return (
         <div className={combinedClassName}>
             {data?.map((item)=>{
-                return <div key={item.title} className='flex-1 relative' style={{
+                return <div key={item.id} className='relative' style={{
                     // backgroundImage: `url(${item.image.src})`,
                     // backgroundSize: '100% auto',
                     // backgroundRepeat: 'no-repeat',
                     // height: 500,
                 }}>
-                    <div className={styles.title}>
-                        <h1 className='text-md font-bold'>{item.title}</h1>
-                        <h2 className='text-sm text-gray-500 mt-3'>{item.subtitle}</h2>
+                    <div className={styles.title_container}>
+                        <h1 className={styles.title}>{item.title}</h1>
+                        <h2 className={styles.subtitle}>{item.subtitle}</h2>
                     </div>
-                    <img className={styles.bg} src={item.image.src} alt={item.title}/>
+                    <img className={styles.bg} src={item.image.src} alt={'background'}/>
                 </div>
             })}
         </div>
@@ -34,7 +34,8 @@ export interface Props {
 }
 
 export interface InterviewCampData {
-    title: string;
+    id: number;
+    title: JSX.Element;
     subtitle: string;
     image: StaticImageData;
 }

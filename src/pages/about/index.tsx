@@ -5,6 +5,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styles from './index.module.css';
 import bannerImg from '@/assets/about/banner.png';
+import bannerTextImg from '@/assets/about/banner_text.png';
 import Image from 'next/image';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import leftQuoteIamge from '@/assets/about/left_quote.png';
@@ -18,6 +19,7 @@ import starImage from '@/assets/about/icon_star.png';
 import userCardImage from '@/assets/about/icon_user_card.png';
 import TeamMemberCard from '@/components/TeamMemberCard/TeamMemberCard';
 import { membersData } from '@/data/about';
+import clsx from 'clsx';
 
 
 
@@ -49,33 +51,30 @@ export const AboutPage: NextPage = () => {
         </script>
       </Head>
       <Header theme={Theme.LIGHT}/>
-      <main className='mt-20 mb-12'>
+      <main className='mt-20'>
         
         <div className="">  {/*container mx-auto max-w-screen-lg px-4*/}
-          <div className="relative">
-            <div className="absolute inset-0 bg-black opacity-30"></div>
+          <div className={clsx('relative page-banner')} style={{backgroundImage: `url(${bannerImg.src})`}}>
+            <div className="absolute inset-0 bg-black opacity-30 "></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <div className="text-white text-8xl font-bold">
-                  <div className='mb-8'>让内推</div>
-                  <div className='indent-14'>引领求职</div>
-                </div>
-                <div className='text-white mt-12'>「 9年专注留学生求职 」</div>
+                <Image src={bannerTextImg} alt='让内推引领求职' />
+                <div className={clsx('text-white mt-12',styles.banner_subtitle)}>「 9年专注留学生求职 」</div>
               </div>
             
-            {/* 图片 */}
-            <Image src={bannerImg} alt="让内推引领求职" layout="reponsive" className='w-full h-auto'/>
+            {/* 图片
+            <Image src={bannerImg} alt="让内推引领求职" layout="reponsive" className='w-full h-auto'/> */}
           </div>    
 
-          <div className='bg-white py-24'>
-            <SectionTitle title='我们的优势' subtitle='以内推为服务核心，顶级辅导团队'/>
-
-            <div className='px-4 md:px-12 lg:px-36 mt-16 text-center'>
-              <div className="flex items-center">
+          <div className={clsx('bg-white', styles.section1)}>
+            <div className={clsx('px-4 md:px-12 text-center',styles.advantage_container)}>
+              <SectionTitle title='我们的优势' subtitle='以内推为服务核心，顶级辅导团队'/>
+              
+              <div className={clsx("flex items-center",styles.advantage_text_container)}>
                 {/* 左侧引号图片 */}
                 <Image src={leftQuoteIamge} alt="Left Quote" className='self-start -mt-10' />
 
                 {/* 文字 */}
-                <p className="text-base text-gray-700 mx-4">
+                <p className={styles.advantage_text} >
                 Rexpand求职（睿思班求职）是一家技术驱动的留学生求职咨询公司，核心团队来自于高盛、亚马逊、安永等国际知名企业，拥有1000+来自于九大投资银行、MBB咨询公司、FAANG等科技企业的资深导师。我们利用AI技术驱动求职服务，帮助过超过2000+的同学拿到过包括高盛、谷歌等顶级名企的Offer，致力于帮助每一位美国留学生实现自己的职场梦想。
                 </p>
 
@@ -86,7 +85,7 @@ export const AboutPage: NextPage = () => {
             </div>            
           </div>
 
-          <div className='bg-white py-24' style={{backgroundColor: '#F2F9F4'}}>
+          <div className={clsx('bg-white', styles.section2)} style={{backgroundColor: '#F2F9F4'}}>
             <div className='flex flex-col md:flex-row gap-12 md:gap-0'>
               <div className='flex-1 flex flex-col items-center gap-2'>
                 <Image src={groupImage} alt='资深导师' width={38} height={38}/>
@@ -95,14 +94,14 @@ export const AboutPage: NextPage = () => {
               </div>
 
               <div className='flex-1 flex flex-col items-center gap-2'>
-                <Image src={aiImage} alt='AI技术驱动' />
+                <Image src={aiImage} alt='AI技术驱动' width={38} height={38}/>
                 <h1 className='text-green-600 text-3xl mt-6'>AI技术驱动</h1>
                 <h2 className='text-xs text-gray-500'>用AI技术驱动求职服务</h2>
               </div>
 
 
               <div className='flex-1 flex flex-col items-center gap-2'>
-                <Image src={studentImage} alt='2000+学员' />
+                <Image src={studentImage} alt='2000+学员' width={38} height={38} />
                 <h1 className='text-green-600 text-3xl mt-6'>2000+学员</h1>
                 <h2 className='text-xs text-gray-500'>帮助每一位美国留学生实现自己的职场梦想</h2>
               </div>
@@ -110,7 +109,7 @@ export const AboutPage: NextPage = () => {
           </div>
 
 
-          <div className='py-36' style={{backgroundColor: '#008A27', backgroundImage: `url(${xpqnBgImage.src})`, backgroundSize: '100% auto'}}>
+          <div className={clsx('', styles.section3)} style={{backgroundColor: '#008A27', backgroundImage: `url(${xpqnBgImage.src})`, backgroundSize: '100% auto'}}>
             <div className='flex flex-col md:flex-row gap-12 px-12'>
               <div className='flex-1 flex flex-col gap-2'>
                 <div className='flex flex-row items-center gap-2'>
@@ -138,9 +137,7 @@ export const AboutPage: NextPage = () => {
             </div>
           </div>
 
-
-
-          <div className='py-16' style={{background: `linear-gradient(to bottom, #ffffff, #008a2719)`}}>
+          <div className={clsx('', styles.section4)} style={{background: `linear-gradient(180deg, #EEFFFC 0%, #7DD193 100%)`}}>
             <SectionTitle title='专业导师团队' subtitle='导师均来自于北美顶级企业，平均5年+求职辅导经验' />
 
             <div className='grid grid-cols-4 gap-6 px-24'>

@@ -15,4 +15,29 @@
     z-index: 1;
 }
 
+.banner_text{
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 800;
 
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.banner_button {
+    font-size: 16px;
+    font-weight: 500;
+    width: 220px;
+    height: 70px;
+}
+.section{
+    padding-bottom:87px;
+}
+.section_title{
+    margin-top: 93px;
+    margin-bottom: 90px;
+}
+
+.interview_camp_cards{
+    margin-bottom: 160px;
+}

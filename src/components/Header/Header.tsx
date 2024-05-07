@@ -24,12 +24,12 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
   const handleJobConsultClick = ()=>{
     setOpen(true);
   }
-
+  
   return <nav className={combinedClassName}>
     <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 h-20">
       <div className="pl-4 flex items-center">
         <Link href="/" className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" >
-          <Image src={theme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={140} height={42} alt='logo'/>
+          <Image src={theme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo'/>
         </Link>
       </div>
       <div className="block lg:hidden pr-4">
@@ -42,9 +42,9 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
       </div>
 
       <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
-        <ul className={clsx('list-reset lg:flex justify-center flex-1 items-center text-base', styles.menu)}>
+        <ul className={clsx('list-reset lg:flex justify-center flex-1 items-center', styles.menu)}>
           <li className="mr-3 relative">
-            <a className={clsx('inline-block py-2 px-4 no-underline', {'text-white': theme === Theme.TRANSPARENT})} href="#">求职项目</a>
+            <a className={clsx('inline-block py-2 px-4 no-underline', styles.menu_item, {'text-white': theme === Theme.TRANSPARENT})} href="#">求职项目</a>
             <div className={clsx('', styles.submenu_container)}>
               <ul className={clsx('', styles.submenu)}>
                 <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
@@ -66,7 +66,12 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
             <Link className={clsx('inline-block no-underline py-2 px-4', {'text-white': theme === Theme.TRANSPARENT})} href="/about">关于我们</Link>
           </li>
         </ul>
-        <Button text='求职咨询' type={ButtonType.SOLID} size={ButtonSize.SMALL} onClick={handleJobConsultClick}></Button>
+        <Button 
+          text='求职咨询' 
+          className={styles.consult_btn}
+          type={ButtonType.SOLID} 
+          size={ButtonSize.SMALL} 
+          onClick={handleJobConsultClick}></Button>
       </div>
 
 

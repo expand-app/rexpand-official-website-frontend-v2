@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './SectionTitle.module.css';
 
 const SectionTitle = ({title, subtitle, className}: Props) => {
     
@@ -7,8 +8,8 @@ const SectionTitle = ({title, subtitle, className}: Props) => {
 
     return (
         <div className={combinedClassName}>
-            <h1 className='text-4xl mb-3'>{title}</h1>
-            {subtitle? <h2 className='text-base text-gray-800'>{subtitle}</h2>: null}
+            <h1 className={styles.title}>{title}</h1>
+            {subtitle? <h2 className={styles.subtitle}>{subtitle}</h2>: null}
         </div>
     );
 }

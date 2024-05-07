@@ -1,0 +1,11 @@
+.course_arrangement {
+
+}
+.left {
+    height: 400px;
+    background-repeat: no-repeat;
+}
+
+.right {
+    flex: 2;
+}
