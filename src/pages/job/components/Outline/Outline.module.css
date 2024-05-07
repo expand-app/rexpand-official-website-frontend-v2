@@ -3,7 +3,9 @@
 }
 
 .subject_buttons {
-
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
 }
 
 .subject_button {
@@ -21,15 +23,25 @@
 }
 
 .detail_header {
-    background-image: linear-gradient(to bottom, #008a2719, #008a2704);
+    background: linear-gradient(360deg, #FAFEFC 0%, #E8FAF2 100%);
 }
 
 .detail_footer {
-    background-color: #008a2719;
+    background: #E8FAF2;
+
 }
 
 .subject_name{
     color:#008A27;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+
+}
+.description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 27.2px;
 }
 
 .subject_tags{

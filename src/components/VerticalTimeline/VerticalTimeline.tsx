@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './VerticalTimeline.module.css';
+import clsx from 'clsx';
 
 const VerticalTimeline = ({data,}: Props) => {
     return (
@@ -7,8 +8,8 @@ const VerticalTimeline = ({data,}: Props) => {
             {data?.map((item)=>{
                 return <li>
                     <div className={styles.timeline_content}>
-                    <h3 className='font-bold mb-4'>{item.title}</h3>
-                    <ul className=' leading-6 pl-6 text-gray-506'>
+                    <h3 className={styles.title}>{item.title}</h3>
+                    <ul className={clsx('leading-6 pl-6 text-gray-506', styles.content)}>
                         {item?.content?.map((contentItem)=>{
                             return <li>{contentItem}</li>
                         })}

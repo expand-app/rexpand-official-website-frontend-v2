@@ -35,13 +35,13 @@ const Outline = ({data, className}: Props) => {
                 })}
             </ul>
             <div className={clsx('flex-1 flex flex-col gap-2', styles.subject_detail)}>
-                <div className={clsx('rounded-md py-6 px-8', styles.detail_header)}>
+                <div className={clsx('rounded-md py-8 px-10', styles.detail_header)}>
                     <div className={clsx('text-lg mb-2 font-bold', styles.subject_name)}>{activeItem.subjectName}</div>
                     <div className={clsx('text-base mb-6 flex flex-row gap-2', styles.subject_tags)}>
                         {activeItem.subjectTags?.map((item, index)=>{
                             return <Tag text={item} theme={index===0?TagTheme.GREEN: TagTheme.WHITE}/>
                         })}</div>
-                    <div>{activeItem.subjectDescription}</div>
+                    <div className={styles.description}>{activeItem.subjectDescription}</div>
                 </div>
 
                 <div className={clsx('rounded-md px-6 pt-12 pb-8', styles.detail_footer)}>

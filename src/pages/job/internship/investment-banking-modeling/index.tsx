@@ -25,6 +25,7 @@ import Outline from '@/pages/job/components/Outline/Outline';
 import { fullStackDevFAQData, fullStackDevOutlineData } from '@/data/full_stack_dev_internship';
 import { investmentBankingModelingFAQData, investmentBankingModelingOutlineData } from '@/data/investment_banking_modeling_internship';
 import VideoModal from '@/components/VideoModal/VideoModal';
+import SectionTitle from '@/components/SectionTitle/SectionTitle';
 
 export const DataAnalysisPage: NextPage = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
@@ -65,7 +66,7 @@ export const DataAnalysisPage: NextPage = () => {
       </Head>
       <Header theme={Theme.LIGHT}/>
       <main className='mt-20 mb-12'>
-        <div className={`${styles.banner_container} flex items-center relative`} 
+        <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerImage.src}),linear-gradient(to right, #007722, #96D8BA)`,
               minHeight: 600,
@@ -75,8 +76,8 @@ export const DataAnalysisPage: NextPage = () => {
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-3/4'>
               <div className="z-10 pt-0 flex-1">
-                  <h1 className='text-4xl text-white z-10 mb-3'>投行建模实习</h1>
-                  <h2 className='text-base text-white opacity-70 z-10  mb-16'>使用金融建模的方法来帮助企业客户在财务规划和决策中做出精确的预测和评估</h2>
+                  <h1 className={clsx(styles.banner_title)}>投行建模实习</h1>
+                  <h2 className={clsx(styles.banner_subtitle)}>使用金融建模的方法来帮助企业客户在财务规划和决策中做出精确的预测和评估</h2>
 
                   <Button
                       className="z-10"
@@ -93,20 +94,20 @@ export const DataAnalysisPage: NextPage = () => {
                   setVideoModalOpen(true);
                 }}/>
 
-              <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
+              <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>项目时长</h1>
+                  <h1 className='internship_banner_card_title'>项目时长</h1>
                   <div className='text-gray-600 text-sm'>10周 / 20小时</div>
                 </div>
 
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>适合学员</h1>
+                  <h1 className='internship_banner_card_title'>适合学员</h1>
                   <div className='text-gray-600 text-sm'>求职投行中后台或金融方向且缺少美国实习经验的留学生</div>
                 </div>
 
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>项目特色</h1>
-                  <ul className='list-disc pl-6 text-sm'>
+                  <h1 className='internship_banner_card_title'>项目特色</h1>
+                  <ul className='internship_banner_card_content list'>
                     <li>和项目经理一起参与公司项目</li>
                     <li>进行财务预算模型和公司估值模型的搭建</li>
                     <li>提升财务建模能力和业务分析能力</li>
@@ -116,8 +117,8 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className='bg-white mt-36'>
-          <h1 className='text-4xl text-center pt-12 pb-6'>实习介绍</h1>
+        <div className={clsx('bg-white', styles.section1)}>
+          <SectionTitle title='实习介绍' />
           <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-3/4'>
             <div className='flex-1 flex justify-end'>
               <Image src={introImage} alt='实习介绍' className='mr-24 h-full w-auto'/>
@@ -131,7 +132,7 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
 
         <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>项目亮点</h1>
+          <SectionTitle title='项目亮点' />
           <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
             <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-5/6'>
               <div className='flex-1 flex justify-end'>
@@ -179,7 +180,7 @@ export const DataAnalysisPage: NextPage = () => {
 
 
         <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>项目大纲</h1>
+          <SectionTitle title='项目大纲' />
 
           <div className='container mx-auto flex flex-col md:flex-row md:w-5/6'>
             <Outline data={investmentBankingModelingOutlineData} />
@@ -188,7 +189,7 @@ export const DataAnalysisPage: NextPage = () => {
 
 
         <div className='bg-white'>
-          <h1 className='text-4xl text-center pt-12 pb-8'>常见问题</h1>
+          <SectionTitle title='常见问题' />
 
           <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
             <Accordion data={investmentBankingModelingFAQData}/>

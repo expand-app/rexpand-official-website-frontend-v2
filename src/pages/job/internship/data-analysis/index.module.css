@@ -1,11 +1,50 @@
-.banner_container {
-    
-}
+
 .banner_img {
 }
 
 .banner_overlay {
     position: absolute;
     left:0;
-    bottom:0;
+    bottom:-170px;
+}
+
+.banner_title {
+    font-size: 60px;
+    font-weight: 600;
+    line-height: 80px;
+    letter-spacing: 0.2px;
+    color: #fff;
+    margin-bottom: 15px;    
+}
+
+.banner_subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+    color: #fff;
+    margin-bottom: 96px;
+}
+
+.section1 {
+    margin-top: 190px;
+    padding-top:72px;
+}
+
+.section2 {
+    padding-top: 0;
+}
+
+.section2_title {
+    padding-bottom: 70px;
+}
+
+.outline_title {
+    padding-top:150px;
+    padding-bottom: 70px;
+}
+
+.faq_title {
+    padding-top:150px;
+    padding-bottom: 29px;
 }

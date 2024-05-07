@@ -63,7 +63,7 @@ export const DataAnalysisPage: NextPage = () => {
       </Head>
       <Header theme={Theme.LIGHT}/>
       <main className='mt-20 mb-12'>
-        <div className={`${styles.banner_container} flex items-center relative`} 
+        <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerImage.src}),linear-gradient(to right, #007722, #96D8BA)`,
               minHeight: 600,
@@ -73,8 +73,8 @@ export const DataAnalysisPage: NextPage = () => {
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-3/4'>
               <div className="z-10 pt-0 flex-1">
-                  <h1 className='text-4xl text-white z-10 mb-3'>全栈开发实习</h1>
-                  <h2 className='text-base text-white opacity-70 z-10  mb-16'>从前后端编写到云部署的全流程，使用JavaScript、Python、Java，以及MySQL和PostgreSQL数据库，依托AWS和Azure平台，提供全面的现代应用开发经验</h2>
+                  <h1 className={clsx(styles.banner_title)}>全栈开发实习</h1>
+                  <h2 className={clsx(styles.banner_subtitle)}>从前后端编写到云部署的全流程，使用JavaScript、Python、Java，以及MySQL和PostgreSQL数据库，依托AWS和Azure平台，提供全面的现代应用开发经验</h2>
 
                   <Button
                       className="z-10"
@@ -91,20 +91,20 @@ export const DataAnalysisPage: NextPage = () => {
                   setVideoModalOpen(true);
                 }}/>
 
-              <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
+              <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>项目时长</h1>
-                  <div className='text-gray-600 text-sm'>10周 / 40小时</div>
+                  <h1 className='internship_banner_card_title'>项目时长</h1>
+                  <div className='internship_banner_card_content'>10周 / 40小时</div>
                 </div>
 
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>适合学员</h1>
-                  <div className='text-gray-600 text-sm'>求职SDE方向且缺少美国实习经验的留学生</div>
+                  <h1 className='internship_banner_card_title'>适合学员</h1>
+                  <div className='internship_banner_card_content'>求职SDE方向且缺少美国实习经验的留学生</div>
                 </div>
 
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>项目特色</h1>
-                  <ul className='list-disc pl-6 text-sm'>
+                  <h1 className='internship_banner_card_title'>项目特色</h1>
+                  <ul className='internship_banner_card_content list'>
                     <li>进行真实移动端软件开发</li>
                     <li>提升前后端-编程能力</li>
                     <li>增加在美实习经验</li>
@@ -114,7 +114,7 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className='bg-white mt-36'>
+        <div className={clsx('bg-white', styles.section1)}>
           <h1 className='text-4xl text-center pt-12 pb-6'>实习介绍</h1>
           <div className='container mx-auto flex flex-col md:flex-row h-96 md:w-3/4'>
             <div className='flex-1 flex justify-end'>
