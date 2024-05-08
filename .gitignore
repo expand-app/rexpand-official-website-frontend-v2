@@ -12,7 +12,7 @@
 # next.js
 /.next/
 # Make the built asset deployable and testable
-# /out/
+/out/
 
 # production
 /build
