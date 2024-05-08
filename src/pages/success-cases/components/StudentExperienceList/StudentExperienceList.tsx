@@ -22,7 +22,7 @@ const StudentExperienceList = ({data}: Props) => {
         <>
         <div className={clsx('grid grid-cols-4',styles.student_experience_list)}>
             {data?.map((item)=>{
-                return <div className={clsx('shadow-sm flex-1 bg-white border border-t-2 flex flex-col radius-8',styles.top_offer_item)}>
+                return <div key={item.id} className={clsx('shadow-sm flex-1 bg-white border border-t-2 flex flex-col radius-8',styles.top_offer_item)}>
                     <div className='overflow-hidden relative'>
                         <Image src={item.image} 
                             alt={item.userName} 

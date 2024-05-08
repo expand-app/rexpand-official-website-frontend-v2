@@ -9,7 +9,7 @@ const FreeResourceList = ({data}: Props) => {
     return (
         <div className={clsx('flex flex-wrap',styles.free_resource_list)}>
             {data?.map((item)=>{
-                return <div className={clsx('lg:w-1/3 sm:w-1/2', styles.card)}>
+                return <div key={item.id} className={clsx('lg:w-1/3 sm:w-1/2', styles.card)}>
                     <Link href='/free-resources/1'>
                         <div className="rounded relative  bg-white p-1 cursor-pointer">
                             <Image src={item.image} alt={item.title} className='w-full'/>

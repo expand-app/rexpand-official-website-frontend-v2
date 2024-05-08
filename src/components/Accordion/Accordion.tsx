@@ -30,7 +30,7 @@ const Accordion = ({data, className}: Props) => {
     return (
         <ul className={combinedClassName}>
             {data?.map((item, index)=>{
-                return <li className={clsx('', styles.accordion_item, {[styles.active]: checkedIndexes.indexOf(index) !== -1})}>
+                return <li key={item.id} className={clsx('', styles.accordion_item, {[styles.active]: checkedIndexes.indexOf(index) !== -1})}>
                     <input type='checkbox' 
                         checked={checkedIndexes.indexOf(index) !== -1}
                         onChange={(event: React.ChangeEvent<HTMLInputElement>)=>{

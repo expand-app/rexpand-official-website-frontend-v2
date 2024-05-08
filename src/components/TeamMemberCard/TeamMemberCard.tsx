@@ -15,7 +15,7 @@ const TeamMemberCard = ({data}: Props) => {
                 <h1 className='font-m font-w500 font-16 mb-10px'>专攻领域</h1>
                 <ul className={clsx('list-disc pl-5 text-16', styles.field)}>
                     {data?.majorArea?.map((item)=>{
-                        return <li>{item}</li>;
+                        return <li key={item}>{item}</li>;
                     })}
                 </ul>
             </div>

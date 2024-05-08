@@ -8,7 +8,7 @@ const WhyJoinList = ({data, className}: Props) => {
         <div className={clsx('flex flex-col md:flex-row gap-4', className,styles.why_join_list)}>
 
             {data?.map((item)=>{
-                return <div className='flex flex-col gap-2 bg-white rounded-md px-4 py-6 md:w-1/4'>
+                return <div key={item.id} className='flex flex-col gap-2 bg-white rounded-md px-4 py-6 md:w-1/4'>
                     <div className={clsx('mb-6',styles.icon_container)}>
                         <Image src={item.icon} alt='' />
                     </div>

@@ -15,7 +15,7 @@ const Pagination = ({page, pageSize, totalCount}: Props) => {
     return (
         <div className={styles.pagination}>
             {pageAry?.map((curPage)=>{
-                return <div className={clsx(styles.page_indicator, {[styles.active]: page === curPage})}>{curPage}</div>;
+                return <div key={curPage} className={clsx(styles.page_indicator, {[styles.active]: page === curPage})}>{curPage}</div>;
             })}
         </div>
     );

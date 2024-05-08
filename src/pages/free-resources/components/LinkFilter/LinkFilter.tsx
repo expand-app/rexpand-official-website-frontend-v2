@@ -11,7 +11,7 @@ const LinkFilter = ({current, data,className, onChange}: Props) => {
     return (
         <div className={combinedClassName}>
             {data?.map((item, index)=> {
-                return <div className={clsx('text-black cursor-pointer', {[styles.active]: current === index})}
+                return <div key={index} className={clsx('text-black cursor-pointer', {[styles.active]: current === index})}
                 onClick={()=>handleClick(index)}>
                     {item}
                 </div>

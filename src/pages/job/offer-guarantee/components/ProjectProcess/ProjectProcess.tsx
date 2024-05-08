@@ -42,8 +42,8 @@ const ProjectProcess = ({data, className,}: Props) => {
                         <h1 className={clsx(styles.title)}>{item.title}</h1>
                         {item?.content ? 
                         <ul className={clsx(styles.content)}>
-                            {item?.content.map((contentItem)=>{
-                                return <li>{contentItem}</li>;
+                            {item?.content.map((contentItem, index)=>{
+                                return <li key={index}>{contentItem}</li>;
                             })}    
                         </ul>
                         :null}

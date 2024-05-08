@@ -16,7 +16,7 @@ const Footer = () => {
             <p className={clsx('text-black', styles.menu)}>求职课程及服务</p>
             <ul className="list-reset mb-6">
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a href="/job/offer-guarantee" className={styles.submenu}>求职项目</a>
+                <Link href="/job/offer-guarantee" className={styles.submenu}>求职项目</Link>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <Link href='/success-cases' className={styles.submenu}>成功案例</Link>
