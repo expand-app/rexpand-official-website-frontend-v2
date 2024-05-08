@@ -46,7 +46,7 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
     return () => {  
       window.removeEventListener('scroll', handleScroll);  
     };  
-  }, []);
+  }, [initialTheme]);
   
   return <nav className={combinedClassName}>
     <div className={clsx("w-full  container mx-auto flex flex-wrap items-center justify-between mt-0", styles.header_container)}>
@@ -80,7 +80,7 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
             </div>
           </li>
           <li className="mr-3">
-            <a className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/success-cases">成功案例</a>
+            <Link className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/success-cases">成功案例</Link>
           </li>
           <li className="mr-3">
             <Link className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/free-resources">免费资源</Link>

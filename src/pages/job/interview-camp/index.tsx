@@ -30,7 +30,7 @@ export const DataAnalysisPage: NextPage = () => {
 
   const courseDaysLeft = useMemo(()=>{
     return daysToNow(nextCourceTime);
-  },[nextCourceTime]); 
+  },[]); 
 
   return (
     <div>
