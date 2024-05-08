@@ -1,4 +1,4 @@
-import React, { ReactElement, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Footer from "@/components/Footer/Footer";
 import Header, { Theme } from "@/components/Header/Header";
 import { NextPage } from "next";
@@ -12,10 +12,7 @@ import clsx from 'clsx';
 import Accordion from '@/components/Accordion/Accordion';
 import FloatMenu from '@/components/FloatMenu/FloatMenu';
 import { internshipMenusData } from '@/data/internship';
-import { offerGuaranteeFAQData, projectProcessData } from '@/data/offer_guarantee';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
-import VerticalTabs from '@/components/VerticalTabs/VerticalTabs';
-import { offerGuaranteeTabsData } from '@/data/home';
 import { daysToNow, formatDate } from '@/utils/Utils';
 import { courceArrangementData, interviewCampFAQData, whyJoinData } from '@/data/interview_camp';
 import WhyJoinList from './WhyJoinList/WhyJoinList';
@@ -73,9 +70,9 @@ export const DataAnalysisPage: NextPage = () => {
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center w-3/4'>
               <div className="z-10 pt-0 flex-1">
-                  <h1 className='text-4xl text-white mb-6'>面试集训营</h1>
-                  <h2 className='text-base text-white mb-1'>只要99元，5天时间全面掌握北美面试技巧</h2>
-                  <h3 className='text-sm text-white mb-16'>下次开课：{formatDate(nextCourceTime)} 倒计时：<span className='bg-white text-black px-1 mr-1'>{courseDaysLeft}</span>天</h3>
+                  <h1 className='text-4xl text-white mb-6 banner_text'>面试集训营</h1>
+                  <h2 className='text-base text-white mb-1 banner_subtitle'>只要99元，5天时间全面掌握北美面试技巧</h2>
+                  <h3 className='text-sm text-white mb-16 banner_subtitle'>下次开课：{formatDate(nextCourceTime)} 倒计时：<span className='bg-white text-black px-1 mr-1'>{courseDaysLeft}</span>天</h3>
 
                   <Button
                       className="z-10"
@@ -135,11 +132,12 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
 
 
-        <div className='bg-white section'>
+        <div className='bg-white section internship_faq_section'>
           <SectionTitle 
-                    title='常见问题' 
-                    className='mb-12'/>
-          <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
+                    title='常见问题'
+                    className='internship_faq_title' 
+                    />
+          <div className='container mx-auto flex flex-col justify-center md:flex-row md:w-5/6'>
             <Accordion data={interviewCampFAQData}/>
           </div>
         </div>

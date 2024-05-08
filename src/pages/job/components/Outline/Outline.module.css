@@ -4,7 +4,6 @@
 
 .subject_buttons {
     font-size: 20px;
-    font-weight: 600;
     line-height: 28px;
 }
 
@@ -16,6 +15,7 @@
 .subject_button.active {
     background-color: #008A27;
     color: #fff;
+    font-weight: 600;
 }
 
 .subject_detail {
@@ -27,7 +27,7 @@
 }
 
 .detail_footer {
-    background: #E8FAF2;
+    background: rgb(232, 250, 242, 0.3);
 
 }
 
@@ -36,7 +36,6 @@
     font-size: 20px;
     font-weight: 600;
     line-height: 28px;
-
 }
 .description {
     font-size: 16px;

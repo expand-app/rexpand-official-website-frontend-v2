@@ -39,9 +39,9 @@ const Accordion = ({data, className}: Props) => {
                         ></input>
                     <i></i>
                     <div className={styles.title_container}>
-                        <h2 className={clsx('px-12',styles.title)}>{item.title}</h2>
+                        <h2 className={clsx('px-12 font-m',styles.title)}>{item.title}</h2>
                     </div>
-                    <div className={clsx('px-20 py-6 text-gray-700 text-sm leading-6', styles.content)}>{item.content}</div>
+                    <div className={clsx('px-20 py-6 text-sm leading-6', styles.content)}>{item.content}</div>
                 </li>;
             })}
         </ul>

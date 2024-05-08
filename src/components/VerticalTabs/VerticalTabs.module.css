@@ -16,7 +16,6 @@
 }
 .tab_item.active {
     background: linear-gradient(180deg, #E8FAF2 0%, rgba(255, 255, 255, 0) 100%);
-
 }
 
 .contents {

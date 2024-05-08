@@ -136,44 +136,48 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
 
         <div className='bg-white section internship_sight_section overflow-auto'>
-        <div className='container mx-auto internship_sight_title'>
-          <SectionTitle title='项目亮点' />
-            <div style={{backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`}}>
+          <SectionTitle title='项目亮点' className='internship_sight_title'/>
+          <div style={{
+            backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
+            padding: '38px 0 50px 0',
+          }}>
+            <div className='container mx-auto'>
               <div className='flex flex-col md:flex-row h-96'>
-                <div className='flex-1 flex justify-end'>
+                
+                <div className='flex justify-end'>
                   <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
                 </div>
                 
                 <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
-                  <div className='w-full md:w-1/2'>
-                    <div className='rounded-md bg-white flex flex-col py-5 px-6 m-1 min-h-36'>
-                      <Image src={arrowUpImg} alt='增加经验' width={26} />
-                      <h1 className='font-bold'>增加经验</h1>
-                      <div className='text-sm text-gray-500'>简历上一份实习/全职工作经验</div>
+                  <div className={clsx('w-full md:w-1/2')}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                      <Image src={arrowUpImg} alt='增加经验' width={33} />
+                      <h1 className='sight_title'>增加经验</h1>
+                      <div className='sight_subtitle'>简历上一份实习/全职工作经验</div>
                     </div>
                   </div>
 
-                  <div className='w-full md:w-1/2'>
-                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                      <Image src={consultImg} alt='全流程顾问式服务' width={26} />
-                      <h1 className='font-bold'>全流程顾问式服务</h1>
-                      <div className='text-sm text-gray-500'>帮助过上百名Entry Level同学收获Quant offer</div>
+                  <div className={clsx('w-full md:w-1/2')}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                      <Image src={consultImg} alt='全流程顾问式服务' width={33} />
+                      <h1 className='sight_title'>全流程顾问式服务</h1>
+                      <div className='sight_subtitle'>帮助过上百名Entry Level同学收获Quant offer</div>
                     </div>
                   </div>
 
-                  <div className='w-full md:w-1/2'>
-                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                      <Image src={sendImg} alt='求职无忧' width={26} />
-                      <h1 className='font-bold'>求职无忧</h1>
-                      <div className='text-sm text-gray-500'>帮助想转行做量化方向的同学添加相关简历经验</div>
+                  <div className={clsx('w-full md:w-1/2', styles.sight_item)}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                      <Image src={sendImg} alt='求职无忧' width={33} />
+                      <h1 className='sight_title'>求职无忧</h1>
+                      <div className='sight_subtitle'>帮助想转行做量化方向的同学添加相关简历经验</div>
                     </div>
                   </div>
 
-                  <div className='w-full md:w-1/2'>
-                    <div className='rounded-md bg-white flex flex-col py-5 px-6  m-1 min-h-36'>
-                      <Image src={rocketImg} alt='技能提升' width={26} />
-                      <h1 className='font-bold'>技能提升</h1>
-                      <div className='text-sm text-gray-500'>真实业务场景下学习量化风险和资产配置等模型</div>
+                  <div className={clsx('w-full md:w-1/2', styles.sight_item)}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                      <Image src={rocketImg} alt='技能提升' width={33} />
+                      <h1 className='sight_title'>技能提升</h1>
+                      <div className='sight_subtitle'>真实业务场景下学习量化风险和资产配置等模型</div>
                     </div>
                   </div>
 
@@ -181,6 +185,7 @@ export const DataAnalysisPage: NextPage = () => {
               </div>
 
             </div>
+
           </div>
         </div>
 

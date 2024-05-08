@@ -73,7 +73,7 @@ export const DataAnalysisPage: NextPage = () => {
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-10/12'>
               <div className="z-10 pt-0 pl-20 flex-1">
-                  <h1 className={clsx('text-4xl text-white z-10 mb-3', styles.banner_title)}>保offer项目</h1>
+                  <h1 className={clsx('text-4xl text-white z-10 mb-3 banner_text', styles.banner_title)}>保offer项目</h1>
                   <h2 className={clsx('text-base text-white opacity-70 z-10  mb-16', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企Offer</h2>
 
                   <Button
@@ -87,16 +87,16 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
        
 
-        <div className={clsx('bg-white pt-24 pb-12 section', styles.section1)} style={{
+        <div className={clsx('bg-white pt-24 section', styles.section1)} style={{
           background: '#F7FBF8'
         }}>
-            <div className='container mx-auto w-2/3'>
+            <div className='container mx-auto'>
               <SectionTitle 
                 title='什么是保Offer项目' 
                 subtitle='项目针对北美留学生设计，保证sponsor H1b工作offer。9年多的时间积累留学生求职辅导经验，项目已经累计帮助2000多位学员拿到北美offer'
                 className='mb-12'/>
               
-              <div className='flex flex-col md:flex-row gap-16 items-center justify-center'>
+              <div className={clsx('flex flex-col md:flex-row gap-16 w-full items-center justify-between overflow-auto', styles.logo_list)}>
                 <Image src={googleImage} alt="Google" />
                 <Image src={deloitteImage} alt="Deloitte" />
                 <Image src={spotifyImage} alt="Spotify" />
@@ -128,11 +128,11 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <div className={clsx('bg-white section', styles.section4)}>
+        <div className={clsx('bg-white section internship_faq_section', styles.section4)}>
           <div className='container mx-auto'>
             <SectionTitle 
                       title='常见问题' 
-                      className='mb-12'/>
+                      className='internship_faq_title'/>
 
               <Accordion data={offerGuaranteeFAQData}/>
             {/* <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>

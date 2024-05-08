@@ -60,6 +60,12 @@ body{
 .mb-12px {
      margin-bottom: 12px;
 }
+.mb-24px {
+    margin-bottom: 24px;
+}
+.mb-36px {
+    margin-bottom: 36px;
+}
 .radius-8 {
     border-radius: 8px;
 }
@@ -73,6 +79,19 @@ body{
 
 .page-banner{
     height: 920px;
+}
+.banner_text{
+    font-family: 'PingFang_Medium';
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 500;
+}
+
+.banner_subtitle{
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    letter-spacing: 0.2px;
 }
 
 .section {

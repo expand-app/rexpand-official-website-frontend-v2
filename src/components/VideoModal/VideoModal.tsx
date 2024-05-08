@@ -17,7 +17,7 @@ const VideoModal = ({videoPath, open = false, onClose, className = ''}: Props) =
             {videoPath == null ? 
                 <div>未指定视频</div>:
                 <div className={clsx('', styles.video_container)}>
-                    <video className='border' src={videoPath} />
+                    <video className='border' src={videoPath} autoPlay/>
                 </div>
             }
         </Modal>

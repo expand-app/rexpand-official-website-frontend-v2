@@ -1,5 +1,5 @@
 .banner_container {
-    height: 600px;
+    height: 708px;
 }
 .banner_img {
     z-index: 0;
@@ -22,4 +22,11 @@
 
 .section_title2 {
     margin-bottom: 100px;
+}
+
+.banner_video{
+    position:absolute;
+    width: 100%; 
+    object-fit: cover; 
+    height: 708px;
 }

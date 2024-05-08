@@ -1,4 +1,6 @@
-
+.header_container {
+    height: 114px;
+}
 .menu {
     font-size: 16px;
 }
@@ -9,7 +11,7 @@
 .submenu {
     /* border-top: 4px solid #008A27; */
     background-color: rgba(255,255,255,0.8);
-    margin-top:20px;
+    margin-top:38px;
 }
 .submenu_container {
     position: absolute;
@@ -50,4 +52,14 @@
     border-radius: 8px;
     opacity: 0px;
 
+}
+
+.transparent{
+    
+    background-color: transparent;
+    color: #fff;
+}
+.light{
+    background-color: #fff;
+    color: #000;
 }

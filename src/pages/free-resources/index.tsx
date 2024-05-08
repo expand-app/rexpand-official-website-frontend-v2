@@ -7,6 +7,7 @@ import FreeResourceList from './components/FreeResourceList/FreeResourceList';
 import { freeResourceListData } from '@/data/free_resource';
 import LinkFilter from './components/LinkFilter/LinkFilter';
 import Head from 'next/head';
+import clsx from 'clsx';
 
 const FreeResourcesPage: NextPage = () => {
     const [currentFilterIndex, setCurrentFilterIndex] = useState(0);
@@ -40,7 +41,7 @@ const FreeResourcesPage: NextPage = () => {
             })}
             </script>
         </Head>
-        <main className='mt-20 mb-12'>
+        <main className={clsx('mb-12', styles.main)}>
             <div className={styles.page}>
             <Header theme={Theme.LIGHT}/>
                 

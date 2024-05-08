@@ -11,6 +11,12 @@
 .header_img{
     transition: transform 0.5s ease; 
 }
+.img_play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 .top_offer_item:hover .header_img {
     transform: scale(1.1);
 }

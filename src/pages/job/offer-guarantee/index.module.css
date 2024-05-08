@@ -9,10 +9,10 @@
 }
 
 .banner_title {
-    font-size: 60px;
+    /* font-size: 60px;
     font-weight: 600;
     line-height: 80px;
-    letter-spacing: 0.2px;
+    letter-spacing: 0.2px; */
 }
 
 .banner_subtitle {
@@ -23,8 +23,8 @@
 }
 
 .section1 {
-    padding-top: 136px;
-    padding-bottom: 160px;
+    padding-top: 100px;
+    padding-bottom: 122px;
 }
 .section2 {
     padding-top: 136px;
@@ -34,4 +34,10 @@
 .section3 {
     padding-top: 136px;
     padding-bottom: 170px;
+}
+
+.logo_list {
+    margin-top: 28px;
+    margin-bottom: 56px;
+    
 }

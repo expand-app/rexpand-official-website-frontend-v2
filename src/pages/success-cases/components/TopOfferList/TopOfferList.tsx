@@ -18,7 +18,7 @@ const TopOfferList = ({data}: Props) => {
         <div className={clsx('overflow-auto', styles.top_offer_list)}>
             <div className="flex flex-col md:flex-row gap-4">
                 {data?.map((item, index)=>{
-                    return <div className={clsx('relative flex-1 bg-white flex flex-col',styles.top_offer_item, topBorderStyles[index])}>
+                    return <div key={item.id} className={clsx('relative flex-1 bg-white flex flex-col',styles.top_offer_item, topBorderStyles[index])}>
                         <div className={clsx('px-0 flex flex-col items-center justify-center', styles.top)}>
                             <div className={styles.logo_container}>
                                 <Image src={item.companyLogo} alt={item.companyName} width={100}/>

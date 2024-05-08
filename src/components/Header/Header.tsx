@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import styles from './Header.module.css';
 import Button, { ButtonSize, ButtonType } from '../Button/Button';
 import Image from 'next/image';
@@ -10,26 +10,49 @@ import Link from 'next/link';
 
 const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [initialTheme, setInitialTheme] = useState<Theme>(theme);
+  const [headerTheme, setHeaderTheme] = useState<Theme>(theme);
 
-  let combinedClassName = `absolute w-full z-30 top-0 text-white ${className ?? ''}`;
+  let combinedClassName = `fixed w-full z-30 top-0 transition ${className ?? ''}`;
 
-  if (theme !== Theme.TRANSPARENT) {
-    combinedClassName = clsx(combinedClassName, 'shadow-md');
-  }
-  
-  if (theme === Theme.LIGHT) {
-    combinedClassName = clsx(combinedClassName, ['bg-white']);
+  if (headerTheme === Theme.TRANSPARENT) {
+    combinedClassName = clsx(combinedClassName, styles.transparent);
+  } else if (headerTheme === Theme.LIGHT) {
+    combinedClassName = clsx(combinedClassName,'shadow-sm', styles.light);
   } 
 
   const handleJobConsultClick = ()=>{
     setOpen(true);
   }
+
+  useEffect(() => {  
+    const handleScroll = () => {  
+      const x = window.scrollX;
+      const y = window.scrollY;
+      console.log(x, y);
+
+      if (initialTheme === Theme.TRANSPARENT) {
+        if (y > 500) {
+          setHeaderTheme(Theme.LIGHT);
+        } else {
+          setHeaderTheme(Theme.TRANSPARENT);
+        }
+      }
+      
+    };  
+  
+    window.addEventListener('scroll', handleScroll);  
+  
+    return () => {  
+      window.removeEventListener('scroll', handleScroll);  
+    };  
+  }, []);
   
   return <nav className={combinedClassName}>
-    <div className="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 h-20">
+    <div className={clsx("w-full  container mx-auto flex flex-wrap items-center justify-between mt-0", styles.header_container)}>
       <div className="pl-4 flex items-center">
         <Link href="/" className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" >
-          <Image src={theme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo'/>
+          <Image src={headerTheme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo'/>
         </Link>
       </div>
       <div className="block lg:hidden pr-4">
@@ -44,7 +67,7 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
       <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
         <ul className={clsx('list-reset lg:flex justify-center flex-1 items-center', styles.menu)}>
           <li className="mr-3 relative">
-            <a className={clsx('inline-block py-2 px-4 no-underline', styles.menu_item, {'text-white': theme === Theme.TRANSPARENT})} href="#">求职项目</a>
+            <Link className={clsx('inline-block py-2 px-4 no-underline transition', styles.menu_item, {'text-white': headerTheme === Theme.TRANSPARENT})} href='/job/offer-guarantee'>求职项目</Link>
             <div className={clsx('', styles.submenu_container)}>
               <ul className={clsx('', styles.submenu)}>
                 <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
@@ -57,13 +80,13 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
             </div>
           </li>
           <li className="mr-3">
-            <a className={clsx('inline-block no-underline py-2 px-4', {'text-white': theme === Theme.TRANSPARENT})} href="/success-cases">成功案例</a>
+            <a className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/success-cases">成功案例</a>
           </li>
           <li className="mr-3">
-            <Link className={clsx('inline-block no-underline py-2 px-4', {'text-white': theme === Theme.TRANSPARENT})} href="/free-resources">免费资源</Link>
+            <Link className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/free-resources">免费资源</Link>
           </li>
           <li className="mr-3">
-            <Link className={clsx('inline-block no-underline py-2 px-4', {'text-white': theme === Theme.TRANSPARENT})} href="/about">关于我们</Link>
+            <Link className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/about">关于我们</Link>
           </li>
         </ul>
         <Button 

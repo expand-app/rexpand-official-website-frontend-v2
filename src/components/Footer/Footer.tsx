@@ -5,10 +5,12 @@ import qrDaeImg from '@/assets/qr_dae.png';
 import Image from 'next/image';
 import Link from 'next/link';
 import clsx from 'clsx';
+import SocialLinks from '../SocialLinks/SocialLinks';
+import { socialLinksData } from '@/data/social_link';
 
 const Footer = () => {
     return <footer className={clsx('overflow-auto',styles.footer)}>
-      <div className={clsx('container mx-auto', styles.container)}>
+      <div className={clsx('container mx-auto flex flex-col items-center', styles.container)}>
         <div className={clsx('w-full flex flex-col md:flex-row', styles.content)}>
           <div className="flex-1">
             <p className={clsx('text-black', styles.menu)}>求职课程及服务</p>
@@ -62,7 +64,11 @@ const Footer = () => {
             </ul>
           </div>
         </div>
+
+        
+        <SocialLinks data={socialLinksData} className='mb-36px'/>
       </div>
+
       <div className={`${styles.copy_right} py-4 text-sm`}>© 2022-2024 Rexpand  All rights reserved.  <a href="#">京ICP备2022032082号-1</a></div>
     </footer>;
 }

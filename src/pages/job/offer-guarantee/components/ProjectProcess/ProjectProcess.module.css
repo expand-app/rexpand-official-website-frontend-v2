@@ -11,6 +11,10 @@
     border-top-right-radius: 77px;
 } */
 
+.project_process {
+    padding: 40px;
+    gap: 1rem
+}
 .logo{
     position: absolute;
     top: 50%;
@@ -53,4 +57,8 @@
 
 .step_content {
 
+}
+
+.right {
+    padding-top: 28px;
 }

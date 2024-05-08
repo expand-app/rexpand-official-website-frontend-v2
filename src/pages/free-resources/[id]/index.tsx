@@ -4,6 +4,7 @@ import styles from './index.module.css';
 import Header, { Theme } from "@/components/Header/Header";
 import Footer from '@/components/Footer/Footer';
 import Head from 'next/head';
+import clsx from 'clsx';
 
 const FreeResourceDetailPage: NextPage = () => {
     return (
@@ -32,7 +33,7 @@ const FreeResourceDetailPage: NextPage = () => {
                 })}
                 </script>
             </Head>
-            <main className='mt-20 mb-12 bg-white'>
+            <main className={clsx('mb-12', styles.main)}>
                 <Header theme={Theme.LIGHT}/>
                 <div className='container mx-auto flex justify-center'>
                     <div className='w-1/2 border'>

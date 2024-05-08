@@ -6,14 +6,14 @@ import oracleLogoImg from '@/assets/success-cases/logo_oracle.png';
 import pwcLogoImg from '@/assets/success-cases/logo_pwc.png';
 
 import {StudentExperienceData} from '@/pages/success-cases/components/StudentExperienceList/StudentExperienceList';
-import stuExp1Img from '@/assets/success-cases/stuexp_1.png';
-import stuExp2Img from '@/assets/success-cases/stuexp_2.png';
-import stuExp3Img from '@/assets/success-cases/stuexp_3.png';
-import stuExp4Img from '@/assets/success-cases/stuexp_4.png';
+import stuExp1Img from '@/assets/success-cases/stuexp_1.jpg';
+import stuExp2Img from '@/assets/success-cases/stuexp_2.jpg';
+import stuExp3Img from '@/assets/success-cases/stuexp_3.jpg';
+import stuExp4Img from '@/assets/success-cases/stuexp_4.jpg';
 import stuExp5Img from '@/assets/success-cases/stuexp_5.png';
-import stuExp6Img from '@/assets/success-cases/stuexp_6.png';
+import stuExp6Img from '@/assets/success-cases/stuexp_6.jpg';
 import stuExp7Img from '@/assets/success-cases/stuexp_7.png';
-import stuExp8Img from '@/assets/success-cases/stuexp_8.png';
+import stuExp8Img from '@/assets/success-cases/stuexp_8.jpg';
 import { TopOfferData } from '@/pages/success-cases/components/TopOfferList/TopOfferList';
 
 export const topOffersData: TopOfferData[] = [
@@ -83,17 +83,19 @@ export const topOffersData: TopOfferData[] = [
 export const studentExperienceListData: StudentExperienceData[] = [
     {
         id: 1,
-        userName: 'Emily',
+        userName: 'Annie',
         image: stuExp1Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/annie.mp4',
     },
     {
         id: 2,
-        userName: 'Emily',
+        userName: 'Jeff',
         image: stuExp2Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/jeff.mp4',
     },
     {
         id: 3,
@@ -101,40 +103,46 @@ export const studentExperienceListData: StudentExperienceData[] = [
         image: stuExp3Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/emily.mp4',
     },
     {
         id: 4,
-        userName: 'Emily',
+        userName: 'Frank',
         image: stuExp4Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/frank.mp4',
     },
     {
         id: 5,
-        userName: 'Emily',
+        userName: 'Tianqi',
         image: stuExp5Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/tianqi.mp4',
     },
     {
         id: 6,
-        userName: 'Emily',
+        userName: 'Nancy',
         image: stuExp6Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/nancy.mp4',
     },
     {
         id: 7,
-        userName: 'Emily',
+        userName: 'Tom',
         image: stuExp7Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/tom.mp4',
     },
     {
         id: 8,
-        userName: 'Emily',
+        userName: 'Jassica',
         image: stuExp8Img,
         university: 'University of Texas at Austin',
         major: 'Data Science',
+        videoUrl: 'http://resources.rexpandcareer.com/videos/students/jessica.mp4',
     }
 ];
