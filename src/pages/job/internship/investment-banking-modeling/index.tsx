@@ -6,7 +6,7 @@ import Head from "next/head";
 import styles from './index.module.css';
 import Image from 'next/image';
 import bannerImage from '@/assets/job/internship/data-analysis/banner.png';
-import Button, { ButtonSize, ButtonType } from '@/components/Button/Button';
+import Button, { ButtonRadius, ButtonSize, ButtonType } from '@/components/Button/Button';
 import VideoCard from '@/components/VideoCard/VideoCard';
 import bannerVideoImage from '@/assets/job/internship/data-analysis/banner_video.png';
 import introImage from '@/assets/job/internship/data-analysis/intro.png';
@@ -41,7 +41,7 @@ export const DataAnalysisPage: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>投行建模实习 - 求职项目 - Rexpand</title>
+        <title>睿思班 | 让内推引领求职</title>
         <meta
           name="description"
           content="Learn more about My Company, our mission, and what we do."
@@ -83,6 +83,7 @@ export const DataAnalysisPage: NextPage = () => {
                       className="z-10"
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
+                      radius={ButtonRadius.NONE}
                       text="咨询项目" />
               </div>
               <VideoCard 

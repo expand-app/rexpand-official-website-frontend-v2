@@ -21,7 +21,7 @@ const FreeResourcesPage: NextPage = () => {
     return (
        <div>
          <Head>
-            <title>免费资源 - Rexpand</title>
+            <title>睿思班 | 让内推引领求职</title>
             <meta
             name="description"
             content="Learn more about My Company, our mission, and what we do."

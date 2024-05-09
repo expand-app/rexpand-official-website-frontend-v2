@@ -6,7 +6,7 @@ import Head from "next/head";
 import styles from './index.module.css';
 import Image from 'next/image';
 import bannerImage from '@/assets/job/internship/data-analysis/banner.png';
-import Button, { ButtonSize, ButtonType } from '@/components/Button/Button';
+import Button, { ButtonRadius, ButtonSize, ButtonType } from '@/components/Button/Button';
 import VideoCard from '@/components/VideoCard/VideoCard';
 import bannerVideoImage from '@/assets/job/internship/data-analysis/banner_video.png';
 import introImage from '@/assets/job/internship/data-analysis/intro.png';
@@ -24,39 +24,37 @@ import { internshipMenusData } from '@/data/internship';
 import Outline from '@/pages/job/components/Outline/Outline';
 import VideoModal from '@/components/VideoModal/VideoModal';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
+import _ from 'lodash';
 
 export const DataAnalysisPage: NextPage = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
   
-  const introRef = useRef<HTMLDivElement>(null!);
-  const sightRef = useRef<HTMLDivElement>(null!);
-  const outlineRef = useRef<HTMLDivElement>(null!);
-  const faqRef = useRef<HTMLDivElement>(null!);
+  const disableObserver = useRef<boolean>(false);
+  const introAnchorRef = useRef<HTMLDivElement>(null!);
+  const sightAnchorRef = useRef<HTMLDivElement>(null!);
+  const outlineAnchorRef = useRef<HTMLDivElement>(null!);
+  const faqAnchorRef = useRef<HTMLDivElement>(null!);
 
   const onFloatMenuChange = (newIndex: number) => {
-    setActiveFloatMenuIndex(newIndex)
-
+    disableObserver.current = true;
+    setActiveFloatMenuIndex(newIndex);
+    
     if ( newIndex === 0) {
-      introRef?.current?.scrollIntoView({ behavior: 'smooth' });
+      introAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    } else if ( newIndex === 1) {
+      sightAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    } else if ( newIndex === 2) {
+      outlineAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    } else if ( newIndex === 3) {
+      faqAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
     }
+
+    setTimeout(()=>{
+      disableObserver.current = false;
+    }, 1000);
   };
-
-  // useEffect(() => {  
-  //   const handleScroll = () => {  
-  //     const x = window.scrollX;
-  //     const y = window.scrollY;
-  //     console.log(x, y);
-
-  //   };  
-  
-  //   window.addEventListener('scroll', handleScroll);  
-  
-  //   return () => {  
-  //     window.removeEventListener('scroll', handleScroll);  
-  //   };  
-  // }, []);
 
   useEffect(() => {
     const options = {
@@ -64,27 +62,27 @@ export const DataAnalysisPage: NextPage = () => {
       rootMargin: '0px', 
       threshold: 0.5, 
     };
-
+    const debouncedSetActiveFloatMenuIndex = _.debounce(setActiveFloatMenuIndex, 200);
     const introObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting === true) {
-          setActiveFloatMenuIndex(0);
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(0);
         }
       });
     }, options);
 
     const sightObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting === true) {
-          setActiveFloatMenuIndex(1);
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(1);
         }
       });
     }, options);
 
     const outlineObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting === true) {
-          setActiveFloatMenuIndex(2);
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(2);
         }
 
       });
@@ -92,50 +90,50 @@ export const DataAnalysisPage: NextPage = () => {
 
     const faqObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting === true) {
-          setActiveFloatMenuIndex(3);
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(3);
         }
       });
     }, options);
 
-    if (introRef.current) {
-      introObserver.observe(introRef.current);
+    if (introAnchorRef.current) {
+      introObserver.observe(introAnchorRef.current);
     }
-    if (sightRef.current) {
-      sightObserver.observe(sightRef.current);
+    if (sightAnchorRef.current) {
+      sightObserver.observe(sightAnchorRef.current);
     }
-    if (outlineRef.current) {
-      outlineObserver.observe(outlineRef.current);
+    if (outlineAnchorRef.current) {
+      outlineObserver.observe(outlineAnchorRef.current);
     }
-    if (faqRef.current) {
-      faqObserver.observe(faqRef.current);
+    if (faqAnchorRef.current) {
+      faqObserver.observe(faqAnchorRef.current);
     }
 
     return () => {
-      if (introRef.current) {
-        introObserver.unobserve(introRef.current);
+      if (introAnchorRef.current) {
+        introObserver.unobserve(introAnchorRef.current);
       }
 
-      if (sightRef.current) {
-        sightObserver.unobserve(sightRef.current);
+      if (sightAnchorRef.current) {
+        sightObserver.unobserve(sightAnchorRef.current);
       }
 
-      if (outlineRef.current) {
-        outlineObserver.unobserve(outlineRef.current);
+      if (outlineAnchorRef.current) {
+        outlineObserver.unobserve(outlineAnchorRef.current);
       }
 
-      if (faqRef.current) {
-        faqObserver.unobserve(faqRef.current);
+      if (faqAnchorRef.current) {
+        faqObserver.unobserve(faqAnchorRef.current);
       }
       
     };
-  }, [introRef, sightRef, outlineRef, faqRef]);
+  }, [introAnchorRef, sightAnchorRef, outlineAnchorRef, faqAnchorRef]);
 
 
   return (
     <div>
       <Head>
-        <title>数据分析实习 - 求职项目 - Rexpand</title>
+        <title>睿思班 | 让内推引领求职</title>
         <meta
           name="description"
           content="Learn more about My Company, our mission, and what we do."
@@ -177,6 +175,7 @@ export const DataAnalysisPage: NextPage = () => {
                       className="z-10"
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
+                      radius={ButtonRadius.NONE}
                       text="咨询项目" />
               </div>
               <VideoCard 
@@ -211,8 +210,8 @@ export const DataAnalysisPage: NextPage = () => {
             </div>
         </div>
 
-        <div className={clsx('bg-white section internship_intro_section', styles.section1)}
-          ref={introRef}>
+        <div className={clsx('bg-white section internship_intro_section', styles.section1)}>
+          <div ref={introAnchorRef} className='internship_section_anchor'></div>
           <div className='container mx-auto'>
             <SectionTitle title="实习介绍" className='internship_intro_title'/>
            
@@ -229,8 +228,9 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <div className={clsx('bg-white section internship_sight_section overflow-auto')}
-          ref={sightRef}>
+        <div className={clsx('bg-white section internship_sight_section')}>
+          <div ref={sightAnchorRef} className='internship_section_anchor'></div>
+
           <SectionTitle title="项目亮点" className='internship_sight_title'/>
           <div style={{
             backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
@@ -284,8 +284,8 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
 
 
-        <div className={clsx('bg-white section internship_outline_section')}
-          ref={outlineRef}>
+        <div className={clsx('bg-white section internship_outline_section')}>
+          <div ref={outlineAnchorRef} className='internship_section_anchor'></div>
           <div className='container mx-auto'>
             <SectionTitle title="项目大纲" className='internship_outline_title'/>
 
@@ -296,7 +296,7 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
 
         <div className='bg-white section internship_faq_section' >
-          <div ref={faqRef}></div>
+          <div ref={faqAnchorRef} className='internship_section_anchor'></div>
           <div className='container mx-auto'>
             <SectionTitle className='internship_faq_title' title="常见问题" />
 

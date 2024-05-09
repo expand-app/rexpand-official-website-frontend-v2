@@ -27,7 +27,7 @@ export const AboutPage: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>关于我们 - Rexpand</title>
+        <title>睿思班 | 9年专注留学生求职</title>
         <meta
           name="description"
           content="Learn more about My Company, our mission, and what we do."
@@ -55,7 +55,7 @@ export const AboutPage: NextPage = () => {
         
         <div className="">  {/*container mx-auto max-w-screen-lg px-4*/}
           <div className={clsx('relative page-banner')} style={{backgroundImage: `url(${bannerImg.src})`}}>
-            <div className="absolute inset-0 bg-black opacity-30 "></div>
+            {/* <div className="absolute inset-0 bg-black opacity-30 "></div> */}
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <Image src={bannerTextImg} alt='让内推引领求职' />
                 <div className={clsx('text-white mt-12',styles.banner_subtitle)}>「 9年专注留学生求职 」</div>
@@ -111,25 +111,25 @@ export const AboutPage: NextPage = () => {
 
           <div className={clsx('section', styles.section3)} style={{backgroundColor: '#008A27', backgroundImage: `url(${xpqnBgImage.src})`, backgroundSize: '100% auto'}}>
             <div className='container mx-auto flex flex-col md:flex-row gap-12 px-12'>
-              <div className='flex-1 flex flex-col gap-2'>
+              <div className='flex-1 flex flex-col'>
                 <div className='flex flex-row items-center gap-2'>
-                  <Image src={pushImage} alt='独一无二的内推服务' />
-                  <h1 className='text-white font-29 flex-1 font-m'>独一无二的内推服务</h1>
+                  <Image src={pushImage} alt='独一无二的内推服务' width={30} height={30}/>
+                  <h1 className='text-white font-29 flex-1 font-m mb-14px'>独一无二的内推服务</h1>
                 </div>
                 <h2 className='font-14 font-w300 text-white pl-8 font-l'>利用AI技术驱动内推，保证每周不低于20次的内推</h2>
               </div>
 
-              <div className='flex-1 flex flex-col gap-2'>
-                <div className='flex flex-row gap-2'>
-                  <Image src={starImage} alt='9年深耕北美求职' />
-                  <h1 className='text-white font-29 flex-1 font-m'>9年深耕北美求职</h1>
+              <div className='flex-1 flex flex-col'>
+                <div className='flex flex-row gap-2 items-center'>
+                  <Image src={starImage} alt='9年深耕北美求职' width={30} height={30} style={{width:26, height:26}}/>
+                  <h1 className='text-white font-29 flex-1 font-m  mb-14px'>9年深耕北美求职</h1>
                 </div>
                 <h2 className='font-14 font-w300 text-white pl-8 font-l'>自2015年起辅导北美求职，专注于数据、金融和科技方向</h2>
               </div>
-              <div className='flex-1 flex flex-col gap-2'>
-                <div className='flex flex-row gap-2'>
-                  <Image src={userCardImage} alt='双师体制Offer保障' />
-                  <h1 className='text-white font-29 flex-1 font-m'>双师体制Offer保障</h1>
+              <div className='flex-1 flex flex-col'>
+                <div className='flex flex-row gap-2 items-center'>
+                  <Image src={userCardImage} alt='双师体制Offer保障' style={{width:26, height:26}}/>
+                  <h1 className='text-white font-29 flex-1 font-m  mb-14px'>双师体制Offer保障</h1>
                 </div>
 
                 <h2 className='font-14 font-w300 text-white pl-8 font-l'>专业辅导老师负责1v1教学，提升技能。班主任负责内推、简历投递、日常答疑，保障求职</h2>
@@ -139,7 +139,9 @@ export const AboutPage: NextPage = () => {
 
           <div className={clsx('section', styles.section4)} style={{background: `linear-gradient(180deg, rgba(238, 255, 252, 0.3) 0%, rgba(125, 209, 147, 0.3) 100%) white`}}>
             <div className='container mx-auto'>
-              <SectionTitle title='专业导师团队' subtitle='导师均来自于北美顶级企业，平均5年+求职辅导经验' />
+              <SectionTitle title='专业导师团队' 
+                subtitle='导师均来自于北美顶级企业，平均5年+求职辅导经验' 
+                className='mb-37px'/>
 
               <div className='grid grid-cols-4 gap-6'>
                 {membersData?.map((item)=>{ 

@@ -1,6 +1,8 @@
 import React, { ChangeEventHandler, useState } from 'react';
 import styles from './Accordion.module.css';
 import clsx from 'clsx';
+import arrowDownImg from '@/assets/icon_arrow_down.png';
+import Image from 'next/image';
 
 const Accordion = ({data, className}: Props) => {
     const [checkedIndexes, setCheckedIndexes] = useState<Array<number>>([]);
@@ -27,12 +29,18 @@ const Accordion = ({data, className}: Props) => {
         }
     };
 
+    const onTitleEnter = (index: number)=>{
+        console.log('eeee')
+        setCheckedIndexes([index]);
+    };
+
     return (
         <ul className={combinedClassName}>
             {data?.map((item, index)=>{
-                return <li key={item.id} className={clsx('', styles.accordion_item, {[styles.active]: checkedIndexes.indexOf(index) !== -1})}>
+                return <li key={item.id} onMouseEnter={()=>onTitleEnter(index)} className={clsx('', styles.accordion_item, {[styles.active]: checkedIndexes.indexOf(index) !== -1})}>
                     <input type='checkbox' 
                         checked={checkedIndexes.indexOf(index) !== -1}
+                        
                         onChange={(event: React.ChangeEvent<HTMLInputElement>)=>{
                             onCheckboxChange(index, event.target.checked)
                         }}
@@ -40,8 +48,11 @@ const Accordion = ({data, className}: Props) => {
                     <i></i>
                     <div className={styles.title_container}>
                         <h2 className={clsx('px-12 font-m',styles.title)}>{item.title}</h2>
+                        <Image src={arrowDownImg} alt="展开/收起" width={20} height={20} className={styles.arrow_icon} />
                     </div>
-                    <div className={clsx('px-20 py-6 text-sm leading-6', styles.content)}>{item.content}</div>
+                    <div className={clsx('px-20 py-6 leading-6', styles.content)}>{item.content}</div>
+                
+                
                 </li>;
             })}
         </ul>

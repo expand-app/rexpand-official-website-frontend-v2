@@ -14,10 +14,37 @@ import internshipProjectBgImg from '@/assets/home/bg_internship_project.png';
 import InternshipProjectCards from "./index/components/InternshipProjectCards/InternshipProjectCards";
 import InterviewCamp from "./index/components/InterviewCamp/InterviewCamp";
 import Link from "next/link";
+import Head from "next/head";
 
 export const HomePage: NextPage = () => {
 
   return (<>
+      <Head>
+          <title>睿思班 | 让内推引领求职</title>
+          <meta
+          name="description"
+          content="Learn more about My Company, our mission, and what we do."
+          />
+          <meta property="og:title" content="About Us - My Company" />
+          <meta
+          property="og:description"
+          content="Learn more about My Company, our mission, and what we do."
+          />
+          <meta property="og:url" content="https://www.yourwebsite.com/about" />
+          <meta property="og:type" content="website" />
+          <link rel="canonical" href="https://www.yourwebsite.com/about" />
+          <script type="application/ld+json">
+          {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "My Company",
+              url: "https://www.yourwebsite.com",
+              logo: "https://www.yourwebsite.com/logo.png",
+          })}
+          </script>
+      </Head>
+
+      <div>
       <Header />
       <>
         <div className={`flex flex-col items-center  justify-center page-banner ${styles.banner_container}`} style={{backgroundImage: `url(${bannerImg.src})`}}>
@@ -96,6 +123,7 @@ export const HomePage: NextPage = () => {
 
       </>
       <Footer />
+      </div>
     </>);
 };
 

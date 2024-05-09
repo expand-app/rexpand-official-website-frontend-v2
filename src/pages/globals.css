@@ -16,6 +16,14 @@
     font-family: 'PingFang_Medium';
     src: url('/fonts/PingFang_Medium.ttf') format('truetype'); 
 }
+@font-face {
+    font-family: 'PingFang_Semiblod';
+    src: url('/fonts/PingFang_Semibold.ttf') format('truetype'); 
+}
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: url('/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype'); 
+}
 
 body{
     font-family: 'PingFang_Regular';
@@ -33,11 +41,22 @@ body{
 .font-m{
     font-family: 'PingFang_Medium';
 }
+.font-sb{
+    font-family: 'PingFang_Semiblod';
+}
+.font-rc{
+    font-family: 'RobotoCondensed';
+}
+
+
 .font-14{
     font-size: 14px;
 }
 .font-16{
     font-size: 16px;
+}
+.font-22{
+    font-size: 22px;
 }
 .font-29{
     font-size: 29px;
@@ -70,17 +89,30 @@ body{
 .opacity-60{
     opacity: 0.6;
 }
+.mb-7px{
+    margin-bottom: 7px;
+}
 .mb-10px {
     margin-bottom: 10px;
 }
 .mb-12px {
-     margin-bottom: 12px;
+    margin-bottom: 12px;
+}
+.mb-16px {
+    margin-bottom: 16px;
 }
 .mb-24px {
     margin-bottom: 24px;
 }
 .mb-36px {
     margin-bottom: 36px;
+}
+.mb-37px {
+    margin-bottom: 37px;
+
+}
+.mb-60px{
+    margin-bottom: 60px;
 }
 .radius-8 {
     border-radius: 8px;
@@ -100,7 +132,7 @@ body{
     font-family: 'PingFang_Medium';
     font-size: 60px;
     line-height: 80px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .banner_subtitle{
@@ -111,6 +143,7 @@ body{
 }
 
 .section {
+    position: relative;
 }
 
 .section .container {

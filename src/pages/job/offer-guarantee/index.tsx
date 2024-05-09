@@ -38,7 +38,7 @@ export const DataAnalysisPage: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>保offer项目 - 求职项目 - Rexpand</title>
+        <title>睿思班 | 让内推引领求职</title>
         <meta
           name="description"
           content="Learn more about My Company, our mission, and what we do."

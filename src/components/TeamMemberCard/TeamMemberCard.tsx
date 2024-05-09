@@ -4,7 +4,7 @@ import clsx from 'clsx';
 
 const TeamMemberCard = ({data}: Props) => {
     return (
-        <div className={clsx("max-w-sm overflow-visible relative mt-24 pb-16 bg-white px-8",styles.card)} style={{height:390}}>
+        <div className={clsx("max-w-sm overflow-visible relative pb-16 bg-white px-8",styles.card)} style={{height:390}}>
             <Image className={styles.avatar} src={data?.avatar} alt={data?.name} />
             <div className="mt-16 text-center">
                 <div className={clsx('font-m font-16 font-w500 mb-12px', styles.username)}>{data?.name}</div>

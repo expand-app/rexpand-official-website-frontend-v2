@@ -35,7 +35,7 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
       const y = window.scrollY;
 
       if (initialTheme === Theme.TRANSPARENT) {
-        if (y > 500) {
+        if (y > 100) {
           setHeaderTheme(Theme.LIGHT);
         } else {
           setHeaderTheme(Theme.TRANSPARENT);

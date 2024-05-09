@@ -11,7 +11,7 @@ const SocialLinks = ({data, className}: Props) => {
         <ul className={combinedClassname}>
             {data?.map((item)=>{
                 return <li key={item.id}>
-                    <Link href={item.link}><Image src={item.icon} alt={item.name} className={styles.icon}/></Link>
+                    <Link href={item.link}><Image src={item.icon} alt={item.name} className={styles.icon} style={{width: 40, height:40}}/></Link>
                 </li>
             })}
         </ul>

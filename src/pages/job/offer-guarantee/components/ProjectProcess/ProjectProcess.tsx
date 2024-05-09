@@ -22,14 +22,14 @@ const ProjectProcess = ({data, className,}: Props) => {
     return <div className={combinedClassName}>
         <div className={clsx('relative h-fit', styles.left)}>
             <Image src={projectProcessImg} alt='项目安排12' />
-            <Image src={logoWhiteImg} alt='Rexpand' className={styles.logo}/>
+            {/* <Image src={logoWhiteImg} alt='Rexpand' className={styles.logo}/> */}
         </div>
     
         <div className={clsx('flex-1 px-16', styles.right)}>
-            <div className={clsx('flex flex-row justify-between', styles.steps)}>
+            <div className={clsx('flex flex-row', styles.steps)}>
                 {data?.map((item, index)=>{
                     return <div key={item.id} 
-                        className={clsx('px-4 md:px-8 lg:px-12 py-2 rounded-sm text-sm cursor-pointer whitespace-nowrap', styles.step_button, {[styles.step_button_active]: index === activeIndex})}
+                        className={clsx('px-4 md:px-8 lg:px-12 cursor-pointer whitespace-nowrap', styles.step_button, {[styles.step_button_active]: index === activeIndex})}
                         onClick={() => (onButtonClick(index))}
                         >
                             第{numberToChinese(index+1)}阶段</div>;
@@ -39,7 +39,7 @@ const ProjectProcess = ({data, className,}: Props) => {
             <div className={clsx('', styles.step_content)}>
                 {activeItem?.processes?.map((item)=>{
                     return <div key={item.title}>
-                        <h1 className={clsx(styles.title)}>{item.title}</h1>
+                        <h1 className={clsx('project_process_title',styles.title)}>{item.title}</h1>
                         {item?.content ? 
                         <ul className={clsx(styles.content)}>
                             {item?.content.map((contentItem, index)=>{
@@ -68,5 +68,5 @@ export interface ProjectProcessData {
 
 export interface ProcessItem {
     title: string;
-    content: Array<string>;
+    content: Array<JSX.Element>;
 }

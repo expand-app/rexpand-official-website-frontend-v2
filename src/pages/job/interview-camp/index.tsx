@@ -35,7 +35,7 @@ export const DataAnalysisPage: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>面试集训营 - 求职项目 - Rexpand</title>
+        <title>睿思班 | 让内推引领求职</title>
         <meta
           name="description"
           content="Learn more about My Company, our mission, and what we do."
@@ -70,15 +70,15 @@ export const DataAnalysisPage: NextPage = () => {
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center w-3/4'>
               <div className="z-10 pt-0 flex-1">
-                  <h1 className='text-4xl text-white mb-6 banner_text'>面试集训营</h1>
-                  <h2 className='text-base text-white mb-1 banner_subtitle'>只要99元，5天时间全面掌握北美面试技巧</h2>
-                  <h3 className='text-sm text-white mb-16 banner_subtitle'>下次开课：{formatDate(nextCourceTime)} 倒计时：<span className='bg-white text-black px-1 mr-1'>{courseDaysLeft}</span>天</h3>
+                  <h1 className='text-white mb-6 banner_text font-sb'>面试集训营</h1>
+                  <h2 className='text-base text-white mb-1 font-m font-22 font-w500 mb-7px'>只要99元，5天时间全面掌握北美面试技巧</h2>
+                  <h3 className=' text-white font-16 font-w400'>下次开课：<span className='font-w500'>{formatDate(nextCourceTime)}</span> 倒计时：<span className={styles.count_down_num}>{courseDaysLeft}</span>天</h3>
 
                   <Button
                       className="z-10"
-                      type={ButtonType.BORDERED} 
+                      type={ButtonType.SOLID} 
                       size={ButtonSize.MIDDLE} 
-                      text="咨询项目" />
+                      text="立即报名" />
               </div>
               <div className='flex-1'>
                 <Image src={bannerRightImage} alt="Banner" className={clsx('',styles.banner_img)}/>
@@ -107,11 +107,15 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
        
 
-        <div className='bg-white pt-48 pb-24 section' style={{background: 'linear-gradient(180deg, #EEFFFC00 0%, #7DD19366 100%)'}}>
+        <div className='bg-white pb-24 section' style={{
+          background: 'linear-gradient(180deg, #EEFFFC00 0%, #7DD19366 100%)',
+          paddingTop: 290,
+          
+          }}>
             <div className='container mx-auto w-3/4'>
               <SectionTitle 
-                title='为什么要参加？' 
-                className='mb-12'/>
+                title='为什么要参加？'
+                className='mb-60px'/>
 
               <WhyJoinList data={whyJoinData} />
             </div>

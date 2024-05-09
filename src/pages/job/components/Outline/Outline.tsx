@@ -20,15 +20,15 @@ const Outline = ({data, className}: Props) => {
     }
 
     return (
-        <div className={clsx('flex flex-col md:flex-row w-full gap-2', styles.outline)}>
+        <div className={clsx('flex flex-col md:flex-row w-full', styles.outline)}>
             <ul className={clsx('md:w-72 flex flex-col gap-2', styles.subject_buttons)}>
                 {data?.subjects?.map((item: OutlineSubjectData, index: number)=>{
-                    let combinedClassName = clsx('rounded-md py-3 px-4 flex flex-row items-center gap-2', styles.subject_button);
+                    let combinedClassName = clsx('rounded-md py-3 px-4 flex flex-row items-center', styles.subject_button);
                     if (index === activeIndex) {
                         combinedClassName = clsx(combinedClassName, styles.active);
                     }
                     return <li key={item?.subjectName} className={combinedClassName} onClick={(event: MouseEvent<HTMLLIElement>) => onButtonClick(event, index)}>
-                        {index === activeIndex? <Image src={iconPlay} alt={`第${numberToChinese(index+1)}部分`} style={{width: 8,height:14}}/>:null}
+                        {index === activeIndex? <Image src={iconPlay} alt={`第${numberToChinese(index+1)}部分`} style={{width: 8,height:14, marginRight: 16}}/>:null}
                     
                         {`第${numberToChinese(index+1)}部分`}
                     </li>;

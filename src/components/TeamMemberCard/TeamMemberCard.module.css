@@ -1,6 +1,7 @@
 .card {
     box-shadow: 3px 2px 17.8px 11px #008A270A;
     border-radius: 8px;
+    margin-top: 56px;
 }
 .avatar {
     display: block;

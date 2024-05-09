@@ -12,3 +12,17 @@
     left:0;
     bottom:0;
 }
+
+.count_down_num {
+    font-family: 'RobotoCondensed';
+    background: rgba(255, 255, 255,0.5);
+    border-radius: 4px;
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    text-align: center;
+    line-height: 23px;
+    margin-right: 4px;
+    margin-bottom: 64px;
+    color: #008A27;
+}

@@ -100,3 +100,12 @@
     margin-bottom: 29px;
 }
 
+.internship_section_anchor {
+    position: relative;
+    top: -100px;
+    left: 0;
+    height:3px;
+    width:3px;
+    background-color: red;
+    z-index: 1001;
+}

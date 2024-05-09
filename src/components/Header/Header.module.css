@@ -32,6 +32,8 @@
     /* border-top: 4px solid #008A27; */
     background-color: rgba(255,255,255,0.8);
     margin-top:38px;
+    text-align: center;
+    font-weight: 500;
 }
 .submenu_container {
     position: absolute;

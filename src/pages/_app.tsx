@@ -4,7 +4,8 @@ import type { AppProps } from 'next/app';
 import "./globals.css";
 import "./internship.css";
 import "./free_resource.css";
- 
+import "./offer-guarantee.css";
+
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode
 }

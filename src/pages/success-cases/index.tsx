@@ -11,9 +11,35 @@ import { studentExperienceListData, topOffersData } from "@/data/success_cases";
 import StudentExperienceList from "./components/StudentExperienceList/StudentExperienceList";
 import Footer from "@/components/Footer/Footer";
 import clsx from "clsx";
+import Head from "next/head";
 
 const SuccessCasesPage: NextPage = () => {
     return (
+        <>
+         <Head>
+            <title>睿思班 | 让内推引领求职</title>
+            <meta
+            name="description"
+            content="Learn more about My Company, our mission, and what we do."
+            />
+            <meta property="og:title" content="About Us - My Company" />
+            <meta
+            property="og:description"
+            content="Learn more about My Company, our mission, and what we do."
+            />
+            <meta property="og:url" content="https://www.yourwebsite.com/about" />
+            <meta property="og:type" content="website" />
+            <link rel="canonical" href="https://www.yourwebsite.com/about" />
+            <script type="application/ld+json">
+            {JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                name: "My Company",
+                url: "https://www.yourwebsite.com",
+                logo: "https://www.yourwebsite.com/logo.png",
+            })}
+            </script>
+        </Head>
         <div className={styles.page}>
            <Header />
             <>
@@ -70,6 +96,8 @@ const SuccessCasesPage: NextPage = () => {
 
             <Footer />
         </div>
+        </>
+        
     );
 }
 

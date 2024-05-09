@@ -5,15 +5,16 @@ import clsx from 'clsx';
 
 const WhyJoinList = ({data, className}: Props) => {
     return (
-        <div className={clsx('flex flex-col md:flex-row gap-4', className,styles.why_join_list)}>
+        <div className={clsx('flex flex-col md:flex-row', className,styles.why_join_list)}>
 
             {data?.map((item)=>{
-                return <div key={item.id} className='flex flex-col gap-2 bg-white rounded-md px-4 py-6 md:w-1/4'>
-                    <div className={clsx('mb-6',styles.icon_container)}>
-                        <Image src={item.icon} alt='' />
+                return <div key={item.id} 
+                    className={clsx('flex flex-col gap-2 bg-white px-4 md:w-1/4', styles.card)}>
+                    <div className={clsx(styles.icon_container)}>
+                        <Image src={item.icon} alt='' width={89} height={89}/>
                     </div>
-                    <h1 className={clsx('text-primary-green font-bold text-base', styles.title)}>{item.title}</h1>
-                    <div className={clsx('text-gray-600 text-base', styles.title)}>{item.description}</div>
+                    <h1 className={clsx('', styles.title)}>{item.title}</h1>
+                    <div className={clsx('', styles.description)}>{item.description}</div>
                 </div>
             })}
         </div>

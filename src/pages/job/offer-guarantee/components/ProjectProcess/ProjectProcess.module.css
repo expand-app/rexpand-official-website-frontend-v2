@@ -31,7 +31,12 @@
     font-weight: 500;
     line-height: 21px;
     border-radius: 4px;
-    margin-bottom: 53px;
+    padding: 12px 82px;
+    margin-right: 56px;
+    margin: 
+}
+.step_button:last-child {
+    margin-right: 0;
 }
 
 .title {
@@ -52,7 +57,7 @@
 }
 
 .steps{
-
+    margin-bottom: 53px;
 }
 
 .step_content {
@@ -60,5 +65,5 @@
 }
 
 .right {
-    padding-top: 28px;
+    padding-top: 10px;
 }

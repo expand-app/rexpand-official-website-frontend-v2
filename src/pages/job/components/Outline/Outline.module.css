@@ -1,10 +1,11 @@
 .outline {
-
+    gap:31px;
 }
 
 .subject_buttons {
     font-size: 20px;
     line-height: 28px;
+    gap: 12px;
 }
 
 .subject_button {

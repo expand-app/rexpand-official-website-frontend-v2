@@ -9,7 +9,7 @@ const VerticalTabs = ({data = [],}: Props) => {
         return null;
     }
 
-    function handleTabClick(item: TabItem, index: number) {
+    function handleTabEnter(item: TabItem, index: number) {
         setActiveIndex(index);
     }
 
@@ -17,7 +17,7 @@ const VerticalTabs = ({data = [],}: Props) => {
         <ul className={styles.tabs}>
             {data?.map((item, index)=>{
                 return <li key={item.id}
-                    onClick={()=>(handleTabClick(item,index))} 
+                    onMouseEnter={()=>(handleTabEnter(item,index))} 
                     className={clsx(styles.tab_item,{[styles.active]: activeIndex === index})}>
                     <div className={styles.title}>{item.title}</div>
                     <div className={styles.subtitle}>{item.subtitle}</div>
