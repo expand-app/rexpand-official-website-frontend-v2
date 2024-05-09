@@ -21,9 +21,15 @@ const Button = ({text, size,type,color = ButtonColor.WHITE, radius = ButtonRadiu
             {[styles.border_white]: ButtonColor.WHITE === color},
             {[styles.border_green]: ButtonColor.GREEN === color},
         );
+    } else if (type === ButtonType.SOLID) {
+        buttonClassName = clsx(
+            buttonClassName,
+            {[styles.solid_white]: ButtonColor.WHITE === color},
+            // {[styles.border_green]: ButtonColor.GREEN === color},
+        );
     }
 
-    const combinedClassName = `${buttonClassName} ${className ?? ''}`;
+    const combinedClassName = `${buttonClassName} ${className ?? ''} font-m`;
     return (
         <button className={combinedClassName} onClick={onClick}>
             {text}

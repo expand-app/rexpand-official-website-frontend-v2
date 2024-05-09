@@ -19,7 +19,7 @@ const InterviewCamp = ({data, className}: Props) => {
                         <h1 className={styles.title}>{item.title}</h1>
                         <h2 className={styles.subtitle}>{item.subtitle}</h2>
                     </div>
-                    <Image className={styles.bg} src={item.image.src} alt={'background'}/>
+                    <img className={styles.bg} src={item.image.src} alt={'background'} />
                 </div>
             })}
         </div>

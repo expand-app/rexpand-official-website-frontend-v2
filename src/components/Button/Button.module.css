@@ -64,3 +64,15 @@
 .solid:hover {
     background-color: #008a27ee;
 }
+
+.solid_white{
+    background-color: #fff;
+    color: #008A27;
+}
+
+.solid_white:hover{
+    background-color:#008A27;
+    color:  #fff;
+}
+
+

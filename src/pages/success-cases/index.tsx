@@ -55,7 +55,7 @@ const SuccessCasesPage: NextPage = () => {
                    
                 </div>
 
-                <div className={clsx('section', styles.section2)} style={{background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(125, 209, 147, 0.2))`}}>
+                <div className={clsx('section', styles.section2)} style={{background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(125, 209, 147, 0.2)), white`}}>
                     <div className="container mx-auto">
                         <SectionTitle 
                             className={styles.section_title2}

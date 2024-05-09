@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './CourseArrangement.module.css';
-import textureCourseArraImage from '@/assets/interview-camp/texture_course_arrangement.png';
+import courseArraBannerImage from '@/assets/interview-camp/banner_course_arrangement.png';
 import circlePlayIconImg from '@/assets/interview-camp/icon_play_circle.png';
 import Image from 'next/image';
 import { numberToChinese } from '@/utils/Utils';
@@ -9,11 +9,19 @@ import { numberToChinese } from '@/utils/Utils';
 const CourseArrangement = ({data, className, }: Props) => {
     return (
         <div className={clsx('bg-white p-8 rounded-md gap-4 flex flex-row', styles.course_arrangement)}>
-            <div className={clsx('flex-1 rounded-md', styles.left)} style={{
-                backgroundImage: `url(${textureCourseArraImage.src}),linear-gradient(180deg, #69C983 0%, #42AA60 100%)`
-                }}>
-
+            
+            <div className={clsx('flex-1 rounded-md relative', styles.left)}>
+                <Image src={courseArraBannerImage} 
+                    alt='banner'
+                    width={400}
+                    height={300}
+                    sizes="100vw"
+                    style={{
+                        //objectFit: 'contain',
+                      }}
+                    />
             </div>
+            
             <div className={clsx('', styles.right)}>
                 <ul>
                     {data?.map((item, index)=>{

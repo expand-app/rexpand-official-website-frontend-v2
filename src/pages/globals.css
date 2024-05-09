@@ -39,17 +39,33 @@ body{
 .font-16{
     font-size: 16px;
 }
+.font-29{
+    font-size: 29px;
+}
+.font-36{
+    font-size: 36px;
+}
+
+.font-42{
+    font-size: 42px;
+}
 .font-46{
     font-size: 46px;
 }
 .font-48{
     font-size: 48px;
 }
+.font-w300 {
+    font-weight: 300;
+}
 .font-w400 {
     font-weight: 400;
 }
 .font-w500 {
     font-weight: 500;
+}
+.font-w600 {
+    font-weight: 600;
 }
 .opacity-60{
     opacity: 0.6;
@@ -100,4 +116,17 @@ body{
 .section .container {
     width: 85%;
     /* border:1px solid #ccc; */
+}
+
+
+/* list dot */
+.list_dot {
+    display: inline-block;
+    width: 6px;
+    height:6px;
+    border-radius: 50%;
+}
+
+.list_dot.green{
+    background-color:#008A27;
 }

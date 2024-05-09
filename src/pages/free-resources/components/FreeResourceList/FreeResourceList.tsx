@@ -10,7 +10,7 @@ const FreeResourceList = ({data}: Props) => {
         <div className={clsx('flex flex-wrap',styles.free_resource_list)}>
             {data?.map((item)=>{
                 return <div key={item.id} className={clsx('lg:w-1/3 sm:w-1/2', styles.card)}>
-                    <Link href='/free-resources/1'>
+                    <Link href={`/free-resources/${item.id}`}>
                         <div className="rounded relative  bg-white p-1 cursor-pointer">
                             <Image src={item.image} alt={item.title} className='w-full'/>
                             <div className={styles.bottom}>
@@ -22,7 +22,7 @@ const FreeResourceList = ({data}: Props) => {
                                 </div>
                                 <div className='flex flex-row items-center gap-2'>
                                     <Image src={timeIconImg} alt='发布时间' />
-                                    <div>发布时间：{item.publishDate}</div>    
+                                    <div className='opacity-60'>发布时间：{item.publishDate}</div>    
                                 </div>
                             </div>
                         </div>
@@ -44,4 +44,7 @@ export interface FreeResourceData {
     title: string;
     summary: string;
     publishDate: string;
+    
+    lastUpdateDate?: string;
+    content?: Array<string>;
 }

@@ -10,6 +10,8 @@
 
 .header_img{
     transition: transform 0.5s ease; 
+    border-radius: 8px 8px 0 0;
+    
 }
 .img_play {
     position: absolute;
@@ -19,6 +21,7 @@
 }
 .top_offer_item:hover .header_img {
     transform: scale(1.1);
+    
 }
 .usename{
     font-size: 16px;

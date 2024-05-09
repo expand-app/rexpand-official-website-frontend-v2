@@ -1,16 +1,31 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import { NextPage } from "next";
 import styles from './index.module.css';
 import Header, { Theme } from "@/components/Header/Header";
 import Footer from '@/components/Footer/Footer';
 import Head from 'next/head';
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
+import { freeResourceListData } from '@/data/free_resource';
+import Image from 'next/image';
 
 const FreeResourceDetailPage: NextPage = () => {
+    const router = useRouter();
+    const { id } = router.query;
+
+    const currentArticle = useMemo(()=>{
+        if ( id != undefined) {
+            let idNum: number = parseInt(id as string);
+    
+            return freeResourceListData.find((item)=>item.id+'' == id);
+        }
+        return null;
+    }, [freeResourceListData, id]);
+
     return (
         <div>
             <Head>
-                <title>免费资源 - Rexpand</title>
+                <title>{currentArticle?.title} - 免费资源 - Rexpand</title>
                 <meta
                 name="description"
                 content="Learn more about My Company, our mission, and what we do."
@@ -33,13 +48,39 @@ const FreeResourceDetailPage: NextPage = () => {
                 })}
                 </script>
             </Head>
-            <main className={clsx('mb-12', styles.main)}>
+            <main className={clsx('bg-white', styles.main)}>
                 <Header theme={Theme.LIGHT}/>
-                <div className='container mx-auto flex justify-center'>
-                    <div className='w-1/2 border'>
-                csdf
+                <div className='container mx-auto flex justify-center w-1/2'>
+                    <div className={styles.article_box}>
+                        <div className='fr-article'>
+                            {currentArticle ? 
+                                <>
+                                    <div className="fr-article-header">
+                                        <Image src={currentArticle?.image} 
+                                            alt={currentArticle?.title} 
+                                            sizes="100vw"
+                                            style={{
+                                                width: '100%',
+                                                height: 'auto',
+                                            borderRadius: 8,
+                                            }}
+                                            width={765} height={362} 
+                                            />
+                                        <div className='fr-article-title'>{currentArticle?.title}</div>
+                                        <div className='fr-article-lastupdate'>最后更新时间: <span>{currentArticle?.lastUpdateDate}</span></div>
+                                    </div>
+
+                                    <div className='fr-article-body'>
+                                        <div dangerouslySetInnerHTML={{ __html: currentArticle?.content?.join('') ?? '' }} />
+                                    </div>
+                                </>            
+                                :
+                                null
+                            }
+                        </div>
+                        
                     </div>
-               
+                    
                 </div>
                 <Footer />
             </main>

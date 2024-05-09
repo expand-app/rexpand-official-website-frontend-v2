@@ -8,6 +8,7 @@ import { freeResourceListData } from '@/data/free_resource';
 import LinkFilter from './components/LinkFilter/LinkFilter';
 import Head from 'next/head';
 import clsx from 'clsx';
+import { useRouter } from 'next/router';
 
 const FreeResourcesPage: NextPage = () => {
     const [currentFilterIndex, setCurrentFilterIndex] = useState(0);
@@ -15,6 +16,8 @@ const FreeResourcesPage: NextPage = () => {
     const handleFilterChange = (index: number) => {
         setCurrentFilterIndex(index);
     }
+
+
     return (
        <div>
          <Head>

@@ -24,6 +24,7 @@
 
 .detail_header {
     background: linear-gradient(360deg, #FAFEFC 0%, #E8FAF2 100%);
+    margin-bottom: 16px;
 }
 
 .detail_footer {

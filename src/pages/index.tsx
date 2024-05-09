@@ -1,4 +1,4 @@
-import Button, { ButtonColor, ButtonSize, ButtonType } from "@/components/Button/Button";
+import Button, { ButtonColor, ButtonRadius, ButtonSize, ButtonType } from "@/components/Button/Button";
 import Footer from "@/components/Footer/Footer";
 import Header, { Theme } from "@/components/Header/Header";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
@@ -24,9 +24,10 @@ export const HomePage: NextPage = () => {
           <h1 className={clsx('text-white z-10', styles.banner_text)}>北美留学生 求职一站式服务</h1>
           <Link href='/job/offer-guarantee' className="z-10">
             <Button 
-              type={ButtonType.BORDERED} 
+              type={ButtonType.SOLID} 
               size={ButtonSize.MIDDLE} 
               color={ButtonColor.WHITE}
+              radius={ButtonRadius.NONE}
               text="了解更多" 
               />
           </Link>
@@ -46,6 +47,7 @@ export const HomePage: NextPage = () => {
                 type={ButtonType.BORDERED} 
                 size={ButtonSize.MIDDLE} 
                 color={ButtonColor.GREEN}
+                radius={ButtonRadius.NONE}
                 text="查看详情" />
             </Link>
           </div>
@@ -54,9 +56,9 @@ export const HomePage: NextPage = () => {
         <div 
           className={clsx('bg-white relative section',styles.section)}
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 1)), url(${internshipProjectBgImg.src})`,
+            backgroundImage: `url(${internshipProjectBgImg.src})`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundSize: '100% auto',
           }}>
           
           <div className="container mx-auto overflow-auto">
@@ -85,7 +87,9 @@ export const HomePage: NextPage = () => {
             <Link href='/job/interview-camp' className="z-10">
               <Button text='查看课程' 
                 type={ButtonType.GRADIENT} 
-                size={ButtonSize.MIDDLE} />
+                size={ButtonSize.MIDDLE} 
+                radius={ButtonRadius.NONE}
+                />
             </Link>
           </div>
         </div>

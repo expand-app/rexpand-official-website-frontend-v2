@@ -1,0 +1,52 @@
+.fr-article {
+
+}
+
+.fr-article-header {
+
+}
+.fr-article-header .fr-article-title {
+    width:100%;
+    font-size: 39px;
+    font-weight: 600;
+    margin: 31px 0 8px 0;
+}
+.fr-article-header .fr-article-lastupdate {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-bottom: 40px;
+}
+
+
+
+.fr-article-body {
+    
+}
+
+.fr-article .fr-article-body p{
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 30.6px;
+}
+
+.fr-article .fr-article-body h1{
+    font-size: 26px;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+
+.fr-article .fr-article-body h2{
+    font-size: 17px;
+    font-weight: 600;
+    margin: 2rem 0;
+}
+.fr-article .fr-article-body p a{
+    color: #008A27;
+
+}
+
+.fr-article .fr-article-body img {
+    min-width: 100%;
+    margin: 24px 0;
+}

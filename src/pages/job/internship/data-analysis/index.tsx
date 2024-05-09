@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement, useState, useEffect, useRef} from 'react';
 import Footer from "@/components/Footer/Footer";
 import Header, { Theme } from "@/components/Header/Header";
 import { NextPage } from "next";
@@ -30,9 +30,107 @@ export const DataAnalysisPage: NextPage = () => {
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
   
+  const introRef = useRef<HTMLDivElement>(null!);
+  const sightRef = useRef<HTMLDivElement>(null!);
+  const outlineRef = useRef<HTMLDivElement>(null!);
+  const faqRef = useRef<HTMLDivElement>(null!);
+
   const onFloatMenuChange = (newIndex: number) => {
     setActiveFloatMenuIndex(newIndex)
+
+    if ( newIndex === 0) {
+      introRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
+
+  // useEffect(() => {  
+  //   const handleScroll = () => {  
+  //     const x = window.scrollX;
+  //     const y = window.scrollY;
+  //     console.log(x, y);
+
+  //   };  
+  
+  //   window.addEventListener('scroll', handleScroll);  
+  
+  //   return () => {  
+  //     window.removeEventListener('scroll', handleScroll);  
+  //   };  
+  // }, []);
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px', 
+      threshold: 0.5, 
+    };
+
+    const introObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting === true) {
+          setActiveFloatMenuIndex(0);
+        }
+      });
+    }, options);
+
+    const sightObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting === true) {
+          setActiveFloatMenuIndex(1);
+        }
+      });
+    }, options);
+
+    const outlineObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting === true) {
+          setActiveFloatMenuIndex(2);
+        }
+
+      });
+    }, options);
+
+    const faqObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting === true) {
+          setActiveFloatMenuIndex(3);
+        }
+      });
+    }, options);
+
+    if (introRef.current) {
+      introObserver.observe(introRef.current);
+    }
+    if (sightRef.current) {
+      sightObserver.observe(sightRef.current);
+    }
+    if (outlineRef.current) {
+      outlineObserver.observe(outlineRef.current);
+    }
+    if (faqRef.current) {
+      faqObserver.observe(faqRef.current);
+    }
+
+    return () => {
+      if (introRef.current) {
+        introObserver.unobserve(introRef.current);
+      }
+
+      if (sightRef.current) {
+        sightObserver.unobserve(sightRef.current);
+      }
+
+      if (outlineRef.current) {
+        outlineObserver.unobserve(outlineRef.current);
+      }
+
+      if (faqRef.current) {
+        faqObserver.unobserve(faqRef.current);
+      }
+      
+    };
+  }, [introRef, sightRef, outlineRef, faqRef]);
+
 
   return (
     <div>
@@ -61,7 +159,7 @@ export const DataAnalysisPage: NextPage = () => {
         </script>
       </Head>
       <Header theme={Theme.TRANSPARENT}/>
-      <main className='mb-12'>
+      <main className=''>
         <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerImage.src}),linear-gradient(to right, #007722, #96D8BA)`,
@@ -104,16 +202,17 @@ export const DataAnalysisPage: NextPage = () => {
                 <div className='flex-1'>
                   <h1 className='internship_banner_card_title'>项目特色</h1>
                   <ul className='internship_banner_card_content list'>
-                    <li>和项目经理一起参与公司项目</li>
-                    <li>进行客户真实业务数据的分析</li>
-                    <li>提升硬核技术知识和业务分析能力</li>
+                    <li><span>和项目经理一起参与公司项目</span></li>
+                    <li><span>进行客户真实业务数据的分析</span></li>
+                    <li><span>提升硬核技术知识和业务分析能力</span></li>
                   </ul>
                 </div>
               </div>
             </div>
         </div>
 
-        <div className={clsx('bg-white section internship_intro_section', styles.section1)}>
+        <div className={clsx('bg-white section internship_intro_section', styles.section1)}
+          ref={introRef}>
           <div className='container mx-auto'>
             <SectionTitle title="实习介绍" className='internship_intro_title'/>
            
@@ -130,7 +229,8 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <div className={clsx('bg-white section internship_sight_section overflow-auto')}>
+        <div className={clsx('bg-white section internship_sight_section overflow-auto')}
+          ref={sightRef}>
           <SectionTitle title="项目亮点" className='internship_sight_title'/>
           <div style={{
             backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
@@ -144,8 +244,8 @@ export const DataAnalysisPage: NextPage = () => {
                 </div>
                 
                 <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
-                  <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                  <div className={clsx('w-full md:w-1/2 overflow-auto')}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={arrowUpImg} alt='增加经验' width={33} />
                       <h1 className='sight_title'>增加经验</h1>
                       <div className='sight_subtitle'>简历上一份实习/全职工作经验</div>
@@ -153,23 +253,23 @@ export const DataAnalysisPage: NextPage = () => {
                   </div>
 
                   <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={consultImg} alt='全流程顾问式服务' width={33} />
                       <h1 className='sight_title'>全流程顾问式服务</h1>
                       <div className='sight_subtitle'>助力上百Entry Level数据专业同学入行</div>
                     </div>
                   </div>
 
-                  <div className={clsx('w-full md:w-1/2', styles.sight_item)}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                  <div className={clsx('w-full md:w-1/2')}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={sendImg} alt='求职无忧' width={33} />
                       <h1 className='sight_title'>求职无忧</h1>
                       <div className='sight_subtitle'>助力转行数据方向的同学添加相关经验</div>
                     </div>
                   </div>
 
-                  <div className={clsx('w-full md:w-1/2', styles.sight_item)}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                  <div className={clsx('w-full md:w-1/2')}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={rocketImg} alt='技能提升' width={33} />
                       <h1 className='sight_title'>技能提升</h1>
                       <div className='sight_subtitle'>真实业务场景下学习数据分析核心技能SQL</div>
@@ -184,7 +284,8 @@ export const DataAnalysisPage: NextPage = () => {
         </div>
 
 
-        <div className={clsx('bg-white section internship_outline_section')}>
+        <div className={clsx('bg-white section internship_outline_section')}
+          ref={outlineRef}>
           <div className='container mx-auto'>
             <SectionTitle title="项目大纲" className='internship_outline_title'/>
 
@@ -194,7 +295,8 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <div className='bg-white section internship_faq_section'>
+        <div className='bg-white section internship_faq_section' >
+          <div ref={faqRef}></div>
           <div className='container mx-auto'>
             <SectionTitle className='internship_faq_title' title="常见问题" />
 

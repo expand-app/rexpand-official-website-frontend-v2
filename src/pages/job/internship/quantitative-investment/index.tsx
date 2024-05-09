@@ -66,7 +66,7 @@ export const DataAnalysisPage: NextPage = () => {
         </script>
       </Head>
       <Header theme={Theme.TRANSPARENT}/>
-      <main className='mb-12'>
+      <main className=''>
         <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerImage.src}),linear-gradient(to right, #007722, #96D8BA)`,
@@ -109,9 +109,9 @@ export const DataAnalysisPage: NextPage = () => {
                 <div className='flex-1'>
                   <h1 className='internship_banner_card_title'>项目特色</h1>
                   <ul className='internship_banner_card_content list'>
-                    <li>和项目经理一起参与公司项目</li>
-                    <li>进行量化分析和风险管理</li>
-                    <li>提升量化建模和业务分析能力</li>
+                    <li><span>和项目经理一起参与公司项目</span></li>
+                    <li><span>进行量化分析和风险管理</span></li>
+                    <li><span>提升量化建模和业务分析能力</span></li>
                   </ul>
                 </div>
               </div>
@@ -150,7 +150,7 @@ export const DataAnalysisPage: NextPage = () => {
                 
                 <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
                   <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={arrowUpImg} alt='增加经验' width={33} />
                       <h1 className='sight_title'>增加经验</h1>
                       <div className='sight_subtitle'>简历上一份实习/全职工作经验</div>
@@ -158,23 +158,23 @@ export const DataAnalysisPage: NextPage = () => {
                   </div>
 
                   <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={consultImg} alt='全流程顾问式服务' width={33} />
                       <h1 className='sight_title'>全流程顾问式服务</h1>
                       <div className='sight_subtitle'>帮助过上百名Entry Level同学收获Quant offer</div>
                     </div>
                   </div>
 
-                  <div className={clsx('w-full md:w-1/2', styles.sight_item)}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                  <div className={clsx('w-full md:w-1/2')}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={sendImg} alt='求职无忧' width={33} />
                       <h1 className='sight_title'>求职无忧</h1>
                       <div className='sight_subtitle'>帮助想转行做量化方向的同学添加相关简历经验</div>
                     </div>
                   </div>
 
-                  <div className={clsx('w-full md:w-1/2', styles.sight_item)}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6 m-1', styles.sight_item)}>
+                  <div className={clsx('w-full md:w-1/2')}>
+                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
                       <Image src={rocketImg} alt='技能提升' width={33} />
                       <h1 className='sight_title'>技能提升</h1>
                       <div className='sight_subtitle'>真实业务场景下学习量化风险和资产配置等模型</div>

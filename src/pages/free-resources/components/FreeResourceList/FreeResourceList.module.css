@@ -1,8 +1,9 @@
 .free_resource_list {
+    margin: -14px; 
 }
 
 .card {
-    padding:7px;
+    padding:19.5px;
 }
 .title {
     font-size: 16px;

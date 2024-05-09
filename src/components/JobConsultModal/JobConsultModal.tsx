@@ -16,7 +16,7 @@ const JobConsultModal = ({open = false, onClose, className = ''}: Props) => {
     },[]);
     return (
         <Modal open={open} onClose={onClose}>
-            <div className={clsx('flex flex-col items-center px-28 pb-6', styles.modal_body)}>
+            <div className={clsx('flex flex-col items-center', styles.modal_body)}>
                 <Image src={consultQrImg} layout='reponsive' alt="Rexpand课程顾问"/>
                 <div className='text-sm text-center mt-8'>
                     <div className='mb-1'>扫描二维码或者 <Link href='/' className='text-green-600 underline'>点击这里</Link></div>

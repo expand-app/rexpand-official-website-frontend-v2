@@ -22,13 +22,17 @@
 }
 
 .internship_banner_card_content.list{
-    
+    opacity: 1;
 }
 
+.internship_banner_card_content.list > li > span{
+    opacity: 0.6;
+}
 .internship_banner_card_content.list > :not(:last-child){
     margin-bottom: 16px;
 }
 .internship_banner_card_content.list > li {
+    
     position: relative;
     padding-left: 1rem;
 }
@@ -41,6 +45,7 @@
     height: 6px;
     background-color: #008A27;
     border-radius: 50%;
+    opacity: 1;
 }
 
 .internship_practise_intro_text{

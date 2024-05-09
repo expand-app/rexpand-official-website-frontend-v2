@@ -6,7 +6,7 @@ import Head from "next/head";
 import styles from './index.module.css';
 import Image from 'next/image';
 import bannerImage from '@/assets/job/offer-guarantee/banner.png';
-import Button, { ButtonSize, ButtonType } from '@/components/Button/Button';
+import Button, { ButtonRadius, ButtonSize, ButtonType } from '@/components/Button/Button';
 import VideoCard from '@/components/VideoCard/VideoCard';
 import bannerVideoImage from '@/assets/job/internship/data-analysis/banner_video.png';
 import clsx from 'clsx';
@@ -61,9 +61,9 @@ export const DataAnalysisPage: NextPage = () => {
           })}
         </script>
       </Head>
-      <Header theme={Theme.LIGHT}/>
-      <main className='mt-20 mb-12'>
-        <div className={`${styles.banner_container} flex items-center relative`} 
+      <Header theme={Theme.TRANSPARENT}/>
+      <main className=''>
+        <div className={`${styles.banner_container}  flex items-center relative`} 
             style={{
               backgroundImage: `linear-gradient(to right, #007722, #96D8BA)`,
               minHeight: 600,
@@ -80,6 +80,7 @@ export const DataAnalysisPage: NextPage = () => {
                       className="z-10"
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
+                      radius={ButtonRadius.NONE} 
                       text="咨询项目" />
               </div>
               <Image src={bannerImage} alt="Banner" height={460} className={clsx('flex-1', styles.banner_img)}/>
@@ -90,11 +91,11 @@ export const DataAnalysisPage: NextPage = () => {
         <div className={clsx('bg-white pt-24 section', styles.section1)} style={{
           background: '#F7FBF8'
         }}>
-            <div className='container mx-auto'>
+            <div className='container mx-auto flex flex-col items-center'>
               <SectionTitle 
                 title='什么是保Offer项目' 
                 subtitle='项目针对北美留学生设计，保证sponsor H1b工作offer。9年多的时间积累留学生求职辅导经验，项目已经累计帮助2000多位学员拿到北美offer'
-                className='mb-12'/>
+                className='mb-12 w-2/3'/>
               
               <div className={clsx('flex flex-col md:flex-row gap-16 w-full items-center justify-between overflow-auto', styles.logo_list)}>
                 <Image src={googleImage} alt="Google" />
@@ -140,11 +141,7 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <FloatMenu 
-          className='fixed right-2 top-1/2' 
-          data={internshipMenusData} 
-          activeIndex={activeFloatMenuIndex}
-          onChange={onFloatMenuChange}/>
+    
       </main>
 
       <Footer />

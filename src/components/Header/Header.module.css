@@ -8,6 +8,26 @@
     line-height: 22.4px;
     font-weight: 300;
 }
+.menu_item_active {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.menu_item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -24px;
+    z-index: 10;
+    border-bottom: 2px solid #008A27;
+    width: 100%;
+    visibility: hidden;
+}
+
+.menu_item_box:hover .menu_item::after {
+    visibility: visible;
+}
+
 .submenu {
     /* border-top: 4px solid #008A27; */
     background-color: rgba(255,255,255,0.8);
@@ -26,10 +46,11 @@
 
 .submenu > li {
     white-space: nowrap;
+    
 }
 .submenu > li > a {
     display: block;
-    padding: .9rem 2rem;
+    padding: 33px 60px;
 }
 
 .menu > li:hover .submenu_container {
@@ -50,8 +71,6 @@
     padding: 10px;
     gap: 10px;
     border-radius: 8px;
-    opacity: 0px;
-
 }
 
 .transparent{

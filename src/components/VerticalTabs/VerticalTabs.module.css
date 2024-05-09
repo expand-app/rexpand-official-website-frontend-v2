@@ -37,7 +37,8 @@
 }
 .title {
     font-family: 'PingFang_Medium';
-    margin-bottom: 8px;   
+    margin-bottom: 8px;
+    font-weight: 600;
 }
 
 .subtitle {

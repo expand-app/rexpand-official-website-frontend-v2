@@ -114,30 +114,30 @@ export const AboutPage: NextPage = () => {
               <div className='flex-1 flex flex-col gap-2'>
                 <div className='flex flex-row items-center gap-2'>
                   <Image src={pushImage} alt='独一无二的内推服务' />
-                  <h1 className='text-white text-xl flex-1'>独一无二的内推服务</h1>
+                  <h1 className='text-white font-29 flex-1 font-m'>独一无二的内推服务</h1>
                 </div>
-                <h2 className='text-xs text-gray-300 pl-8'>利用AI技术驱动内推，保证每周不低于20次的内推</h2>
+                <h2 className='font-14 font-w300 text-white pl-8 font-l'>利用AI技术驱动内推，保证每周不低于20次的内推</h2>
               </div>
 
               <div className='flex-1 flex flex-col gap-2'>
                 <div className='flex flex-row gap-2'>
                   <Image src={starImage} alt='9年深耕北美求职' />
-                  <h1 className='text-white text-xl flex-1'>9年深耕北美求职</h1>
+                  <h1 className='text-white font-29 flex-1 font-m'>9年深耕北美求职</h1>
                 </div>
-                <h2 className='text-xs text-gray-300 pl-8'>自2015年起辅导北美求职，专注于数据、金融和科技方向</h2>
+                <h2 className='font-14 font-w300 text-white pl-8 font-l'>自2015年起辅导北美求职，专注于数据、金融和科技方向</h2>
               </div>
               <div className='flex-1 flex flex-col gap-2'>
                 <div className='flex flex-row gap-2'>
                   <Image src={userCardImage} alt='双师体制Offer保障' />
-                  <h1 className='text-white text-xl flex-1'>双师体制Offer保障</h1>
+                  <h1 className='text-white font-29 flex-1 font-m'>双师体制Offer保障</h1>
                 </div>
 
-                <h2 className='text-xs text-gray-300 pl-8'>专业辅导老师负责1v1教学，提升技能。班主任负责内推、简历投递、日常答疑，保障求职</h2>
+                <h2 className='font-14 font-w300 text-white pl-8 font-l'>专业辅导老师负责1v1教学，提升技能。班主任负责内推、简历投递、日常答疑，保障求职</h2>
               </div>
             </div>
           </div>
 
-          <div className={clsx('section', styles.section4)} style={{background: `linear-gradient(180deg, rgba(238, 255, 252, 0.3) 0%, rgba(125, 209, 147, 0.3) 100%)`}}>
+          <div className={clsx('section', styles.section4)} style={{background: `linear-gradient(180deg, rgba(238, 255, 252, 0.3) 0%, rgba(125, 209, 147, 0.3) 100%) white`}}>
             <div className='container mx-auto'>
               <SectionTitle title='专业导师团队' subtitle='导师均来自于北美顶级企业，平均5年+求职辅导经验' />
 

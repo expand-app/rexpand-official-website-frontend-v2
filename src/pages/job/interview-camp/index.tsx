@@ -58,9 +58,9 @@ export const DataAnalysisPage: NextPage = () => {
           })}
         </script>
       </Head>
-      <Header theme={Theme.LIGHT}/>
-      <main className='mt-20 mb-12'>
-        <div className={`${styles.banner_container} flex items-center relative`} 
+      <Header theme={Theme.TRANSPARENT} />
+      <main className=''>
+        <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
               backgroundImage: `linear-gradient(to right, #007722, #96D8BA)`,
               minHeight: 600,
@@ -86,20 +86,20 @@ export const DataAnalysisPage: NextPage = () => {
             
               <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>课程时长</h1>
+                  <h1 className='internship_banner_card_title'>课程时长</h1>
                   <div className='text-gray-600 text-sm'>5天时间，从Hirevue到经典BQ问题，快速掌握北美求职核心面试能力</div>
                 </div>
 
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>适合学员</h1>
-                  <div className='text-gray-600 text-sm'>Entry level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者</div>
+                  <h1 className='internship_banner_card_title'>适合学员</h1>
+                  <div className='internship_banner_card_content'>Entry level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者</div>
                 </div>
 
                 <div className='flex-1'>
-                  <h1 className='font-base font-bold mb-2'>求职方向</h1>
-                  <ul className='list-disc pl-6 text-sm'>
-                    <li>不限求职方向</li>
-                    <li>数据、金融、技术、软件开发等等方向均可报名</li>
+                  <h1 className='internship_banner_card_title'>求职方向</h1>
+                  <ul className='internship_banner_card_content list'>
+                    <li><span>不限求职方向</span></li>
+                    <li><span>数据、金融、技术、软件开发等等方向均可报名</span></li>
                   </ul>
                 </div>
               </div>
@@ -142,11 +142,6 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <FloatMenu 
-          className='fixed right-2 top-1/2' 
-          data={internshipMenusData} 
-          activeIndex={activeFloatMenuIndex}
-          onChange={onFloatMenuChange}/>
       </main>
 
       <Footer />

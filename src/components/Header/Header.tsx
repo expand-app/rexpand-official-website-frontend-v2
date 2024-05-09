@@ -1,17 +1,21 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import styles from './Header.module.css';
-import Button, { ButtonSize, ButtonType } from '../Button/Button';
+import Button, { ButtonColor, ButtonSize, ButtonType } from '../Button/Button';
 import Image from 'next/image';
 import whiteLogoImg from '@/assets/logo_white.svg';
 import greenLogoImg from '@/assets/logo_green.svg';
 import clsx from 'clsx';
 import JobConsultModal from '../JobConsultModal/JobConsultModal';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
   const [open, setOpen] = useState<boolean>(false);
   const [initialTheme, setInitialTheme] = useState<Theme>(theme);
   const [headerTheme, setHeaderTheme] = useState<Theme>(theme);
+
+  const router = useRouter();
+  const currentPath = router.pathname;
 
   let combinedClassName = `fixed w-full z-30 top-0 transition ${className ?? ''}`;
 
@@ -29,7 +33,6 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
     const handleScroll = () => {  
       const x = window.scrollX;
       const y = window.scrollY;
-      console.log(x, y);
 
       if (initialTheme === Theme.TRANSPARENT) {
         if (y > 500) {
@@ -38,7 +41,6 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
           setHeaderTheme(Theme.TRANSPARENT);
         }
       }
-      
     };  
   
     window.addEventListener('scroll', handleScroll);  
@@ -66,8 +68,12 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
 
       <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
         <ul className={clsx('list-reset lg:flex justify-center flex-1 items-center', styles.menu)}>
-          <li className="mr-3 relative">
-            <Link className={clsx('inline-block py-2 px-4 no-underline transition', styles.menu_item, {'text-white': headerTheme === Theme.TRANSPARENT})} href='/job/offer-guarantee'>求职项目</Link>
+          <li className={clsx('mr-3 relative', styles.menu_item_box)}>
+            <Link className={clsx(
+              'inline-block py-2 px-4 no-underline transition', 
+              styles.menu_item,
+              {'text-white': headerTheme === Theme.TRANSPARENT},
+              {[styles.menu_item_active]: currentPath === '/job/offer-guarantee'})} href='/job/offer-guarantee'>求职项目</Link>
             <div className={clsx('', styles.submenu_container)}>
               <ul className={clsx('', styles.submenu)}>
                 <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
@@ -80,13 +86,22 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
             </div>
           </li>
           <li className="mr-3">
-            <Link className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/success-cases">成功案例</Link>
+            <Link className={clsx(
+              'inline-block no-underline py-2 px-4 transition', 
+              {'text-white': headerTheme === Theme.TRANSPARENT},
+              {[styles.menu_item_active]: currentPath === '/success-cases'})} href="/success-cases">成功案例</Link>
           </li>
           <li className="mr-3">
-            <Link className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/free-resources">免费资源</Link>
+            <Link className={clsx(
+              'inline-block no-underline py-2 px-4 transition', 
+              {'text-white': headerTheme === Theme.TRANSPARENT},
+              {[styles.menu_item_active]: currentPath === '/free-resources'})} href="/free-resources">免费资源</Link>
           </li>
           <li className="mr-3">
-            <Link className={clsx('inline-block no-underline py-2 px-4 transition', {'text-white': headerTheme === Theme.TRANSPARENT})} href="/about">关于我们</Link>
+            <Link className={clsx(
+              'inline-block no-underline py-2 px-4 transition', 
+              {'text-white': headerTheme === Theme.TRANSPARENT},
+              {[styles.menu_item_active]: currentPath === '/about'})} href="/about">关于我们</Link>
           </li>
         </ul>
         <Button 
@@ -94,6 +109,7 @@ const Header = ({className, theme = Theme.TRANSPARENT}: Props) => {
           className={styles.consult_btn}
           type={ButtonType.SOLID} 
           size={ButtonSize.SMALL} 
+          color={ButtonColor.GREEN}
           onClick={handleJobConsultClick}></Button>
       </div>
 

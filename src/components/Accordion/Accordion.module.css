@@ -13,7 +13,7 @@
     margin-bottom: 0;
 }
 .active {
-    background-color: #E8FAF2;
+    background-color: rgb(232, 250, 242,0.5);
  
 }
 .title_container {
@@ -25,17 +25,15 @@
     line-height: 32px;
     border-left: 4px solid #008A27;
 
-    
     font-weight: 500;
     line-height: 22.4px;
 }
 
 .active > .content {
-    background-color: #EDF9F6;
+    background-color: rgb(237, 249, 246, 0.3);
     font-size: 16px;
     font-weight: 400;
     line-height: 27.2px;
-
 }
 .accordion_item > i {
     position: absolute;
@@ -54,11 +52,11 @@
 }
 
 .accordion_item > i::before {
-    transform: translate( 2px , 0 ) rotate( -45deg )
+    transform: translate( 2px , 0 ) rotate( -135deg )
 }
 
 .accordion_item > i::after {
-    transform: translate( -2px , 0 ) rotate( 45deg )
+    transform: translate( -2px , 0 ) rotate( 135deg )
 }
 .accordion_item > input[type='checkbox'] {
     position: absolute;
@@ -75,10 +73,10 @@
 }
 
 .accordion_item > input[type='checkbox']:checked ~ i:before {
-    transform: translate(2px, 0) rotate(45deg);
+    transform: translate(-2px, 0) rotate(-135deg);
 }
 .accordion_item > input[type='checkbox']:checked ~ i:after {
-    transform: translate(-2px, 0) rotate(-45deg);
+    transform: translate(2px, 0) rotate(135deg);
 }
 
 .title {
