@@ -117,6 +117,11 @@ body{
 .mb-60px{
     margin-bottom: 60px;
 }
+
+
+.w-p85 {
+    width: 85%;
+}
 .radius-8 {
     border-radius: 8px;
 }
@@ -130,6 +135,9 @@ body{
 
 .page-banner{
     height: 920px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .main {
     

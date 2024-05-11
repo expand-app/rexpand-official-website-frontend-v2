@@ -46,10 +46,10 @@ const Accordion = ({data, className}: Props) => {
                         ></input>
                     <i></i>
                     <div className={styles.title_container}>
-                        <h2 className={clsx('px-12 font-m',styles.title)}>{item.title}</h2>
+                        <h2 className={clsx('font-m',styles.title)}>{item.title}</h2>
                         <Image src={arrowDownImg} alt="展开/收起" width={20} height={20} className={styles.arrow_icon} />
                     </div>
-                    <div className={clsx('px-20 py-6 leading-6', styles.content)}>{item.content}</div>
+                    <div className={clsx('py-6', styles.content)}>{item.content}</div>
                 
                 
                 </li>;

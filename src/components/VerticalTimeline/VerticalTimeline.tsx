@@ -9,7 +9,7 @@ const VerticalTimeline = ({data,}: Props) => {
                 return <li key={item.title}>
                     <div className={clsx('', styles.timeline_content)}>
                     <h3 className={clsx('font-m',styles.title)}>{item.title}</h3>
-                    <ul className={clsx('leading-6 pl-6', styles.content)}>
+                    <ul className={clsx('', styles.content)}>
                         {item?.content?.map((contentItem, index)=>{
                             return <li key={index}>{contentItem}</li>
                         })}

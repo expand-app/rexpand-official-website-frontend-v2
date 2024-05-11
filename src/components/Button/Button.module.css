@@ -65,6 +65,8 @@
 
 .solid:hover {
     background-color: #008a27ee;
+
+    transform: scale(1.1);
 }
 
 .solid_white{

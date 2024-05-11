@@ -1,6 +1,16 @@
 .social_link {
     gap: 15px;
 }
+.social_link:hover {
+    
+}
 .icon {
 
+}
+
+.link {
+    transition: transform 0.25s ease;
+}
+.link:hover {
+    transform: scale(1.2);
 }

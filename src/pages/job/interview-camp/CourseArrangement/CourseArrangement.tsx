@@ -28,9 +28,9 @@ const CourseArrangement = ({data, className, }: Props) => {
                 <ul>
                     {data?.map((item, index)=>{
                         return <li key={item.id} className={clsx('flex flex-row cursor-pointer', styles.box, {[styles.active]: activeIndex === index})}
-                            onClick={()=>setActiveIndex(index)}
+                            onMouseEnter={()=>setActiveIndex(index)}
                             >
-                            <div className={clsx('text-primary-green', styles.day_title)}>{`第${numberToChinese(index+1)}天直播`}</div>
+                            <div className={clsx('', styles.day_title)}>{`第${numberToChinese(index+1)}天直播`}</div>
                             <div className='flex flex-row gap-2 items-start flex-1'>
                                 <Image src={circlePlayIconImg} alt='play' className='w-5 h-fit' style={{marginRight: 24}}/>
                                 <div className={clsx('')}>

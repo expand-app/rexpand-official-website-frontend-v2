@@ -1,5 +1,6 @@
 .header_container {
     height: 114px;
+    padding: 0 38px;
 }
 .menu {
     font-size: 16px;
@@ -23,13 +24,18 @@
     width: 100%;
     visibility: hidden;
 }
-
+.menu_item_box {
+    position: relative;
+}
 .menu_item_box:hover .menu_item::after {
     visibility: visible;
 }
 
 .submenu {
     /* border-top: 4px solid #008A27; */
+    
+    font-family: 'PingFang_Light';
+    
     background-color: rgba(255,255,255,0.8);
     margin-top:38px;
     text-align: center;
@@ -64,7 +70,7 @@
 }
 
 .consult_btn{
-    font-size: 18px;
+    font-size: 18px !important;
     font-weight: 400;
     line-height: 25.2px;
     

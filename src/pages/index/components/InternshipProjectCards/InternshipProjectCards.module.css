@@ -13,24 +13,41 @@
     /* background-color: green; */
     display: flex;
     position: relative;
-    height: 300px;
+    height: 351px;
     background-repeat: no-repeat;
-    background-size: cover;
+   
     align-items: center;
     justify-content: center;
     text-align: center;
     color:#fff;
+
+
+
     border-bottom: 2px solid #008A27;
+    background-size: 100%;
+    transition: background-size 0.5s ease;
 }
+
+.card:hover .header .title,
+.card:hover .header .subtitle{
+    transform: scale(1.1);
+}
+
+.card:hover .header {
+    background-size: 110%;
+}
+
 
 .header .title {
     font-size: 36px;
+    transition: all 0.25s ease;
 }
 
 .header .subtitle {
-    font-size: 16px;
-    
     font-family: 'PingFang_Light';
+    font-size: 16px;
+    font-family: 'PingFang_Light';
+    transition: all 0.25s ease;
 }
 
 
@@ -38,7 +55,7 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 27.2px;
-    min-height:293px;
+    min-height:300px;
     padding: 30px 30px 58px 30px;
     background-color: #fff;
 }

@@ -169,7 +169,7 @@ export const DataAnalysisPage: NextPage = () => {
               backgroundPosition: '0 0',
             }}>
            
-            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-3/4'>
+            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-p85'>
               <div className="z-10 pt-0 flex-1">
                   <h1 className={clsx(styles.banner_title)}>全栈开发实习</h1>
                   <h2 className={clsx(styles.banner_subtitle)}>从前后端编写到云部署的全流程，使用JavaScript、Python、Java，以及MySQL和PostgreSQL数据库，依托AWS和Azure平台，提供全面的现代应用开发经验</h2>
@@ -184,7 +184,6 @@ export const DataAnalysisPage: NextPage = () => {
               <VideoCard 
                 image={bannerVideoImage} 
                 videoPath='https://xxx.com/test.mp4'
-                className='flex-1'
                 onClick={()=>{
                   setVideoModalPath('https://xxx.com/test.mp4');
                   setVideoModalOpen(true);
@@ -212,6 +211,7 @@ export const DataAnalysisPage: NextPage = () => {
               </div> */}
             </div>
             <BannerOverlayCard
+              cardClassName='w-p85'
               data={[{
                 id: 1,
                 title: '项目时长',

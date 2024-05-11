@@ -24,7 +24,7 @@ const VideoModal = ({
           <div className={clsx("", styles.modal_content)} style={{backgroundColor: 'transparent'}}>
             <button
               onClick={handleCloseClick}
-              className="absolute top-4 right-4 flex w-5 h-5 hover:scale-105 focus:outline-none z-10">
+              className="absolute top-4 right-4 flex w-7 h-7 hover:scale-105 focus:outline-none z-10">
               <Image src={closeImg} alt="关闭" />
             </button>
             <div>

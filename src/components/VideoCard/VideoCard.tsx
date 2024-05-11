@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import playIconImg from '@/assets/icon_video_play.png';
 
 const VideoCard = ({image, description, videoPath, className, onClick}: Props) => {
-    const combinedClassName = clsx('rounded-xl overflow-visible shadow-md relative bg-white', className, styles.video_card);
+    const combinedClassName = clsx('rounded-xl overflow-visible shadow-md relative', className, styles.video_card);
     return (
         <div className={combinedClassName} onClick={()=>onClick?.()}>
             <Image src={image} alt='点击播放' />

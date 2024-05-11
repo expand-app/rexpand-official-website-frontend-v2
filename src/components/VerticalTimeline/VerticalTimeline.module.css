@@ -6,7 +6,9 @@
     border-left: 1px #008A27 dashed;
     margin: 0 0 0 20px;
 }
-
+.timeline > li:last-child{
+    box-sizing: border-box;
+}
 .timeline_content {
     position: relative;
     top: -24px;
@@ -16,10 +18,11 @@
     content: '';
     width: 12px;
     height: 12px;
-    background: #008A27;
+    background: #FAFEFC;
     position: absolute;
     left: -6px;
     top: 24px;
+    border:2px solid #008A27;
     border-radius: 100%;
 }
 
@@ -37,6 +40,7 @@
     line-height: 27.2px;
     color: #333333;    
     opacity: 0.7;
+    padding-left: 3.6rem;
 }
 
 .content > li {

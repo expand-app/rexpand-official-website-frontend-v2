@@ -17,21 +17,23 @@ const InternshipProjectCards = ({data}: Props) => {
         <div className={`${styles.cards} flex flex-col md:flex-row`}>
             {data?.map((item, index)=>{
                 return <div key={index} className={`${styles.card} flex-1`}>
-                    <div className={`${styles.header}`}
-                        style={{
-                            backgroundImage: `url(${headerImgs?.[index]?.src})`
-                        }}>
+                        <Link href={item.link}>
+                            <div className={`${styles.header}`}
+                                style={{
+                                    backgroundImage: `url(${headerImgs?.[index]?.src})`
+                                }}>
 
-                        <div>
-                            <div className={clsx('mb-2', styles.title)}>{item.title}</div>
-                            <div className={clsx('text-xs', styles.subtitle)}>{item.subtitle}</div>
-                        </div>
-                        <Link href={item.link} className={`${styles.more} text-xs`}>了解更多 <span><Image alt="" src={require('@/assets/icon_arrow_r.png')} width={8} height={14} style={{width:8, height:14}}/></span></Link>
-                    </div>
-                    <div className={`${styles.footer} text-xs`}>
-                        {item.description}
-                    </div>
-                </div>;
+                                <div>
+                                    <div className={clsx('mb-2', styles.title)}>{item.title}</div>
+                                    <div className={clsx(styles.subtitle)}>{item.subtitle}</div>
+                                </div>
+                                <div className={`${styles.more} text-xs`}>了解更多 <span><Image alt="" src={require('@/assets/icon_arrow_r.png')} width={8} height={14} style={{width:8, height:14}}/></span></div>
+                            </div>
+                            <div className={`${styles.footer} text-xs`}>
+                                {item.description}
+                            </div>
+                        </Link>
+                    </div>;
             })}
         </div>
     );

@@ -69,7 +69,7 @@ export const DataAnalysisPage: NextPage = () => {
               backgroundPosition: 'center',
             }}>
            
-            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center w-3/4'>
+            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center w-p85'>
               <div className="z-10 pt-0 flex-1">
                   <h1 className='text-white mb-6 banner_text font-sb'>面试集训营</h1>
                   <h2 className='text-base text-white mb-1 font-m font-22 font-w500 mb-7px'>只要99元，5天时间全面掌握北美面试技巧</h2>
@@ -86,6 +86,7 @@ export const DataAnalysisPage: NextPage = () => {
               </div>
             </div>
             <BannerOverlayCard 
+              cardClassName='w-p85'
               data={[{
                 id: 1,
                 title: '课程时长',

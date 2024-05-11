@@ -2,11 +2,11 @@ import clsx from 'clsx';
 import React from 'react';
 import styles from './BannerOverlayCard.module.css';
 
-const BannerOverlayCard = ({data, className}: Props) => {
+const BannerOverlayCard = ({data, className, cardClassName}: Props) => {
     return (
         <div className={clsx('', className, styles.container)}>
             <div className={styles.bg}></div>
-            <div className={styles.card}>
+            <div className={clsx(styles.card, cardClassName)}>
 
                 {data?.map((item: BannerOverlayCardData)=>{
                     if (typeof(item?.content) === 'string' ) {
@@ -34,6 +34,7 @@ export default BannerOverlayCard;
 export interface Props {
     data: BannerOverlayCardData[],
     className?: string;
+    cardClassName?: string;
 }
 
 interface BannerOverlayCardData {

@@ -166,7 +166,7 @@ export const DataAnalysisPage: NextPage = () => {
               backgroundPosition: '0 0',
             }}>
            
-            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-3/4'>
+            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-p85'>
               <div className="z-10 pt-0 flex-1">
                   <h1 className={clsx(styles.banner_title)}>量化投资实习</h1>
                   <h2 className={clsx(styles.banner_subtitle)}>使用Python进行量化风险管理和投资策略，包括VaR模型评估和战略资产配置建议</h2>
@@ -179,7 +179,6 @@ export const DataAnalysisPage: NextPage = () => {
                       text="咨询项目" />
               </div>
               <VideoCard 
-                className='flex-1'
                 image={bannerVideoImage} 
                 videoPath='https://xxx.com/test.mp4'
                 onClick={()=>{
@@ -209,6 +208,7 @@ export const DataAnalysisPage: NextPage = () => {
               </div> */}
             </div>
             <BannerOverlayCard
+              cardClassName='w-p85'
               data={[{
                 id: 1,
                 title: '项目时长',

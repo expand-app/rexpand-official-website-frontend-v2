@@ -41,7 +41,6 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
 
   const router = useRouter();
   const currentPath = router.pathname;
-  console.log('currentPath',currentPath, jobMenuLinks.indexOf(currentPath));
   let combinedClassName = `fixed w-full z-30 top-0 transition ${className ?? ''}`;
 
   if (headerTheme === Theme.TRANSPARENT) {
@@ -212,7 +211,7 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
   }
   
   return <nav className={combinedClassName} onMouseOver={onMouseEnterParent} onMouseOut={onMouseOutParent}>
-    <div className={clsx("w-full  container mx-auto flex flex-wrap items-center justify-between mt-0", styles.header_container)}>
+    <div className={clsx("w-full mx-auto flex flex-wrap items-center justify-between mt-0", styles.header_container)}>
       <div className="pl-4 flex items-center">
         <Link href="/" className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" >
           <Image src={headerTheme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo'/>
@@ -246,22 +245,25 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
               </ul>
             </div>
           </li>
-          <li className="mr-3">
+          <li className={clsx("mr-3", styles.menu_item_box)}>
             <Link className={clsx(
               'inline-block no-underline py-2 px-4 transition', 
               {'text-white': headerTheme === Theme.TRANSPARENT},
+              styles.menu_item,
               {[styles.menu_item_active]: currentPath === '/success-cases'})} href="/success-cases">成功案例</Link>
           </li>
-          <li className="mr-3">
+          <li className={clsx("mr-3", styles.menu_item_box)}>
             <Link className={clsx(
               'inline-block no-underline py-2 px-4 transition', 
               {'text-white': headerTheme === Theme.TRANSPARENT},
+              styles.menu_item,
               {[styles.menu_item_active]: currentPath.startsWith('/free-resources')})} href="/free-resources">免费资源</Link>
           </li>
-          <li className="mr-3">
+          <li className={clsx("mr-3", styles.menu_item_box)}>
             <Link className={clsx(
               'inline-block no-underline py-2 px-4 transition', 
               {'text-white': headerTheme === Theme.TRANSPARENT},
+              styles.menu_item,
               {[styles.menu_item_active]: currentPath === '/about'})} href="/about">关于我们</Link>
           </li>
         </ul>

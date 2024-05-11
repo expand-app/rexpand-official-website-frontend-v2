@@ -4,6 +4,7 @@
 }
 .card {
     padding: 27px 27px 25px 27px;
+    border-radius: 8px;
 }
 
 .title {

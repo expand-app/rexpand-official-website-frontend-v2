@@ -151,7 +151,7 @@ function PCView() {
                     <div className="pt-20" style={{
                         backgroundImage: `url(${greenGradientBgImg.src})`,
                         backgroundRepeat:'no-repeat',
-                        backgroundSize: '100% auto',
+                        backgroundSize: 'cover',
                     }
                     }>
                         <div className="container mx-auto">
