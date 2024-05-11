@@ -4,18 +4,18 @@
     bottom:0;
     user-select: none; */
     height: auto;
-    max-width: 30vw;
+    
 }
 
 .banner_overlay {
     position: absolute;
-    left:0;
-    bottom:0;
+    bottom: -160px;
+
 }
 
 .count_down_num {
     font-family: 'RobotoCondensed';
-    background: rgba(255, 255, 255,0.5);
+    background: rgba(255, 255, 255);
     border-radius: 4px;
     width: 23px;
     height: 23px;

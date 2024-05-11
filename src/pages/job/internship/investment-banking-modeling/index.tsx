@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from 'react';
+import React, { ReactElement,  useState, useRef, useEffect } from 'react';
 import Footer from "@/components/Footer/Footer";
 import Header, { Theme } from "@/components/Header/Header";
 import { NextPage } from "next";
@@ -11,32 +11,124 @@ import VideoCard from '@/components/VideoCard/VideoCard';
 import bannerVideoImage from '@/assets/job/internship/data-analysis/banner_video.png';
 import introImage from '@/assets/job/internship/data-analysis/intro.png';
 import sightImage from '@/assets/job/internship/data-analysis/sight.png';
-import arrowUpImg from '@/assets/icon_arrow_up.png';
-import consultImg from '@/assets/icon_consult.png';
-import sendImg from '@/assets/icon_send.png';
-import rocketImg from '@/assets/icon_rocket.png';
-
 import clsx from 'clsx';
 import Accordion from '@/components/Accordion/Accordion';
 import { dataAnalysisFAQData, dataAnalysisOutlineData } from '@/data/data_analysis_internship';
 import FloatMenu from '@/components/FloatMenu/FloatMenu';
-import { internshipMenusData } from '@/data/internship';
+import { internshipMenusData, investmentBankingModelingSightViewData } from '@/data/internship';
 import Outline from '@/pages/job/components/Outline/Outline';
 import { fullStackDevFAQData, fullStackDevOutlineData } from '@/data/full_stack_dev_internship';
 import { investmentBankingModelingFAQData, investmentBankingModelingOutlineData } from '@/data/investment_banking_modeling_internship';
 import VideoModal from '@/components/VideoModal/VideoModal';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
+import _ from 'lodash';
+import SightView from '../../components/SightView/SightView';
+import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 
 export const DataAnalysisPage: NextPage = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
   
-  const onFloatMenuChange = (newIndex: number) => {
-    setActiveFloatMenuIndex(newIndex)
+  const disableObserver = useRef<boolean>(false);
+  const introAnchorRef = useRef<HTMLDivElement>(null!);
+  const sightAnchorRef = useRef<HTMLDivElement>(null!);
+  const outlineAnchorRef = useRef<HTMLDivElement>(null!);
+  const faqAnchorRef = useRef<HTMLDivElement>(null!);
 
+  const onFloatMenuChange = (newIndex: number) => {
+    disableObserver.current = true;
+    setActiveFloatMenuIndex(newIndex);
     
+    if ( newIndex === 0) {
+      introAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    } else if ( newIndex === 1) {
+      sightAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    } else if ( newIndex === 2) {
+      outlineAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    } else if ( newIndex === 3) {
+      faqAnchorRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    setTimeout(()=>{
+      disableObserver.current = false;
+    }, 1000);
   };
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: '0px', 
+      threshold: 0.5, 
+    };
+    const debouncedSetActiveFloatMenuIndex = _.debounce(setActiveFloatMenuIndex, 200);
+    const introObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(0);
+        }
+      });
+    }, options);
+
+    const sightObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(1);
+        }
+      });
+    }, options);
+
+    const outlineObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(2);
+        }
+
+      });
+    }, options);
+
+    const faqObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!disableObserver.current && entry.isIntersecting === true) {
+          debouncedSetActiveFloatMenuIndex(3);
+        }
+      });
+    }, options);
+
+    if (introAnchorRef.current) {
+      introObserver.observe(introAnchorRef.current);
+    }
+    if (sightAnchorRef.current) {
+      sightObserver.observe(sightAnchorRef.current);
+    }
+    if (outlineAnchorRef.current) {
+      outlineObserver.observe(outlineAnchorRef.current);
+    }
+    if (faqAnchorRef.current) {
+      faqObserver.observe(faqAnchorRef.current);
+    }
+
+    return () => {
+      if (introAnchorRef.current) {
+        introObserver.unobserve(introAnchorRef.current);
+      }
+
+      if (sightAnchorRef.current) {
+        sightObserver.unobserve(sightAnchorRef.current);
+      }
+
+      if (outlineAnchorRef.current) {
+        outlineObserver.unobserve(outlineAnchorRef.current);
+      }
+
+      if (faqAnchorRef.current) {
+        faqObserver.unobserve(faqAnchorRef.current);
+      }
+      
+    };
+  }, [introAnchorRef, sightAnchorRef, outlineAnchorRef, faqAnchorRef]);
+
+
 
   return (
     <div>
@@ -95,7 +187,7 @@ export const DataAnalysisPage: NextPage = () => {
                   setVideoModalOpen(true);
                 }}/>
 
-              <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
+              {/* <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
                 <div className='flex-1'>
                   <h1 className='internship_banner_card_title'>项目时长</h1>
                   <div className='internship_banner_card_content'>10周 / 20小时</div>
@@ -114,11 +206,32 @@ export const DataAnalysisPage: NextPage = () => {
                     <li><span>提升财务建模能力和业务分析能力</span></li>
                   </ul>
                 </div>
-              </div>
+              </div> */}
             </div>
+            <BannerOverlayCard
+              data={[{
+                id: 1,
+                title: '项目时长',
+                content: '10周 / 20小时',
+              },{
+                id: 2,
+                title: '适合学员',
+                content: '求职投行中后台或金融方向且缺少美国实习经验的留学生',
+              },{
+                id: 3,
+                title: '项目特色',
+                content: [
+                  '和项目经理一起参与公司项目', 
+                  '进行财务预算模型和公司估值模型的搭建',
+                  '提升财务建模能力和业务分析能力',
+                ],
+              }]}
+              className={clsx("",styles.banner_overlay)} />
+
         </div>
 
         <div className={clsx('bg-white section internship_intro_section')}>
+          <div ref={introAnchorRef} className='internship_section_anchor'></div>
           <div className='container mx-auto'>
             <SectionTitle title='实习介绍' className='internship_intro_title'/>
             <div className='flex flex-col md:flex-row h-96'>
@@ -133,55 +246,23 @@ export const DataAnalysisPage: NextPage = () => {
           </div>
         </div>
 
-        <div className='bg-white section internship_sight_section overflow-auto'>
+        <div className='bg-white section internship_sight_section'>
+          <div ref={sightAnchorRef} className='internship_section_anchor'></div>
           <SectionTitle title='项目亮点' className='internship_sight_title'/>
           <div style={{
             backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
-            padding: '38px 0 50px 0',
+            padding: '72px 0 58px 0',
           }}>
 
 
-<div className='container mx-auto'>
+        <div className='container mx-auto'>
               <div className='flex flex-col md:flex-row h-96'>
                 
                 <div className='flex justify-end'>
                   <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
                 </div>
                 
-                <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
-                  <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
-                      <Image src={arrowUpImg} alt='增加经验' width={33} />
-                      <h1 className='sight_title'>增加经验</h1>
-                      <div className='sight_subtitle'>简历上一份实习/全职工作经验</div>
-                    </div>
-                  </div>
-
-                  <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
-                      <Image src={consultImg} alt='全流程顾问式服务' width={33} />
-                      <h1 className='sight_title'>全流程顾问式服务</h1>
-                      <div className='sight_subtitle'>帮助过上百名Entry Level金融专业的同学入行</div>
-                    </div>
-                  </div>
-
-                  <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
-                      <Image src={sendImg} alt='求职无忧' width={33} />
-                      <h1 className='sight_title'>求职无忧</h1>
-                      <div className='sight_subtitle'>帮助想转行做FP&A方向的同学添加相关简历经验</div>
-                    </div>
-                  </div>
-
-                  <div className={clsx('w-full md:w-1/2')}>
-                    <div className={clsx('rounded-md bg-white flex flex-col py-5 px-6', styles.sight_item)}>
-                      <Image src={rocketImg} alt='技能提升' width={33} />
-                      <h1 className='sight_title'>技能提升</h1>
-                      <div className='sight_subtitle'>真实业务场景下学习财务建模核心技能</div>
-                    </div>
-                  </div>
-
-                </div>
+                <SightView data={investmentBankingModelingSightViewData}/>
               </div>
 
             </div>
@@ -191,6 +272,7 @@ export const DataAnalysisPage: NextPage = () => {
 
 
         <div className='bg-white section internship_outline_section'>
+          <div ref={outlineAnchorRef} className='internship_section_anchor'></div>
           <div className='container mx-auto' >
 
             <SectionTitle title='项目大纲' className='internship_outline_title' />
@@ -203,6 +285,7 @@ export const DataAnalysisPage: NextPage = () => {
 
 
         <div className='bg-white section internship_faq_section'>
+          <div ref={faqAnchorRef} className='internship_section_anchor'></div>
           <div className='container mx-auto'>
             <SectionTitle title='常见问题' className='internship_faq_title'/>
 

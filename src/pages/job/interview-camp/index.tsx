@@ -6,6 +6,7 @@ import Head from "next/head";
 import styles from './index.module.css';
 import Image from 'next/image';
 import bannerRightImage from '@/assets/interview-camp/banner_right.png';
+import bannerBgImage from '@/assets/interview-camp/banner_bg.png';
 import Button, { ButtonSize, ButtonType } from '@/components/Button/Button';
 import courceBgImg from '@/assets/interview-camp/course_bg.png';
 import clsx from 'clsx';
@@ -17,6 +18,7 @@ import { daysToNow, formatDate } from '@/utils/Utils';
 import { courceArrangementData, interviewCampFAQData, whyJoinData } from '@/data/interview_camp';
 import WhyJoinList from './WhyJoinList/WhyJoinList';
 import CourseArrangement from './CourseArrangement/CourseArrangement';
+import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 
 const nextCourceTime = new Date('2024-05-12');
 
@@ -62,10 +64,9 @@ export const DataAnalysisPage: NextPage = () => {
       <main className=''>
         <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
             style={{
-              backgroundImage: `linear-gradient(to right, #007722, #96D8BA)`,
-              minHeight: 600,
-              backgroundSize: '100% auto',
-              backgroundPosition: '0 0',
+              backgroundImage: `url(${bannerBgImage.src})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
             }}>
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center w-3/4'>
@@ -83,27 +84,23 @@ export const DataAnalysisPage: NextPage = () => {
               <div className='flex-1'>
                 <Image src={bannerRightImage} alt="Banner" className={clsx('',styles.banner_img)}/>
               </div>
-            
-              <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2 -mb-32', styles.banner_overlay)}>
-                <div className='flex-1'>
-                  <h1 className='internship_banner_card_title'>课程时长</h1>
-                  <div className='text-gray-600 text-sm'>5天时间，从Hirevue到经典BQ问题，快速掌握北美求职核心面试能力</div>
-                </div>
-
-                <div className='flex-1'>
-                  <h1 className='internship_banner_card_title'>适合学员</h1>
-                  <div className='internship_banner_card_content'>Entry level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者</div>
-                </div>
-
-                <div className='flex-1'>
-                  <h1 className='internship_banner_card_title'>求职方向</h1>
-                  <ul className='internship_banner_card_content list'>
-                    <li><span>不限求职方向</span></li>
-                    <li><span>数据、金融、技术、软件开发等等方向均可报名</span></li>
-                  </ul>
-                </div>
-              </div>
             </div>
+            <BannerOverlayCard 
+              data={[{
+                id: 1,
+                title: '课程时长',
+                content: '5天时间，从Hirevue到经典BQ问题，快速掌握北美求职核心面试能力',
+              },{
+                id: 2,
+                title: '适合学员',
+                content: 'Entry level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者',
+              },{
+                id: 3,
+                title: '求职方向',
+                content: ['不限求职方向', '数据、金融、技术、软件开发等等方向均可报名'],
+              }]}
+              className={clsx("",styles.banner_overlay)} />
+
         </div>
        
 
@@ -128,7 +125,7 @@ export const DataAnalysisPage: NextPage = () => {
         }}>
           <div className='container mx-auto w-2/3'>
             <SectionTitle 
-                    title='面试集训营 课程安排' 
+                    title={<><span style={{color: '#008A27'}}>面试集训营</span> 课程安排</>} 
                     className='mb-12'/>
             
             <CourseArrangement data={courceArrangementData}/>

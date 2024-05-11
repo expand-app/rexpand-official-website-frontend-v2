@@ -33,6 +33,10 @@
 .section{
     padding-bottom:87px;
 }
+.internship_project_section {
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
 .section_title{
     margin-top: 66px;
     margin-bottom: 90px;
@@ -40,4 +44,13 @@
 
 .interview_camp_cards{
     margin-bottom: 160px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .internship_project_section {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
 }

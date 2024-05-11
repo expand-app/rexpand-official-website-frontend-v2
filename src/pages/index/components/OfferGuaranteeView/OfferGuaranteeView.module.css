@@ -1,0 +1,46 @@
+.m_cardlist {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 46px;
+    width: 100%;
+}
+
+.m_card {
+    border: 1px solid #008A27;
+    border-radius: 4px;
+    padding: 20px 0;
+}
+
+.m_card.active {
+    background: linear-gradient(180deg, #E8FAF2 0%, #FFFFFF 100%);
+}
+.m_card.active .m_offer_img{
+    display: block;
+}
+.m_offer_img {
+    width: 100%;
+    display: none;
+}
+
+.m_title_box{
+    padding: 0 16px 0 16px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.m_title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 25.2px;
+    text-align: left;
+
+}
+
+.m_subtitle {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16.8px;
+    text-align: left;
+}

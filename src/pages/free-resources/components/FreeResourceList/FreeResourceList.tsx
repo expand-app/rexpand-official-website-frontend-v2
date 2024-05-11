@@ -12,7 +12,9 @@ const FreeResourceList = ({data}: Props) => {
                 return <div key={item.id} className={clsx('lg:w-1/3 sm:w-1/2', styles.card)}>
                     <Link href={`/free-resources/${item.id}`}>
                         <div className="rounded relative  bg-white p-1 cursor-pointer">
-                            <Image src={item.image} alt={item.title} className='w-full'/>
+                            <div className={styles.img_container}>
+                                <Image src={item.image} alt={item.title} className={clsx('w-full', styles.img)}/>
+                            </div>
                             <div className={styles.bottom}>
                                 <div className={clsx('h-12 font-m ', styles.title)}>{item.title}</div>
                                 <div className={clsx('', styles.summary_container)}>

@@ -30,7 +30,6 @@ const Accordion = ({data, className}: Props) => {
     };
 
     const onTitleEnter = (index: number)=>{
-        console.log('eeee')
         setCheckedIndexes([index]);
     };
 

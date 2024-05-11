@@ -1,19 +1,38 @@
 .cards {
-    
+    gap:18px;
 }
 
 .card {
-    background-color: #fff;
+    /* background-color: #fff; */
     border-radius: 8px;
     overflow: hidden;
+    
 }
 
 .header {
     /* background-color: green; */
+    display: flex;
+    position: relative;
     height: 300px;
     background-repeat: no-repeat;
     background-size: cover;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color:#fff;
+    border-bottom: 2px solid #008A27;
 }
+
+.header .title {
+    font-size: 36px;
+}
+
+.header .subtitle {
+    font-size: 16px;
+    
+    font-family: 'PingFang_Light';
+}
+
 
 .footer {
     font-size: 16px;
@@ -21,9 +40,11 @@
     line-height: 27.2px;
     min-height:293px;
     padding: 30px 30px 58px 30px;
+    background-color: #fff;
 }
 
 .more {
+    font-family: 'PingFang_Light';
     position: absolute;
     right:0;
     bottom: 0;
@@ -32,5 +53,47 @@
     padding: 9px 12px 9px 27px;
     font-size: 16px;
     font-weight: 300;
+    box-sizing: border-box;
 
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .cards {
+        gap:12px;
+    }
+    .card {
+        /* background-color: #fff; */
+        /* border-radius: 4px; */
+    }
+    .header{
+        height: 124px;
+    }
+
+    .header .title {
+        text-align: left;
+        font-size: 24px;
+        font-weight: 500;
+    }
+    
+    .header .subtitle {
+        font-weight: 12px;
+        font-weight: 300;
+    }
+
+    .footer {
+        font-size: 12px;
+        font-weight: 400;
+        line-height: 27.2px;
+        min-height:108px;
+        padding: 20px 16px;
+        background-color: #fff;
+    }
+
+    .more {
+        display: none;
+    }
 }

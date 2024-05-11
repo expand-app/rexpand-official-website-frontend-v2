@@ -24,6 +24,7 @@ const TeamMemberCard = ({data}: Props) => {
 }
 export default TeamMemberCard;
 
+
 export interface Props {
     data: MemberData;
 }

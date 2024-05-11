@@ -24,13 +24,23 @@
 }
 .section2 {
     padding-top: 166px;
-    padding-bottom: 80px;   
+    padding-bottom: 110px;   
 }
 .section3 {
-    padding-top:220px;
-    padding-bottom: 140px;   
+    padding-top:338px;
+    padding-bottom: 187px;  
+    background-size: cover;
 }
 .section4 {
     padding-top:114px;
     padding-bottom: 146px;   
+}
+
+.m_banner_title_img {
+    width: 60%;
+}
+.m_banner_subtitle {
+    font-family: 'PingFang_Medium';
+    font-size: 20px;
+    font-weight: 500;
 }

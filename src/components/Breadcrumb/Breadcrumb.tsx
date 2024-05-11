@@ -1,12 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './Breadcrumb.module.css';
+import clsx from 'clsx';
 
-export default function Breadcrumb({items}: Props) {
+export default function Breadcrumb({items, className}: Props) {
     if (!items) {
         return null;
     }
-    return <nav className="text-sm" aria-label="Breadcrumb">
+    const combinedClass = clsx('', className);
+
+    return <nav className={combinedClass} aria-label="Breadcrumb">
         <span>您所在的位置是：</span>
         <ol className="inline-flex">
             {items?.map((item, index)=>{
@@ -26,6 +29,7 @@ export default function Breadcrumb({items}: Props) {
 
 export interface Props {
     readonly items: BreadCrumbItem[];
+    className?: string;
 }
 
 export interface BreadCrumbItem {

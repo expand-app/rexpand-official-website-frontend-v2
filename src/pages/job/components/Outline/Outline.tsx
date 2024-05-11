@@ -23,7 +23,7 @@ const Outline = ({data, className}: Props) => {
         <div className={clsx('flex flex-col md:flex-row w-full', styles.outline)}>
             <ul className={clsx('md:w-72 flex flex-col gap-2', styles.subject_buttons)}>
                 {data?.subjects?.map((item: OutlineSubjectData, index: number)=>{
-                    let combinedClassName = clsx('rounded-md py-3 px-4 flex flex-row items-center', styles.subject_button);
+                    let combinedClassName = clsx('rounded-md flex flex-row items-center', styles.subject_button);
                     if (index === activeIndex) {
                         combinedClassName = clsx(combinedClassName, styles.active);
                     }

@@ -12,6 +12,7 @@
     cursor: pointer;
     background-color: #F7FCFA;
     color: #008A27;
+    padding: 25px 22px;
 }
 .subject_button.active {
     background-color: #008A27;

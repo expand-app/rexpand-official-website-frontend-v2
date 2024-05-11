@@ -30,3 +30,17 @@
     object-fit: cover; 
     height: 708px;
 }
+
+.m_banner_container{
+}
+.m_banner_img_box {
+    position:absolute;
+    width: 100%; 
+    object-fit: cover; 
+    height: 750px;
+}
+
+.m_banner_img {
+    width: 100%;
+    height: auto;
+}

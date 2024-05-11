@@ -4,6 +4,7 @@
 
 .card {
     padding:19.5px;
+    overflow: hidden;
 }
 .title {
     font-size: 16px;
@@ -31,4 +32,15 @@
 
 .bottom {
     padding: 24px 24px 24px 24px;
+}
+.img {
+    transform: scale(1);
+    transition: all 0.25s ease;
+}
+.img_container {
+    border-radius: 4px;
+    overflow: hidden;
+}
+.card:hover .img{
+    transform: scale(1.1);
 }

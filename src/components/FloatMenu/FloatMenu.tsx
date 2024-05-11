@@ -1,10 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './FloatMenu.module.css';
 import clsx from 'clsx';
 
 const FloatMenu = ({data, activeIndex, className, onChange}: Props) => {
-    const combinedClassName = clsx(styles.float_menu, className, 'flex flex-col gap-2');
+    const [visible, setVisible] = useState<boolean>(false);
+    const combinedClassName = clsx(styles.float_menu, className, 'flex flex-col', {[styles.show]: visible});
 
+    useEffect(() => {  
+        const handleScroll = () => {  
+          const x = window.scrollX;
+          const y = window.scrollY;
+    
+          if (y > 500) {
+            setVisible(true);
+          } else {
+            setVisible(false);
+          }
+        };  
+      
+        window.addEventListener('scroll', handleScroll);  
+      
+        return () => {  
+          window.removeEventListener('scroll', handleScroll);  
+        };  
+      }, []);
     
     return <div className={combinedClassName}>
         {data?.map((item, index)=>{

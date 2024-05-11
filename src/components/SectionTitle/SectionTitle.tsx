@@ -17,7 +17,7 @@ const SectionTitle = ({title, subtitle, className}: Props) => {
 export default SectionTitle;
 
 interface Props {
-    title: string;
+    title: string | JSX.Element;
     subtitle?: string;
     className?: string;
 }

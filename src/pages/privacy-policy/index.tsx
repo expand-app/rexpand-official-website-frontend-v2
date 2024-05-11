@@ -5,6 +5,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styles from './index.module.css';
 import Breadcrumb from '@/components/Breadcrumb/Breadcrumb';
+import clsx from 'clsx';
 
 export const PrivacyPolicyPage: NextPage = () => {
   return (
@@ -15,6 +16,7 @@ export const PrivacyPolicyPage: NextPage = () => {
           name="description"
           content="Learn more about My Company, our mission, and what we do."
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
         <meta property="og:title" content="About Us - My Company" />
         <meta
           property="og:description"
@@ -34,18 +36,22 @@ export const PrivacyPolicyPage: NextPage = () => {
         </script>
       </Head>
       <Header theme={Theme.LIGHT}/>
-      <main className='mt-24 mb-12'>
+      <main className='mt-24 mb-12' className={styles.main}>
         
-        <div className=" container mx-auto max-w-screen-lg px-4">
-          <Breadcrumb items={[{
-            title: '首页',
-            path: '/',
-          },{
-            title: '隐私政策',
-            path: '/privacy-policy',
-          }]}/>
-          <div className='bg-white px-12 py-12 mt-2'>
-            <h1 className='text-2xl text-center my-8'>欢迎来到Rexpand</h1>
+        <div className="container mx-auto max-w-screen-lg">
+          <div className={styles.breadcrumb_box}>
+            <Breadcrumb items={[{
+              title: '首页',
+              path: '/',
+            },{
+              title: '隐私政策',
+              path: '/privacy-policy',
+            }]} 
+            className={styles.breadcrumb}/>
+          </div>
+
+          <div className={clsx('', styles.box)} >
+            <h1 className='' className={styles.title}>欢迎来到Rexpand</h1>
 
             <div>
             “我们”，“我们的”，或“Rexpand”。我们尊重你的隐私，并承诺保护你的个人信息。以下隐私政策（“政策”）解释了我们如何收集、使用、披露和保护你通过我们的网站和服务提供的信息。<br />

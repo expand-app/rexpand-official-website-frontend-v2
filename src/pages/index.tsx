@@ -15,6 +15,8 @@ import InternshipProjectCards from "./index/components/InternshipProjectCards/In
 import InterviewCamp from "./index/components/InterviewCamp/InterviewCamp";
 import Link from "next/link";
 import Head from "next/head";
+import OfferGuarantee from "./project/offer-guarantee";
+import OfferGuaranteeView from "./index/components/OfferGuaranteeView/OfferGuaranteeView";
 
 export const HomePage: NextPage = () => {
 
@@ -25,6 +27,7 @@ export const HomePage: NextPage = () => {
           name="description"
           content="Learn more about My Company, our mission, and what we do."
           />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"></meta>
           <meta property="og:title" content="About Us - My Company" />
           <meta
           property="og:description"
@@ -67,8 +70,8 @@ export const HomePage: NextPage = () => {
               title='保Offer求职项目'
               subtitle='锁定心仪offer，拿不到Offer退款'/>
 
-            <VerticalTabs data={offerGuaranteeTabsData}/>
-            
+            <OfferGuaranteeView data={offerGuaranteeTabsData} />
+
             <Link href='/job/offer-guarantee' className="z-10">
               <Button 
                 type={ButtonType.BORDERED} 
@@ -81,11 +84,9 @@ export const HomePage: NextPage = () => {
         </div>
 
         <div 
-          className={clsx('bg-white relative section',styles.section)}
+          className={clsx('bg-white relative section',styles.section, styles.internship_project_section)}
           style={{
             backgroundImage: `url(${internshipProjectBgImg.src})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '100% auto',
           }}>
           
           <div className="container mx-auto overflow-auto">

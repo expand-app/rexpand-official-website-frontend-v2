@@ -1,16 +1,17 @@
 .pagination{
-
 }
 
 .page_indicator {
+    border-radius: 4px;
     cursor: pointer;
     background-color: rgba(255,255,255,0.3);
-    width: 1.3rem;
-    height: 1.5rem;
+    padding: 5px 10px;
     text-align:center;
     color:#fff;
+    line-height: 1.55rem;
+
 }
 
 .active {
-    background-color: rgba(255,255,255,0.3);
+    background-color: #008A27;
 }
