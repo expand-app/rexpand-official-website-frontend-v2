@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useScreen = () => {
-  const [screenType, setScreenType] = useState();
+  const [screenType, setScreenType] = useState<string>();
 
   useEffect(() => {
     setScreenType(getScreenType());

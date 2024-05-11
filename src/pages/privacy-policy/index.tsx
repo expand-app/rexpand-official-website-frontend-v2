@@ -36,7 +36,7 @@ export const PrivacyPolicyPage: NextPage = () => {
         </script>
       </Head>
       <Header theme={Theme.LIGHT}/>
-      <main className='mt-24 mb-12' className={styles.main}>
+      <main className={clsx('mt-24 mb-12',styles.main)}>
         
         <div className="container mx-auto max-w-screen-lg">
           <div className={styles.breadcrumb_box}>
@@ -51,7 +51,7 @@ export const PrivacyPolicyPage: NextPage = () => {
           </div>
 
           <div className={clsx('', styles.box)} >
-            <h1 className='' className={styles.title}>欢迎来到Rexpand</h1>
+            <h1 className={styles.title}>欢迎来到Rexpand</h1>
 
             <div>
             “我们”，“我们的”，或“Rexpand”。我们尊重你的隐私，并承诺保护你的个人信息。以下隐私政策（“政策”）解释了我们如何收集、使用、披露和保护你通过我们的网站和服务提供的信息。<br />

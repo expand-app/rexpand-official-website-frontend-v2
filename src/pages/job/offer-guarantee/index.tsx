@@ -85,7 +85,7 @@ function MobileView() {
                   <h1 className={clsx('text-4xl text-white z-10 mb-3 m-banner-text', styles.banner_title)}>保offer项目</h1>
                   <h2 className={clsx('text-base text-white opacity-70 z-10 m-banner-text2', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企Offer</h2>
 
-                  <Image src={require('@/assets/job/offer-guarantee/m_banner_img.png')} 
+                  <Image alt="" src={require('@/assets/job/offer-guarantee/m_banner_img.png')} 
                     style={{margin: '17px 0 32px 0'}}/>
                   <Button
                       className="z-10"

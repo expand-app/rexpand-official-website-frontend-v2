@@ -174,7 +174,7 @@ function MobileView () {
     </div>
 }
 
-function PCView({data, className}: Props) {
+function PCView() {
   return (
     <div>
       

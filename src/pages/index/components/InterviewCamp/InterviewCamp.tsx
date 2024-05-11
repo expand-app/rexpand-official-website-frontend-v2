@@ -20,13 +20,13 @@ const InterviewCamp = ({...props}: Props) => {
 function MobileView () {
     return <div className={styles.m_container}>
         <div>
-            <Image src={require('@/assets/home/m_interview_1.png')} className={styles.m_banner} />
+            <Image alt="" src={require('@/assets/home/m_interview_1.png')} className={styles.m_banner} />
         </div>
         <div>
-            <Image src={require('@/assets/home/m_interview_2.png')} className={styles.m_banner} />
+            <Image alt="" src={require('@/assets/home/m_interview_2.png')} className={styles.m_banner} />
         </div>
         <div>
-            <Image src={require('@/assets/home/m_interview_3.png')} className={styles.m_banner} />
+            <Image alt="" src={require('@/assets/home/m_interview_3.png')} className={styles.m_banner} />
         </div>
     </div>
 }

@@ -8,7 +8,7 @@ const SightView = ({data,}: Props) => {
     return (
         <div className='flex-1 flex leading-8 items-center flex-wrap content-center'>
             {data?.map((item)=>{
-                return <div className={clsx('w-full md:w-1/2 overflow-auto')}>
+                return <div key={item.title} className={clsx('w-full md:w-1/2 overflow-auto')}>
                     <div className={clsx('bg-white flex flex-col', styles.sight_item)}>
                         <Image src={item.image} alt={item.title} width={33} />
                         <h1 className='sight_title'>{item.title}</h1>

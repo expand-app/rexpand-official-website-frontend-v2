@@ -54,9 +54,9 @@ export const FreeResourceDetailPage: NextPage = () => {
             </Head>
             <div>
                  {isMobile?.()? 
-                <MobileView currentArticle={currentArticle}/>
+                <MobileView currentArticle={currentArticle || undefined}/>
                 :
-                  <PCView currentArticle={currentArticle}/>
+                  <PCView currentArticle={currentArticle || undefined}/>
                   }
             </div>
         </>
@@ -152,5 +152,5 @@ export default FreeResourceDetailPage;
 
 
 interface FreeResourceDetailPageProps {
-    currentArticle: FreeResourceData;
+    currentArticle?: FreeResourceData;
 }

@@ -64,7 +64,7 @@ function MobileView() {
                 <div className={`py-0 flex flex-col justify-center relative ${styles.m_banner_container}`}>
                     {/* <Image className={styles.banner_img} src={bannerImage} alt='Banner'/> */}
                     <div className={styles.m_banner_img_box}>
-                        <Image src={require('@/assets/success-cases/m_banner_img.png')} className={styles.m_banner_img}/>
+                        <Image alt="" src={require('@/assets/success-cases/m_banner_img.png')} className={styles.m_banner_img}/>
                     </div>
                     <div className="text-center z-10 pt-36">
                         <h1 className='font-m font-w600 font-48 text-white mb-20 z-10 m-banner-text'>看Claire如何斩获<br />上市公司FA offer</h1>

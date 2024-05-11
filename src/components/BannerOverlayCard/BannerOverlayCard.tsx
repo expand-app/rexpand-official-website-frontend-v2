@@ -15,7 +15,7 @@ const BannerOverlayCard = ({data, className}: Props) => {
                             <div className='internship_banner_card_content'>{item?.content}</div>
                         </div>;
                     } else if (Array.isArray(item?.content)){
-                        return <div className='flex-1'>
+                        return <div key={item?.id} className='flex-1'>
                             <h1 className='internship_banner_card_title'>{item?.title}</h1>
                             <ul className='internship_banner_card_content list'>
                             {item?.content?.map((contentItem)=>{

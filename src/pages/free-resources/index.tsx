@@ -87,7 +87,7 @@ function MobileView () {
     );
 }
 
-function PCView({data, className}: Props) {
+function PCView() {
     const [currentFilterIndex, setCurrentFilterIndex] = useState(0);
 
     const handleFilterChange = (index: number) => {
