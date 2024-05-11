@@ -45,3 +45,48 @@
 
     opacity: 0.6;
 }
+
+/* m */
+
+.m_footer {
+    background-color: #F9F8F8;
+    border-top:1px solid #eee;
+}
+
+.m_about_box {
+    padding: 0 22px;
+}
+
+.m_about_box > h1 {
+    font-family: 'PingFang_Medium';
+    font-size: 14px;
+    padding: 20px 0;
+}
+
+.m_qr_list {
+    gap: 40px;
+}
+
+.m_qr_list > li > img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 6px;
+}
+
+.m_qr_list > li > div {
+    font-size: 12px;
+}
+
+.m_social_links {
+    padding: 0 22px;
+    margin-top: 42px;
+    margin-bottom: 28px;
+}
+
+.m_copy_right{
+    background-color: #008A27;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    
+}
