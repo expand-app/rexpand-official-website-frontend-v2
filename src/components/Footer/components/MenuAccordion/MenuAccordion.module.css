@@ -59,8 +59,8 @@
     font-size: 14px;
   }
   .submenu_items a:hover {
-    background-color: #CDDC39;
-    color: #fff;
+    /* background-color: #CDDC39; */
+    /* color: #fff; */
   }
   .submenu_items.expand{
     /* height:min-content; */

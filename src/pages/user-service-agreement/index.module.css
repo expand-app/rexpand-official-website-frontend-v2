@@ -1,4 +1,64 @@
+.main {
+    margin-top: 130px;
+}
 
+.box {
+    background-color: #fff;
 
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28.8px;
+    text-align: left;
+
+    padding:  31px 60px 42px 60px;
+}
+.box h2{
+    font-weight: 600;
+    padding: 12px 0;
+}
+.title {
+    font-family: 'PingFang_Medium';
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 46.8px;
+    text-align: left;
+    text-align: center;
+
+    margin: 20px 0;
+
+}
+.breadcrumb_box {
+    padding: 9px 0;
+
+}
+.breadcrumb {
+}
 .content {
+}
+/* m */
+.m_main {
+    background-color: white;
+    padding-top: 63px;
+}
+.m_breadcrumb_box{
+    padding: 6px 0;
+    margin: 0 24px;
+    border-bottom: 1px solid #DADADA;
+    font-size: 16px;
+}
+.m_box {
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0 24px 40px 24px;
+}
+.m_box h2{
+    font-weight: 600;
+    padding: 6px 0;
+}
+.m_main .title {
+    font-family: 'PingFang_Medium';
+    font-size: 24px;
+    font-weight: 500;
+    margin:12px 0;
+    text-align: left;
 }
