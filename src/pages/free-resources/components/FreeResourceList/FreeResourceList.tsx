@@ -4,8 +4,54 @@ import Image, { StaticImageData } from 'next/image';
 import timeIconImg from '@/assets/icon_time.png';
 import clsx from 'clsx';
 import Link from 'next/link';
+import useScreen from '@/components/useScreen/useScreen';
 
-const FreeResourceList = ({data}: Props) => {
+const FreeResourceList = ({...props}: Props) => {
+    const { isMobile } = useScreen();
+   
+    return (
+        <div>
+            {isMobile?.()? 
+            <MobileView {...props} />
+            :
+            <PCView {...props} />
+            }
+        </div>
+    );
+}
+
+const MobileView = ({data}: Props) => {
+    return (
+        <div className={clsx('flex flex-wrap',styles.free_resource_list)}>
+            {data?.map((item)=>{
+                return <div key={item.id} className={clsx('lg:w-1/3 sm:w-1/2', styles.card)}>
+                    <Link href={`/free-resources/${item.id}`}>
+                        <div className="rounded relative  bg-white p-1 cursor-pointer">
+                            <div className={styles.img_container}>
+                                <Image src={item.image} alt={item.title} className={clsx('w-full', styles.img)}/>
+                            </div>
+                            <div className={styles.bottom}>
+                                <div className={clsx('h-12 font-m ', styles.title)}>{item.title}</div>
+                                <div className={clsx('', styles.summary_container)}>
+                                    <div className={clsx('opacity-60', styles.summary)}>
+                                    {item.summary}
+                                    </div>
+                                </div>
+                                <div className='flex flex-row items-center gap-2'>
+                                    <Image src={timeIconImg} alt='发布时间' />
+                                    <div className='opacity-60'>发布时间：{item.publishDate}</div>    
+                                </div>
+                            </div>
+                        </div>
+                    </Link>
+                </div>;
+            })}
+        </div>
+    );
+}
+
+
+const PCView = ({data}: Props) => {
     return (
         <div className={clsx('flex flex-wrap',styles.free_resource_list)}>
             {data?.map((item)=>{

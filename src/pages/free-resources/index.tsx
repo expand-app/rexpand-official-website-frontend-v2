@@ -63,19 +63,18 @@ function MobileView () {
 
     return (
        <div>
-         
         <main className={clsx('m-main', styles.m_main)}>
             <div className={styles.page}>
                 <Header theme={Theme.LIGHT}/>
                     
                 <div className='container mx-auto m-section'>
-                    <div className='pl-2 overflow-auto'>
+                    <div className='py-24px px-20px'>
                         <LinkFilter 
-                            className={styles.filter}
                             current={currentFilterIndex} 
-                            data={['全部','求职规划','面试技巧', '行业知识']} onChange={handleFilterChange}/>
+                            data={['全部','求职规划','面试技巧', '行业知识']} 
+                            onChange={handleFilterChange}/>
                     </div>
-                    <div className='pb-12'>
+                    <div>
                         <FreeResourceList data={freeResourceListData} />
                     </div>
                 </div>
