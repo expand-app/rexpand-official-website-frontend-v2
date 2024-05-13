@@ -7,6 +7,7 @@ import styles from './index.module.css';
 import Image from 'next/image';
 import bannerRightImage from '@/assets/interview-camp/banner_right.png';
 import bannerBgImage from '@/assets/interview-camp/banner_bg.png';
+import mBannerBgImage from '@/assets/interview-camp/m_banner_bg.png';
 import Button, { ButtonRadius, ButtonSize, ButtonType } from '@/components/Button/Button';
 import courceBgImg from '@/assets/interview-camp/course_bg.png';
 import clsx from 'clsx';
@@ -83,7 +84,7 @@ export const MobileView = () => {
       <main className=''>
         <div className={`${styles.m_banner_container} internship_banner_container flex flex-col items-center relative`}
             style={{
-              backgroundImage: `url(${bannerBgImage.src})`,
+              backgroundImage: `url(${mBannerBgImage.src})`,
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}>

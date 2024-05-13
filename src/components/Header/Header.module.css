@@ -96,4 +96,77 @@
 
 .m_header_container {
     height: 45px;
+    width: 100vw;
+
+}
+
+.m_menu_box {
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100vw;
+    height: 100vh;
+    color: #1C1C1E;
+    display: flex;
+    flex-direction: row;
+    /* display: none; */
+    visibility: hidden;
+    z-index: 8;
+    overflow-y: auto;
+}
+.m_menu_box.open {
+    /* display: block; */
+    visibility: visible;
+}
+
+.m_menu_content {
+    margin-top: 45px;
+    background-color: #fff;
+    width: 100%;
+    height: fit-content;
+    min-height: 100%;
+
+    
+}
+
+.m_menu {
+    
+}
+.m_menu > li > a {
+    font-family: 'PingFang_Medium';
+    display: inline-block;
+    padding: 20px 22px;
+    color: #1C1C1E;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0px 1px 0px 0px rgba(217, 217, 217, 0.40);
+    width: 100%;
+}
+.m_menu > li > a > i{
+    float: right;
+}
+
+.m_menu > li > ul{
+    display: none;
+}
+
+.m_menu > li > ul > li > a {
+    width: 100%;
+    display: inline-block;
+    padding: 20px 30px;
+    background: #F9F8F8;
+    box-shadow: 0px 1px 0px 0px rgba(217, 217, 217, 0.40);
+}
+
+.m_menu > li.m_expand > ul{
+    display: block;
+}
+
+.m_consult_btn {
+    width: 90px;
+    height: 33px;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    margin-right: 16px;
 }

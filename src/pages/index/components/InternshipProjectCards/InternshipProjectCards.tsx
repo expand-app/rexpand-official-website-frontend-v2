@@ -8,11 +8,14 @@ import internshipProjHeader3 from '@/assets/home/internship_proj_header3.png';
 import internshipProjHeader4 from '@/assets/home/internship_proj_header4.png';
 import clsx from 'clsx';
 import Image from 'next/image';
+import useScreen from '@/components/useScreen/useScreen';
 
 
 
 const headerImgs = [internshipProjHeader1, internshipProjHeader2, internshipProjHeader3, internshipProjHeader4];
 const InternshipProjectCards = ({data}: Props) => {
+    const {isMobile} = useScreen();
+
     return (
         <div className={`${styles.cards} flex flex-col md:flex-row`}>
             {data?.map((item, index)=>{
@@ -24,7 +27,7 @@ const InternshipProjectCards = ({data}: Props) => {
                                 }}>
 
                                 <div>
-                                    <div className={clsx('mb-2', styles.title)}>{item.title}</div>
+                                    <div className={clsx(styles.title)}>{item.title}</div>
                                     <div className={clsx(styles.subtitle)}>{item.subtitle}</div>
                                 </div>
                                 <div className={`${styles.more} text-xs`}>了解更多 <span><Image alt="" src={require('@/assets/icon_arrow_r.png')} width={8} height={14} style={{width:8, height:14}}/></span></div>

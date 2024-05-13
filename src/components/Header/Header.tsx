@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { MouseEventHandler, useEffect, useMemo, useState } from 'react';
 import styles from './Header.module.css';
 import Button, { ButtonColor, ButtonSize, ButtonType } from '../Button/Button';
 import Image from 'next/image';
@@ -9,6 +9,7 @@ import JobConsultModal from '../JobConsultModal/JobConsultModal';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import useScreen from '../useScreen/useScreen';
+import mArrowUp from '@/assets/m_icon_menu_arrow_up.png';
 
 const jobMenuLinks = [
   '/job/offer-guarantee',
@@ -36,8 +37,12 @@ const Header = ({...props}: Props) => {
 
 const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [submenuOpen, setSubmenuOpen] = useState<boolean>(false);
   const [initialTheme, setInitialTheme] = useState<Theme>(theme);
+  const [lastTheme, setLastTheme] = useState<Theme>(theme);
   const [headerTheme, setHeaderTheme] = useState<Theme>(theme);
+
+  const [expand, setExpand] = useState<boolean>(false);
 
   const router = useRouter();
   const currentPath = router.pathname;
@@ -84,72 +89,88 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
       setHeaderTheme(initialTheme);
     }
   }
-  
-  return <nav className={combinedClassName} onMouseOver={onMouseEnterParent} onMouseOut={onMouseOutParent}>
-    <div className={clsx("w-full  container mx-auto flex flex-wrap items-center justify-between mt-0", styles.m_header_container)}>
-      <div className="flex items-center">
-        <Link href="/" className="" >
-          <Image src={headerTheme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo'
-            style={{height: 24}}/>
-        </Link>
-      </div>
-      <div className="block pr-4">
-        <button id="nav-toggle" className="flex items-center p-1 text-black hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-          <svg className="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-          </svg>
-        </button>
-      </div>
+  const onMenuBtnClick = () => {
+    if (submenuOpen === true) {
+      // restore init theme
+      setHeaderTheme(lastTheme);
+    } else {
+      setLastTheme(headerTheme);
+      setHeaderTheme(Theme.LIGHT);
+    }
+    setSubmenuOpen(!submenuOpen);
+  }
 
-      <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
-        <ul className={clsx('list-reset lg:flex justify-center flex-1 items-center', styles.menu)}>
-          <li className={clsx('mr-3 relative', styles.menu_item_box)}>
-            <Link className={clsx(
-              'inline-block py-2 px-4 no-underline transition', 
-              styles.menu_item,
-              {'text-white': headerTheme === Theme.TRANSPARENT},
-              {[styles.menu_item_active]: jobMenuLinks.indexOf(currentPath) != -1})} href='/job/offer-guarantee'>求职项目</Link>
-            <div className={clsx('', styles.submenu_container)}>
-              <ul className={clsx('', styles.submenu)}>
-                <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
-                <li><Link href='/job/interview-camp'>面试集中营</Link></li>
-                <li><Link href='/job/internship/data-analysis'>数据分析实习</Link></li>
-                <li><Link href='/job/internship/quantitative-investment'>量化投资实习</Link></li>
-                <li><Link href='/job/internship/investment-banking-modeling'>投行建模实习</Link></li>
-                <li><Link href='/job/internship/full-stack-dev'>全栈开发实习</Link></li>
-              </ul>
-            </div>
-          </li>
-          <li className="mr-3">
-            <Link className={clsx(
-              'inline-block no-underline py-2 px-4 transition', 
-              {'text-white': headerTheme === Theme.TRANSPARENT},
-              {[styles.menu_item_active]: currentPath === '/success-cases'})} href="/success-cases">成功案例</Link>
-          </li>
-          <li className="mr-3">
-            <Link className={clsx(
-              'inline-block no-underline py-2 px-4 transition', 
-              {'text-white': headerTheme === Theme.TRANSPARENT},
-              {[styles.menu_item_active]: currentPath.startsWith('/free-resources')})} href="/free-resources">免费资源</Link>
-          </li>
-          <li className="mr-3">
-            <Link className={clsx(
-              'inline-block no-underline py-2 px-4 transition', 
-              {'text-white': headerTheme === Theme.TRANSPARENT},
-              {[styles.menu_item_active]: currentPath === '/about'})} href="/about">关于我们</Link>
-          </li>
-        </ul>
-        <Button 
+  const onLevel1MenuClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    setExpand(!expand);
+  }
+
+  return <nav className={combinedClassName} >
+    <div className={clsx("w-full flex flex-row items-center  mr-23px", styles.m_header_container)}>
+      <Link href="/" className="flex-1" >
+        <Image src={headerTheme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo'
+          style={{height: 24}}/>
+      </Link>
+
+    
+
+      <div className="block mr-18px z-10 flex flex-row">
+      <Button 
           text='求职咨询' 
-          className={styles.consult_btn}
+          className={styles.m_consult_btn}
           type={ButtonType.SOLID} 
           size={ButtonSize.SMALL} 
           color={ButtonColor.GREEN}
           onClick={handleJobConsultClick}></Button>
+        <button 
+          onClick={onMenuBtnClick}
+          className="flex items-center p-1 text-black hover:text-gray-900 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          {
+            headerTheme === Theme.LIGHT ? 
+            <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="3" rx="1.5" fill="#1B1B1B"/>
+              <rect y="7" width="24" height="3" rx="1.5" fill="#1B1B1B"/>
+              <rect y="14" width="24" height="3" rx="1.5" fill="#1B1B1B"/>
+            </svg>
+            :
+            <svg width="24" height="17" viewBox="0 0 24 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="3" rx="1.5" fill="white"/>
+              <rect y="7" width="24" height="3" rx="1.5" fill="white"/>
+              <rect y="14" width="24" height="3" rx="1.5" fill="white"/>
+            </svg>
+          }
+        </button>
       </div>
 
-
+      <div className={clsx(styles.m_menu_box,{[styles.open]: submenuOpen})}>
+          <div className={styles.m_menu_content}>
+            <ul className={styles.m_menu}>
+              <li>
+                <Link href='/'>首页</Link>
+              </li>
+              <li className={clsx({[styles.m_expand]: expand})}>
+                <Link href='/job/offer-guarantee' onClick={onLevel1MenuClick}>求职项目 <i><Image alt="" src={mArrowUp} width={15} height={15}  /></i></Link>
+                <ul>
+                  <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
+                  <li><Link href='/job/interview-camp'>面试集中营</Link></li>
+                  <li><Link href='/job/internship/data-analysis'>数据分析实习</Link></li>
+                  <li><Link href='/job/internship/quantitative-investment'>量化投资实习</Link></li>
+                  <li><Link href='/job/internship/investment-banking-modeling'>投行建模实习</Link></li>
+                  <li><Link href='/job/internship/full-stack-dev'>全栈开发实习</Link></li>
+                </ul>
+              </li>
+              <li>
+                <Link href='/success-cases'>成功案例</Link>
+              </li>
+              <li>
+                <Link href='/free-resources'>免费资源</Link>
+              </li>
+              <li>
+                <Link href='/about'>关于我们</Link>
+              </li>
+            </ul>
+          </div>
+      </div>
     </div>
     {/* <hr className="border-b border-gray-100 opacity-25 my-0 py-0" /> */}
 
@@ -214,7 +235,7 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
     <div className={clsx("w-full mx-auto flex flex-wrap items-center justify-between mt-0", styles.header_container)}>
       <div className="pl-4 flex items-center">
         <Link href="/" className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" >
-          <Image src={headerTheme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo'/>
+          <Image src={headerTheme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo' priority={true}/>
         </Link>
       </div>
       <div className="block lg:hidden pr-4">

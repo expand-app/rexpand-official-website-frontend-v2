@@ -5,14 +5,11 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styles from './index.module.css';
 import Image from 'next/image';
-import bannerImage from '@/assets/job/offer-guarantee/banner.png';
 import mBannerBgImage from '@/assets/job/offer-guarantee/m_banner_bg.png';
 import Button, { ButtonColor, ButtonRadius, ButtonSize, ButtonType } from '@/components/Button/Button';
 import bannerBgImage from '@/assets/job/offer-guarantee/banner_bg.png';
 import clsx from 'clsx';
 import Accordion from '@/components/Accordion/Accordion';
-import FloatMenu from '@/components/FloatMenu/FloatMenu';
-import { internshipMenusData } from '@/data/internship';
 import { offerGuaranteeFAQData, projectProcessData } from '@/data/offer_guarantee';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import VerticalTabs from '@/components/VerticalTabs/VerticalTabs';
@@ -75,7 +72,7 @@ function MobileView() {
     <div>
       <Header theme={Theme.TRANSPARENT}/>
       <main className='m-main'>
-        <div className={`${styles.banner_container}  flex items-center relative`} 
+        <div className={`${styles.m_banner_container}  flex items-center relative`} 
             style={{
               backgroundImage: `url(${mBannerBgImage.src})`,
             }}>
@@ -88,12 +85,12 @@ function MobileView() {
                   <Image alt="" src={require('@/assets/job/offer-guarantee/m_banner_img.png')} 
                     style={{margin: '17px 0 32px 0'}}/>
                   <Button
-                      className="z-10"
                       type={ButtonType.SOLID} 
                       size={ButtonSize.MIDDLE} 
-                      radius={ButtonRadius.NONE}
+                      radius={ButtonRadius.ROUNDED}
                       color={ButtonColor.GREEN} 
-                      text="立即咨询" />
+                      text="立即咨询" 
+                      className={styles.m_banner_btn}/>
               </div>
               {/* <Image src={bannerImage} alt="Banner" height={460} className={clsx('flex-1', styles.banner_img)}/> */}
             </div>
@@ -107,40 +104,34 @@ function MobileView() {
               <SectionTitle 
                 title='什么是保Offer项目' 
                 subtitle='项目针对北美留学生设计，保证sponsor H1b工作offer。9年多的时间积累留学生求职辅导经验，项目已经累计帮助2000多位学员拿到北美offer'
-                className='mb-12'/>
+                className='mb-40px'/>
               
-              <div className={clsx('flex flex-row w-full gap-8 justify-center items-center overflow-auto flex-wrap', styles.logo_list)}>
+              <div className={clsx('flex flex-row w-full gap-6 justify-center items-center overflow-auto flex-wrap', styles.m_logo_list)}>
                 <Image src={googleImage} alt="Google" className="w-1/4" />
                 <Image src={deloitteImage} alt="Deloitte" className="w-1/4" />
                 <Image src={spotifyImage} alt="Spotify" className="w-1/4" />
-                <Image src={amazonImage} alt="Amazon" className="w-1/4"  />
-                <Image src={facebookImage} alt="Facebook" className="w-1/4" />
+                <Image src={amazonImage} alt="Amazon" className="w-1/4" style={{marginTop: -80}} />
+                <Image src={facebookImage} alt="Facebook" className="w-1/4" style={{marginTop: -80}}/>
               </div>
               
               <OfferGuaranteeView data={offerGuaranteeTabsData} />
             </div>
         </div>
 
-        <div className={clsx('bg-white m-section', styles.section2)}>
-          <div className='container mx-auto w-2/3'>
-            <SectionTitle 
+        <div className={clsx('bg-white m-section', styles.m_section2)}>
+          <SectionTitle 
                     title='个性化安排课程' 
                     className='mb-12'/>
             
             <PersonalizedCourse/>
-          </div>
         </div>
 
-        <div  className={clsx('section', styles.section3)}>
-          <div className='container mx-auto w-3/4'>
-            <SectionTitle 
-                    title='项目安排' 
-                    className='mb-12'/>
+        <div  className={clsx('section', styles.m_section3)}>
+          <SectionTitle 
+                  title='项目安排' 
+                  className='mb-12'/>
 
-            <ProjectProcess data={projectProcessData} />
-            
-          </div>
-
+          <ProjectProcess data={projectProcessData} />
         </div>
 
         <div className={clsx('bg-white section internship_faq_section', styles.section4)}>

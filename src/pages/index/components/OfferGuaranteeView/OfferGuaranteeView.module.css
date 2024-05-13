@@ -7,9 +7,11 @@
 }
 
 .m_card {
+    font-family: 'PingFang_Medium';
     border: 1px solid #008A27;
     border-radius: 4px;
     padding: 20px 0;
+    background-color: #fff;
 }
 
 .m_card.active {
@@ -35,6 +37,7 @@
     font-weight: 500;
     line-height: 25.2px;
     text-align: left;
+    margin-bottom: 6px;
 
 }
 

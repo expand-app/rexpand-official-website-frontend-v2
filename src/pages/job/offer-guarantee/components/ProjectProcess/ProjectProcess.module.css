@@ -76,9 +76,50 @@
     font-size: 12px;
     text-align: center;
     line-height: 35px;
+    flex:1;
+    border-radius: 4px;
 }
 
 .m_step_button_active{
     background-color: #008A27;
     color: #fff;
+}
+
+.m_project_process{
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    background-color: #fff;
+    padding:12px;
+    margin:12px;
+}
+
+.m_top {
+
+}
+.m_top > img {
+    width: 100%;
+    padding: 45px;
+}
+
+.m_bottom {
+    margin-top: 16px;
+}
+.m_steps {
+    width: 100%;
+    display: flex;
+    margin-bottom: 40px;
+}
+.m_title {
+    font-family: 'PingFang_Medium';
+
+    color: #000;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+.m_content > li{
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
 }

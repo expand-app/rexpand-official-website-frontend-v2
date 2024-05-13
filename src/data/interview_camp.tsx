@@ -19,17 +19,17 @@ export const interviewCampFAQData: AccordionData[] = [
     {
         id: 2,
         title: '如何领取听课福利？',
-        content: <></>,
+        content: <>为保证最好学习效果，直播中主讲老师会给到口令，凭口令找班主任老师要听课福利。</>,
     },
     {
         id: 3,
         title: '如何加入学习社群？',
-        content: <></>,
+        content: <>报名后提供付款截图，联系Rexpand求职咨询老师进群。</>,
     },
     {
         id: 4,
         title: '面试集训营主讲老师是谁？',
-        content: <></>,
+        content: <>李晨老师，曾在高盛投行部和安永咨询部。深耕留学生求职教育行业超过8年，有多年高盛面试官经验，帮助数百名留学生拿到心仪offer。</>,
     },
 ];
 

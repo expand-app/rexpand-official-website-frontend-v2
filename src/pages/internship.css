@@ -128,7 +128,21 @@
     font-weight: 400;
     opacity: 0.6;
 }
-
+.m_internship_banner_card_content.list > li {
+    position: relative;
+    padding-left: 12px;
+}
+.m_internship_banner_card_content.list > li::before {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: .5rem;
+    width: 4px;
+    height: 4px;
+    background-color: #008A27;
+    border-radius: 50%;
+    opacity: 1;
+}
 .m_internship_practise_intro_text{
     color: #333;
     font-size: 12px;

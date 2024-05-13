@@ -32,6 +32,8 @@
 .section2 {
     padding-top: 136px;
     padding-bottom: 200px;
+    padding-left: 33px;
+    padding-right: 33px;
 }
 
 .section3 {
@@ -46,6 +48,12 @@
 }
 
 /*m*/
+.m_banner_container {
+    height: 530px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
 .m-banner_title {
     font-family: 'PingFang_Semiblod';
     color: #FFF;
@@ -54,4 +62,23 @@
     font-weight: 600;
     line-height: 80px; /* 266.667% */
     letter-spacing: 0.2px;
+}
+
+.m_section2 {
+    padding-top: 67px;
+    padding-bottom: 70px;
+}
+
+.m_section3 {
+    padding-top: 67px;
+    background-color: #FDFCFB;
+}
+.m_logo_list {
+
+}
+.m_banner_btn{
+    width: 124px;
+    height: 45px;
+    font-size: 14px;
+    font-weight: 500;
 }

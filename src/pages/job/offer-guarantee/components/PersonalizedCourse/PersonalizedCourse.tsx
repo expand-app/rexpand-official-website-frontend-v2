@@ -21,7 +21,7 @@ const PersonalizedCourse = ({...props}: Props) => {
 }
 
 const MobileView = ({className,}: Props) => {
-    const combinedClassName = clsx('', className);
+    const combinedClassName = clsx('flex justify-center', className);
 
     return <div className={combinedClassName}>
         <Image src={mPersonalizedCourseImg} alt='个性化安排课程' />

@@ -18,42 +18,56 @@ export const investmentBankingModelingFAQData: AccordionData[] = [
     {
         id: 2,
         title: 'Financial Modeling项目公司是怎么写在简历里什么?',
-        content: <></>,
+        content: <>Intelliimpact
+        Intelliimpact LLC是一个注册在Texas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services, 具体业务详情可以查看公司的官网：www.intelliimpact.com</>,
     },
     {
         id: 3,
         title: '项目做完后，简历中Skills里可以添加什么内容？',
-        content: <></>,
+        content: <>
+            <ol className='list-decimal'>
+                <li>Valuation</li>
+                <li>Financial Analysis</li>
+                <li>Financial Modeling</li>
+                <li>Budgeting</li>
+                <li>Cash Flow Forecasting</li>
+                <li>Excel Modeling</li>
+                <li>FP&A Model</li>
+                <li>Operating Model</li>
+                <li>Discounted Cash Flow Model</li>
+                <li>Comparable Companies Model</li>
+            </ol>
+</>,
     },
     {
         id: 4,
         title: '如果缺席直播课程怎么办？',
-        content: <></>,
+        content: <>直播课程设置回放，可通过回放视频补充学习</>,
     },
     {
         id: 5,
         title: '上课的模式是什么？',
-        content: <></>,
+        content: <>课程采取直播加录播的形式，链接会发在班级群里。所有报名学员均会在班级群里，项目会配备一个班主任老师，会负责群内作业收发以及各项事务的通知。</>,
     },
     {
         id: 6,
         title: '美国实习项目和学校上课项目区别是什么？',
-        content: <></>,
+        content: <>项目会以Corporate Level的企业咨询项目为主体，遵循工业界项目的进行流程，项目会以咨询公司工作经验的形式展现在简历上，补充同学简历经验不足这一最大求职短板。</>,
     },
     {
         id: 7,
         title: '适合什么水平的同学，需要具备什么样的技能为条件？跟不上项目怎么办？',
-        content: <></>,
+        content: <>0基础可学，课程分为基础理论和项目实操两个大的板块，不需要项目同学有预备知识。项目老师有固定的答疑时间（Office Hour），有项目相关问题可集中提问。</>,
     },
     {
         id: 8,
         title: '项目中遇到问题找谁？',
-        content: <></>,
+        content: <>班主任老师在项目群里会负责关于听课、学习材料发送、视频播放等问题的处理。</>,
     },
     {
         id: 9,
         title: '课程在什么平台？课程里的学习资料以什么形式分享？',
-        content: <></>,
+        content: <>直播课程会通过线上授课软件进行，通过微信即可听课，学习资料和课件会在上课的班级微信群里分享，作业会在微信群里提交。</>,
     }
 ];
 
