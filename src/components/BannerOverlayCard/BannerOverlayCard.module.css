@@ -9,6 +9,8 @@
     border-radius: 8px;
     width: 91.5vw;
     z-index: 1;
+
+
 }
 
 .card{
@@ -21,4 +23,22 @@
     box-sizing: border-box;
     z-index: 20;
     gap: 5vw;
+}
+
+/* m */
+.m_container{
+    background-color: white;
+    border-radius: 4px;
+}
+
+
+.m_card{
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 28px 22px 26px;
+    box-sizing: border-box;
+    gap: 36px;
+    width: 100%;
 }

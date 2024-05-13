@@ -4,6 +4,7 @@ import styles from './TopOfferList.module.css';
 import clsx from "clsx";
 import Avatar from '@/components/Avatar/Avatar';
 import Pagination from '@/components/Pagination/Pagination';
+import useScreen from '@/components/useScreen/useScreen';
 
 const topBorderStyles = [
     styles.tborder_deloitte,
@@ -13,7 +14,56 @@ const topBorderStyles = [
     styles.tborder_oracle,
     styles.tborder_pwc,
 ]
-const TopOfferList = ({data}: Props) => {
+
+
+const TopOfferList = ({...props}: Props) => {
+
+    const { isMobile } = useScreen();
+   
+    return (
+        <div>
+            {isMobile?.()? 
+            <MobileView {...props} />
+            :
+            <PCView {...props} />
+            }
+        </div>
+    );
+
+}
+
+const MobileView = ({data}: Props) => {
+    return (
+        <div className={clsx('overflow-auto', styles.m_top_offer_list)}>
+            <div className={styles.m_top_offer_card_scroll_box}>
+                <div className={styles.m_top_offer_card_box}>
+                    {data?.map((item, index)=>{
+                        return <div key={item.id} className={clsx(styles.m_top_offer_item, topBorderStyles[index])}>
+                            <div className={clsx('px-0 flex flex-col items-center justify-center', styles.m_top)}>
+                                <div className={styles.m_logo_container}>
+                                    <Image src={item.companyLogo} alt={item.companyName} width={100}/>
+                                </div>
+                                <div className={styles.m_company_name}>{item.companyName}</div>
+                                <div className={styles.m_job_title}>{item.jobTitle}</div>
+                            </div>
+
+                            <div className={clsx('flex-1 relative', styles.m_bottom)}>
+                                <Avatar className={styles.avatar} data={{userName: item.userName}} />
+                            
+                                <div>
+                                    <div className={styles.m_university}>{item.university}</div>
+                                    <div className={styles.m_major}>{item.major}</div>
+                                </div>
+                            </div>
+                        </div>;
+                    })}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+const PCView = ({data}: Props) => {
     return (
         <div className={clsx('overflow-auto', styles.top_offer_list)}>
             <div className="flex flex-col md:flex-row gap-4">

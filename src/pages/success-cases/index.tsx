@@ -3,6 +3,8 @@ import styles from './index.module.css';
 import Button, { ButtonColor, ButtonRadius, ButtonSize, ButtonType } from "@/components/Button/Button";
 import Header from "@/components/Header/Header";
 import bannerImage from '@/assets/success-cases/banner.png';
+import mBannerImg from '@/assets/success-cases/m_banner_img.png';
+
 import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import greenGradientBgImg from '@/assets/success-cases/green_gradient.svg'
@@ -61,53 +63,46 @@ function MobileView() {
         <main className="m-main">
            <Header />
             <>
-                <div className={`py-0 flex flex-col justify-center relative ${styles.m_banner_container}`}>
+                <div className={`py-0 flex flex-col justify-center relative ${styles.m_banner_container}`}
+                    style={{backgroundImage: `url(${mBannerImg.src})`}}
+                >
                     {/* <Image className={styles.banner_img} src={bannerImage} alt='Banner'/> */}
-                    <div className={styles.m_banner_img_box}>
+                    {/* <div className={styles.m_banner_img_box}>
                         <Image alt="" src={require('@/assets/success-cases/m_banner_img.png')} className={styles.m_banner_img}/>
-                    </div>
-                    <div className="text-center z-10 pt-36">
+                    </div> */}
+                    <div className={styles.m_banner_content}>
                         <h1 className='font-m font-w600 font-48 text-white mb-20 z-10 m-banner-text'>看Claire如何斩获<br />上市公司FA offer</h1>
                         <Button 
-                            className="z-10 rounded-none"
-                            type={ButtonType.SOLID} 
+                            className={styles.m_banner_btn}
+                            type={ButtonType.BORDERED} 
                             size={ButtonSize.MIDDLE} 
                             radius={ButtonRadius.NONE}
-                            color={ButtonColor.GREEN}
+                            color={ButtonColor.WHITE}
                             text="点击查看" />
                     </div>
                 </div>
 
-                <div className={clsx('bg-white section', styles.section1)}>
+                <div className={clsx('bg-white section', styles.m_section1)}>
                     <div className="container mx-auto">
                     <SectionTitle 
-                            className={styles.section_title1}
+                            className={styles.m_section_title1}
                             title="学员Offer榜" 
                             subtitle="恭喜学员们斩获金融、咨询、数据等多个领域的Offer" 
                             />
                     </div> 
-                    <div className="pt-20" style={{
-                        backgroundImage: `url(${greenGradientBgImg.src})`,
-                        backgroundRepeat:'no-repeat',
-                        backgroundSize: '100% auto',
-                    }
-                    }>
-                        <div className="container mx-auto">
-                            <TopOfferList data={topOffersData}/>
-                        </div>
+                    <div className={styles.m_top_offer_content}>
+                        <TopOfferList data={topOffersData}/>
                     </div>
                    
                 </div>
 
-                <div className={clsx('section', styles.section2)} style={{background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(125, 209, 147, 0.2)), white`}}>
-                    <div className="container mx-auto">
-                        <SectionTitle 
-                            className={styles.section_title2}
-                            title="学员心得"
-                            />
-                        <div className="">
-                            <StudentExperienceList data={studentExperienceListData} />
-                        </div>
+                <div className={clsx('section', styles.m_section2)} style={{background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(125, 209, 147, 0.2)), white`}}>
+                    <SectionTitle 
+                        className={styles.m_section_title2}
+                        title="学员心得"
+                        />
+                    <div className={styles.m_stu_exp_content}>
+                        <StudentExperienceList data={studentExperienceListData} />
                     </div>
                 </div>
             </>

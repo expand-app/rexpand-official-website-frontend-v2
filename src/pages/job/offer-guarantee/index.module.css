@@ -1,5 +1,8 @@
 .banner_container {
     height: 708px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .banner_img {
     position: absolute;
@@ -40,4 +43,15 @@
     margin-top: 28px;
     margin-bottom: 56px;
     
+}
+
+/*m*/
+.m-banner_title {
+    font-family: 'PingFang_Semiblod';
+    color: #FFF;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 80px; /* 266.667% */
+    letter-spacing: 0.2px;
 }

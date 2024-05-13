@@ -25,8 +25,174 @@ import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import _ from 'lodash';
 import SightView from '../../components/SightView/SightView';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
+import useScreen from '@/components/useScreen/useScreen';
 
-export const DataAnalysisPage: NextPage = () => {
+export const QuantitativeInvestmentPage: NextPage = () => {
+  const { isMobile } = useScreen();
+ 
+  return (
+      <>
+        <Head>
+          <title>睿思班 | 让内推引领求职</title>
+          <meta
+            name="description"
+            content="Learn more about My Company, our mission, and what we do."
+          />
+          <meta property="og:title" content="About Us - My Company" />
+          <meta
+            property="og:description"
+            content="Learn more about My Company, our mission, and what we do."
+          />
+          <meta property="og:url" content="https://www.yourwebsite.com/about" />
+          <meta property="og:type" content="website" />
+          <link rel="canonical" href="https://www.yourwebsite.com/about" />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "My Company",
+              url: "https://www.yourwebsite.com",
+              logo: "https://www.yourwebsite.com/logo.png",
+            })}
+          </script>
+        </Head>
+        <div>
+            {isMobile?.()? 
+            <MobileView />
+            :
+            <PCView/>
+            }
+        </div>
+      </>
+  );
+}
+
+export const MobileView = () => {
+  const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
+  const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
+  
+  return (
+    <div>
+      
+      <Header theme={Theme.TRANSPARENT}/>
+      <main className=''>
+      <div className={`${styles.m_banner_container} internship_banner_container flex flex-col items-center relative`}>
+
+           
+        <div className='flex flex-col items-center justify-center px-22px'>
+          <div className={styles.m_banner_text}>
+                  <h1 className={clsx(styles.m_banner_title)}>量化投资实习</h1>
+                  <h2 className={clsx(styles.m_banner_subtitle)}>使用Python进行量化风险管理和投资策略，包括VaR模型评估和战略资产配置建议</h2>
+                  <VideoCard 
+                    image={bannerVideoImage} 
+                    videoPath='https://xxx.com/test.mp4'
+                    onClick={()=>{
+                      setVideoModalPath('https://xxx.com/test.mp4');
+                      setVideoModalOpen(true);
+                    }}/>
+                  <Button
+                      className={styles.m_banner_btn}
+                      type={ButtonType.BORDERED} 
+                      size={ButtonSize.MIDDLE} 
+                      radius={ButtonRadius.NONE}
+                      text="咨询项目" />
+              </div>
+            </div>
+            <div className={styles.m_banner_overlay_box}>
+
+              <BannerOverlayCard
+                cardClassName='w-p85'
+                data={[{
+                  id: 1,
+                  title: '项目时长',
+                  content: '10周 / 30小时',
+                },{
+                  id: 2,
+                  title: '适合学员',
+                  content: '求职Quant Risk方向且缺少美国实习经验的留学生',
+                },{
+                  id: 3,
+                  title: '项目特色',
+                  content: [
+                    '和项目经理一起参与公司项目', 
+                    '进行量化分析和风险管理',
+                    '提升量化建模和业务分析能力',
+                  ],
+                }]}
+                className={clsx("",styles.m_banner_overlay)} />
+              </div>
+
+        </div>
+
+        <div className={clsx('bg-white section m_internship_intro_section', styles.section1)}>
+          <div className='px-22px'>
+            <SectionTitle title="实习介绍" className='m_internship_intro_title'/>
+
+            <div className='flex flex-col'>
+              <div className={clsx('flex-1 flex items-center m_internship_practise_intro_text')}>
+                <div>实习生将在一家咨询公司的Investment Management Services (IMS) 部门任职，将支持投资组合经理执行量化风险管理服务和制定量化投资策略。这个职位的核心工作包括运用Python作为主要分析工具，通过使用价值在风险（VaR）模型进行风险评估与量化，辅助客户在风险管理上的决策。工作中将利用多因子回归模型等量化方法，为客户提供战略性的资产配置建议（Strategic Asset Allocation）。通过高级量化分析技术，帮助客户优化投资组合表现并实现量化风险控制（Quantitative Risk Management)。</div>
+              </div>
+
+              <div className={styles.m_intro_img_box}>
+                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
+              </div>
+              
+             
+            </div>
+
+          </div>
+        </div>
+
+        <div className={clsx('bg-white section m_internship_sight_section')}>
+          <SectionTitle title='项目亮点' className='m_internship_sight_title'/>
+          <div style={{
+            backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
+            padding: '68px 0 92px 0',
+          }}>
+          <div className='px-12px'>
+                <SightView data={quantitativeInvestimentSightViewData}/>
+          </div>
+
+          </div>
+        </div>
+
+
+        <div className='bg-white section m_internship_outline_section'>
+          <div className='container mx-auto'>
+
+            <SectionTitle title='项目大纲' className='m_internship_outline_title'/>
+
+            <div className='flex flex-col md:flex-row'>
+              <Outline data={quantitativeInvestmentOutlineData} />
+            </div>
+          </div>
+        </div>
+
+
+        <div className='bg-white section internship_faq_section'>
+          <div className='container mx-auto'>
+            <SectionTitle title='常见问题' className='internship_faq_title'/>
+
+            <div className='flex flex-col justify-center md:flex-row'>
+              <Accordion data={quantitativeInvestmentFAQData}/>
+            </div>
+          </div>
+        </div>
+
+        <VideoModal
+          videoPath={videoModalPath} 
+          open={videoModalOpen} 
+          onClose={()=>{
+            setVideoModalOpen(false);
+          }}/>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export const PCView = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
@@ -132,30 +298,7 @@ export const DataAnalysisPage: NextPage = () => {
 
   return (
     <div>
-      <Head>
-        <title>睿思班 | 让内推引领求职</title>
-        <meta
-          name="description"
-          content="Learn more about My Company, our mission, and what we do."
-        />
-        <meta property="og:title" content="About Us - My Company" />
-        <meta
-          property="og:description"
-          content="Learn more about My Company, our mission, and what we do."
-        />
-        <meta property="og:url" content="https://www.yourwebsite.com/about" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.yourwebsite.com/about" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "My Company",
-            url: "https://www.yourwebsite.com",
-            logo: "https://www.yourwebsite.com/logo.png",
-          })}
-        </script>
-      </Head>
+      
       <Header theme={Theme.TRANSPARENT}/>
       <main className=''>
         <div className={`${styles.banner_container} internship_banner_container flex items-center relative`} 
@@ -286,12 +429,10 @@ export const DataAnalysisPage: NextPage = () => {
 
         <div className='bg-white section internship_faq_section'>
           <div ref={faqAnchorRef} className='internship_section_anchor'></div>
-          <div className='container mx-auto'>
-            <SectionTitle title='常见问题' className='internship_faq_title'/>
+          <SectionTitle title='常见问题' className='internship_faq_title'/>
 
-            <div className='flex flex-col justify-center md:flex-row'>
-              <Accordion data={quantitativeInvestmentFAQData}/>
-            </div>
+          <div className='container mx-auto flex flex-col justify-center md:w-5/6'>
+            <Accordion data={quantitativeInvestmentFAQData}/>
           </div>
         </div>
 
@@ -313,7 +454,7 @@ export const DataAnalysisPage: NextPage = () => {
     </div>
   );
 };
-export default DataAnalysisPage;
+export default QuantitativeInvestmentPage;
  
 // DataAnalysisPage.getLayout = function getLayout(page: ReactElement) {
 //   return (

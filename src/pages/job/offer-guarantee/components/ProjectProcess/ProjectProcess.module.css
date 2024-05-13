@@ -33,8 +33,8 @@
     border-radius: 4px;
     padding: 12px 82px;
     margin-right: 56px;
-    margin: 
 }
+
 .step_button:last-child {
     margin-right: 0;
 }
@@ -66,4 +66,19 @@
 
 .right {
     padding-top: 10px;
+}
+
+/* m */
+.m_step_button {
+    font-family: 'PingFang_Medium';
+    width: 109px;
+    height: 35px;
+    font-size: 12px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.m_step_button_active{
+    background-color: #008A27;
+    color: #fff;
 }

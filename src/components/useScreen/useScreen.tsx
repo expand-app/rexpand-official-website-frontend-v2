@@ -18,6 +18,7 @@ const useScreen = () => {
 
   function getScreenType() {
     const screenWidth = window.innerWidth;
+
     if (screenWidth < 640) {
       return 'sm';
     } else if (screenWidth < 768) {

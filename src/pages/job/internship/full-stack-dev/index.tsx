@@ -27,8 +27,170 @@ import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import _ from 'lodash';
 import SightView from '../../components/SightView/SightView';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
+import useScreen from '@/components/useScreen/useScreen';
 
-export const DataAnalysisPage: NextPage = () => {
+
+export const FullStackDevPage: NextPage = () => {
+  const { isMobile } = useScreen();
+ 
+  return (
+      <>
+        <Head>
+          <title>睿思班 | 让内推引领求职</title>
+          <meta
+            name="description"
+            content="Learn more about My Company, our mission, and what we do."
+          />
+          <meta property="og:title" content="About Us - My Company" />
+          <meta
+            property="og:description"
+            content="Learn more about My Company, our mission, and what we do."
+          />
+          <meta property="og:url" content="https://www.yourwebsite.com/about" />
+          <meta property="og:type" content="website" />
+          <link rel="canonical" href="https://www.yourwebsite.com/about" />
+          <script type="application/ld+json">
+            {JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "My Company",
+              url: "https://www.yourwebsite.com",
+              logo: "https://www.yourwebsite.com/logo.png",
+            })}
+          </script>
+        </Head>
+        <div>
+            {isMobile?.()? 
+            <MobileView />
+            :
+            <PCView/>
+            }
+        </div>
+      </>
+  );
+}
+
+export const MobileView = () => {
+  const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
+  const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
+  
+  return (
+    <div>
+      
+      <Header theme={Theme.TRANSPARENT}/>
+      <main className=''>
+        <div className={`${styles.m_banner_container} internship_banner_container flex flex-col items-center relative`}>
+            <div className='flex flex-col items-center justify-center px-22px'>
+              <div className={styles.m_banner_text}>
+                  <h1 className={clsx(styles.m_banner_title)}>全栈开发实习</h1>
+                  <h2 className={clsx(styles.m_banner_subtitle)}>从前后端编写到云部署的全流程，使用JavaScript、Python、Java，以及MySQL和PostgreSQL数据库，依托AWS和Azure平台，提供全面的现代应用开发经验</h2>
+                  <VideoCard 
+                    image={bannerVideoImage} 
+                    videoPath='https://xxx.com/test.mp4'
+                    onClick={()=>{
+                      setVideoModalPath('https://xxx.com/test.mp4');
+                      setVideoModalOpen(true);
+                    }}/>
+                  <Button
+                      className={styles.m_banner_btn}
+                      type={ButtonType.BORDERED} 
+                      size={ButtonSize.MIDDLE} 
+                      radius={ButtonRadius.NONE}
+                      text="咨询项目" />
+              </div>
+            </div>
+            
+            <div className={styles.m_banner_overlay_box}>
+              <BannerOverlayCard
+                data={[{
+                  id: 1,
+                  title: '项目时长',
+                  content: '10周 / 40小时',
+                },{
+                  id: 2,
+                  title: '适合学员',
+                  content: '求职SDE方向且缺少美国实习经验的留学生',
+                },{
+                  id: 3,
+                  title: '项目特色',
+                  content: [
+                    '进行真实移动端软件开发', 
+                    '提升前后端-编程能力',
+                    '增加在美实习经验',
+                  ],
+                }]}
+                className={clsx("",styles.m_banner_overlay)} />
+            </div>
+        </div>
+
+        <div className={clsx('bg-white section m_internship_intro_section', styles.section1)}>
+          <div className='px-22px'>
+            <SectionTitle title="实习介绍" className='m_internship_intro_title'/>
+           
+            <div className='flex flex-col'>
+
+              <div className={clsx('flex-1 flex items-center m_internship_practise_intro_text')}>
+                <div>实习生在一家科技公司任职，参与开发一个与小红书相似的食物分享应用的移动端项目。此职位涵盖了全面的项目开发流程，包括前后端代码的编写、优化和最终部署到云平台。您将负责设计数据结构，参与DevOps相关工作，确保项目从概念到发布的每个阶段都高效、顺利进行。在技术选型方面，项目将采用JavaScript、Python和Java作为主要开发语言，使用MySQL和PostgreSQL作为数据库解决方案，同时，云基础设施将主要依托于AWS和Azure平台。此岗位旨在为实习生提供一个全面深入了解和参与现代应用开发的机会。</div>
+              </div>
+
+              <div className={styles.m_intro_img_box}>
+                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
+              </div>
+              
+             
+
+            </div>
+          </div>
+        </div>
+
+        <div className='bg-white section m_internship_sight_section'>
+            <SectionTitle title="项目亮点" className='m_internship_sight_title'/>
+            <div style={{
+              backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
+              padding: '68px 0 92px 0',
+            }}>
+            <div className='px-12px'>
+              <SightView data={fullStackDevSightViewData}/>
+            </div>
+          </div>
+        </div>
+
+
+        <div className={clsx('bg-white section m_internship_outline_section')}>
+          <div className='container mx-auto'>
+            <SectionTitle title="项目大纲" className='m_internship_outline_title'/>
+
+            <div className='flex flex-col md:flex-row'>
+              <Outline data={fullStackDevOutlineData} />
+            </div>
+          </div>
+        </div>
+
+
+        <div className='bg-white section internship_faq_section'>
+          <div className='container mx-auto'>
+            <SectionTitle className='internship_faq_title' title="常见问题" />
+
+            <div className='flex flex-col justify-center md:flex-row'>
+              <Accordion data={fullStackDevFAQData}/>
+            </div>
+          </div>
+        </div>
+
+        <VideoModal
+          videoPath={videoModalPath} 
+          open={videoModalOpen} 
+          onClose={()=>{
+            setVideoModalOpen(false);
+          }}/>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export const PCView = () => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
@@ -285,12 +447,10 @@ export const DataAnalysisPage: NextPage = () => {
 
         <div className='bg-white section internship_faq_section'>
           <div ref={faqAnchorRef} className='internship_section_anchor'></div>
-          <div className='container mx-auto'>
-            <SectionTitle className='internship_faq_title' title="常见问题" />
+          <SectionTitle className='internship_faq_title' title="常见问题" />
 
-            <div className='flex flex-col justify-center md:flex-row'>
-              <Accordion data={fullStackDevFAQData}/>
-            </div>
+          <div className='container mx-auto flex flex-col justify-center md:w-5/6'>
+            <Accordion data={fullStackDevFAQData}/>
           </div>
         </div>
 
@@ -312,7 +472,7 @@ export const DataAnalysisPage: NextPage = () => {
     </div>
   );
 };
-export default DataAnalysisPage;
+export default FullStackDevPage;
  
 // DataAnalysisPage.getLayout = function getLayout(page: ReactElement) {
 //   return (

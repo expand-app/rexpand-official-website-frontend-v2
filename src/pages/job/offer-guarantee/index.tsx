@@ -25,14 +25,17 @@ import facebookImage from '@/assets/job/offer-guarantee/logo_facebook.png';
 import PersonalizedCourse from './components/PersonalizedCourse/PersonalizedCourse';
 import ProjectProcess from './components/ProjectProcess/ProjectProcess';
 import useScreen from '@/components/useScreen/useScreen';
-
+import OfferGuaranteeView from '@/pages/index/components/OfferGuaranteeView/OfferGuaranteeView';
 
 const OfferGuaranteePage: NextPage = () => {
   const { isMobile } = useScreen();
-   
+  
+  setTimeout(()=>{
+    console.log('iiiiisi', isMobile());
+  },1000)
   return (
       <>
-         <Head>
+        <Head>
         <title>睿思班 | 让内推引领求职</title>
         <meta
           name="description"
@@ -70,19 +73,16 @@ const OfferGuaranteePage: NextPage = () => {
 function MobileView() {
   return (
     <div>
-      
       <Header theme={Theme.TRANSPARENT}/>
       <main className='m-main'>
         <div className={`${styles.banner_container}  flex items-center relative`} 
             style={{
               backgroundImage: `url(${mBannerBgImage.src})`,
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
             }}>
            
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-10/12'>
               <div className="z-10 pt-0 flex-1 flex flex-col items-center">
-                  <h1 className={clsx('text-4xl text-white z-10 mb-3 m-banner-text', styles.banner_title)}>保offer项目</h1>
+                  <h1 className={clsx('z-10 mb-3 m-banner-text', styles.m_banner_title)}>保offer项目</h1>
                   <h2 className={clsx('text-base text-white opacity-70 z-10 m-banner-text2', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企Offer</h2>
 
                   <Image alt="" src={require('@/assets/job/offer-guarantee/m_banner_img.png')} 
@@ -100,7 +100,7 @@ function MobileView() {
         </div>
        
 
-        <div className={clsx('bg-white pt-24 m-section', styles.section1)} style={{
+        <div className={clsx('bg-white pt-24 m-section', styles.m_section1)} style={{
           background: '#F7FBF8'
         }}>
             <div className='container mx-auto flex flex-col items-center'>
@@ -117,7 +117,7 @@ function MobileView() {
                 <Image src={facebookImage} alt="Facebook" className="w-1/4" />
               </div>
               
-              <VerticalTabs data={offerGuaranteeTabsData}/>
+              <OfferGuaranteeView data={offerGuaranteeTabsData} />
             </div>
         </div>
 
@@ -136,9 +136,11 @@ function MobileView() {
             <SectionTitle 
                     title='项目安排' 
                     className='mb-12'/>
+
+            <ProjectProcess data={projectProcessData} />
             
-            <ProjectProcess data={projectProcessData}/>
           </div>
+
         </div>
 
         <div className={clsx('bg-white section internship_faq_section', styles.section4)}>
@@ -164,32 +166,8 @@ function MobileView() {
 function PCView() {
   return (
     <div>
-      <Head>
-        <title>睿思班 | 让内推引领求职</title>
-        <meta
-          name="description"
-          content="Learn more about My Company, our mission, and what we do."
-        />
-        <meta property="og:title" content="About Us - My Company" />
-        <meta
-          property="og:description"
-          content="Learn more about My Company, our mission, and what we do."
-        />
-        <meta property="og:url" content="https://www.yourwebsite.com/about" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.yourwebsite.com/about" />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "My Company",
-            url: "https://www.yourwebsite.com",
-            logo: "https://www.yourwebsite.com/logo.png",
-          })}
-        </script>
-      </Head>
       <Header theme={Theme.TRANSPARENT}/>
-      <main className=''>
+      <main className='overflow-hidden'>
         <div className={`${styles.banner_container}  flex items-center relative`} 
             style={{
               backgroundImage: `url(${bannerBgImage.src})`,
@@ -245,13 +223,12 @@ function PCView() {
           </div>
         </div>
 
-        <div  className={clsx('section', styles.section3)}>
+        <div  className={clsx('section ', styles.section3)}>
           <div className='container mx-auto w-3/4'>
             <SectionTitle 
                     title='项目安排' 
                     className='mb-12'/>
-            
-            <ProjectProcess data={projectProcessData}/>
+            <ProjectProcess data={projectProcessData}/> 
           </div>
         </div>
 

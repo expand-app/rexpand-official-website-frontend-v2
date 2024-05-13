@@ -44,3 +44,56 @@
 .card:hover .img{
     transform: scale(1.1);
 }
+
+/* m */
+.m_free_resource_list {
+    padding:0 12px 70px 12px;
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+}
+
+.m_card {
+    overflow: hidden;
+    background-color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.m_title {
+    font-family: 'PingFang_Medium';
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    height: 36px;
+    margin-bottom: 6px;
+}
+.m_summary_container {
+    background: #F6FDF9;
+    padding: 16px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+.m_summary {
+    color: #1B1B1B;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.m_publish_time{
+    color: #1B1B1B;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.m_publish_time_icon {
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+}
+
+.m_bottom {
+    padding-top: 12px;
+}

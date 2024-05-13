@@ -11,7 +11,6 @@ import Image from 'next/image';
 import useScreen from '@/components/useScreen/useScreen';
 import { FreeResourceData } from '../components/FreeResourceList/FreeResourceList';
 
-
 export const FreeResourceDetailPage: NextPage = () => {
     const { isMobile } = useScreen();
     const router = useRouter();
@@ -69,27 +68,23 @@ function MobileView ({currentArticle}: FreeResourceDetailPageProps) {
         <main className={clsx('bg-white m-main', styles.m_main)}>
                 <Header theme={Theme.LIGHT}/>
                 <div className="m-section">
-                    <div className='container mx-auto flex justify-center'>
+                    <div className='flex justify-center'>
                         <div className='m-fr-article-box'>
-                            <div className='fr-article'>
+                            <div className='m-fr-article'>
                                 {currentArticle ? 
                                     <>
-                                        <div className="fr-article-header">
+                                        <div className="m-fr-article-header">
                                             <Image src={currentArticle?.image} 
                                                 alt={currentArticle?.title} 
                                                 sizes="100vw"
-                                                style={{
-                                                    width: '100%',
-                                                    height: 'auto',
-                                                borderRadius: 8,
-                                                }}
                                                 width={765} height={362} 
+                                                className={'m_head_image'}
                                                 />
-                                            <div className='fr-article-title'>{currentArticle?.title}</div>
-                                            <div className='fr-article-lastupdate'>最后更新时间: <span>{currentArticle?.lastUpdateDate}</span></div>
+                                            <div className='m-fr-article-title'>{currentArticle?.title}</div>
+                                            <div className='m-fr-article-lastupdate'>最后更新时间: <span>{currentArticle?.lastUpdateDate}</span></div>
                                         </div>
 
-                                        <div className='fr-article-body'>
+                                        <div className='m-fr-article-body'>
                                             <div dangerouslySetInnerHTML={{ __html: currentArticle?.content?.join('') ?? '' }} />
                                         </div>
                                     </>            

@@ -1,8 +1,52 @@
 import clsx from 'clsx';
 import React from 'react';
 import styles from './BannerOverlayCard.module.css';
+import useScreen from '../useScreen/useScreen';
 
-const BannerOverlayCard = ({data, className, cardClassName}: Props) => {
+
+export const BannerOverlayCard = ({...props}: Props) => {
+    const { isMobile } = useScreen();
+   
+    return (
+        <div>
+            {isMobile?.()? 
+            <MobileView {...props}/>
+            :
+            <PCView {...props}/>
+            }
+        </div>
+    );
+}
+
+const MobileView = ({data, className, cardClassName}: Props) => {
+    return (
+        <div className={clsx('', className, styles.m_container)}>
+            <div className={clsx(styles.m_card, cardClassName)}>
+                {data?.map((item: BannerOverlayCardData)=>{
+                    if (typeof(item?.content) === 'string' ) {
+                        return <div key={item?.id} className='flex-1'>
+                            <h1 className='m_internship_banner_card_title'>{item?.title}</h1>
+                            <div className='m_internship_banner_card_content'>{item?.content}</div>
+                        </div>;
+                    } else if (Array.isArray(item?.content)){
+                        return <div key={item?.id} className='flex-1'>
+                            <h1 className='m_internship_banner_card_title'>{item?.title}</h1>
+                            <ul className='m_internship_banner_card_content list'>
+                            {item?.content?.map((contentItem)=>{
+                                return  <li key={contentItem}><span>{contentItem}</span></li>;
+                            })}
+                            </ul>
+                        </div>
+                    }
+                })}
+            </div>
+        </div>
+    );
+};
+
+
+
+const PCView = ({data, className, cardClassName}: Props) => {
     return (
         <div className={clsx('', className, styles.container)}>
             <div className={styles.bg}></div>

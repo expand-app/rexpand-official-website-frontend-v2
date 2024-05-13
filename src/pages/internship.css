@@ -73,6 +73,7 @@
     margin-top: 205px;
     padding-top: 28px;
     padding-bottom: 50px;
+    
 }
 .internship_intro_title {
 }
@@ -108,4 +109,84 @@
     width:3px;
     background-color: red;
     z-index: 1001;
+}
+
+
+/* m */
+
+.m_internship_banner_card_title {
+    color: #1B1B1B;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'PingFang_Medium';
+    margin-bottom: 4px;
+}
+
+.m_internship_banner_card_content {
+    color: #1B1B1B;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+.m_internship_practise_intro_text{
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.6;
+    margin-bottom: 15px;
+}
+
+.m_internship_intro_section {
+    margin-top: 287px;
+    padding-top: 67px;
+    padding-bottom: 50px;
+}
+
+.m_internship_intro_title {
+    color: #1B1B1B;
+    text-align: center;
+    font-family: "PingFang SC";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%; /* 28.8px */
+    letter-spacing: -0.48px;
+    margin-bottom: 27px;
+}
+
+
+.m_internship_banner_container {
+    height: 632px;
+}
+
+
+
+.m_internship_sight_section {
+    padding-top: 27px;
+}
+.m_internship_sight_title {
+    margin-bottom: 35px;
+}
+
+
+.m_sight_title {
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+.m_sight_subtitle {
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+    opacity: 0.6;
+}
+
+
+.m_internship_outline_section {
+    padding-top: 67px;
+    padding-bottom: 60px;
+}
+.m_internship_outline_title{
+    margin-bottom: 70px;
 }

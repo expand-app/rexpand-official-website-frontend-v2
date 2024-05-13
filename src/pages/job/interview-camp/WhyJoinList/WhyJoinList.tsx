@@ -2,8 +2,46 @@ import React from 'react';
 import Image, { StaticImageData } from 'next/image';
 import styles from './WhyJoinList.module.css';
 import clsx from 'clsx';
+import useScreen from '@/components/useScreen/useScreen';
 
-const WhyJoinList = ({data, className}: Props) => {
+
+export const WhyJoinList = ({...props}: Props) => {
+    const { isMobile } = useScreen();
+   
+    return (
+        <div>
+            {isMobile?.()? 
+            <MobileView {...props}/>
+            :
+            <PCView {...props}/>
+            }
+        </div>
+    );
+}
+
+
+const MobileView = ({data, className}: Props) => {
+    return (
+        <div className={clsx('flex flex-col md:flex-row', className,styles.m_why_join_list)}>
+
+            {data?.map((item)=>{
+                return <div key={item.id} 
+                    className={clsx('flex flex-row gap-2 px-4 ', styles.m_card)}>
+                    <div className={clsx(styles.m_icon_container)}>
+                        <Image src={item.icon} alt='' width={89} height={89}/>
+                    </div>
+                    <div>
+                        <h1 className={clsx('', styles.m_title)}>{item.title}</h1>
+                        <div className={clsx('', styles.m_description)}>{item.description}</div>
+                    </div>
+                </div>
+            })}
+        </div>
+    );
+}
+
+
+const PCView = ({data, className}: Props) => {
     return (
         <div className={clsx('flex flex-col md:flex-row', className,styles.why_join_list)}>
 

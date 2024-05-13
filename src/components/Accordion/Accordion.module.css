@@ -117,3 +117,91 @@
 .accordion_item > input[type='checkbox']:checked ~ .title_container > .arrow_icon {
     transform: rotate(180deg);
 }
+
+/* m */
+.m_accordion_item {
+    position: relative;
+    background-color: rgba(249, 248, 248, 0.5);
+    margin-bottom: 12px;
+    border-radius: 8px;
+}
+.m_accordion_item:last-child {
+    margin-bottom: 0;
+}
+
+.m_accordion{
+    list-style: none;
+    perspective: 900;
+    padding: 0;
+    margin: 0;
+}
+
+.m_title_container {
+    padding: 19px 0;
+  
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.m_active .m_title_container {
+    background-color: rgba(232, 250, 242,0.5);
+}
+
+.m_arrow_icon {
+    margin-right: 15px;
+    width: 12px;
+    height: 12px;
+
+}
+.m_content {
+    position: relative;
+    overflow: hidden;
+    opacity: 0.9;
+    z-index: 2;
+
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 170%;
+    padding: 19px 34px;
+}
+.m_active > .m_content {
+    background-color: rgba(237, 249, 246, 0.3);
+    font-weight: 400;
+}
+
+.m_title {
+    margin: 0;
+    flex:1;
+    display: flex;
+    align-items: center;
+    font-family: 'PingFang_Medium';
+    font-size: 12px;
+    font-weight: 500;
+    padding-left: 16px;
+}
+
+.m_active .m_title {
+    border-left: 4px solid #008A27;
+    font-weight: 500;
+}
+
+
+.m_accordion_item > input[type='checkbox']:checked ~ .m_title_container > .m_arrow_icon {
+    transform: rotate(180deg);
+}
+
+.m_accordion_item > input[type='checkbox'] {
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    opacity: 0;
+    left:0;
+    top:0;
+}
+.m_accordion_item > input[type='checkbox']:not(:checked) ~ div.m_content{
+    display: none;
+}

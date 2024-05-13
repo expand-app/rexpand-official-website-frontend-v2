@@ -22,3 +22,32 @@
     margin-top:30px;
     margin-bottom: 40px;
 }
+
+/* m */
+
+.m_why_join_list {
+    gap:12px;
+    
+}
+.m_card {
+    padding: 19px 26px 19px 26px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.m_title {
+    font-family: 'PingFang_Medium';
+    color: #008A27;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+.m_description{
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+}
+.m_icon_container img{
+    width: 63px;
+    height: 63px;
+}

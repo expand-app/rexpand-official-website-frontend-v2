@@ -61,6 +61,38 @@ export const projectProcessData: ProjectProcessData[] = [
                 ]
             },
        ],
+    },{
+        id: 2,
+       processes: [
+            {
+                title: '职业规划服务/Career Consultation',
+                content: [
+                    <div key={1} className='project_process_para'>带领同学进行美国就业总览</div>,
+                    <div key={2} className='project_process_para'>进行职业规划与设计</div>,
+                    <div key={3} className='project_process_para'>求职目标和方向的敲定</div>,
+
+                    <h2 key={4} className='project_process_title2'>阶段中，涉及到的资料有：</h2>,
+                    <div key={5} className='project_process_para'>可申请职位title</div>,
+                    <div key={6} className='project_process_para'>北美求职timeline</div>,
+                ]
+            },
+       ],
+    },{
+        id: 3,
+       processes: [
+            {
+                title: '职业规划服务/Career Consultation',
+                content: [
+                    <div key={1} className='project_process_para'>带领同学进行美国就业总览</div>,
+                    <div key={2} className='project_process_para'>进行职业规划与设计</div>,
+                    <div key={3} className='project_process_para'>求职目标和方向的敲定</div>,
+
+                    <h2 key={4} className='project_process_title2'>阶段中，涉及到的资料有：</h2>,
+                    <div key={5} className='project_process_para'>可申请职位title</div>,
+                    <div key={6} className='project_process_para'>北美求职timeline</div>,
+                ]
+            },
+       ],
     },
 
 ];

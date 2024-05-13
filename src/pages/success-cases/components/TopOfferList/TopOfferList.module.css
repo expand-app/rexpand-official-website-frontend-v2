@@ -82,3 +82,76 @@
 .pagination {
     margin: 30px 0;
 }
+
+/* m */
+.m_top_offer_list {
+    
+}
+.m_top_offer_card_box{
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+}
+.m_top_offer_item{
+    position: relative;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    margin-right: 12px;
+    width: 554px;
+}
+
+.m_top {
+    width: 154px;
+    height: 170px;
+    overflow: hidden;
+}
+
+.m_bottom{
+    background-color: #E6F4EA;
+    padding: 31px 14px 23px 14px;
+}
+
+.m_logo_container {
+    /* width: 71px; */
+    height: 19px;
+    width: auto;
+    margin-bottom: 30px;
+    margin-top:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.m_logo_container img {
+    width: 80%;
+}
+
+.m_company_name {
+    font-family: 'PingFang_Medium';
+    color: #333333;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.m_job_title{
+    font-family: 'PingFang_Medium';
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 25.2px;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.m_university {
+    font-family: 'PingFang_Medium';
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22.4px;
+    text-align: left;
+}
+
+.m_major {
+    font-size: 12px;
+    font-weight: 300;
+}

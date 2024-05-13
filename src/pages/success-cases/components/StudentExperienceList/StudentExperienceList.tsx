@@ -36,10 +36,10 @@ function MobileView({data}: Props) {
 
     return (
         <>
-        <div className={clsx('grid grid-cols-1',styles.student_experience_list)}>
+        <div className={clsx(styles.m_student_experience_list)}>
             {data?.map((item)=>{
                 return <div key={item.id} 
-                className={clsx('flex-1 bg-white flex flex-col radius-8',styles.top_offer_item)}
+                className={clsx('flex-1 bg-white flex flex-col',styles.m_top_offer_item)}
                 onClick={()=>onImageClick(item)}>
                     <div className='overflow-hidden relative'>
                         <Image src={item.image} 
@@ -47,12 +47,14 @@ function MobileView({data}: Props) {
                             className={clsx('w-full cursor-pointer', styles.header_img)}
                             />
 
-                        <Image src={playIcon} alt='Play' className={styles.img_play}/>
+                        <Image src={playIcon} alt='Play' className={styles.m_img_play}/>
                     </div>
 
-                    <div className={clsx('', styles.body)}>
-                        <div className={clsx('flex flex-row items-center font-m', styles.usename)}><span >{item.userName}</span> <span className={styles.tag}>{item.major}</span></div>
-                        <div className={clsx('flex flex-row items-center font-16', styles.university)}><Image src={universityIconImg} alt='University' width={24} height={24}/>{item.university}</div>
+                    <div className={clsx('', styles.m_body)}>
+                        <div className={clsx('flex flex-row items-center font-m', styles.m_usename)}>
+                            <span>{item.userName}</span>
+                            <span className={styles.m_tag}>{item.major}</span></div>
+                        <div className={clsx('flex flex-row items-center font-16', styles.m_university)}><Image src={universityIconImg} alt='University' width={24} height={24}/>{item.university}</div>
                     </div>
                 </div>;
             })}
