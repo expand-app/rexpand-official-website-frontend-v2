@@ -6,7 +6,9 @@
     height: auto;
     
 }
-
+.banner_btn {
+    margin-top: 64px;
+}
 .banner_overlay {
     position: absolute;
     bottom: -160px;
@@ -23,7 +25,6 @@
     text-align: center;
     line-height: 23px;
     margin-right: 4px;
-    margin-bottom: 64px;
     color: #008A27;
 }
 
@@ -34,7 +35,7 @@
 
 .m_banner_overlay {
     position: relative;
-    margin: 80px 12px 0 12px !important;
+    margin: 20px 12px 0 12px !important;
 }
 
 
@@ -90,18 +91,34 @@
     line-height: 130%; /* 19.5px */
     opacity: 0.8;
 
-    margin-bottom: 187px;
+    margin-bottom: 163px;
 }
 
 .m_banner_btn {
     width: 124px;
     height: 45px;
     font-size: 14px;
-    margin-top: 22px;
-    margin-bottom: 22px;
+    border-radius: 4px;
 }
 
 .m_banner_text {
     text-align: center;
-    margin-top: 112px;
+    margin-top: 53px;
+}
+
+
+
+.m_count_down_num {
+    font-family: 'RobotoCondensed';
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 4px;
+    width: 23px;
+    height: 23px;
+    display: inline-block;
+    text-align: center;
+    line-height: 23px;
+    margin-right: 4px;
+    color: #008A27;
+    font-size: 18px;
+    font-weight: 700;
 }

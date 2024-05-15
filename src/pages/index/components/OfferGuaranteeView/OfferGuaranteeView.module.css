@@ -4,17 +4,21 @@
     gap: 12px;
     margin-bottom: 46px;
     width: 100%;
+
 }
 
 .m_card {
     font-family: 'PingFang_Medium';
-    border: 1px solid #008A27;
-    border-radius: 4px;
     padding: 20px 0;
     background-color: #fff;
+
+    border-radius: 4px;
+    border: 1px solid #CED5D0;
+
 }
 
 .m_card.active {
+    border: 1px solid #008A27;
     background: linear-gradient(180deg, #E8FAF2 0%, #FFFFFF 100%);
 }
 .m_card.active .m_offer_img{
@@ -32,9 +36,15 @@
     flex-direction: row;
     align-items: center;
 }
+
+.m_arrow {
+    align-self: flex-start ;
+    margin-top: 4px;
+}
 .m_title {
+    /* font-family: 'PingFang_Medium'; */
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 25.2px;
     text-align: left;
     margin-bottom: 6px;

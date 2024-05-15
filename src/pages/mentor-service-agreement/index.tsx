@@ -13,7 +13,7 @@ export const UserServiceAgreementPage: NextPage = () => {
 
   const content: JSX.Element = (
     <>
-       <h1 className='text-2xl text-center my-8'>欢迎你成为Rexpand的导师</h1>
+       <h1 className={styles.title}>欢迎你成为Rexpand的导师</h1>
         <div>
         以下是我们的导师服务协议（以下简称“协议”），请仔细阅读并确认你同意受其约束。<br />
 

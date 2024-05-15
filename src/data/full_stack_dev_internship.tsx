@@ -65,7 +65,7 @@ export const fullStackDevFAQData: AccordionData[] = [
 export const fullStackDevOutlineData: OutlineData = {
     subjects: [{
         subjectName: 'App后端开发',
-        subjectTags: ['上课频率:5周','4小时课程/周'],
+        subjectTags: ['上课频率:5周','每周4个小时课程'],
         subjectDescription: '这部分用Node.js, Express.js, MongoDB等技术进行App后端开发。',
         courseList: [{
             name: '第1周：项目介绍与后端环境搭建',
@@ -100,5 +100,42 @@ export const fullStackDevOutlineData: OutlineData = {
             ],
         }],
     },
+    {
+        subjectName: 'App前端开发',
+        subjectTags: ['上课频率:5周','每周4个小时课程'],
+        subjectDescription: '这部分用 React Native, Expo, Typescript等技术进行App前端开发',
+        courseList: [{
+            name: '第6周：前端开发入门与环境设置',
+            sections: [
+                '介绍React Native和TypeScript，设置iOS与Android的开发环境',
+                '提供前端Office Hour以答疑解惑',
+            ],
+        },{
+            name: '第7周：界面设计与框架实现',
+            sections: [
+                '设计前端界面，实现应用框架',
+                '开发前端附加功能',
+            ],
+        },{
+            name: '第8周：用户交互与界面完善',
+            sections: [
+                '开发用户登录/注册功能，创建用户个人资料页面（第一部分）',
+                '继续提供前端Office Hour',
+            ],
+        },{
+            name: '第9周：用户体验深化与功能增强',
+            sections: [
+                '完成用户个人资料页面（第二部分），开发信息流屏幕',
+                '再次提供前端Office Hour',
+            ],
+        },{
+            name: '第10周：多媒体处理与性能优化',
+            sections: [
+                '开发自定义视频组件，实现视频上传功能。',
+                '进行前端回顾与改进。',
+            ],
+        }],
+    },
+
     ]
 };

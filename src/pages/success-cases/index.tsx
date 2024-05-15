@@ -64,8 +64,14 @@ function MobileView() {
            <Header />
             <>
                 <div className={`py-0 flex flex-col justify-center relative ${styles.m_banner_container}`}
-                    style={{backgroundImage: `url(${mBannerImg.src})`}}
+                    style={{
+                        backgroundImage: `url(${mBannerImg.src})`,
+                        height: 750,
+                    }}
                 >
+                    <video className={styles.m_banner_video} autoPlay muted loop >
+                        <source src="http://resources.rexpandcareer.com/videos/cases/successful-cases.mov" type="video/mp4" />
+                    </video>
                     {/* <Image className={styles.banner_img} src={bannerImage} alt='Banner'/> */}
                     {/* <div className={styles.m_banner_img_box}>
                         <Image alt="" src={require('@/assets/success-cases/m_banner_img.png')} className={styles.m_banner_img}/>
@@ -96,7 +102,7 @@ function MobileView() {
                    
                 </div>
 
-                <div className={clsx('section', styles.m_section2)} style={{background: `linear-gradient(to bottom, rgba(255, 255, 255, 0.2), rgba(125, 209, 147, 0.2)), white`}}>
+                <div className={clsx('section', styles.m_section2)} style={{background: `linear-gradient(to bottom, rgba(238, 255, 252,0.3) , rgba(125, 209, 147, 0.2)), white`}}>
                     <SectionTitle 
                         className={styles.m_section_title2}
                         title="学员心得"

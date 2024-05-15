@@ -9,18 +9,18 @@ export default function Breadcrumb({items, className}: Props) {
     }
     const combinedClass = clsx('', className);
 
-    return <nav className={combinedClass} aria-label="Breadcrumb">
+    return <nav className={combinedClass} style={{color: '#333333'}} aria-label="Breadcrumb">
         <span>您所在的位置是：</span>
         <ol className="inline-flex">
             {items?.map((item, index)=>{
                 if (index < items.length - 1) {
                     // 不是最后一个
                     return <li key={item.title} className={`flex items-center ${styles.separator}`}>
-                        <Link href={item.path} className="text-gray-500 hover:text-gray-700">{item.title}</Link>
+                        <Link href={item.path} >{item.title}</Link>
                     </li>;
                 } else {
                     // 最后一个
-                    return <span key={item.title} className="text-gray-800">{item.title}</span>;
+                    return <span key={item.title}>{item.title}</span>;
                 }
             })}
         </ol>

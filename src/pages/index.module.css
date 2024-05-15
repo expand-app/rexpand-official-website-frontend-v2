@@ -4,6 +4,18 @@
     background-size: cover;
 }
 
+.swiper_container {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    z-index: 1;
+}
+.swiper {
+    height: 100%;
+}
 /* .banner_container::before {
     content: "";
     position: absolute;
@@ -19,7 +31,6 @@
     font-size: 60px;
     line-height: 80px;
     font-weight: 800;
-
     text-align: center;
     margin-bottom: 120px;
 }
@@ -61,7 +72,7 @@
 .m_banner_container{
     position: relative;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 'cover';
 }
 .m_banner_title {
     font-family: 'PingFang_Semiblod';
@@ -76,12 +87,13 @@
     height: 45px;
     font-size: 14px;
     margin-top: 282px;
-    margin-bottom: 123px;
+    margin-bottom: 103px;
 }
 
 .m_banner_text {
     text-align: center;
     margin-top: 103px;
+    z-index: 2;
 }
 
 .m_section1_title {
@@ -102,7 +114,9 @@
 
 .m_internship_project_section {
     background-repeat: no-repeat;
-    background-size: auto 100%;
+    background-size: 100% 100%;
+    /* background-position: 0 100%; */
+    padding-bottom: 67px;
 }
 
 .m_section2_title {
@@ -121,4 +135,17 @@
     font-family: 'PingFang_Medium';
     margin-top: 46px;
     margin-bottom: 46px;
+}
+
+.m_swiper_container {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 693px;
+    background-color: #ccc;
+    z-index: 1;
+}
+.m_swiper {
+    height: 100%;
 }

@@ -36,9 +36,9 @@ function MobileView ({data, className}: Props) {
                     <h1 className={styles.m_title}>{item.title}</h1>
                     <div className={styles.m_subtitle}>{item.subtitle}</div>
                 </div>
-                {activeIndex===index? <Arrow dir={ArrowDir.UP}/>: <Arrow dir={ArrowDir.DOWN}/>}
+                {activeIndex===index? <Arrow dir={ArrowDir.UP} className={styles.m_arrow}/>: <Arrow dir={ArrowDir.DOWN}  className={styles.m_arrow}/>}
             </div>
-            <Image className={styles.m_offer_img} alt='' src={require(`@/assets/home/offer_${index+1}.png`)} />   
+            <Image className={styles.m_offer_img} alt='' src={require(`@/assets/home/m_offer_${index+1}.png`)} />   
         </div>;
        })}
     </div>;
@@ -60,4 +60,5 @@ export interface OfferGuaranteeViewData {
     title: JSX.Element;
     subtitle: string;
     image: StaticImageData;
+    mImage: StaticImageData;
 }

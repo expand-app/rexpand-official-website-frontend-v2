@@ -10,10 +10,9 @@ import bannerBgImage from '@/assets/interview-camp/banner_bg.png';
 import mBannerBgImage from '@/assets/interview-camp/m_banner_bg.png';
 import Button, { ButtonRadius, ButtonSize, ButtonType } from '@/components/Button/Button';
 import courceBgImg from '@/assets/interview-camp/course_bg.png';
+import mCourceBgImg from '@/assets/interview-camp/m_course_bg.png';
 import clsx from 'clsx';
 import Accordion from '@/components/Accordion/Accordion';
-import FloatMenu from '@/components/FloatMenu/FloatMenu';
-import { internshipMenusData } from '@/data/internship';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
 import { daysToNow, formatDate } from '@/utils/Utils';
 import { courceArrangementData, interviewCampFAQData, whyJoinData } from '@/data/interview_camp';
@@ -21,6 +20,7 @@ import WhyJoinList from './WhyJoinList/WhyJoinList';
 import CourseArrangement from './CourseArrangement/CourseArrangement';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 import useScreen from '@/components/useScreen/useScreen';
+import CampBannerOverlayCard from './CampBannerOverlayCard/CampBannerOverlayCard';
 
 const nextCourceTime = new Date('2024-05-12');
 
@@ -82,18 +82,20 @@ export const MobileView = () => {
       
       <Header theme={Theme.TRANSPARENT} />
       <main className=''>
-        <div className={`${styles.m_banner_container} internship_banner_container flex flex-col items-center relative`}
+        <div className={`${styles.m_banner_container} m_internship_banner_container flex flex-col items-center relative`}
             style={{
               backgroundImage: `url(${mBannerBgImage.src})`,
               backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: '0 -70px',
+              maxHeight: 453,
             }}>
            
            <div className='flex flex-col items-center justify-center px-22px'>
                <div className={styles.m_banner_text}>
                 <h1 className={clsx(styles.m_banner_title)}>面试集训营</h1>
                 <h2 className={clsx(styles.m_banner_subtitle1)}>只要99元，5天时间全面掌握北美面试技巧</h2>
-                <h3 className={clsx(styles.m_banner_subtitle2)}>下次开课：<span className='font-w500'>{formatDate(nextCourceTime)}</span> 倒计时：<span className={styles.count_down_num}>{courseDaysLeft}</span>天</h3>
+                <h3 className={clsx(styles.m_banner_subtitle2)}>下次开课：<span className='font-w500 font-m'>{formatDate(nextCourceTime)}</span> 倒计时：<span className={styles.m_count_down_num}>{courseDaysLeft}</span>天</h3>
 
                   <Button
                       className={styles.m_banner_btn}
@@ -132,7 +134,8 @@ export const MobileView = () => {
           paddingTop: 350,
           
           }}>
-            <div className='container mx-auto w-3/4'>
+
+            <div className='px-12px'>
               <SectionTitle 
                 title='为什么要参加？'
                 className='mb-60px'/>
@@ -141,14 +144,15 @@ export const MobileView = () => {
             </div>
         </div>
 
-        <div className='bg-white py-24 section' style={{
-          backgroundImage: `url(${courceBgImg.src})`,
-          backgroundSize: '100% auto',
-          backgroundPosition: '0,0'
+        <div className='bg-white section' style={{
+          backgroundImage: `url(${mCourceBgImg.src})`,
+          backgroundSize: '100% 100%',
+          backgroundPosition: '0,0',
+          padding: '67px 0 66px 0'
         }}>
             <SectionTitle 
-                    title={<><span style={{color: '#008A27'}}>面试集训营</span> 课程安排</>} 
-                    className='mb-12'/>
+                    title={<><span style={{color: '#008A27'}}>面试集训营</span>课程安排</>} 
+                    />
             
             <div className={styles.m_course_arra_content}>
               <CourseArrangement data={courceArrangementData}/>
@@ -156,12 +160,12 @@ export const MobileView = () => {
         </div>
 
 
-        <div className='bg-white section internship_faq_section'>
+        <div className='bg-white section m_internship_faq_section'>
+          <div className='px-12px'>
           <SectionTitle 
                     title='常见问题'
                     className='internship_faq_title' 
                     />
-          <div className='container mx-auto flex flex-col justify-center md:flex-row md:w-5/6'>
             <Accordion data={interviewCampFAQData}/>
           </div>
         </div>
@@ -204,7 +208,7 @@ export const PCView = () => {
                   <h3 className=' text-white font-16 font-w400'>下次开课：<span className='font-w500'>{formatDate(nextCourceTime)}</span> 倒计时：<span className={styles.count_down_num}>{courseDaysLeft}</span>天</h3>
 
                   <Button
-                      className="z-10"
+                      className={styles.banner_btn}
                       type={ButtonType.SOLID} 
                       size={ButtonSize.MIDDLE} 
                       text="立即报名" />
@@ -213,7 +217,7 @@ export const PCView = () => {
                 <Image src={bannerRightImage} alt="Banner" className={clsx('',styles.banner_img)}/>
               </div>
             </div>
-            <BannerOverlayCard 
+            <CampBannerOverlayCard
               cardClassName='w-p85'
               data={[{
                 id: 1,
@@ -254,7 +258,7 @@ export const PCView = () => {
         }}>
           <div className='container mx-auto w-2/3'>
             <SectionTitle 
-                    title={<><span style={{color: '#008A27'}}>面试集训营</span> 课程安排</>} 
+                    title={<><span style={{color: '#008A27',marginRight:12}}>面试集训营</span>课程安排</>} 
                     className='mb-12'/>
             
             <CourseArrangement data={courceArrangementData}/>

@@ -4,7 +4,7 @@
 
 .card {
     /* background-color: #fff; */
-    border-radius: 8px;
+    border-radius: 4px;
     overflow: hidden;
     
 }
@@ -21,8 +21,6 @@
     text-align: center;
     color:#fff;
 
-
-
     border-bottom: 2px solid #008A27;
     background-size: 100%;
     transition: background-size 0.5s ease;
@@ -34,7 +32,6 @@
 }
 
 .card:hover .header {
-    background-size: 110%;
 }
 
 
@@ -88,7 +85,7 @@
         /* border-radius: 4px; */
     }
     .header{
-        height: 124px;
+        height: 122px;
         justify-content: start;
     }
 

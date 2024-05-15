@@ -25,7 +25,8 @@ const MobileView = ({data}: Props) => {
         <div className={clsx('flex flex-wrap',styles.m_free_resource_list)}>
             {data?.map((item)=>{
                 return <div key={item.id} className={clsx('', styles.m_card)}>
-                    <Link href={`/free-resources/${item.id}`}>
+                    {/* <Link href={`/free-resources/${item.id}`}> */}
+                    <Link href={`/free-resources/1`}>
                         <div className={styles.img_container}>
                             <Image src={item.image} alt={item.title} className={clsx('w-full', styles.img)}/>
                         </div>
@@ -54,7 +55,8 @@ const PCView = ({data}: Props) => {
         <div className={clsx('flex flex-wrap',styles.free_resource_list)}>
             {data?.map((item)=>{
                 return <div key={item.id} className={clsx('lg:w-1/3 sm:w-1/2', styles.card)}>
-                    <Link href={`/free-resources/${item.id}`}>
+                    {/* <Link href={`/free-resources/${item.id}`}> */}
+                    <Link href={`/free-resources/1`}>
                         <div className="rounded relative  bg-white p-1 cursor-pointer">
                             <div className={styles.img_container}>
                                 <Image src={item.image} alt={item.title} className={clsx('w-full', styles.img)}/>

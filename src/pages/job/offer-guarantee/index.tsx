@@ -27,9 +27,6 @@ import OfferGuaranteeView from '@/pages/index/components/OfferGuaranteeView/Offe
 const OfferGuaranteePage: NextPage = () => {
   const { isMobile } = useScreen();
   
-  setTimeout(()=>{
-    console.log('iiiiisi', isMobile());
-  },1000)
   return (
       <>
         <Head>
@@ -97,9 +94,7 @@ function MobileView() {
         </div>
        
 
-        <div className={clsx('bg-white pt-24 m-section', styles.m_section1)} style={{
-          background: '#F7FBF8'
-        }}>
+        <div className={clsx('pt-24 m-section', styles.m_section1)} >
             <div className='container mx-auto flex flex-col items-center'>
               <SectionTitle 
                 title='什么是保Offer项目' 
@@ -140,7 +135,7 @@ function MobileView() {
                       title='常见问题' 
                       className='internship_faq_title'/>
 
-              <Accordion data={offerGuaranteeFAQData}/>
+              <Accordion data={offerGuaranteeFAQData} checkedIndxs={[0]}/>
             {/* <div className='container mx-auto flex flex-col justify-center py-12 md:flex-row md:w-5/6'>
             </div> */}
           </div>
@@ -187,10 +182,12 @@ function PCView() {
           background: '#F7FBF8'
         }}>
             <div className='container mx-auto flex flex-col items-center'>
+              <div style={{paddingLeft: '20%', paddingRight: '20%'}}>
               <SectionTitle 
                 title='什么是保Offer项目' 
                 subtitle='项目针对北美留学生设计，保证sponsor H1b工作offer。9年多的时间积累留学生求职辅导经验，项目已经累计帮助2000多位学员拿到北美offer'
-                className='mb-12 w-2/3'/>
+                className='mb-12 w-full '/>
+              </div>
               
               <div className={clsx('flex flex-col md:flex-row gap-16 w-full items-center justify-between overflow-auto', styles.logo_list)}>
                 <Image src={googleImage} alt="Google" />

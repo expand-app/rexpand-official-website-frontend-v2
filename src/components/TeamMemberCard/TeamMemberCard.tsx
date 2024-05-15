@@ -20,7 +20,7 @@ const TeamMemberCard = ({...props}: Props) => {
 
 const MobileView = ({data}: Props) => {
     return (
-        <div className={clsx("max-w-sm overflow-visible relative  bg-white px-8",styles.m_card)}>
+        <div className={clsx("max-w-sm overflow-visible relative  bg-white",styles.m_card)}>
             <Image className={styles.m_avatar} src={data?.avatar} alt={data?.name} />
             <div className={styles.m_header}>
                 <div className={clsx('font-m font-16 font-w500 mb-12px', styles.m_username)}>{data?.name}</div>

@@ -31,7 +31,8 @@
 
 .detail_footer {
     background: rgb(232, 250, 242, 0.3);
-
+    border-radius: 8px;
+    padding: 40px;
 }
 
 .subject_name{
@@ -103,9 +104,10 @@
 }
 
 .m_detail_footer {
-    background: rgb(232, 250, 242, 0.3);
+    background: rgba(232, 250, 242, 0.3);
 
-    padding: 39px 26px 20px;
+    padding: 39px 26px 39px;
+    
 }
 
 .m_subject_name{

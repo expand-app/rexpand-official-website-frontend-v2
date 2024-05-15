@@ -4,7 +4,7 @@
 .banner_overlay {
     position: absolute;
     left:0;
-    bottom:-170px;
+    bottom:-201px;
 }
 
 .banner_title {
@@ -34,7 +34,10 @@
 /* m */
 .m_banner_container {
     background: linear-gradient(90deg, #072 0%, #6DCB88 75.49%);
-
+    background-size: cover;
+    background-position: 100%;
+    
+    height: 553px;
 }
 .m_banner_overlay_box {
     padding: 0 12px;
@@ -42,7 +45,7 @@
 }
 .m_banner_overlay {
     position: relative;
-    margin: 96px 0 0 0 !important;
+    margin: 22px 0 0 0 !important;
 }
 .m_intro_img_box {
     width: 100%;
@@ -62,7 +65,8 @@
     text-align: center;
     font-size: 30px;
     font-weight: 600;
-    line-height: 80px; /* 266.667% */
+    margin-bottom: 15px;    
+
 }
 
 .m_banner_subtitle {
@@ -80,10 +84,9 @@
     height: 45px;
     font-size: 14px;
     margin-top: 22px;
-    margin-bottom: 22px;
 }
 
 .m_banner_text {
     text-align: center;
-    margin-top: 112px;
+    margin-top: 75px;
 }

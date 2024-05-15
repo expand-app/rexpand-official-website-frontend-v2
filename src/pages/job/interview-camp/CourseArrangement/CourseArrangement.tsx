@@ -51,7 +51,7 @@ const MobileView = ({data, className, }: Props) => {
                             onMouseEnter={()=>setActiveIndex(index)}
                             >
                             <div className={clsx('', styles.m_day_title)}>{`第${numberToChinese(index+1)}天直播`}</div>
-                            <div className='flex flex-row gap-2 items-start flex-1'>
+                            <div className='flex flex-row items-start flex-1'>
                                 <Image src={circlePlayIconImg} alt='play' className={styles.m_play_icon}/>
                                 <div className={clsx('')}>
                                     <h1 className={clsx('', styles.m_course_title)}>{item.title}</h1>
@@ -80,10 +80,9 @@ const PCView = ({data, className, }: Props) => {
                     alt='banner'
                     width={400}
                     height={300}
-                    sizes="100vw"
                     style={{
-                        //objectFit: 'contain',
-                        width: '100%'
+                        width: 'auto',
+                        height: '100%',
                       }}
                     />
             </div>

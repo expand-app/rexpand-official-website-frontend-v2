@@ -158,7 +158,7 @@ export const MobileView = () => {
 
 
         <div className='bg-white section m_internship_outline_section'>
-          <div className='container mx-auto'>
+          <div className='px-12px'>
 
             <SectionTitle title='项目大纲' className='m_internship_outline_title'/>
 
@@ -169,8 +169,8 @@ export const MobileView = () => {
         </div>
 
 
-        <div className='bg-white section internship_faq_section'>
-          <div className='container mx-auto'>
+        <div className='bg-white section m_internship_faq_section'>
+          <div className='px-12px'>
             <SectionTitle title='常见问题' className='internship_faq_title'/>
 
             <div className='flex flex-col justify-center md:flex-row'>
@@ -379,7 +379,8 @@ export const PCView = () => {
             <SectionTitle title='实习介绍' className='internship_intro_title'/>
 
             <div className='flex flex-col md:flex-row'>
-              <div className='flex justify-end'>
+              <div className='flex justify-end' 
+                  style={{width: '28vw'}}>
                 <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
               </div>
               
@@ -396,13 +397,14 @@ export const PCView = () => {
           <SectionTitle title='项目亮点' className='internship_sight_title'/>
           <div style={{
             backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
-            padding: '72px 0 58px 0',
+            
           }}>
             <div className='container mx-auto'>
-              <div className='flex flex-col md:flex-row h-96'>
+              <div className='flex flex-col md:flex-row'>
                 
                 <div className='flex justify-end'>
-                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'
+                  style={{width: '28vw', height: 'auto'}}/>
                 </div>
                 
                 <SightView data={quantitativeInvestimentSightViewData}/>

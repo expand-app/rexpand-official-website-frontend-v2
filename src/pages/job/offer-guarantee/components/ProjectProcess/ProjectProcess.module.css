@@ -57,6 +57,7 @@
 }
 
 .steps{
+    font-family: 'PingFang_Medium';
     margin-bottom: 53px;
 }
 
@@ -78,6 +79,7 @@
     line-height: 35px;
     flex:1;
     border-radius: 4px;
+    background-color: #E8EEE9;
 }
 
 .m_step_button_active{
@@ -109,6 +111,7 @@
     width: 100%;
     display: flex;
     margin-bottom: 40px;
+    gap: 6px;
 }
 .m_title {
     font-family: 'PingFang_Medium';

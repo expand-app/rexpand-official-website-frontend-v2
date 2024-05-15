@@ -63,7 +63,9 @@
     line-height: 80px; /* 266.667% */
     letter-spacing: 0.2px;
 }
-
+.m_section1 {
+    background: #F7FBF8;
+}
 .m_section2 {
     padding-top: 67px;
     padding-bottom: 70px;

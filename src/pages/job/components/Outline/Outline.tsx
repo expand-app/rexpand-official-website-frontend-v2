@@ -128,7 +128,7 @@ const PCView = ({data, className}: Props) => {
                     <div className={styles.description}>{activeItem?.subjectDescription}</div>
                 </div>
 
-                <div className={clsx('rounded-md px-6 pt-12 pb-8', styles.detail_footer)}>
+                <div className={clsx('', styles.detail_footer)}>
                     <VerticalTimeline data={activeItem?.courseList?.map((item)=>{
                         return {
                             title: item.name,

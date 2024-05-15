@@ -102,6 +102,7 @@
 }
 
 .m-fr-article .m-fr-article-body h1{
+    font-family: 'PingFang_Medium';
     color: #333;
     font-size: 18px;
     font-weight: 500;
@@ -109,6 +110,7 @@
 }
 
 .m-fr-article .m-fr-article-body h2{
+    font-family: 'PingFang_Medium';
     color: #333;
     font-size: 16px;
     font-weight: 500;

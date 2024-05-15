@@ -5,6 +5,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import styles from './index.module.css';
 import bannerImg from '@/assets/about/banner.png';
+import mBannerImg from '@/assets/about/m_banner.png';
 import bannerTextImg from '@/assets/about/banner_text.png';
 import Image from 'next/image';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
@@ -66,10 +67,16 @@ export const AboutPage: NextPage = () => {
 function MobileView () {
     return <div>
         <Header theme={Theme.LIGHT}/>
-        <main className="m-main">
+        <main className="m-main mt-45px">
         
         <div className="">  
-          <div className={clsx('relative m-page-banner')} style={{backgroundImage: `url(${bannerImg.src})`}}>
+          <div className={clsx('relative m-page-banner')} style={{
+              backgroundImage: `url(${mBannerImg.src})`,
+              height:482,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              
+              }}>
               <div className="absolute inset-0 flex flex-col items-center justify-center">
                 <Image src={bannerTextImg} alt='让内推引领求职' className={styles.m_banner_title_img}/>
                 <div className={clsx('text-white mt-12',styles.m_banner_subtitle)}>「 9年专注留学生求职 」</div>
@@ -122,24 +129,24 @@ function MobileView () {
             backgroundImage: `url(${mXpqnBgImage.src})`}}>
             <div className={styles.m_section3_card_list}>
               <div className={styles.m_section3_card}>
-                <div className='flex flex-row items-center gap-2 mb-17px'>
-                  <Image src={pushImage} alt='独一无二的内推服务' width={30} height={30}/>
-                  <h1>独一无二的内推服务</h1>
+                <div className='flex flex-row items-center gap-12px mb-12px'>
+                  <Image src={pushImage} alt='独一无二的内推服务' style={{width:19, height:19}}/>
+                  <h1 className='flex-1'>独一无二的内推服务</h1>
                 </div>
                 <h2>利用AI技术驱动内推，保证每周不低于20次的内推</h2>
               </div>
 
               <div className={styles.m_section3_card}>
-                <div className='flex flex-row gap-2 items-center mb-17px'>
-                  <Image src={starImage} alt='9年深耕北美求职' width={30} height={30} style={{width:26, height:26}}/>
-                  <h1>9年深耕北美求职</h1>
+                <div className='flex flex-row gap-2 items-center gap-12px mb-12px'>
+                  <Image src={starImage} alt='9年深耕北美求职'  style={{width:19, height:19}}/>
+                  <h1 className='flex-1'>9年深耕北美求职</h1>
                 </div>
                 <h2>自2015年起辅导北美求职，专注于数据、金融和科技方向</h2>
               </div>
               <div className={styles.m_section3_card}>
-                <div className='flex flex-row gap-2 items-center  mb-17px'>
-                  <Image src={userCardImage} alt='双师体制Offer保障' style={{width:26, height:26}}/>
-                  <h1>双师体制Offer保障</h1>
+                <div className='flex flex-row gap-2 items-center gap-12px mb-12px'>
+                  <Image src={userCardImage} alt='双师体制Offer保障'  style={{width:19, height:19}}/>
+                  <h1 className='flex-1'>双师体制Offer保障</h1>
                 </div>
 
                 <h2>专业辅导老师负责1v1教学，提升技能。班主任负责内推、简历投递、日常答疑，保障求职</h2>
@@ -151,7 +158,7 @@ function MobileView () {
             <div className='container mx-auto'>
               <SectionTitle title='专业导师团队' 
                 subtitle='导师均来自于北美顶级企业，平均5年+求职辅导经验' 
-                className='mb-55px'/>
+                className='mb-82px'/>
 
               <div className='grid grid-cols-2' style={{gap: 10}}>
                 {membersData?.map((item)=>{ 

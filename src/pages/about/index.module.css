@@ -138,7 +138,9 @@
     font-size: 12px;
     font-style: normal;
     font-weight: 300;
-    line-height: 110%; /* 13.2px */
+    line-height: 21px;
+    padding-left: 30px;
+    padding-right: 2rem;
 }
 
 .m_section3_card img {
@@ -147,6 +149,6 @@
 }
 .m_section4 {
     padding-top:87px;
-    padding-bottom: 108px;   
+    padding-bottom: 72px;   
 }
 

@@ -100,30 +100,59 @@ export const dataAnalysisOutlineData: OutlineData = {
         }],
     },
     {
-        subjectName: '项目启动和团队准备阶段2',
-        subjectTags: ['上课频率:3周','2节课/周','1h/课'],
-        subjectDescription: '这部分主要涉及项目的启动阶段和准备工作。包括团队的介绍与沟通，市场调研的回顾和讨论，以及与客户的沟通和需求了解。同时还包括了制定数据战略和与经理讨论相关事宜。',
+        subjectName: '数据处理与分析',
+        subjectTags: ['上课频率:4周','每周2节直播课','每节课1小时'],
+        subjectDescription: '这部分主要围绕着数据处理和分析展开。从SQL基础的学习开始，到数据的清洗和分割，再到自动化数据管道的建立和实施。涉及了地理位置分析、电子邮件列表更新、数据管道的审查和改进等内容。',
         courseList: [{
-            name: '第1周：项目启动和团队介绍',
+            name: '第4周：SQL essentials和data cleaning',
             sections: [
                 '介绍项目背景、目标和团队成员',
                 '分配任务和角色',
                 '进行入职会议，确立项目方向和内容',
             ],
         },{
-            name: '第2周：市场调研和邮件营销',
+            name: '第5周：自动化数据处理管道',
             sections: [
                 '回顾市场调研结果，讨论竞争对手分析和市场定位策略',
                 '学习如何使用Mailchimp进行邮件营销，包括创建邮件列表和设计邮件模板',
                 '进行与营销经理的客户电话会议，了解客户需求和期望',
             ],
         },{
-            name: '第3周：项目启动和团队介绍',
+            name: '第6周：地理位置分析和数据更新',
             sections: [
                 '讨论数据收集、分析和利用的策略',
                 '与经理共同制定数据管理计划',
                 '准备进行SQL基础学习，为后续的数据处理和分析做准备',
             ],
-        },],
+        },{
+            name: '第7周：adhoc project和data pipeline implementation',
+            sections: [
+                'adhoc project：banking relationship pricing validation',
+                'data pipeline implementation，并复盘',
+            ],
+        }],
+    },{
+        subjectName: '营销策略优化与实施',
+        subjectTags: ['上课频率:3周','每周2节直播课','每节课1小时'],
+        subjectDescription: '这部分着重于营销策略的优化和实施，包括A/B测试的设计和实施、邮件营销活动的绩效审查、策略的最终优化和数字营销计划的完善。最后，对整个项目进行总结审查，并为未来的面试和职业发展做准备。',
+        courseList: [{
+            name: '第8周：A/B测试和邮件营销审查',
+            sections: [
+                '学习如何设计和实施A/B Testing，评估营销策略的效果',
+                '跟踪之前发送的邮件营销活动的效果，并提出改进方案',
+            ],
+        },{
+            name: '第9周：策略优化和数字营销计划',
+            sections: [
+                '优化之前的营销策略，并制定实施计划',
+                '最终完善数字营销计划，准备最终报告',
+            ],
+        },{
+            name: '第10周：报告审查和面试准备',
+            sections: [
+                '审查并讨论最终报告',
+                '分享项目经验和教训，准备面试和职业发展',
+            ],
+        }],
     }]
 };

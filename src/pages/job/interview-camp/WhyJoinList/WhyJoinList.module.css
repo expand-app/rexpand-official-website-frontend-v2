@@ -33,8 +33,14 @@
     padding: 19px 26px 19px 26px;
     border-radius: 4px;
     background-color: #fff;
+    gap: 11px;
+    display: flex;
+    flex-direction: row;
 }
-
+.m_right {
+    padding-top: 3px;
+    flex:1;
+}
 .m_title {
     font-family: 'PingFang_Medium';
     color: #008A27;
@@ -47,7 +53,10 @@
     font-size: 12px;
     font-weight: 400;
 }
-.m_icon_container img{
+.m_left{
     width: 63px;
     height: 63px;
+}
+.m_left > img {
+    width: 100%;
 }

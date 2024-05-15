@@ -72,13 +72,14 @@
     background: #F6FDF9;
     padding: 16px;
     border-radius: 4px;
-    margin-bottom: 6px;
+    margin-bottom: 10px;
 }
 .m_summary {
     color: #1B1B1B;
     font-size: 12px;
     font-weight: 400;
     opacity: 0.6;
+    line-height: 21px;
 }
 
 .m_publish_time{

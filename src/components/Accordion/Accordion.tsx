@@ -18,8 +18,8 @@ const Accordion = ({...props}: Props) => {
         </div>
     );
 }
-const MobileView = ({data, className}: Props) => {
-    const [checkedIndexes, setCheckedIndexes] = useState<Array<number>>([]);
+const MobileView = ({data, className, checkedIndxs = [],}: Props) => {
+    const [checkedIndexes, setCheckedIndexes] = useState<Array<number>>(checkedIndxs);
 
     const combinedClassName = clsx('w-full',styles.m_accordion, className);
     
@@ -131,6 +131,7 @@ export default Accordion;
 export interface Props {
     data: AccordionData[];
     className?: string;
+    checkedIndxs?: number[];
 }
 
 export interface AccordionData {

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './StudentExperienceList.module.css';
 import Image, { StaticImageData } from 'next/image';
 import clsx from 'clsx';
@@ -7,6 +7,7 @@ import Link from 'next/link';
 import playIcon from '@/assets/icon_play_circle.png';
 import VideoModal from '@/components/VideoModal/VideoModal';
 import useScreen from '@/components/useScreen/useScreen';
+import FullScreenVideoPlayer from '@/components/FullScreenVideoPlayer/FullScreenVideoPlayer';
 
 const StudentExperienceList = ({...props}: Props) => {
     const { isMobile } = useScreen();
@@ -24,19 +25,55 @@ const StudentExperienceList = ({...props}: Props) => {
 
 
 function MobileView({data}: Props) {
+    const [videoElement, setVideoElement] = useState<HTMLVideoElement | null>(null);
     const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
     const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
 
     const onImageClick = (clickedItem: StudentExperienceData) => {
-        if (clickedItem) {
-            setVideoModalPath(clickedItem.videoUrl);
-            setVideoModalOpen(true);
-        }
+        // if (clickedItem) {
+        //     setVideoModalPath(clickedItem.videoUrl);
+        //     setVideoModalOpen(true);
+        // }
+
+        const video = document.createElement('video');
+        video.src = clickedItem.videoUrl;
+        video.autoplay = true;
+    
+        video.addEventListener('loadedmetadata', () => {
+          if (video.requestFullscreen) {
+            video.requestFullscreen();
+          } else if (video.mozRequestFullScreen) { /* Firefox */
+            video.mozRequestFullScreen();
+          } else if (video.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            video.webkitRequestFullscreen();
+          } else if (video.msRequestFullscreen) { /* IE/Edge */
+            video.msRequestFullscreen();
+          }
+        });
+    
+        setVideoElement(video);
+        document.body.appendChild(video);
     }
+
+    useEffect(() => {
+        const exitFullscreenHandler = () => {
+          if (document.fullscreenElement === null && videoElement) {
+            document.body.removeChild(videoElement);
+          }
+        };
+    
+        document.addEventListener('fullscreenchange', exitFullscreenHandler);
+    
+        return () => {
+          document.removeEventListener('fullscreenchange', exitFullscreenHandler);
+        };
+    }, [videoElement]);
+
 
     return (
         <>
         <div className={clsx(styles.m_student_experience_list)}>
+            
             {data?.map((item)=>{
                 return <div key={item.id} 
                 className={clsx('flex-1 bg-white flex flex-col',styles.m_top_offer_item)}

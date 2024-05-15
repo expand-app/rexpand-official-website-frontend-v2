@@ -23,6 +23,7 @@
 
 .internship_banner_card_content.list{
     opacity: 1;
+    margin-left: 14px;
 }
 
 .internship_banner_card_content.list > li > span{
@@ -70,7 +71,7 @@
 
 }
 .internship_intro_section {
-    margin-top: 205px;
+    margin-top: 235px;
     padding-top: 28px;
     padding-bottom: 50px;
     
@@ -107,7 +108,6 @@
     left: 0;
     height:3px;
     width:3px;
-    background-color: red;
     z-index: 1001;
 }
 
@@ -152,9 +152,9 @@
 }
 
 .m_internship_intro_section {
-    margin-top: 287px;
+    margin-top: 282px;
     padding-top: 67px;
-    padding-bottom: 50px;
+    padding-bottom: 28px;
 }
 
 .m_internship_intro_title {
@@ -171,7 +171,7 @@
 
 
 .m_internship_banner_container {
-    height: 632px;
+    height: 708px;
 }
 
 
@@ -188,6 +188,7 @@
     color: #333;
     font-size: 18px;
     font-weight: 600;
+    margin-bottom: 6px;
 }
 .m_sight_subtitle {
     color: #333;
@@ -202,5 +203,9 @@
     padding-bottom: 60px;
 }
 .m_internship_outline_title{
-    margin-bottom: 70px;
+    margin-bottom: 32px;
+}
+.m_internship_faq_section {
+    padding-top: 67px;
+    padding-bottom: 81px;
 }

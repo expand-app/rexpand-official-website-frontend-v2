@@ -151,7 +151,7 @@ export const MobileView = () => {
 
 
         <div className={clsx('bg-white section m_internship_outline_section')}>
-          <div className='container mx-auto'>
+          <div className='px-12px'>
             <SectionTitle title="项目大纲" className='m_internship_outline_title'/>
 
             <div className='flex flex-col md:flex-row'>
@@ -160,8 +160,8 @@ export const MobileView = () => {
           </div>
         </div>
 
-        <div className='bg-white section internship_faq_section' >
-          <div className='container mx-auto'>
+        <div className='bg-white section m_internship_faq_section' >
+          <div className='px-12px'>
             <SectionTitle className='internship_faq_title' title="常见问题" />
 
             <div className='flex flex-col justify-center md:flex-row'>
@@ -322,30 +322,10 @@ export const PCView = () => {
                   setVideoModalOpen(true);
                 }}/>
 
-              {/* <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
-                <div className='flex-1'>
-                  <h1 className='internship_banner_card_title'>项目时长</h1>
-                  <div className='internship_banner_card_content'>10周 / 20小时</div>
-                </div>
-
-                <div className='flex-1'>
-                  <h1 className='internship_banner_card_title'>适合学员</h1>
-                  <div className='internship_banner_card_content'>求职数据分析方向且缺少美国实习经验的留学生</div>
-                </div>
-
-                <div className='flex-1'>
-                  <h1 className='internship_banner_card_title'>项目特色</h1>
-                  <ul className='internship_banner_card_content list'>
-                    <li><span>和项目经理一起参与公司项目</span></li>
-                    <li><span>进行客户真实业务数据的分析</span></li>
-                    <li><span>提升硬核技术知识和业务分析能力</span></li>
-                  </ul>
-                </div>
-              </div> */}
             </div>
 
             <BannerOverlayCard
-              cardClassName='w-p85'
+              cardClassName={clsx('w-p85')}
               data={[{
                 id: 1,
                 title: '项目时长',
@@ -372,8 +352,10 @@ export const PCView = () => {
             <SectionTitle title="实习介绍" className='internship_intro_title'/>
            
             <div className='flex flex-col md:flex-row'>
-              <div className='flex justify-end'>
-                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
+              <div className='flex justify-end' 
+                  style={{width: '28vw'}}>
+                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'
+                  />
               </div>
               
               <div className={clsx('flex-1 flex items-center internship_practise_intro_text')}>
@@ -390,13 +372,14 @@ export const PCView = () => {
           <SectionTitle title="项目亮点" className='internship_sight_title'/>
           <div style={{
             backgroundImage: `linear-gradient(to bottom, #008a2708, #008a2719)`,
-            padding: '72px 0 58px 0',
+           
           }}>
             <div className='container mx-auto'>
-              <div className='flex flex-col md:flex-row h-96'>
+              <div className='flex flex-col md:flex-row'>
                 
                 <div className='flex justify-end'>
-                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'/>
+                  <Image src={sightImage} alt='项目亮点' className='mr-24' 
+                    style={{width: '28vw', height: 'auto'}} />
                 </div>
                 
                 <SightView data={ananlysisSightViewData}/>
