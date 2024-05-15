@@ -51,7 +51,7 @@ export const offerGuaranteeFAQData: AccordionData[] = [
 ];
 
 
-export const projectProcessData: ProjectProcessData[] = [
+export const projectProcessData: (any) = [
     {
         id: 1,
        processes: [

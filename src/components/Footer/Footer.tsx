@@ -10,15 +10,15 @@ import { socialLinksData } from '@/data/social_link';
 import useScreen from '../useScreen/useScreen';
 import MenuAccordion from './components/MenuAccordion/MenuAccordion';
 
-const Footer = ({...props}: Props) => {
+const Footer = () => {
   const { isMobile } = useScreen();
  
   return (
       <div>
           {isMobile?.()? 
-          <MobileView {...props} />
+          <MobileView  />
           :
-          <PCView {...props} />
+          <PCView  />
           }
       </div>
   );

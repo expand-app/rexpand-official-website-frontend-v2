@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from './OfferGuaranteeView.module.css';
-import VerticalTabs from '@/components/VerticalTabs/VerticalTabs';
+import VerticalTabs, { TabItem } from '@/components/VerticalTabs/VerticalTabs';
 import Image, { StaticImageData } from 'next/image';
 import useScreen from '@/components/useScreen/useScreen';
 import Arrow, { ArrowDir } from '@/components/Arrow/Arrow';
@@ -51,7 +51,7 @@ function PCView({data, className}: Props) {
 
 
 export interface Props {
-    data:  OfferGuaranteeViewData[];
+    data:  TabItem[];
     className?: string,
 }
 

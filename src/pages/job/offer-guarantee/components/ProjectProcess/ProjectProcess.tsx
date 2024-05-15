@@ -128,10 +128,10 @@ export interface Props {
 
 export interface ProjectProcessData {
     id: number;
-    processes: Array<ProcessItem>;
+    processes: ProcessItem[];
 }
 
 export interface ProcessItem {
     title: string;
-    content: Array<JSX.Element>;
+    content: JSX.Element[];
 }

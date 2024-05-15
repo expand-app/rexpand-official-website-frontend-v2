@@ -17,6 +17,7 @@ export const offerGuaranteeTabsData: TabItem[] = [
         title:<><span style={{color:'#008A27'}}>H1b</span> Offer保障</>,
         subtitle: '高频内推、简历代投、求职辅导全方位保证成功率',
         image: offerGuaranteeImg1,
+
         //content: <Image src={offerGuaranteeImg1} height={200} alt='H1b Offer保障'/>
     },
     {

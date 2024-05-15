@@ -51,5 +51,6 @@ export interface TabItem {
     title: JSX.Element;
     subtitle: string;
     image: StaticImageData;
+    mImage?: StaticImageData;
     // content: JSX.Element;
 }
