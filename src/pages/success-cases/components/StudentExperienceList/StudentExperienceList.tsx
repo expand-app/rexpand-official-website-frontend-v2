@@ -29,38 +29,38 @@ function MobileView({data}: Props) {
     const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
 
     const onImageClick = (clickedItem: StudentExperienceData) => {
-        // if (clickedItem) {
-        //     setVideoModalPath(clickedItem.videoUrl);
-        //     setVideoModalOpen(true);
-        // }
+        if (clickedItem) {
+            setVideoModalPath(clickedItem.videoUrl);
+            setVideoModalOpen(true);
+        }
 
-        const video = document.createElement('video');
-        video.src = clickedItem.videoUrl;
-        video.autoplay = true;
+        // const video = document.createElement('video');
+        // video.src = clickedItem.videoUrl;
+        // video.autoplay = true;
     
-        video.addEventListener('loadedmetadata', () => {
-          if (video.requestFullscreen) {
-            video.requestFullscreen();
-          }
-        });
+        // video.addEventListener('loadedmetadata', () => {
+        //   if (video.requestFullscreen) {
+        //     video.requestFullscreen();
+        //   }
+        // });
     
-        setVideoElement(video);
-        document.body.appendChild(video);
+        // setVideoElement(video);
+        // document.body.appendChild(video);
     }
 
-    useEffect(() => {
-        const exitFullscreenHandler = () => {
-          if (document.fullscreenElement === null && videoElement) {
-            document.body.removeChild(videoElement);
-          }
-        };
+    // useEffect(() => {
+    //     const exitFullscreenHandler = () => {
+    //       if (document.fullscreenElement === null && videoElement) {
+    //         document.body.removeChild(videoElement);
+    //       }
+    //     };
     
-        document.addEventListener('fullscreenchange', exitFullscreenHandler);
+    //     document.addEventListener('fullscreenchange', exitFullscreenHandler);
     
-        return () => {
-          document.removeEventListener('fullscreenchange', exitFullscreenHandler);
-        };
-    }, [videoElement]);
+    //     return () => {
+    //       document.removeEventListener('fullscreenchange', exitFullscreenHandler);
+    //     };
+    // }, [videoElement]);
 
 
     return (

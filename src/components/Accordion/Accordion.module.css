@@ -167,6 +167,7 @@
     font-size: 12px;
     font-weight: 500;
     padding-left: 18px;
+    padding-right: .8rem;
 }
 
 .m_content {
@@ -193,10 +194,23 @@
 
 
 .m_active .m_title {
-    border-left: 4px solid #008A27;
+    /* border-left: 4px solid #008A27; */
     font-weight: 500;
 }
 
+.m_active .m_title::before {
+    content: '';
+    position: absolute;
+    left:0;
+    top:19px;
+    height: 1rem;
+    width: 4px;
+    background-color: #008A27;
+    visibility: hidden;
+}
+.m_active .m_title::before{
+    visibility: visible;
+}
 
 .m_accordion_item > input[type='checkbox']:checked ~ .m_title_container > .m_arrow_icon {
     transform: rotate(180deg);

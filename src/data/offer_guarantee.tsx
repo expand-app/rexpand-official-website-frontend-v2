@@ -108,9 +108,7 @@ export const projectProcessData: (any) = [
                 ]
             },
        ],
-    },
-
-    ,{
+    },{
         id: 4,
        processes: [
             {

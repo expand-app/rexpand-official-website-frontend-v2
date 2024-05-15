@@ -421,8 +421,8 @@ export const PCView = () => {
             }}>
             <div className='container mx-auto'>
               <div className='flex flex-col md:flex-row'>
-                <div className='flex-1 flex justify-end'>
-                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'
+                <div className='flex justify-end'>
+                  <Image src={sightImage} alt='项目亮点' className='mr-24'
                   style={{width: '28vw', height: 'auto'}}/>
                 </div>
                 

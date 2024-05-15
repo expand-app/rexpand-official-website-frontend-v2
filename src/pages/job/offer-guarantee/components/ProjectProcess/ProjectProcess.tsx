@@ -74,7 +74,7 @@ const MobileView = ({data, className,}: Props) => {
 const PCView = ({data, className,}: Props) => {
     const [activeIndex, setActiveIndex] = useState<number>(0);
 
-    const combinedClassName = clsx('flex flex-col md:flex-row bg-white radius-8',styles.project_process, className);
+    const combinedClassName = clsx('flex flex-row bg-white radius-8',styles.project_process, className);
 
     const activeItem: ProjectProcessData = useMemo(()=>{
         return data?.[activeIndex];
@@ -85,12 +85,12 @@ const PCView = ({data, className,}: Props) => {
     }
 
     return <div className={combinedClassName}>
-        <div className={clsx('relative h-fit', styles.left)}>
-            <Image src={projectProcessImg} alt='项目安排12' />
+        <div className={clsx('relative', styles.left)}>
+            <Image src={projectProcessImg} alt='项目安排12'/>
             {/* <Image src={logoWhiteImg} alt='Rexpand' className={styles.logo}/> */}
         </div>
     
-        <div className={clsx('flex-1 px-16', styles.right)}>
+        <div className={clsx('flex-0 px-16', styles.right)}>
             <div className={clsx('flex flex-row', styles.steps)}>
                 {data?.map((item, index)=>{
                     return <div key={item.id} 

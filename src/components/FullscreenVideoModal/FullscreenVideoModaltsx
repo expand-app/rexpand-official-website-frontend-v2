@@ -1,0 +1,61 @@
+import React, { useEffect, useRef, useState } from 'react';
+import styles from './FullscreenVideoModal.module.css';
+import clsx from 'clsx';
+import closeImg from '@/assets/close.svg';
+import Image from 'next/image';
+
+const FullscreenVideoModal = ({
+  src,
+  open = false, 
+  onClose,
+  className = '',}: Props) => {
+    const [videoUrl, setVideoUrl] = useState<string>();
+
+    let containerClassNames = '';
+    containerClassNames = clsx(containerClassNames, className);
+
+
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    const handleCloseClick = () => {
+      onClose?.();
+    }
+
+    useEffect(()=>{
+      setVideoUrl(src);
+    }, [src]);
+
+    if (!videoUrl) {
+      return null;
+    }
+    return <div className={containerClassNames}>
+        {open && (
+        <div className="fixed inset-0 flex items-center justify-center z-50">
+          <div className="fixed inset-0 bg-black opacity-50"></div>
+          <div className={clsx('relative text-black m-2 z-10 w-auto', styles.modal)} >
+            <button
+              onClick={handleCloseClick}
+              className="absolute top-4 right-4 flex items-center justify-center w-5 h-5 hover:scale-105 focus:outline-none">
+              <Image src={closeImg} alt="关闭" />
+            </button>
+            <div>
+              <video ref={videoRef} controls>
+                <source src={videoUrl} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          
+        </div>
+      )}
+    </div>;
+}
+
+export default FullscreenVideoModal;
+
+interface Props {
+    src: string,
+    open: boolean;
+    onClose: Function,
+    className?: string;
+}

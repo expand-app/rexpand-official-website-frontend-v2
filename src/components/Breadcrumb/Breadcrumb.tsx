@@ -16,7 +16,7 @@ export default function Breadcrumb({items, className}: Props) {
                 if (index < items.length - 1) {
                     // 不是最后一个
                     return <li key={item.title} className={`flex items-center ${styles.separator}`}>
-                        <Link href={item.path} >{item.title}</Link>
+                        {item.title}
                     </li>;
                 } else {
                     // 最后一个

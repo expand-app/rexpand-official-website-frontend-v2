@@ -36,6 +36,7 @@
 .m_banner_overlay {
     position: relative;
     margin: 20px 12px 0 12px !important;
+    z-index: 2;
 }
 
 

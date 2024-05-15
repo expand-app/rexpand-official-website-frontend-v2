@@ -15,6 +15,8 @@ import Footer from "@/components/Footer/Footer";
 import clsx from "clsx";
 import Head from "next/head";
 import useScreen from "@/components/useScreen/useScreen";
+import { useState } from "react";
+import VideoModal from "@/components/VideoModal/VideoModal";
 
 const SuccessCasesPage: NextPage = () => {
 
@@ -58,7 +60,17 @@ const SuccessCasesPage: NextPage = () => {
 
 }
 
+
+const bannerVideoUrl = 'http://resources.rexpandcareer.com/videos/cases/successful-cases.mov';
 function MobileView() {
+    const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
+    const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
+
+    function onBannerBtnClick() {
+        setVideoModalPath(bannerVideoUrl);
+        setVideoModalOpen(true);
+    }
+
     return (
         <main className="m-main">
            <Header />
@@ -70,7 +82,7 @@ function MobileView() {
                     }}
                 >
                     <video className={styles.m_banner_video} autoPlay muted loop >
-                        <source src="http://resources.rexpandcareer.com/videos/cases/successful-cases.mov" type="video/mp4" />
+                        <source src={bannerVideoUrl} type="video/mp4" />
                     </video>
                     {/* <Image className={styles.banner_img} src={bannerImage} alt='Banner'/> */}
                     {/* <div className={styles.m_banner_img_box}>
@@ -84,7 +96,8 @@ function MobileView() {
                             size={ButtonSize.MIDDLE} 
                             radius={ButtonRadius.NONE}
                             color={ButtonColor.WHITE}
-                            text="点击查看" />
+                            text="点击查看" 
+                            onClick={onBannerBtnClick}/>
                     </div>
                 </div>
 
@@ -114,11 +127,27 @@ function MobileView() {
             </>
 
             <Footer />
+
+            <VideoModal
+                videoPath={videoModalPath} 
+                open={videoModalOpen} 
+                onClose={()=>{
+                    setVideoModalOpen(false);
+                }}/>
+
         </main>
     );
 }
 
 function PCView() {
+    const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
+    const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
+
+    function onBannerBtnClick() {
+        setVideoModalPath(bannerVideoUrl);
+        setVideoModalOpen(true);
+    }
+
     return (
         <main className={'main'}>
            <Header />
@@ -137,7 +166,8 @@ function PCView() {
                             size={ButtonSize.MIDDLE} 
                             radius={ButtonRadius.NONE}
                             color={ButtonColor.GREEN}
-                            text="点击查看" />
+                            text="点击查看" 
+                            onClick={onBannerBtnClick}/>
                     </div>
                 </div>
 
@@ -176,6 +206,13 @@ function PCView() {
             </>
 
             <Footer />
+
+            <VideoModal
+                videoPath={videoModalPath} 
+                open={videoModalOpen} 
+                onClose={()=>{
+                    setVideoModalOpen(false);
+                }}/>
         </main>
     );
 }

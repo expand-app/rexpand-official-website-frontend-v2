@@ -106,7 +106,7 @@ const MobileView = ({children}: Props) => {
               title: '首页',
               path: '/',
             },{
-              title: '隐私政策',
+              title: '用户服务协议',
               path: '/privacy-policy',
             }]} 
             className={styles.breadcrumb}/>

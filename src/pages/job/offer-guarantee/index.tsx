@@ -129,7 +129,7 @@ function MobileView() {
           <ProjectProcess data={projectProcessData} />
         </div>
 
-        <div className={clsx('bg-white section internship_faq_section', styles.section4)}>
+        <div className={clsx('bg-white section m_internship_faq_section', styles.section4)}>
           <div className='container mx-auto'>
             <SectionTitle 
                       title='常见问题' 
@@ -220,7 +220,7 @@ function PCView() {
           </div>
         </div>
 
-        <div className={clsx('bg-white section internship_faq_section', styles.section4)}>
+        <div className={clsx('bg-white section internship_faq_section')}>
           <div className='container mx-auto'>
             <SectionTitle 
                       title='常见问题' 

@@ -14,3 +14,22 @@
     border-radius: 8px;
     overflow: hidden;
 }
+
+
+/* m */
+.m_video_container {
+    width: 100vw;
+    height: fit-content;
+}
+
+.m_video_container video {
+    width: 100%;
+}
+
+
+.m_modal_content {
+    background-color: transparent;
+    z-index: 10;
+    overflow: hidden;
+    width: 100%;
+}

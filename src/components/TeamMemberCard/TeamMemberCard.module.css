@@ -69,6 +69,8 @@
     color: #333;
     font-size: 11px;
     font-weight: 300;
+    padding-left: 15px;
+    letter-spacing: 0.1px;
 }
 
 .m_field > li {
