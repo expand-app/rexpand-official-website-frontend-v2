@@ -132,6 +132,7 @@ function MobileView() {
                 videoPath={videoModalPath} 
                 config={{
                     videoWidth: '120vw',
+                    videoLeft: '-40px',
                 }}
                 open={videoModalOpen} 
                 onClose={()=>{

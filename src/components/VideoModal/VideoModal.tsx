@@ -51,6 +51,8 @@ const MobileView = ({
                   <div>未指定视频</div>:
                   <div className={clsx('', styles.m_video_container)} style={{
                     width: config?.videoWidth,
+                    position: 'relative',
+                    left: config?.videoLeft,
                   }}>
                       <video className='' src={videoPath} autoPlay controls/>
                   </div>
@@ -66,6 +68,7 @@ const PCView = ({
     videoPath,
     config = {
       videoWidth: '70vw',
+      videoLeft: '0px',
       maskOpacity: 0.5,
     },
     open = false, 
@@ -124,5 +127,6 @@ export interface Props {
 
 export interface VideoModalConfig {
   videoWidth?: string;
+  videoLeft?: string;
   maskOpacity?: number;
 }

@@ -126,7 +126,7 @@ export const studentExperienceListData: StudentExperienceData[] = [
         userName: 'Nancy',
         image: stuExp6Img,
         university: 'Johns Hopkins University',
-        major: 'Fiance',
+        major: 'Finance',
         videoUrl: 'http://resources.rexpandcareer.com/videos/students/nancy.mp4',
     },
     {
@@ -134,12 +134,12 @@ export const studentExperienceListData: StudentExperienceData[] = [
         userName: 'Tom',
         image: stuExp7Img,
         university: 'University of San Francisco',
-        major: 'Data Science',
+        major: 'Computer Science',
         videoUrl: 'http://resources.rexpandcareer.com/videos/students/tom.mp4',
     },
     {
         id: 8,
-        userName: 'Jassica',
+        userName: 'Jessica',
         image: stuExp8Img,
         university: 'Florida State University',
         major: 'Data Science',

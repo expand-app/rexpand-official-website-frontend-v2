@@ -21,10 +21,8 @@ export const fullStackDevFAQData: AccordionData[] = [
     },
     {
         id: 2,
-        title: 'Full Stack Engineer项目公司是怎么写在简历里什么?',
-        content: <>
-            Intelliimpact LLC是一个注册在Texas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services, 具体业务详情可以查看公司的官网：www.intelliimpact.com
-        </>,
+        title: '简历上如何填写项目所属公司？',
+        content: <>这是一家注册在Dallas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services等。</>,
     },
     {
         id: 3,
@@ -42,7 +40,7 @@ export const fullStackDevFAQData: AccordionData[] = [
         id: 4,
         title: '如果缺席直播课程怎么办？',
         content: <>
-            直播课程设置回放，可通过回放补充学习
+            直播课程设置回放，可通过回放补充学习。
         </>,
     },
     {

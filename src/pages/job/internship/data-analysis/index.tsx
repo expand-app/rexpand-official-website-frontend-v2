@@ -24,7 +24,7 @@ import SightView from '../../components/SightView/SightView';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 import useScreen from '@/components/useScreen/useScreen';
 import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
-import { jobConsultModalData } from '@/data/job_consult';
+import { daConsultModalData } from '@/data/job_consult';
 
 
 export const DataAnalysisPage: NextPage = () => {
@@ -71,8 +71,8 @@ export const DataAnalysisPage: NextPage = () => {
         <JobConsultModal
           open={jobConsultModalOpen} 
           onClose={()=>setJobConsultModalOpen(false)} 
-          qrImage={jobConsultModalData.qrImage}
-          content={jobConsultModalData.content}
+          qrImage={daConsultModalData.qrImage}
+          content={daConsultModalData.content}
         />
         </div>
       </>

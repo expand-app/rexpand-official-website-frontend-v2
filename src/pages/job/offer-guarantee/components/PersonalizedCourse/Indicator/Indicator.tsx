@@ -6,8 +6,16 @@ import clsx from 'clsx';
 export const Indicator = ({...props}: Props) => {
     const { isMobile } = useScreen();
    
+    let combinedClassname = '';
+    if (props.type != null) {
+        if (props.type === 'top' || props.type === 'bottom') {
+            combinedClassname = styles.indicator_container;
+        } else {
+            combinedClassname = styles.h_indicator_container;
+        }
+    }
     return (
-        <div style={props.style} className={clsx(styles.vertical_indicator_container)}>
+        <div style={props.style} className={clsx({[styles.indicator_container]: props.type})}>
             {isMobile?.()? 
             <MobileView {...props}/>
             :

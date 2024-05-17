@@ -18,8 +18,8 @@ export const dataAnalysisFAQData: AccordionData[] = [
     },
     {
         id: 2,
-        title: 'Data Analytics项目公司是怎么写在简历里什么?',
-        content: <>Intelliimpact Intelliimpact LLC是一个注册在Texas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services, 具体业务详情可以查看公司的官网：www.intelliimpact.com</>,
+        title: '简历上如何填写项目所属公司？',
+        content: <>这是一家注册在Dallas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services等。</>,
     },
     {
         id: 3,
@@ -128,7 +128,7 @@ export const dataAnalysisOutlineData: OutlineData = {
             name: '第7周：Adhoc project和Data pipeline implementation',
             sections: [
                 'Adhoc project：Banking relationship pricing validation',
-                'Data pipeline implementation，并复盘',
+                'Data pipeline implementation',
             ],
         }],
     },{

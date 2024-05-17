@@ -25,7 +25,7 @@ import OfferGuaranteeView from '@/pages/index/components/OfferGuaranteeView/Offe
 import PersonalizedCourse from './components/PersonalizedCourse/PersonalizedCourse';
 import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
 import Link from 'next/link';
-import { jobConsultModalData } from '@/data/job_consult';
+import { offerGuaranteeConsultModalData } from '@/data/job_consult';
 
 const OfferGuaranteePage: NextPage = () => {
   const [jobConsultModalOpen, setJobConsultModalOpen] = useState<boolean>(false);
@@ -57,7 +57,7 @@ const OfferGuaranteePage: NextPage = () => {
             "@type": "Organization",
             name: "My Company",
             url: "https://www.yourwebsite.com",
-            logo: "https://www.yourwebsite.com/logo.png",
+            logo: "https://www.yourweb site.com/logo.png",
           })}
         </script>
       </Head>
@@ -68,12 +68,11 @@ const OfferGuaranteePage: NextPage = () => {
             <PCView onBannerBtnClick={onBannerBtnClick}/>
             }
 
-
         <JobConsultModal 
           open={jobConsultModalOpen} 
           onClose={()=>setJobConsultModalOpen(false)} 
-          qrImage={jobConsultModalData.qrImage}
-          content={jobConsultModalData.content}
+          qrImage={offerGuaranteeConsultModalData.qrImage}
+          content={offerGuaranteeConsultModalData.content}
         />
         </div>
 

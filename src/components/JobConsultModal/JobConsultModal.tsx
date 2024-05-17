@@ -60,7 +60,7 @@ const PCView = ({qrImage, content, open = false, onClose, className = ''}: Props
     return (
         <Modal open={open} onClose={onClose}>
             <div className={clsx('flex flex-col items-center', styles.modal_body)}>
-                <Image src={qrImage} layout='reponsive' alt="Rexpand课程顾问"/>
+                <Image src={qrImage} layout='reponsive' alt="Rexpand课程顾问" style={{width: 172, height: 172}}/>
                 <div className='text-sm text-center mt-8'>
                     {content}
                 </div>

@@ -7,7 +7,8 @@
 
 }
 .indicator {
-    position: relative;
+    position: absolute;
+    left: 50%;
     width: 10px;
     height: 10px;
     border: 5px solid #3EB761; 
@@ -131,12 +132,12 @@
 
 
 /* left */
-.vertical_indicator_container { 
+.h_indicator_container { 
     display: flex;
     align-items: flex-start;
     justify-content: center;
     position: relative;
-    height: 190px;
+    height: 122px;
     width: 305px;
 }
 .indicator_left {
@@ -214,7 +215,7 @@
 .left_description {
     color: #616163;
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 400;
     padding: 8px 1rem 0 1rem;
 
@@ -294,7 +295,7 @@
 .right_description {
     color: #616163;
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 400;
     margin-top: 8px;
 

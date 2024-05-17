@@ -107,6 +107,11 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
     setExpand(!expand);
   }
 
+  const onMenuLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (currentPath && event?.currentTarget?.pathname && currentPath === event.currentTarget.pathname) {
+      router.reload();
+    }
+  }
   return <nav className={combinedClassName} >
     <div className={clsx("w-full flex flex-row items-center mr-23px", styles.m_header_container)}>
       <Link href="/" className="flex-1" >
@@ -160,27 +165,27 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
           <div className={styles.m_menu_content}>
             <ul className={styles.m_menu}>
               <li>
-                <Link href='/'>首页</Link>
+                <Link href='/' onClick={onMenuLinkClick}>首页</Link>
               </li>
               <li className={clsx({[styles.m_expand]: expand})}>
                 <Link href='/job/offer-guarantee' onClick={onLevel1MenuClick}>求职项目 <i><Image alt="" className={styles.m_arrow} src={mArrowUp} width={15} height={15}  /></i></Link>
                 <ul>
-                  <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
-                  <li><Link href='/job/interview-camp'>面试集训营</Link></li>
-                  <li><Link href='/job/internship/data-analysis'>数据分析实习</Link></li>
-                  <li><Link href='/job/internship/quantitative-investment'>量化投资实习</Link></li>
-                  <li><Link href='/job/internship/investment-banking-modeling'>投行建模实习</Link></li>
-                  <li><Link href='/job/internship/full-stack-dev'>全栈开发实习</Link></li>
+                  <li><Link href='/job/offer-guarantee' onClick={onMenuLinkClick}>保offer项目</Link></li>
+                  <li><Link href='/job/interview-camp' onClick={onMenuLinkClick}>面试集训营</Link></li>
+                  <li><Link href='/job/internship/data-analysis' onClick={onMenuLinkClick}>数据分析实习</Link></li>
+                  <li><Link href='/job/internship/quantitative-investment' onClick={onMenuLinkClick}>量化投资实习</Link></li>
+                  <li><Link href='/job/internship/investment-banking-modeling' onClick={onMenuLinkClick}>投行建模实习</Link></li>
+                  <li><Link href='/job/internship/full-stack-dev' onClick={onMenuLinkClick}>全栈开发实习</Link></li>
                 </ul>
               </li>
               <li>
-                <Link href='/success-cases'>成功案例</Link>
+                <Link href='/success-cases' onClick={onMenuLinkClick}>成功案例</Link>
               </li>
               <li>
-                <Link href='/free-resources'>免费资源</Link>
+                <Link href='/free-resources' onClick={onMenuLinkClick}>免费资源</Link>
               </li>
               <li>
-                <Link href='/about'>关于我们</Link>
+                <Link href='/about' onClick={onMenuLinkClick}>关于我们</Link>
               </li>
             </ul>
           </div>
@@ -204,7 +209,6 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
 
   const router = useRouter();
   const currentPath = router.pathname;
-  console.log('currentPath',currentPath, jobMenuLinks.indexOf(currentPath));
   let combinedClassName = `fixed w-full z-30 top-0 transition ${className ?? ''}`;
 
   if (headerTheme === Theme.TRANSPARENT) {
@@ -275,7 +279,7 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
               {[styles.menu_item_active]: jobMenuLinks.indexOf(currentPath) != -1})} href='/job/offer-guarantee'>求职项目</Link>
             <div className={clsx('', styles.submenu_container)}>
               <ul className={clsx('', styles.submenu)}>
-                <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
+                <li><Link href='/job/offer-guarantee'>保offer项目</Link></li>
                 <li><Link href='/job/interview-camp'>面试集训营</Link></li>
                 <li><Link href='/job/internship/data-analysis'>数据分析实习</Link></li>
                 <li><Link href='/job/internship/quantitative-investment'>量化投资实习</Link></li>

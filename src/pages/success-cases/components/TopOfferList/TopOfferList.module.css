@@ -6,9 +6,11 @@
 
 }
 .top {
-    height: 210px;
+    height: 220px;
     text-align: center;
-    padding: 22px 1rem 46px 1rem;
+    padding: 22px 1rem 34px 1rem;
+    justify-content: flex-start;
+
 }
 
 .bottom {

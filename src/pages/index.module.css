@@ -71,9 +71,10 @@
 
 /* m */
 .m_banner_container{
+    height: 653px;
     position: relative;
     background-repeat: no-repeat;
-    background-size: 'cover';
+    background-size: cover;
 }
 .m_banner_title {
     font-family: 'PingFang_Semiblod';
@@ -87,14 +88,17 @@
     width: 124px;
     height: 45px;
     font-size: 14px;
-    margin-top: 282px;
+    
     margin-bottom: 103px;
+    /* position: relative;
+    top: 282px; */
 }
 
 .m_banner_text {
     text-align: center;
-    margin-top: 103px;
     z-index: 2;
+    position: relative;
+    top: 103px;
 }
 
 .m_section1_title {

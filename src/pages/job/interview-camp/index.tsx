@@ -23,7 +23,7 @@ import useScreen from '@/components/useScreen/useScreen';
 import CampBannerOverlayCard from './CampBannerOverlayCard/CampBannerOverlayCard';
 import Link from 'next/link';
 import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
-import { jobConsultModalData } from '@/data/job_consult';
+import { campConsultModalData } from '@/data/job_consult';
 
 const nextCourceTime = new Date('2024-05-12');
 
@@ -71,8 +71,8 @@ export const InterviewCampPage: NextPage = () => {
           <JobConsultModal 
             open={jobConsultModalOpen} 
             onClose={()=>setJobConsultModalOpen(false)} 
-            qrImage={jobConsultModalData.qrImage}
-            content={jobConsultModalData.content}
+            qrImage={campConsultModalData.qrImage}
+            content={campConsultModalData.content}
           />
         </div>
       </>

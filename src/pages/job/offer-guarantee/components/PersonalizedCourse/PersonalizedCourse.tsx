@@ -52,7 +52,7 @@ const MobileView = () => {
                     </div>
                 </foreignObject>
 
-                <foreignObject x="20" y="40" width="310" height="120">
+                <foreignObject x="15" y="-5" width="310" height="160">
                     <Indicator 
                             type='left'
                             sn='1'
@@ -61,7 +61,7 @@ const MobileView = () => {
                         />
                 </foreignObject>
 
-                <foreignObject x="-8" y="190" width="310" height="120">
+                <foreignObject x="-8" y="142" width="310" height="160">
                     <Indicator 
                         type='right'
                         sn='2'
@@ -71,7 +71,7 @@ const MobileView = () => {
                     
                 </foreignObject>
 
-                <foreignObject x="20" y="340" width="310" height="120">
+                <foreignObject x="15" y="296" width="310" height="160">
                     <Indicator 
                         type='left'
                         sn='3'
@@ -81,7 +81,7 @@ const MobileView = () => {
                 </foreignObject>
 
 
-                <foreignObject x="-8" y="490" width="310" height="120">
+                <foreignObject x="-8" y="445" width="310" height="160">
                     <Indicator 
                         type='right'
                         sn='4'
@@ -90,7 +90,7 @@ const MobileView = () => {
                         />
                 </foreignObject>
 
-                <foreignObject x="20" y="645" width="310" height="120">
+                <foreignObject x="15" y="596" width="310" height="160">
                     <Indicator 
                         type='left'
                         sn='5'

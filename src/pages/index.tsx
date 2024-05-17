@@ -78,19 +78,19 @@ export const MobileView = () => {
         {/* <div className={`flex flex-col items-center justify-center page-banner ${styles.m_banner_container}`}  
           style={{backgroundImage: `url(${mBannerImg.src})`}}>*/}
 
-          <div className={`flex flex-col items-center justify-center ${styles.m_banner_container}`}>
+          <div className={`flex flex-col items-center justify-start ${styles.m_banner_container}`}>
           <div className={styles.m_swiper_container}>
             <Swiper pagination={true} 
               modules={[Pagination]} 
               className={styles.m_swiper}>
               <SwiperSlide>
-                <Image src={bannerImg} alt="" style={{height: '100%'}}/>
+                <Image src={mBannerImg} alt="" style={{height: '100%'}}/>
               </SwiperSlide>
               <SwiperSlide>
-                <Image src={bannerImg} alt="" style={{height: '100%'}}/>
+                <Image src={mBannerImg} alt="" style={{height: '100%'}}/>
               </SwiperSlide>
               <SwiperSlide>
-                <Image src={bannerImg} alt="" style={{height: '100%'}}/>
+                <Image src={mBannerImg} alt="" style={{height: '100%'}}/>
               </SwiperSlide>
             </Swiper>
           </div>
@@ -99,7 +99,10 @@ export const MobileView = () => {
           <div className={styles.m_banner_text}>
             <h1 className={clsx(styles.m_banner_title)}>北美留学生<br />求职一站式服务</h1>
               
-          <Link href='/job/offer-guarantee' className="z-10">
+          <Link href='/job/offer-guarantee' className="z-10" style={{
+            position: 'relative',
+            top: 282,
+          }}>
             <Button 
               className={styles.m_banner_btn}
               type={ButtonType.BORDERED} 

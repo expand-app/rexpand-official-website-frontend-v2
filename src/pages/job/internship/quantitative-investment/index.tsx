@@ -13,12 +13,9 @@ import introImage from '@/assets/job/internship/data-analysis/intro.png';
 import sightImage from '@/assets/job/internship/data-analysis/sight.png';
 import clsx from 'clsx';
 import Accordion from '@/components/Accordion/Accordion';
-import { dataAnalysisFAQData, dataAnalysisOutlineData } from '@/data/data_analysis_internship';
 import FloatMenu from '@/components/FloatMenu/FloatMenu';
 import { internshipMenusData, quantitativeInvestimentSightViewData } from '@/data/internship';
 import Outline from '@/pages/job/components/Outline/Outline';
-import { fullStackDevFAQData, fullStackDevOutlineData } from '@/data/full_stack_dev_internship';
-import { investmentBankingModelingFAQData, investmentBankingModelingOutlineData } from '@/data/investment_banking_modeling_internship';
 import { quantitativeInvestmentFAQData, quantitativeInvestmentOutlineData } from '@/data/quantitative_investment_internship';
 import VideoModal from '@/components/VideoModal/VideoModal';
 import SectionTitle from '@/components/SectionTitle/SectionTitle';
@@ -26,7 +23,7 @@ import _ from 'lodash';
 import SightView from '../../components/SightView/SightView';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 import useScreen from '@/components/useScreen/useScreen';
-import { jobConsultModalData } from '@/data/job_consult';
+import { qiConsultModalData } from '@/data/job_consult';
 import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
 
 export const QuantitativeInvestmentPage: NextPage = () => {
@@ -71,8 +68,8 @@ export const QuantitativeInvestmentPage: NextPage = () => {
           <JobConsultModal
             open={jobConsultModalOpen} 
             onClose={()=>setJobConsultModalOpen(false)} 
-            qrImage={jobConsultModalData.qrImage}
-            content={jobConsultModalData.content}
+            qrImage={qiConsultModalData.qrImage}
+            content={qiConsultModalData.content}
           />        </div>
       </>
   );

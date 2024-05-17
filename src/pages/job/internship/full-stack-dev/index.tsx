@@ -11,11 +11,6 @@ import VideoCard from '@/components/VideoCard/VideoCard';
 import bannerVideoImage from '@/assets/job/internship/data-analysis/banner_video.png';
 import introImage from '@/assets/job/internship/data-analysis/intro.png';
 import sightImage from '@/assets/job/internship/data-analysis/sight.png';
-import arrowUpImg from '@/assets/icon_arrow_up.png';
-import consultImg from '@/assets/icon_consult.png';
-import sendImg from '@/assets/icon_send.png';
-import rocketImg from '@/assets/icon_rocket.png';
-
 import clsx from 'clsx';
 import Accordion from '@/components/Accordion/Accordion';
 import FloatMenu from '@/components/FloatMenu/FloatMenu';
@@ -29,7 +24,7 @@ import SightView from '../../components/SightView/SightView';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 import useScreen from '@/components/useScreen/useScreen';
 import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
-import { jobConsultModalData } from '@/data/job_consult';
+import { fsdConsultModalData, } from '@/data/job_consult';
 
 
 export const FullStackDevPage: NextPage = () => {
@@ -74,8 +69,8 @@ export const FullStackDevPage: NextPage = () => {
             <JobConsultModal
               open={jobConsultModalOpen} 
               onClose={()=>setJobConsultModalOpen(false)} 
-              qrImage={jobConsultModalData.qrImage}
-              content={jobConsultModalData.content}
+              qrImage={fsdConsultModalData.qrImage}
+              content={fsdConsultModalData.content}
             />
         </div>
       </>
