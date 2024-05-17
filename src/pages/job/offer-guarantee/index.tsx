@@ -19,14 +19,22 @@ import deloitteImage from '@/assets/job/offer-guarantee/logo_deloitte.png';
 import spotifyImage from '@/assets/job/offer-guarantee/logo_spotify.png';
 import amazonImage from '@/assets/job/offer-guarantee/logo_amazon.png';
 import facebookImage from '@/assets/job/offer-guarantee/logo_facebook.png';
-import PersonalizedCourse from './components/PersonalizedCourse/PersonalizedCourse';
 import ProjectProcess from './components/ProjectProcess/ProjectProcess';
 import useScreen from '@/components/useScreen/useScreen';
 import OfferGuaranteeView from '@/pages/index/components/OfferGuaranteeView/OfferGuaranteeView';
+import PersonalizedCourse from './components/PersonalizedCourse/PersonalizedCourse';
+import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
+import Link from 'next/link';
+import { jobConsultModalData } from '@/data/job_consult';
 
 const OfferGuaranteePage: NextPage = () => {
+  const [jobConsultModalOpen, setJobConsultModalOpen] = useState<boolean>(false);
   const { isMobile } = useScreen();
   
+  const onBannerBtnClick = () => {
+    setJobConsultModalOpen(true);
+  }
+
   return (
       <>
         <Head>
@@ -55,16 +63,26 @@ const OfferGuaranteePage: NextPage = () => {
       </Head>
         <div>
             {isMobile?.()? 
-            <MobileView />
+            <MobileView onBannerBtnClick={onBannerBtnClick}/>
             :
-            <PCView/>
+            <PCView onBannerBtnClick={onBannerBtnClick}/>
             }
+
+
+        <JobConsultModal 
+          open={jobConsultModalOpen} 
+          onClose={()=>setJobConsultModalOpen(false)} 
+          qrImage={jobConsultModalData.qrImage}
+          content={jobConsultModalData.content}
+        />
         </div>
+
+
       </>
   );
 };
 
-function MobileView() {
+function MobileView({onBannerBtnClick,}: Props) {
   return (
     <div>
       <Header theme={Theme.TRANSPARENT}/>
@@ -77,27 +95,28 @@ function MobileView() {
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-10/12'>
               <div className="z-10 pt-0 flex-1 flex flex-col items-center">
                   <h1 className={clsx('z-10 mb-3 m-banner-text', styles.m_banner_title)}>保offer项目</h1>
-                  <h2 className={clsx('text-base text-white opacity-70 z-10 m-banner-text2', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企Offer</h2>
+                  <h2 className={clsx('text-base text-white opacity-70 z-10 m-banner-text2', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企offer</h2>
 
                   <Image alt="" src={require('@/assets/job/offer-guarantee/m_banner_img.png')} 
-                    style={{margin: '17px 0 32px 0'}}/>
+                    style={{margin: '17px 0 32px 0', width: '70vw'}}/>
                   <Button
                       type={ButtonType.SOLID} 
                       size={ButtonSize.MIDDLE} 
                       radius={ButtonRadius.ROUNDED}
                       color={ButtonColor.GREEN} 
                       text="立即咨询" 
-                      className={styles.m_banner_btn}/>
+                      className={styles.m_banner_btn}
+                      onClick={onBannerBtnClick}/>
               </div>
               {/* <Image src={bannerImage} alt="Banner" height={460} className={clsx('flex-1', styles.banner_img)}/> */}
             </div>
         </div>
        
 
-        <div className={clsx('pt-24 m-section', styles.m_section1)} >
+        <div className={clsx('m-section', styles.m_section1)} >
             <div className='container mx-auto flex flex-col items-center'>
               <SectionTitle 
-                title='什么是保Offer项目' 
+                title='什么是保offer项目' 
                 subtitle='项目针对北美留学生设计，保证sponsor H1b工作offer。9年多的时间积累留学生求职辅导经验，项目已经累计帮助2000多位学员拿到北美offer'
                 className='mb-40px'/>
               
@@ -118,7 +137,7 @@ function MobileView() {
                     title='个性化安排课程' 
                     className='mb-12'/>
             
-            <PersonalizedCourse/>
+            <PersonalizedCourse />
         </div>
 
         <div  className={clsx('section', styles.m_section3)}>
@@ -149,7 +168,7 @@ function MobileView() {
   );
 }
 
-function PCView() {
+function PCView({onBannerBtnClick,}: Props) {
   return (
     <div>
       <Header theme={Theme.TRANSPARENT}/>
@@ -164,14 +183,15 @@ function PCView() {
             <div className='container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 w-10/12'>
               <div className="z-10 pt-0 pl-20 flex-1">
                   <h1 className={clsx('text-4xl text-white z-10 mb-3 banner_text', styles.banner_title)}>保offer项目</h1>
-                  <h2 className={clsx('text-base text-white opacity-70 z-10  mb-16', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企Offer</h2>
+                  <h2 className={clsx('text-base text-white opacity-70 z-10  mb-16', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企offer</h2>
 
                   <Button
                       className="z-10"
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
                       radius={ButtonRadius.NONE} 
-                      text="立即咨询" />
+                      text="立即咨询" 
+                      onClick={onBannerBtnClick}/>
               </div>
               {/* <Image src={bannerImage} alt="Banner" height={460} className={clsx('flex-1', styles.banner_img)}/> */}
             </div>
@@ -184,7 +204,7 @@ function PCView() {
             <div className='container mx-auto flex flex-col items-center'>
               <div style={{paddingLeft: '20%', paddingRight: '20%'}}>
               <SectionTitle 
-                title='什么是保Offer项目' 
+                title='什么是保offer项目' 
                 subtitle='项目针对北美留学生设计，保证sponsor H1b工作offer。9年多的时间积累留学生求职辅导经验，项目已经累计帮助2000多位学员拿到北美offer'
                 className='mb-12 w-full '/>
               </div>
@@ -238,6 +258,10 @@ function PCView() {
       <Footer />
     </div>
   );
+}
+
+export interface Props {
+  onBannerBtnClick: () => void;
 }
 
 export default OfferGuaranteePage;

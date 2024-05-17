@@ -15,7 +15,7 @@ import Footer from "@/components/Footer/Footer";
 import clsx from "clsx";
 import Head from "next/head";
 import useScreen from "@/components/useScreen/useScreen";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import VideoModal from "@/components/VideoModal/VideoModal";
 
 const SuccessCasesPage: NextPage = () => {
@@ -92,10 +92,10 @@ function MobileView() {
                         <h1 className='font-m font-w600 font-48 text-white mb-20 z-10 m-banner-text'>看Claire如何斩获<br />上市公司FA offer</h1>
                         <Button 
                             className={styles.m_banner_btn}
-                            type={ButtonType.BORDERED} 
+                            type={ButtonType.SOLID} 
                             size={ButtonSize.MIDDLE} 
                             radius={ButtonRadius.NONE}
-                            color={ButtonColor.WHITE}
+                            color={ButtonColor.GREEN}
                             text="点击查看" 
                             onClick={onBannerBtnClick}/>
                     </div>
@@ -105,8 +105,8 @@ function MobileView() {
                     <div className="container mx-auto">
                     <SectionTitle 
                             className={styles.m_section_title1}
-                            title="学员Offer榜" 
-                            subtitle="恭喜学员们斩获金融、咨询、数据等多个领域的Offer" 
+                            title="学员offer榜" 
+                            subtitle="恭喜学员们斩获金融、咨询、数据等多个领域的offer" 
                             />
                     </div> 
                     <div className={styles.m_top_offer_content}>
@@ -130,6 +130,9 @@ function MobileView() {
 
             <VideoModal
                 videoPath={videoModalPath} 
+                config={{
+                    videoWidth: '120vw',
+                }}
                 open={videoModalOpen} 
                 onClose={()=>{
                     setVideoModalOpen(false);
@@ -142,8 +145,19 @@ function MobileView() {
 function PCView() {
     const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
     const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
+    const [isBannerVideoPlaying, setBannerVideoPlaying] = useState<boolean>(true);
 
+    const bannerVideo = useRef<HTMLVideoElement>(null);
     function onBannerBtnClick() {
+        // stop banner video
+        if (bannerVideo.current) {
+            if (isBannerVideoPlaying) {
+                bannerVideo.current.pause();
+                setBannerVideoPlaying(false);
+            } 
+        }
+
+        // open video modal
         setVideoModalPath(bannerVideoUrl);
         setVideoModalOpen(true);
     }
@@ -155,7 +169,7 @@ function PCView() {
                 <div className={`py-0 flex flex-col justify-center relative ${styles.banner_container}`} 
                     style={{backgroundImage: `linear-gradient(to right, #007722, #96D8BA)`}}>
                     {/* <Image className={styles.banner_img} src={bannerImage} alt='Banner'/> */}
-                    <video className={styles.banner_video} autoPlay muted loop >
+                    <video ref={bannerVideo} className={styles.banner_video} autoPlay muted loop >
                         <source src="http://resources.rexpandcareer.com/videos/cases/successful-cases.mov" type="video/mp4" />
                     </video>
                     <div className="text-center z-10 pt-36">
@@ -175,8 +189,8 @@ function PCView() {
                     <div className="container mx-auto">
                     <SectionTitle 
                             className={styles.section_title1}
-                            title="学员Offer榜" 
-                            subtitle="恭喜学员们斩获金融、咨询、数据等多个领域的Offer" 
+                            title="学员offer榜" 
+                            subtitle="恭喜学员们斩获金融、咨询、数据等多个领域的offer" 
                             />
                     </div> 
                     <div className="pt-20" style={{
@@ -209,9 +223,20 @@ function PCView() {
 
             <VideoModal
                 videoPath={videoModalPath} 
+                config={{
+                    videoWidth: '100vw',
+                    maskOpacity: 1,
+                }}
                 open={videoModalOpen} 
                 onClose={()=>{
                     setVideoModalOpen(false);
+
+                    if (bannerVideo.current) {
+                        if (!isBannerVideoPlaying) {
+                            bannerVideo.current.play();
+                            setBannerVideoPlaying(true);
+                        } 
+                    }
                 }}/>
         </main>
     );

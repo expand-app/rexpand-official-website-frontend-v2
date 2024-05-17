@@ -4,7 +4,7 @@ import { OutlineData } from '@/pages/job/components/Outline/Outline';
 export const quantitativeInvestmentFAQData: AccordionData[] = [
     {
         id: 1,
-        title: 'Quant项目工作经验的Title写什么? ',
+        title: 'Quant项目工作经验的title写什么? ',
         content: <>
             <ol className='list-decimal'>
                 <li>Quant Analyst (Quant Analyst Intern)</li>

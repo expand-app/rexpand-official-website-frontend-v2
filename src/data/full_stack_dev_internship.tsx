@@ -4,7 +4,7 @@ import { OutlineData } from '@/pages/job/components/Outline/Outline';
 export const fullStackDevFAQData: AccordionData[] = [
     {
         id: 1,
-        title: 'Full Stack Engineer项目工作经验的Title写什么？ ',
+        title: 'Full Stack Engineer项目工作经验的title写什么？ ',
         content: <>
             <ol className='list-decimal'>
                 <li>Software Engineer</li>
@@ -14,8 +14,8 @@ export const fullStackDevFAQData: AccordionData[] = [
                 <li>Frontend Engineer</li>
                 <li>Backen Engineer</li>
                 <li>Fullstack Engineer</li>
-                <li>Software development engineer intern</li>
-                <li>Software developr</li>
+                <li>Software Development Engineer Intern</li>
+                <li>Software Developer</li>
             </ol>
         </>,
     },
@@ -23,10 +23,7 @@ export const fullStackDevFAQData: AccordionData[] = [
         id: 2,
         title: 'Full Stack Engineer项目公司是怎么写在简历里什么?',
         content: <>
-        <ol className='list-decimal'>
-            <li>Intelliimpact</li>
-            <li>Intelliimpact LLC是一个注册在Texas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services, 具体业务详情可以查看公司的官网：www.intelliimpact.com</li>
-        </ol>
+            Intelliimpact LLC是一个注册在Texas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services, 具体业务详情可以查看公司的官网：www.intelliimpact.com
         </>,
     },
     {
@@ -145,8 +142,8 @@ export const fullStackDevOutlineData: OutlineData = {
         },{
             name: '第10周：多媒体处理与性能优化',
             sections: [
-                '开发自定义视频组件，实现视频上传功能。',
-                '进行前端回顾与改进。',
+                '开发自定义视频组件，实现视频上传功能',
+                '进行前端回顾与改进',
             ],
         }],
     },

@@ -28,7 +28,7 @@ const InternshipProjectCards = ({data}: Props) => {
 
                 return <div key={item.id} className={`${styles.card} flex-1`}>
                         <Link href={item.link}>
-                            <div className={`${styles.header}`}
+                            <div className={`${styles.header} ${styles['header_border' + (index+1)]}`}
                                 style={{
                                     backgroundImage: `url(${headImg})`,
                                     backgroundSize: '100% 100%',

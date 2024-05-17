@@ -36,7 +36,7 @@
     
     font-family: 'PingFang_Light';
     
-    background-color: rgba(255,255,255,0.8);
+    background-color: rgba(255,255,255,0.9);
     margin-top:38px;
     text-align: center;
     font-weight: 500;
@@ -72,12 +72,11 @@
 
 .consult_btn{
     float:right;
-    font-size: 18px !important;
+    font-size: 16px !important;
     font-weight: 400;
-    line-height: 25.2px;
     width: 124px;
-    height: 45px;
-    padding: 10px;
+    height: 42px;
+    /* padding: 10px; */
     gap: 10px;
     border-radius: 8px;
 }

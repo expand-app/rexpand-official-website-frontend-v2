@@ -14,8 +14,8 @@ export const offerGuaranteeFAQData: AccordionData[] = [
     },
     {
         id: 2,
-        title: 'H1B offer保障是什么意思？',
-        content: <>项目保障报名学员拿到的offer公司可以提供H1B工作签证，为学员之后在美国发展解决身份问题。</>,
+        title: 'H1b offer保障是什么意思？',
+        content: <>项目保障报名学员拿到的offer公司可以提供H1b工作签证，为学员之后在美国发展解决身份问题。</>,
     },
     {
         id: 3,
@@ -25,12 +25,12 @@ export const offerGuaranteeFAQData: AccordionData[] = [
     {
         id: 4,
         title: '内推服务是怎么做的？',
-        content: <>服务团队会根据投递职位在LinkedIn上做Networking，极大增加拿到面试的机会</>,
+        content: <>服务团队会根据投递职位在LinkedIn上做Networking，极大增加拿到面试的机会。</>,
     },
     {
         id: 5,
         title: '1v1求职辅导授课有多少课时？',
-        content: <>保offer项目学员的1v1求职辅导课时数不限，具体会根据学员简历修改情况、接到面试情况来安排</>,
+        content: <>保offer项目学员的1v1求职辅导课时数不限，具体会根据学员简历修改情况、接到面试情况来安排。</>,
     },
     {
         id: 6,

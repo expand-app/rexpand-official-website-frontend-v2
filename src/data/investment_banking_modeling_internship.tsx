@@ -4,7 +4,7 @@ import { OutlineData } from '@/pages/job/components/Outline/Outline';
 export const investmentBankingModelingFAQData: AccordionData[] = [
     {
         id: 1,
-        title: 'Financial Modeling项目工作经验的Title写什么?',
+        title: 'Financial Modeling项目工作经验的title写什么?',
         content: <>
             <ol className='list-decimal'>
                 <li>Financial Analyst (Financial Analyst Intern)</li>
@@ -99,19 +99,19 @@ export const investmentBankingModelingOutlineData: OutlineData = {
     },
     {
         subjectName: '公司估值模型',
-        subjectTags: ['上课频率:3周','每周2节直播课', '每节直播课1小时'],
+        subjectTags: ['上课频率:5周','每周2节直播课', '每节直播课1小时'],
         subjectDescription: '在这部分中，你的客户是一家全球领先的信息和通信技术（ICT）解决方案提供商。该客户正在进行公司重组，并已经剥离了其研发部门。我们需要帮助他们为联邦税务目的对研发部门进行估值。在这次项目中，你将基于客户提供的财务数据预测现金流，计算加权平均资本成本（WACC）模型以贴现现金流，并进行估值以估算目标实体的内在价值。',
         courseList: [{
             name: '第4周：定义项目范围，与客户进行首次会议以确认项目需求',
             sections: [
-                '为即将开始的项目制定明确的工作范围（SoW），并向团队介绍客户的业务模型。',
-                '与客户进行初次会议，了解和确认项目需求和期望。',
+                '为即将开始的项目制定明确的工作范围（SoW），并向团队介绍客户的业务模型',
+                '与客户进行初次会议，了解和确认项目需求和期望',
             ],
         },{
             name: '第5周：构建估值模型基础设施，开始现金流预测模块的开发',
             sections: [
-                '建立模型的基础框架，包括假设的设定、数据标签和必要的输入参数。',
-                '开始构建现金流预测模块，这是估值模型的核心部分。',
+                '建立模型的基础框架，包括假设的设定、数据标签和必要的输入参数',
+                '开始构建现金流预测模块，这是估值模型的核心部分',
             ],
         },{
             name: '第6周：完成现金流预测模块，应用CAPM计算资本成本',

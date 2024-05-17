@@ -5,16 +5,16 @@
 
 
 .internship_banner_card_title {
-    font-size: 29px;
+    font-size: 22px;
     font-weight: 500;
     line-height: 40.6px;
     color: #1B1B1B;
-    margin-bottom: 25px;
+    margin-bottom: 32px;
     font-family: 'PingFang_Medium';
 }
 
 .internship_banner_card_content {
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 28px;
     color: #1B1B1B;
@@ -30,7 +30,7 @@
     opacity: 0.6;
 }
 .internship_banner_card_content.list > :not(:last-child){
-    margin-bottom: 16px;
+    margin-bottom: 10px;
 }
 .internship_banner_card_content.list > li {
     
@@ -195,6 +195,7 @@
     font-size: 12px;
     font-weight: 400;
     opacity: 0.6;
+    line-height: 12px;
 }
 
 

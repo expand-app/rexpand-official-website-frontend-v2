@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import styles from './CampBannerOverlayCard.module.css';
 import useScreen from '@/components/useScreen/useScreen';
 
@@ -18,7 +18,7 @@ export const CampBannerOverlayCard = ({...props}: Props) => {
     );
 }
 
-const MobileView = ({data, className, cardClassName}: Props) => {
+const MobileView = ({data, className, cardClassName, contentStyle}: Props) => {
     return (
         <div className={clsx('', className, styles.m_container)}>
             <div className={clsx(styles.m_card, cardClassName)}>
@@ -46,7 +46,7 @@ const MobileView = ({data, className, cardClassName}: Props) => {
 
 
 
-const PCView = ({data, className, cardClassName}: Props) => {
+const PCView = ({data, className, cardClassName, contentStyle}: Props) => {
     return (
         <div className={clsx('', className, styles.container)}>
             <div className={styles.bg}></div>
@@ -56,12 +56,12 @@ const PCView = ({data, className, cardClassName}: Props) => {
                     if (typeof(item?.content) === 'string' ) {
                         return <div key={item?.id} className={clsx({'flex-2': index === 0}, {'flex-3': index === 1})}>
                             <h1 className='internship_banner_card_title'>{item?.title}</h1>
-                            <div className='internship_banner_card_content'>{item?.content}</div>
+                            <div className={clsx('internship_banner_card_content')} style={contentStyle}>{item?.content}</div>
                         </div>;
                     } else if (Array.isArray(item?.content)){
                         return <div key={item?.id} className='flex-3'>
                             <h1 className='internship_banner_card_title'>{item?.title}</h1>
-                            <ul className='internship_banner_card_content list'>
+                            <ul className='internship_banner_card_content list' style={contentStyle}>
                             {item?.content?.map((contentItem)=>{
                                 return  <li key={contentItem}><span>{contentItem}</span></li>;
                             })}
@@ -79,6 +79,7 @@ export interface Props {
     data: BannerOverlayCardData[],
     className?: string;
     cardClassName?: string;
+    contentStyle?: CSSProperties;
 }
 
 interface BannerOverlayCardData {

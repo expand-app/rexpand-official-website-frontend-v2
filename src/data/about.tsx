@@ -1,5 +1,5 @@
 import lAvatarImg from '@/assets/about/team-member/avatar_l.png';
-import shuoAvatarImg from '@/assets/about/team-member/avatar_shuo.png';
+import jimmyAvatarImg from '@/assets/about/team-member/avatar_jimmy.png';
 import maxAvatarImg from '@/assets/about/team-member/avatar_max.png';
 import yangAvatarImg from '@/assets/about/team-member/avatar_yang.png';
 import jiexuanAvatarImg from '@/assets/about/team-member/avatar_jiexuan.png';
@@ -13,15 +13,15 @@ import { MemberData } from '@/components/TeamMemberCard/TeamMemberCard';
 export const membersData: MemberData[] = [
     {
         id: 1,
-        name:'L老师',
+        name:'Lance老师',
         avatar: lAvatarImg,
         jobTitle: '担任知名银行的VP兼Senior Manager',
         majorArea: ['Data Engineer','Data Analytics'],
     },
     {
         id: 2,
-        name:'Shuo老师',
-        avatar: shuoAvatarImg,
+        name:'Jimmy老师',
+        avatar: jimmyAvatarImg,
         jobTitle: 'AWS资深软件工程师',
         majorArea: ['Machine Learning','Software Engineer'],
     },

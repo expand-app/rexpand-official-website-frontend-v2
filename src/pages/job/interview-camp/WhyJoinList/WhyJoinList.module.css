@@ -3,20 +3,22 @@
     
 }
 .card {
-    padding: 27px 27px 25px 27px;
+    padding: 46px 27px 45px 27px;
     border-radius: 8px;
 }
 
 .title {
-    font-size: 16px;
+    font-family: 'PingFang_Medium';
+
+    font-size: 20px;
     font-weight: 600;
-    line-height: 22.4px;
     color: #008A27;
+    margin-bottom: 9px;
+
 }
 .description{
     font-size: 16px;
     font-weight: 400;
-    line-height: 22.4px;
 }
 .icon_container {
     margin-top:30px;

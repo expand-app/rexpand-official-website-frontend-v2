@@ -21,12 +21,20 @@ import CourseArrangement from './CourseArrangement/CourseArrangement';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 import useScreen from '@/components/useScreen/useScreen';
 import CampBannerOverlayCard from './CampBannerOverlayCard/CampBannerOverlayCard';
+import Link from 'next/link';
+import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
+import { jobConsultModalData } from '@/data/job_consult';
 
 const nextCourceTime = new Date('2024-05-12');
 
 export const InterviewCampPage: NextPage = () => {
+  const [jobConsultModalOpen, setJobConsultModalOpen] = useState<boolean>(false);
   const { isMobile } = useScreen();
  
+  const onBannerBtnClick = () => {
+    setJobConsultModalOpen(true);
+  }
+
   return (
       <>
         <Head>
@@ -55,17 +63,24 @@ export const InterviewCampPage: NextPage = () => {
         </Head>
         <div>
             {isMobile?.()? 
-            <MobileView />
+            <MobileView onBannerBtnClick={onBannerBtnClick}/>
             :
-            <PCView/>
+            <PCView onBannerBtnClick={onBannerBtnClick}/>
             }
+
+          <JobConsultModal 
+            open={jobConsultModalOpen} 
+            onClose={()=>setJobConsultModalOpen(false)} 
+            qrImage={jobConsultModalData.qrImage}
+            content={jobConsultModalData.content}
+          />
         </div>
       </>
   );
 }
 
 
-export const MobileView = () => {
+export const MobileView = ({onBannerBtnClick,}: Props) => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   // const [courseDaysLeft, setCourseDaysLeft] = useState<number>(0);
 
@@ -102,7 +117,8 @@ export const MobileView = () => {
                       type={ButtonType.SOLID} 
                       size={ButtonSize.MIDDLE} 
                       radius={ButtonRadius.ROUNDED}
-                      text="立即报名" />
+                      text="立即报名" 
+                      onClick={onBannerBtnClick}/>
               </div>
               {/* <div className='flex-1'>
                 <Image src={bannerRightImage} alt="Banner" className={clsx('',styles.banner_img)}/>
@@ -118,7 +134,7 @@ export const MobileView = () => {
               },{
                 id: 2,
                 title: '适合学员',
-                content: 'Entry level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者',
+                content: 'Entry Level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者',
               },{
                 id: 3,
                 title: '求职方向',
@@ -138,7 +154,7 @@ export const MobileView = () => {
             <div className='px-12px'>
               <SectionTitle 
                 title='为什么要参加？'
-                className='mb-60px'/>
+                className='mb-37px'/>
 
               <WhyJoinList data={whyJoinData} />
             </div>
@@ -178,7 +194,7 @@ export const MobileView = () => {
 };
 
 
-export const PCView = () => {
+export const PCView = ({onBannerBtnClick,}: Props) => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   // const [courseDaysLeft, setCourseDaysLeft] = useState<number>(0);
 
@@ -211,7 +227,8 @@ export const PCView = () => {
                       className={styles.banner_btn}
                       type={ButtonType.SOLID} 
                       size={ButtonSize.MIDDLE} 
-                      text="立即报名" />
+                      text="立即报名" 
+                      onClick={onBannerBtnClick}/>
               </div>
               <div className='flex-1'>
                 <Image src={bannerRightImage} alt="Banner" className={clsx('',styles.banner_img)}/>
@@ -226,7 +243,7 @@ export const PCView = () => {
               },{
                 id: 2,
                 title: '适合学员',
-                content: 'Entry level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者',
+                content: 'Entry Level求职北美留学生，对北美面试不了解，需要快速提升能力的求职者',
               },{
                 id: 3,
                 title: '求职方向',
@@ -266,7 +283,7 @@ export const PCView = () => {
         </div>
 
 
-        <div className='bg-white section internship_faq_section'>
+        <div className={clsx('bg-white section internship_faq_section')} style={{paddingBottom: 188}}>
           <SectionTitle 
                     title='常见问题'
                     className='internship_faq_title' 
@@ -282,8 +299,13 @@ export const PCView = () => {
     </div>
   );
 };
+
+export interface Props {
+  onBannerBtnClick: () => void;
+}
+
 export default InterviewCampPage;
- 
+
 // DataAnalysisPage.getLayout = function getLayout(page: ReactElement) {
 //   return (
 //     <InternshipLayout>

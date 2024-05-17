@@ -46,6 +46,7 @@ export const HomePage: NextPage = () => {
           <meta property="og:url" content="https://www.yourwebsite.com/about" />
           <meta property="og:type" content="website" />
           <link rel="canonical" href="https://www.yourwebsite.com/about" />
+          <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"></link>
           <script type="application/ld+json">
           {JSON.stringify({
               "@context": "https://schema.org",
@@ -115,8 +116,8 @@ export const MobileView = () => {
           <div className="px-12px overflow-auto text-center">
             <SectionTitle 
               className={styles.m_section1_title}
-              title='保Offer求职项目'
-              subtitle='锁定心仪offer，拿不到Offer退款'/>
+              title='保offer求职项目'
+              subtitle='锁定心仪offer，拿不到offer退款'/>
 
             <OfferGuaranteeView data={offerGuaranteeTabsData} />
 
@@ -157,7 +158,7 @@ export const MobileView = () => {
         <div className={clsx('bg-white text-center section',styles.m_section)}>
           <div className="px-12px overflow-auto">
             <SectionTitle 
-              className={styles.section_title}
+              className={styles.m_section3_title}
               title='面试集训营'
               subtitle='超强指导，助力每个机会'/>
 
@@ -206,7 +207,7 @@ export const PCView = () => {
             </Swiper>
           </div>
           
-          <h1 className={clsx('text-white z-10', styles.banner_text)}>北美留学生 求职一站式服务</h1>
+          <h1 className={clsx('text-white z-10', styles.banner_text)}>北美留学生求职一站式服务</h1>
           <Link href='/job/offer-guarantee' className="z-10">
             <Button 
               type={ButtonType.SOLID} 
@@ -222,8 +223,8 @@ export const PCView = () => {
           <div className="container mx-auto flex flex-col items-center">
             <SectionTitle 
               className={styles.section_title}
-              title='保Offer求职项目'
-              subtitle='锁定心仪offer，拿不到Offer退款'/>
+              title='保offer求职项目'
+              subtitle='锁定心仪offer，拿不到offer退款'/>
 
             <OfferGuaranteeView data={offerGuaranteeTabsData} />
 

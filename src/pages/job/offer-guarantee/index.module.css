@@ -65,10 +65,12 @@
 }
 .m_section1 {
     background: #F7FBF8;
+    margin-top: 18px;
+
 }
 .m_section2 {
     padding-top: 67px;
-    padding-bottom: 70px;
+    padding-bottom: 0px;
 }
 
 .m_section3 {

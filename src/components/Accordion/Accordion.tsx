@@ -18,7 +18,7 @@ const Accordion = ({...props}: Props) => {
         </div>
     );
 }
-const MobileView = ({data, className, checkedIndxs = [],}: Props) => {
+const MobileView = ({data, className, checkedIndxs = [0],}: Props) => {
     const [checkedIndexes, setCheckedIndexes] = useState<Array<number>>(checkedIndxs);
 
     const combinedClassName = clsx('w-full',styles.m_accordion, className);

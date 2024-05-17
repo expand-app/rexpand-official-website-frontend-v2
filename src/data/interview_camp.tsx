@@ -11,9 +11,7 @@ export const interviewCampFAQData: AccordionData[] = [
         id: 1,
         title: '课程形式是直播还是录播？',
         content: <>
-            <ol className='list-none'>
-                <li>直播授课，无法参加直播的同学可以看直播回放。回放永久有效，可以反复学习。</li>
-            </ol>
+            直播授课，无法参加直播的同学可以看直播回放。回放永久有效，可以反复学习。
         </>,
     },
     {
@@ -58,7 +56,7 @@ export const whyJoinData: WhyJoinData[] = [{
 
 export const courceArrangementData: CourceArrangement[] = [{
     id: 1,
-    title: '面试前48小时攻略，锁定Offer',
+    title: '面试前48小时攻略，锁定offer',
     content: ['听课福利：面试百宝书Interview 64问 (含答案)'],
 },{
     id: 2,

@@ -64,13 +64,16 @@ body{
 .font-36{
     font-size: 36px;
 }
-
+.font-40 {
+    font-size: 40px;
+}
 .font-42{
     font-size: 42px;
 }
 .font-46{
     font-size: 46px;
 }
+
 .font-48{
     font-size: 48px;
 }
@@ -162,6 +165,9 @@ body{
 }
 .gap-12px {
     gap: 12px;
+}
+.gap-16px {
+    gap: 16px;
 }
 .gap-55px {
     gap:55px;
@@ -274,6 +280,7 @@ body{
     width: 8px !important;
     height: 8px !important;
     margin-bottom: 8px !important;
+    margin-right: 22px !important;
 }
 .swiper-pagination-bullets > .swiper-pagination-bullet-active {
     margin-bottom: 0px !important;
@@ -300,6 +307,7 @@ body{
         width: 4.6px !important;
         height: 4.6px !important;
         margin-bottom: 4.6px !important;
+        margin-right: 12px !important;
     }
 
     .swiper-pagination-bullet-active {

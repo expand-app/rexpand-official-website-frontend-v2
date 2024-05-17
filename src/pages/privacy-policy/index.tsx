@@ -121,7 +121,7 @@ const MobileView = ({children}: Props) => {
               title: '首页',
               path: '/',
             },{
-              title: '隐私政策',
+              title: '隐私条款',
               path: '/privacy-policy',
             }]} 
             className={styles.breadcrumb}/>
@@ -150,7 +150,7 @@ const PCView = ({children}: Props) => {
               title: '首页',
               path: '/',
             },{
-              title: '隐私政策',
+              title: '隐私条款',
               path: '/privacy-policy',
             }]} 
             className={styles.breadcrumb}/>

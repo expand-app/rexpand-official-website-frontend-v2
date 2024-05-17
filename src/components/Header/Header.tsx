@@ -11,6 +11,7 @@ import { useRouter } from 'next/router';
 import useScreen from '../useScreen/useScreen';
 import mArrowUp from '@/assets/m_icon_menu_arrow_up.png';
 import mMenuClose from '@/assets/icon_menu_close.png';
+import { consultModalData } from '@/data/job_consult';
 
 const jobMenuLinks = [
   '/job/offer-guarantee',
@@ -37,7 +38,7 @@ const Header = ({...props}: Props) => {
 }
 
 const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [consultModalOpen, setConsultModalOpen] = useState<boolean>(false);
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [initialTheme, setInitialTheme] = useState<Theme>(theme);
   const [lastTheme, setLastTheme] = useState<Theme>(theme);
@@ -56,7 +57,7 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
   } 
 
   const handleJobConsultClick = ()=>{
-    setOpen(true);
+    setConsultModalOpen(true);
   }
 
   useEffect(() => {  
@@ -165,7 +166,7 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
                 <Link href='/job/offer-guarantee' onClick={onLevel1MenuClick}>求职项目 <i><Image alt="" className={styles.m_arrow} src={mArrowUp} width={15} height={15}  /></i></Link>
                 <ul>
                   <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
-                  <li><Link href='/job/interview-camp'>面试集中营</Link></li>
+                  <li><Link href='/job/interview-camp'>面试集训营</Link></li>
                   <li><Link href='/job/internship/data-analysis'>数据分析实习</Link></li>
                   <li><Link href='/job/internship/quantitative-investment'>量化投资实习</Link></li>
                   <li><Link href='/job/internship/investment-banking-modeling'>投行建模实习</Link></li>
@@ -187,13 +188,17 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
     </div>
     {/* <hr className="border-b border-gray-100 opacity-25 my-0 py-0" /> */}
 
-    <JobConsultModal open={open} onClose={()=>setOpen(false)}/>
+    <JobConsultModal open={consultModalOpen} onClose={()=>setConsultModalOpen(false)}
+      qrImage={consultModalData.qrImage}
+      content={consultModalData.content}
+      />
+
   </nav>;
 }
 
 
 const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
-  const [open, setOpen] = useState<boolean>(false);
+  const [consultModalOpen, setConsultModalOpen] = useState<boolean>(false);
   const [initialTheme, setInitialTheme] = useState<Theme>(theme);
   const [headerTheme, setHeaderTheme] = useState<Theme>(theme);
 
@@ -209,7 +214,7 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
   } 
 
   const handleJobConsultClick = ()=>{
-    setOpen(true);
+    setConsultModalOpen(true);
   }
 
   useEffect(() => {  
@@ -271,7 +276,7 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
             <div className={clsx('', styles.submenu_container)}>
               <ul className={clsx('', styles.submenu)}>
                 <li><Link href='/job/offer-guarantee'>保Offer项目</Link></li>
-                <li><Link href='/job/interview-camp'>面试集中营</Link></li>
+                <li><Link href='/job/interview-camp'>面试集训营</Link></li>
                 <li><Link href='/job/internship/data-analysis'>数据分析实习</Link></li>
                 <li><Link href='/job/internship/quantitative-investment'>量化投资实习</Link></li>
                 <li><Link href='/job/internship/investment-banking-modeling'>投行建模实习</Link></li>
@@ -316,7 +321,10 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
     </div>
     {/* <hr className="border-b border-gray-100 opacity-25 my-0 py-0" /> */}
 
-    <JobConsultModal open={open} onClose={()=>setOpen(false)}/>
+    <JobConsultModal open={consultModalOpen} onClose={()=>setConsultModalOpen(false)} 
+      qrImage={consultModalData.qrImage}
+      content={consultModalData.content}
+    />
   </nav>;
 }
 

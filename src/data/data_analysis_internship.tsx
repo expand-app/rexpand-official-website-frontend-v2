@@ -4,7 +4,7 @@ import { OutlineData } from '@/pages/job/components/Outline/Outline';
 export const dataAnalysisFAQData: AccordionData[] = [
     {
         id: 1,
-        title: 'Marketing Analytics项目工作经验的Title写什么?  ',
+        title: 'Data Analytics项目工作经验的title写什么?  ',
         content: <>
             <ol className='list-decimal'>
                 <li>Data Analyst (Data Analytics Intern)</li>
@@ -18,7 +18,7 @@ export const dataAnalysisFAQData: AccordionData[] = [
     },
     {
         id: 2,
-        title: 'Marketing Analytics项目公司是怎么写在简历里什么?',
+        title: 'Data Analytics项目公司是怎么写在简历里什么?',
         content: <>Intelliimpact Intelliimpact LLC是一个注册在Texas的Consulting公司，主要业务是Management Consulting, Data Analytics, Marketing Consulting Services, 具体业务详情可以查看公司的官网：www.intelliimpact.com</>,
     },
     {
@@ -26,22 +26,24 @@ export const dataAnalysisFAQData: AccordionData[] = [
         title: '项目做完后，简历中Skills里可以添加什么内容？',
         content: <>
             <ol className='list-decimal'>
-                <li>Statistical modeling</li>
-                <li>VaR model</li>
-                <li>Brinson attribution model</li>
-                <li>Asset allocation model</li>
-                <li>Quantitative Research</li>
-                <li>Optimization</li>
-                <li>Python</li>
+                <li>Data Cleaning</li>
+                <li>Management Consulting</li>
+                <li>Customer Segmentation</li>
+                <li>Strategic Planning</li>
+                <li>A/B Testing</li>
+                <li>Email Marketing</li>
+                <li>SQL</li>
+                <li>Tableau</li>
                 <li>Excel</li>
-                <li>Data Cleaning</li>
+                <li>Database Management</li>
+                <li>Market Research</li>
             </ol>
         </>,
     },
     {
         id: 4,
         title: '如果缺席直播课程怎么办？',
-        content: <>直播课程设置回放，可通过回放视频补充学习</>,
+        content: <>直播课程设置回放，可通过回放视频补充学习。</>,
     },
     {
         id: 5,
@@ -106,29 +108,27 @@ export const dataAnalysisOutlineData: OutlineData = {
         courseList: [{
             name: '第4周：SQL essentials和data cleaning',
             sections: [
-                '介绍项目背景、目标和团队成员',
-                '分配任务和角色',
-                '进行入职会议，确立项目方向和内容',
+                '学习SQL基础，包括设置数据库和基本查询操作',
+                '开始进行data cleaning和segmentation，处理数据中的缺失值和异常值',
             ],
         },{
             name: '第5周：自动化数据处理管道',
             sections: [
-                '回顾市场调研结果，讨论竞争对手分析和市场定位策略',
-                '学习如何使用Mailchimp进行邮件营销，包括创建邮件列表和设计邮件模板',
-                '进行与营销经理的客户电话会议，了解客户需求和期望',
+                '深入学习SQL，包括subqueries、aggregate functions等',
+                '建立automated data pipeline，提高数据处理效率',
             ],
         },{
             name: '第6周：地理位置分析和数据更新',
             sections: [
-                '讨论数据收集、分析和利用的策略',
-                '与经理共同制定数据管理计划',
-                '准备进行SQL基础学习，为后续的数据处理和分析做准备',
+                '使用地图工具进行地理位置分析',
+                '更新电子邮件列表并生成报告',
+                '进一步data cleaning，解决实际数据集中的问题',
             ],
         },{
-            name: '第7周：adhoc project和data pipeline implementation',
+            name: '第7周：Adhoc project和Data pipeline implementation',
             sections: [
-                'adhoc project：banking relationship pricing validation',
-                'data pipeline implementation，并复盘',
+                'Adhoc project：Banking relationship pricing validation',
+                'Data pipeline implementation，并复盘',
             ],
         }],
     },{

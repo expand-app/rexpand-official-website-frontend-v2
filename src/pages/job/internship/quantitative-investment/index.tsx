@@ -26,10 +26,16 @@ import _ from 'lodash';
 import SightView from '../../components/SightView/SightView';
 import BannerOverlayCard from '@/components/BannerOverlayCard/BannerOverlayCard';
 import useScreen from '@/components/useScreen/useScreen';
+import { jobConsultModalData } from '@/data/job_consult';
+import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
 
 export const QuantitativeInvestmentPage: NextPage = () => {
+  const [jobConsultModalOpen, setJobConsultModalOpen] = useState<boolean>(false);
   const { isMobile } = useScreen();
- 
+  const onBannerBtnClick = () => {
+    setJobConsultModalOpen(true);
+  }
+
   return (
       <>
         <Head>
@@ -58,16 +64,21 @@ export const QuantitativeInvestmentPage: NextPage = () => {
         </Head>
         <div>
             {isMobile?.()? 
-            <MobileView />
+            <MobileView onBannerBtnClick={onBannerBtnClick}/>
             :
-            <PCView/>
+            <PCView onBannerBtnClick={onBannerBtnClick}/>
             }
-        </div>
+          <JobConsultModal
+            open={jobConsultModalOpen} 
+            onClose={()=>setJobConsultModalOpen(false)} 
+            qrImage={jobConsultModalData.qrImage}
+            content={jobConsultModalData.content}
+          />        </div>
       </>
   );
 }
 
-export const MobileView = () => {
+export const MobileView = ({onBannerBtnClick,}: Props) => {
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
   
@@ -95,7 +106,8 @@ export const MobileView = () => {
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
                       radius={ButtonRadius.NONE}
-                      text="咨询项目" />
+                      text="咨询项目" 
+                      onClick={onBannerBtnClick}/>
               </div>
             </div>
             <div className={styles.m_banner_overlay_box}>
@@ -192,7 +204,7 @@ export const MobileView = () => {
   );
 };
 
-export const PCView = () => {
+export const PCView = ({onBannerBtnClick,}: Props) => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
@@ -319,7 +331,8 @@ export const PCView = () => {
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
                       radius={ButtonRadius.NONE}
-                      text="咨询项目" />
+                      text="咨询项目" 
+                      onClick={onBannerBtnClick}/>
               </div>
               <VideoCard 
                 image={bannerVideoImage} 
@@ -351,6 +364,9 @@ export const PCView = () => {
               </div> */}
             </div>
             <BannerOverlayCard
+              contentStyle={{
+                fontSize: '20px',
+              }}
               cardClassName='w-p85'
               data={[{
                 id: 1,
@@ -456,6 +472,9 @@ export const PCView = () => {
     </div>
   );
 };
+export interface Props {
+  onBannerBtnClick: () => void;
+}
 export default QuantitativeInvestmentPage;
  
 // DataAnalysisPage.getLayout = function getLayout(page: ReactElement) {

@@ -6,9 +6,9 @@
 
 }
 .top {
-    padding-top:22px;
-    padding-bottom: 46px;
     height: 210px;
+    text-align: center;
+    padding: 22px 1rem 46px 1rem;
 }
 
 .bottom {
@@ -102,9 +102,13 @@
 }
 
 .m_top {
-    width: 154px;
-    height: 170px;
+    width: 164px;
+    height: 180px;
     overflow: hidden;
+
+
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 .m_bottom{
@@ -138,7 +142,6 @@
     font-family: 'PingFang_Medium';
     font-size: 13px;
     font-weight: 400;
-    line-height: 25.2px;
     margin-bottom: 45px;
     text-align: center;
 }

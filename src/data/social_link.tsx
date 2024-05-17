@@ -13,12 +13,12 @@ export const socialLinksData: SocialLinkData[] = [
         icon: gzhIcon,
         link: 'https://mp.weixin.qq.com/s?__biz=Mzg3ODg2OTA0Nw==&mid=2247490690&idx=1&sn=72fa5936186ec54e86c39635427e823e&chksm=cf0c73daf87bfacc9828ce6e4af4fc3c4b1abe878ec79ad5da56e622d3bc80b3d600cf98d6dd#rd',
     },
-    {
-        id: 2,
-        name: '微信视频号',
-        icon: wechatvideoIcon,
-        link: 'https://weixin.qq.com/sph/AuxoRHASb',
-    },
+    // {
+    //     id: 2,
+    //     name: '微信视频号',
+    //     icon: wechatvideoIcon,
+    //     link: 'https://weixin.qq.com/sph/AuxoRHASb',
+    // },
     {
         id: 3,
         name: 'LinkedIn',

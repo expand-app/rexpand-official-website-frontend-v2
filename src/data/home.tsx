@@ -14,7 +14,7 @@ import interviewCampImg3 from '@/assets/home/interview_3.png';
 export const offerGuaranteeTabsData: TabItem[] = [
     {
         id: 1,
-        title:<><span style={{color:'#008A27'}}>H1b</span> Offer保障</>,
+        title:<><span style={{color:'#008A27'}}>H1b</span> offer保障</>,
         subtitle: '高频内推、简历代投、求职辅导全方位保证成功率',
         image: offerGuaranteeImg1,
 
@@ -51,19 +51,19 @@ export const internshipProjectCardsData: CardItem[] = [{
     description: '实习生将在一家咨询公司的Marketing Analytics Services (MAS)部门任职，工作职责包括使用SQL构建必要的数据管线(Data Pipeline)以支持工程化的市场营销活动。此外，利用Tableau和Excel等工具进行营销数据分析和结果可视化(Visualization)，进一步优化数字营销效果',
 },{
     id: 2,
-    title: <div className='font-l'><span className={'font-w600'}>量化金融</span>实习</div>,
+    title: <div className='font-l'><span className={'font-w600 font-m'}>量化金融</span>实习</div>,
     subtitle: 'Quantitative Trading',
     link: '/job/internship/quantitative-investment',
     description: '实习生将在一家咨询公司的Investment Management Services(IMS)部门任职，工作职责包括通过使用价值在风险(Va)模型进行风险评估与量化，辅助客户在风险管理(Quantitative Risk Management)上的决策。且将利用多因子回归模型等量化方法，提供资产配置建议(Strategic Asset Allocation)',
 },{
     id: 3,
-    title: <div className='font-l'><span className={'font-w600'}>投行建模</span>实习</div>,
+    title: <div className='font-l'><span className={'font-w600 font-m'}>投行建模</span>实习</div>,
     subtitle: 'Financial Modeling',
     link: '/job/internship/investment-banking-modeling',
     description: '实习生将在一家咨询公司的Transaction Advisory Services (TAS)部门任职，将为客户提供交易和并购过程中的金融建模(Financial Modeling)支持，协助进行公司估值(Valuation)和财务预测(Financial Planning)',
 },{
     id: 4,
-    title: <div className='font-l'><span className={'font-w600'}>全栈开发</span>实习</div>,
+    title: <div className='font-l'><span className={'font-w600 font-m'}>全栈开发</span>实习</div>,
     subtitle: 'Full-stack Development',
     link: '/job/internship/full-stack-dev',
     description: '实习生在一家科技公司任职，参与开发一个与小红书相似的食物分享应用的移动端项目。此职位涵盖了全面的项目开发流程，包括前后端代码的编写、优化和最终部署到云平台。项目将采用JavaScript、Python和Java作为主要开发语言，使用MySQL和PostgreSQL作为数据库解决方案',
