@@ -169,7 +169,7 @@ const PCView = () => {
 
                 <foreignObject x="550" y="439" width="315" height="190">
                     <Indicator 
-                        reverse={true}
+                        type='top'
                         sn='5'
                         text='职位推荐'
                         description='根据个人能力和职业规划，为学生推荐最匹配的实习或全职职位' 
@@ -177,138 +177,6 @@ const PCView = () => {
                 </foreignObject>
             </svg>
 
-        </div>
-    );
-}
-const PC1View = () => {
-    const [ratio, setRatio] = useState<number>(1);
-    const [scale, setScale] = useState<number>(1);
-    const [imgOrgWidth, setImgOrgWidth] = useState<number>(0);
-    const imageRef = useRef<HTMLImageElement | null>();
-
-
-    useEffect(() => {
-        const image = imageRef.current;
-        const overlay = document.getElementById("overlay");
-    
-        const adjustIndicatorPosition = () => {
-            const imageWidth = image?.offsetWidth;
-            // const imageHeight = image?.offsetHeight;
-            if (imageWidth && imgOrgWidth) {
-                const newScale = imageWidth/imgOrgWidth;
-
-                setScale(newScale);
-            }
-
-    
-        //   const left = imageWidth??0 * 0.2; // 20% 相对于图片宽度的位置
-        //   const top = imageHeight??0 * 0.2; // 20% 相对于图片高度的位置
-    
-        //   overlay.style.left = left + "px";
-        //   overlay.style.top = top + "px";
-        };
-    
-        if (image?.complete) {
-            adjustIndicatorPosition();
-        } else {
-            if (image?.onload) {
-                image.onload = adjustIndicatorPosition;
-            }
-        }
-    
-        window.onresize = adjustIndicatorPosition;
-    
-        return () => {
-          window.onresize = null;
-        };
-    }, []);
-
-    useEffect(() => {
-        const image = imageRef.current;
-        if (image) {
-            const width = image.offsetWidth;
-            // const height = image.offsetHeight;
-            // const imageRatio = width / height;
-
-            setImgOrgWidth(width);
-            // setRatio(imageRatio);
-        }
-    }, [imageRef.current]);
-
-    return (
-        <div className={clsx(styles.container)}>
-            <div className={styles.indicators}>
-                <div style={{
-                    position: 'absolute',
-                    left: `${6.5*1}%`,
-                    top: `${1.3*1}%`,
-                    fontSize: `${20*1}px`,
-                    color: '#616163',
-                    transform: `scale(${scale})`,
-                }}>
-                    起航
-                </div>
-
-                <div style={{
-                    position: 'absolute',
-                    right: '10.5%',
-                    bottom: '-5%',
-                    color: '#616163',
-                    textAlign: 'center',
-                }}>
-                    <div style={{fontSize: '20px', marginBottom: 19 }}>斩获offer</div>
-                    <div style={{fontSize: '16px'}}>陪伴学生走完求职全程，直至拿到满意的Offer</div>
-                </div>
-
-                <Indicator 
-                    sn='1'
-                    text='求职规划'
-                    description='深度理解学生需求，定制职业规划，制定合理有效的求职策略' 
-                    style={{
-                        left: '40%',
-                        top: '2.4%',
-                    }}/>
-
-                <Indicator 
-                    sn='2'
-                    text='导师匹配'
-                    description='根据学员具体情况，选择最合适的行业导师，实现专业性最高匹配度' 
-                    style={{
-                        left: '80%',
-                        top: '2.4%',
-                    }}/>
-                <Indicator 
-                    sn='3'
-                    text='背景提升'
-                    description='提供个性化的背景提升服务，通过专业培训、实习机会等多种方式提升职业技能' 
-                    style={{
-                        left: '85%',
-                        top: '49.4%',
-                    }}/>
-
-                <Indicator 
-                    sn='4'
-                    text='1对1 辅导'
-                    description='导师一对一辅导，配合丰富求职资料，全面提升简历质量、丰富面试技巧等' 
-                    style={{
-                        left: '26%',
-                        top: '49.4%',
-                    }}/>
-
-                <Indicator 
-                    reverse={true}
-                    sn='5'
-                    text='职位推荐'
-                    description='根据个人能力和职业规划，为学生推荐最匹配的实习或全职职位' 
-                    style={{
-                        left: '53%',
-                        top: '95.4%',
-                    }}/>
-            </div>
-            <Image alt='' ref={imageRef} src={curveImg} 
-                width={2878}
-                height={1282}
-                className={styles.curve_img} />
         </div>
     );
 }
