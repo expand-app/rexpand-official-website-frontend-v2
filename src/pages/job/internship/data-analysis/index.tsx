@@ -94,13 +94,17 @@ export const MobileView = ({onBannerBtnClick,}: Props) => {
                   <h1 className={clsx(styles.m_banner_title)}>数据分析实习</h1>
                   <h2 className={clsx(styles.m_banner_subtitle)}>使用SQL进行数据清理和分析，搭建客户需要的电子邮件营销数据管线，分析营销数据表现</h2>
 
-                  <VideoCard 
+                 
+
+                  {/* <VideoCard 
                     image={bannerVideoImage} 
                     videoPath='https://xxx.com/test.mp4' 
                     onClick={()=>{
                       setVideoModalPath('https://xxx.com/test.mp4');
                       setVideoModalOpen(true);
-                    }}/>
+                    }}/> */}
+                  <Image src={require('@/assets/temp/1.png')} alt="" style={{margin: '40px 0'}}/>
+                  
                     
                   <Button
                       className={styles.m_banner_btn}
@@ -330,14 +334,15 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
                       text="咨询项目" 
                       onClick={onBannerBtnClick}/>
               </div>
-              <VideoCard 
+              {/* <VideoCard 
                 image={bannerVideoImage} 
                 videoPath='https://xxx.com/test.mp4' 
                 onClick={()=>{
                   setVideoModalPath('https://xxx.com/test.mp4');
                   setVideoModalOpen(true);
-                }}/>
-
+                }}/> */}
+               <Image src={require('@/assets/temp/1.png')} alt="" style={{margin: '40px 0'}}/>
+                  
             </div>
 
             <BannerOverlayCard

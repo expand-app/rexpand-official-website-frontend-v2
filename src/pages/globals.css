@@ -4,25 +4,25 @@
 
 @font-face {
     font-family: 'PingFang_Light';
-    src: url('/fonts/PingFang_Light.ttf') format('truetype'); 
+    src: url('/rexpand-official-website-frontend-v2/fonts/PingFang_Light.ttf') format('truetype'); 
 }
 
 @font-face {
     font-family: 'PingFang_Regular';
-    src: url('/fonts/PingFang_Regular.ttf') format('truetype'); 
+    src: url('/rexpand-official-website-frontend-v2/fonts/PingFang_Regular.ttf') format('truetype'); 
 }
 
 @font-face {
     font-family: 'PingFang_Medium';
-    src: url('/fonts/PingFang_Medium.ttf') format('truetype'); 
+    src: url('/rexpand-official-website-frontend-v2/fonts/PingFang_Medium.ttf') format('truetype'); 
 }
 @font-face {
     font-family: 'PingFang_Semiblod';
-    src: url('/fonts/PingFang_Semibold.ttf') format('truetype'); 
+    src: url('/rexpand-official-website-frontend-v2/fonts/PingFang_Semibold.ttf') format('truetype'); 
 }
 @font-face {
     font-family: 'RobotoCondensed';
-    src: url('/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype'); 
+    src: url('/rexpand-official-website-frontend-v2/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype'); 
 }
 
 body{
@@ -287,7 +287,7 @@ body{
 }
 
 .swiper-pagination-bullet-active {
-    background: url(/assets/icon_swiper_pagination_active.png) !important;
+    background: url(/rexpand-official-website-frontend-v2/assets/icon_swiper_pagination_active.png) !important;
 
     background-size: contain !important;
     width: 24px !important;
@@ -311,7 +311,7 @@ body{
     }
 
     .swiper-pagination-bullet-active {
-        background: url(/assets/icon_swiper_pagination_active.png) !important;
+        background: url(/rexpand-official-website-frontend-v2/assets/icon_swiper_pagination_active.png) !important;
     
         background-size: contain !important;
         width: 14px !important;

@@ -99,10 +99,7 @@ export const MobileView = () => {
           <div className={styles.m_banner_text}>
             <h1 className={clsx(styles.m_banner_title)}>北美留学生<br />求职一站式服务</h1>
               
-          <Link href='/job/offer-guarantee' className="z-10" style={{
-            position: 'relative',
-            top: 282,
-          }}>
+          <Link href='/job/offer-guarantee' className="z-10" style={{zIndex:999}}>
             <Button 
               className={styles.m_banner_btn}
               type={ButtonType.BORDERED} 

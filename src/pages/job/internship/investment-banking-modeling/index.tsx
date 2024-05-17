@@ -93,13 +93,15 @@ export const MobileView = ({onBannerBtnClick,}: Props) => {
             <h1 className={clsx(styles.m_banner_title)}>投行建模实习</h1>
             <h2 className={clsx(styles.m_banner_subtitle)}>使用金融建模的方法来帮助企业客户在财务规划和决策中做出精确的预测和评估</h2>
 
-            <VideoCard 
+            {/* <VideoCard 
               image={bannerVideoImage} 
               videoPath='https://xxx.com/test.mp4'
               onClick={()=>{
                 setVideoModalPath('https://xxx.com/test.mp4');
                 setVideoModalOpen(true);
-              }}/>
+              }}/> */}
+              <Image src={require('@/assets/temp/3.png')} alt="" style={{margin: '40px 0'}}/>
+                  
 
               <Button
                   className={styles.m_banner_btn}
@@ -338,13 +340,15 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
                       text="咨询项目" 
                       onClick={onBannerBtnClick}/>
               </div>
-              <VideoCard 
+              {/* <VideoCard 
                 image={bannerVideoImage} 
                 videoPath='https://xxx.com/test.mp4'
                 onClick={()=>{
                   setVideoModalPath('https://xxx.com/test.mp4');
                   setVideoModalOpen(true);
-                }}/>
+                }}/> */}
+                <Image src={require('@/assets/temp/3.png')} alt="" style={{margin: '40px 0'}}/>
+               
 
               {/* <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
                 <div className='flex-1'>

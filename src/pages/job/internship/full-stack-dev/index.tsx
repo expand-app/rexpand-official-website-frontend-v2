@@ -91,13 +91,15 @@ export const MobileView = ({onBannerBtnClick,}: Props) => {
               <div className={styles.m_banner_text}>
                   <h1 className={clsx(styles.m_banner_title)}>全栈开发实习</h1>
                   <h2 className={clsx(styles.m_banner_subtitle)}>从前后端编写到云部署的全流程，使用JavaScript、Python、Java，以及MySQL和PostgreSQL数据库，依托AWS和Azure平台，提供全面的现代应用开发经验</h2>
-                  <VideoCard 
+                  {/* <VideoCard 
                     image={bannerVideoImage} 
                     videoPath='https://xxx.com/test.mp4'
                     onClick={()=>{
                       setVideoModalPath('https://xxx.com/test.mp4');
                       setVideoModalOpen(true);
-                    }}/>
+                    }}/> */}
+                    <Image src={require('@/assets/temp/4.png')} alt="" style={{margin: '40px 0'}}/>
+               
                   <Button
                       className={styles.m_banner_btn}
                       type={ButtonType.BORDERED} 
@@ -352,14 +354,15 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
                       text="咨询项目" 
                       onClick={onBannerBtnClick}/>
               </div>
-              <VideoCard 
+              {/* <VideoCard 
                 image={bannerVideoImage} 
                 videoPath='https://xxx.com/test.mp4'
                 onClick={()=>{
                   setVideoModalPath('https://xxx.com/test.mp4');
                   setVideoModalOpen(true);
-                }}/>
-
+                }}/> */}
+                <Image src={require('@/assets/temp/4.png')} alt="" style={{margin: '40px 0 40px 0'}}/>
+               
               {/* <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
                 <div className='flex-1'>
                   <h1 className='internship_banner_card_title'>项目时长</h1>
