@@ -167,7 +167,7 @@ const PCView = () => {
                         />
                 </foreignObject>
 
-                <foreignObject x="550" y="439" width="315" height="190">
+                <foreignObject x="550" y="439" width="315" height="290">
                     <Indicator 
                         type='bottom'
                         sn='5'

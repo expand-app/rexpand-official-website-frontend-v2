@@ -63,13 +63,13 @@ const PCView = ({text = '', sn, description = '', type = 'top'}: Props) => {
                 </div>
             </div>;
         } else if (type === 'bottom') {
-            return <div className={clsx(styles.indicator)}>
-                <div className={styles.indicator_text_box}>
-                    <div className={styles.label_box}>
-                        <div className={styles.label_left}>{sn}</div>
-                        <div className={styles.label_right}>{text}</div>
+            return <div className={clsx(styles.bottom_indicator)}>
+                <div className={styles.bottom_indicator_text_box}>
+                    <div className={styles.bottom_label_box}>
+                        <div className={styles.bottom_label_left}>{sn}</div>
+                        <div className={styles.bottom_label_right}>{text}</div>
                     </div>
-                    <div className={styles.description}>{description}</div>
+                    <div className={styles.bottom_description}>{description}</div>
                 </div>
             </div>;
         } else {
