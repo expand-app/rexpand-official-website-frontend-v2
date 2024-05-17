@@ -169,7 +169,7 @@ const PCView = () => {
 
                 <foreignObject x="550" y="439" width="315" height="190">
                     <Indicator 
-                        type='top'
+                        type='bottom'
                         sn='5'
                         text='职位推荐'
                         description='根据个人能力和职业规划，为学生推荐最匹配的实习或全职职位' 
