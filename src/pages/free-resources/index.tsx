@@ -95,7 +95,7 @@ function PCView() {
 
     return (
        <div>
-        <main className={clsx('mb-12', styles.main)}>
+        <main className={clsx('', styles.main)}>
             <div className={styles.page}>
             <Header theme={Theme.LIGHT}/>
                 

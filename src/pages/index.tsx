@@ -84,13 +84,13 @@ export const MobileView = () => {
               modules={[Pagination]} 
               className={styles.m_swiper}>
               <SwiperSlide>
-                <Image src={mBannerImg} alt="" style={{height: '100%'}}/>
+                <Image src={mBannerImg} alt="" style={{height: '100%',width:'100%'}}/>
               </SwiperSlide>
               <SwiperSlide>
-                <Image src={mBannerImg} alt="" style={{height: '100%'}}/>
+                <Image src={mBannerImg} alt="" style={{height: '100%',width:'100%'}}/>
               </SwiperSlide>
               <SwiperSlide>
-                <Image src={mBannerImg} alt="" style={{height: '100%'}}/>
+                <Image src={mBannerImg} alt="" style={{height: '100%',width:'100%'}}/>
               </SwiperSlide>
             </Swiper>
           </div>
