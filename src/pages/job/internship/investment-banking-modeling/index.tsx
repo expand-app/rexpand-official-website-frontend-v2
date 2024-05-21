@@ -333,7 +333,7 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
                   <h2 className={clsx(styles.banner_subtitle)}>使用金融建模的方法来帮助企业客户在财务规划和决策中做出精确的预测和评估</h2>
 
                   <Button
-                      className="z-10"
+                      className={styles.banner_btn}
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
                       radius={ButtonRadius.NONE}
@@ -347,7 +347,7 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
                   setVideoModalPath('https://xxx.com/test.mp4');
                   setVideoModalOpen(true);
                 }}/> */}
-                <Image src={require('@/assets/temp/3.png')} alt="" style={{margin: '40px 0'}}/>
+                <Image src={require('@/assets/temp/3.png')} alt="" className={styles.banner_img}/>
                
 
               {/* <div className={clsx('bg-white md:w-5/6 flex flex-col md:flex-row gap-24 px-20 py-12 rounded-lg -ml-2', styles.banner_overlay)}>
@@ -404,7 +404,7 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
             <div className='flex flex-col md:flex-row h-96'>
               <div className='flex justify-end' 
                 style={{width: '28vw'}}>
-                <Image src={introImage} alt='实习介绍' className='mr-8 h-full w-auto'/>
+                <Image src={introImage} alt='实习介绍' className='object-contain lg:mr-8 h-full w-auto'/>
               </div>
               
               <div className='flex-1 leading-7 text-gray-500 flex items-center internship_practise_intro_text'>
@@ -426,7 +426,7 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
               <div className='flex flex-col md:flex-row'>
                 
                 <div className='flex justify-end'>
-                  <Image src={sightImage} alt='项目亮点' className='mr-24 h-full w-auto'
+                  <Image src={sightImage} alt='项目亮点' className='object-contain lg:mr-24 h-full w-auto'
                   style={{width: '28vw', height: 'auto'}}/>
                 </div>
                 

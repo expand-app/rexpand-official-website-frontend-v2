@@ -1,4 +1,5 @@
 .banner_img {
+    max-width: 50vw;
 }
 
 .banner_overlay {
@@ -90,4 +91,23 @@
 .m_banner_text {
     text-align: center;
     margin-top: 75px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .banner_title {
+        font-size: 50px;
+        margin-bottom: 10px;
+    }
+    .banner_subtitle {
+        font-size: 16px;
+        margin-bottom: 46px;
+    }
+
+    .banner_btn {
+        width: 170px;
+        height: 56px;
+        font-size: 16px;
+        font-weight: 500;
+    }
 }

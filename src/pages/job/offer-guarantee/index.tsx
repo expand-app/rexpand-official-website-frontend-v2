@@ -97,7 +97,7 @@ function MobileView({onBannerBtnClick,}: Props) {
                   <h2 className={clsx('text-base text-white opacity-70 z-10 m-banner-text2', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企offer</h2>
 
                   <Image alt="" src={require('@/assets/job/offer-guarantee/m_banner_img.png')} 
-                    style={{margin: '17px 0 32px 0', width: '70vw'}}/>
+                    className={styles.m_banner_img}/>
                   <Button
                       type={ButtonType.SOLID} 
                       size={ButtonSize.MIDDLE} 
@@ -185,7 +185,7 @@ function PCView({onBannerBtnClick,}: Props) {
                   <h2 className={clsx('text-base text-white opacity-70 z-10  mb-16', styles.banner_subtitle)}>超高频次内推，全流程求职服务，保证高薪名企offer</h2>
 
                   <Button
-                      className="z-10"
+                      className={styles.banner_btn}
                       type={ButtonType.BORDERED} 
                       size={ButtonSize.MIDDLE} 
                       radius={ButtonRadius.NONE} 

@@ -217,11 +217,11 @@ export const PCView = ({onBannerBtnClick,}: Props) => {
               backgroundPosition: 'center',
             }}>
            
-            <div className='container mx-auto flex flex-col md:flex-row items-center justify-center w-p85'>
+            <div className={clsx('container mx-auto flex flex-col md:flex-row items-center justify-center w-p85', styles.container)}>
               <div className="z-10 pt-0 flex-1">
-                  <h1 className='text-white mb-6 banner_text font-sb'>面试集训营</h1>
-                  <h2 className='text-base text-white mb-1 font-m font-22 font-w500 mb-7px'>只要99元，5天时间全面掌握北美面试技巧</h2>
-                  <h3 className=' text-white font-16 font-w400'>下次开课：<span className='font-w500'>{formatDate(nextCourceTime)}</span> 倒计时：<span className={styles.count_down_num}>{courseDaysLeft}</span>天</h3>
+                  <h1 className={clsx('text-white mb-6 banner_text font-sb', styles.banner_title)}>面试集训营</h1>
+                  <h2 className={clsx('text-base text-white mb-1 font-m font-22 font-w500 mb-7px', styles.banner_subtitle1)}>只要99元，5天时间全面掌握北美面试技巧</h2>
+                  <h3 className={clsx(' text-white font-16 font-w400', styles.banner_subtitle2)}>下次开课：<span className='font-w500'>{formatDate(nextCourceTime)}</span> 倒计时：<span className={styles.count_down_num}>{courseDaysLeft}</span>天</h3>
 
                   <Button
                       className={styles.banner_btn}

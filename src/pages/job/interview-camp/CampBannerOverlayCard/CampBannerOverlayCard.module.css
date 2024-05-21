@@ -43,3 +43,11 @@
     gap: 36px;
     width: 100%;
 }
+
+
+
+@media screen and (max-width: 1024px) {
+    .bg{
+        height: 364px;
+    }
+}

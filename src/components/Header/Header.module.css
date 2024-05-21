@@ -69,6 +69,9 @@
     background-color: rgba(255,255,255,0.4);
     font-family: 'PingFang_Medium';
 }
+.consult_btn_container {
+    width: 186px;
+}
 
 .consult_btn{
     float:right;
@@ -183,4 +186,17 @@
 
 .m_arrow{
     padding-top: 3px;
+}
+
+
+
+
+
+@media screen and (max-width: 1024px) {
+    .header_container {
+        flex-wrap:nowrap;
+    }
+    .consult_btn_container{
+        width: auto;
+    }
 }

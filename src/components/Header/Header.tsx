@@ -112,6 +112,7 @@ const MobileView = ({className, theme = Theme.TRANSPARENT}: Props) => {
       router.reload();
     }
   }
+
   return <nav className={combinedClassName} >
     <div className={clsx("w-full flex flex-row items-center mr-23px", styles.m_header_container)}>
       <Link href="/" className="flex-1" >
@@ -252,10 +253,16 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
       setHeaderTheme(initialTheme);
     }
   }
+  const onMenuLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (currentPath && event?.currentTarget?.pathname && currentPath === event.currentTarget.pathname) {
+      router.reload();
+    }
+  }
+
   
   return <nav className={combinedClassName} onMouseOver={onMouseEnterParent} onMouseOut={onMouseOutParent}>
     <div className={clsx("w-full mx-auto flex flex-wrap items-center justify-between mt-0", styles.header_container)}>
-      <div className="pl-4 flex items-center" style={{width: 186}}>
+      <div className="pl-4 flex items-center" style={{flexBasis: 186}}>
         <Link href="/" className="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl" >
           <Image src={headerTheme === Theme.TRANSPARENT ? whiteLogoImg:greenLogoImg} width={170} height={37} alt='logo' priority={true}/>
         </Link>
@@ -269,42 +276,42 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
         </button>
       </div> */}
 
-      <div className="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-white lg:bg-transparent text-black p-4 lg:p-0 z-20" id="nav-content">
-        <ul className={clsx('list-reset lg:flex justify-center flex-1 items-center', styles.menu)}>
+      <div className="flex-grow flex items-center w-auto mt-0 bg-transparent text-black p-0 flex-1">
+        <ul className={clsx('list-reset flex justify-center flex-1 items-center', styles.menu)}>
           <li className={clsx('mr-3 relative', styles.menu_item_box)}>
             <Link className={clsx(
-              'inline-block py-2 px-4 no-underline transition', 
+              'inline-block py-2 px-4 no-underline transition text-nowrap', 
               styles.menu_item,
               {'text-white': headerTheme === Theme.TRANSPARENT},
-              {[styles.menu_item_active]: jobMenuLinks.indexOf(currentPath) != -1})} href='/job/offer-guarantee'>求职项目</Link>
+              {[styles.menu_item_active]: jobMenuLinks.indexOf(currentPath) != -1})} href='/job/offer-guarantee' onClick={onMenuLinkClick}>求职项目</Link>
             <div className={clsx('', styles.submenu_container)}>
               <ul className={clsx('', styles.submenu)}>
-                <li><Link href='/job/offer-guarantee'>保offer项目</Link></li>
-                <li><Link href='/job/interview-camp'>面试集训营</Link></li>
-                <li><Link href='/job/internship/data-analysis'>数据分析实习</Link></li>
-                <li><Link href='/job/internship/quantitative-investment'>量化投资实习</Link></li>
-                <li><Link href='/job/internship/investment-banking-modeling'>投行建模实习</Link></li>
-                <li><Link href='/job/internship/full-stack-dev'>全栈开发实习</Link></li>
+                <li><Link href='/job/offer-guarantee' onClick={onMenuLinkClick}>保offer项目</Link></li>
+                <li><Link href='/job/interview-camp' onClick={onMenuLinkClick}>面试集训营</Link></li>
+                <li><Link href='/job/internship/data-analysis' onClick={onMenuLinkClick}>数据分析实习</Link></li>
+                <li><Link href='/job/internship/quantitative-investment' onClick={onMenuLinkClick}>量化投资实习</Link></li>
+                <li><Link href='/job/internship/investment-banking-modeling' onClick={onMenuLinkClick}>投行建模实习</Link></li>
+                <li><Link href='/job/internship/full-stack-dev' onClick={onMenuLinkClick}>全栈开发实习</Link></li>
               </ul>
             </div>
           </li>
           <li className={clsx("mr-3", styles.menu_item_box)}>
             <Link className={clsx(
-              'inline-block no-underline py-2 px-4 transition', 
+              'inline-block no-underline py-2 px-4 transition text-nowrap', 
               {'text-white': headerTheme === Theme.TRANSPARENT},
               styles.menu_item,
               {[styles.menu_item_active]: currentPath === '/success-cases'})} href="/success-cases">成功案例</Link>
           </li>
           <li className={clsx("mr-3", styles.menu_item_box)}>
             <Link className={clsx(
-              'inline-block no-underline py-2 px-4 transition', 
+              'inline-block no-underline py-2 px-4 transition text-nowrap', 
               {'text-white': headerTheme === Theme.TRANSPARENT},
               styles.menu_item,
               {[styles.menu_item_active]: currentPath.startsWith('/free-resources')})} href="/free-resources">免费资源</Link>
           </li>
           <li className={clsx("mr-3", styles.menu_item_box)}>
             <Link className={clsx(
-              'inline-block no-underline py-2 px-4 transition', 
+              'inline-block no-underline py-2 px-4 transition text-nowrap', 
               {'text-white': headerTheme === Theme.TRANSPARENT},
               styles.menu_item,
               {[styles.menu_item_active]: currentPath === '/about'})} href="/about">关于我们</Link>
@@ -312,7 +319,7 @@ const PCView = ({className, theme = Theme.TRANSPARENT}: Props) => {
         </ul>
         
       </div>
-      <div style={{width: 186}}>
+      <div className={styles.consult_btn_container}>
         <Button 
           text='求职咨询' 
           className={styles.consult_btn}

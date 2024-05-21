@@ -124,3 +124,28 @@
     font-size: 18px;
     font-weight: 700;
 }
+
+
+
+@media screen and (max-width: 1024px) {
+    .container{
+        margin-top: -110px;
+    }
+    .banner_title {
+        font-size: 50px;
+        margin-top: 0px;
+    }
+    .banner_subtitle1 {
+        font-size: 16px;
+    }
+    .banner_subtitle2 {
+        font-size: 14px;
+    }
+
+    .banner_btn {
+        width: 180px;
+        height: 55px;
+        font-size: 16px !important;
+        margin-top: 30px;
+    }
+}

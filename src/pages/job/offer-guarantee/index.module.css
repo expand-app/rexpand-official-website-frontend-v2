@@ -86,3 +86,39 @@
     font-size: 14px;
     font-weight: 500;
 }
+.m_banner_img {
+    margin: 17px 0 32px 0;
+    width: 70vw;
+}
+
+
+@media screen and (min-width: 440px) {
+    .m_banner_container {
+        height: 600px;
+        background-size: 100% 100%;
+    }    
+
+    .m_banner_img {
+        width: 60vw;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .banner_container {
+        height: 458px;
+    }    
+
+    .banner_title {
+        margin-top: 40px;
+        font-size: 44px;
+    }
+    .banner_subtitle {
+        font-size: 16px;
+        width: 45%;
+    }
+    .banner_btn {
+        width: 180px;
+        height: 55px;
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
