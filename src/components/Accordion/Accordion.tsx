@@ -46,7 +46,6 @@ const MobileView = ({data, className, checkedIndxs = [0],}: Props) => {
     const onTitleEnter = (index: number)=>{
         // setCheckedIndexes([index]);
     };
-
     return (
         <ul className={combinedClassName}>
             {data?.map((item, index)=>{
@@ -73,7 +72,7 @@ const MobileView = ({data, className, checkedIndxs = [0],}: Props) => {
 }
 
 const PCView = ({data, className}: Props) => {
-    const [checkedIndexes, setCheckedIndexes] = useState<Array<number>>([]);
+    const [checkedIndexes, setCheckedIndexes] = useState<Array<number>>([0]);
 
     const combinedClassName = clsx('w-full',styles.accordion, className);
     
