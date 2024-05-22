@@ -39,7 +39,7 @@ const MobileView = ({data}: Props) => {
                             </div>
                             <div className='flex flex-row items-center'>
                                 <Image src={timeIconImg} alt='发布时间' className={styles.m_publish_time_icon}/>
-                                <div className={styles.m_publish_time}>发布时间：{item.publishDate}</div>    
+                                <div className={styles.m_publish_time}>发布时间：{item.lastUpdateDate}</div>    
                             </div>
                         </div>
                     </Link>
