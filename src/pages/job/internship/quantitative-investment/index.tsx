@@ -98,7 +98,7 @@ export const MobileView = ({onBannerBtnClick,}: Props) => {
                       setVideoModalPath('https://xxx.com/test.mp4');
                       setVideoModalOpen(true);
                     }}/> */}
-                    <Image src={require('@/assets/temp/2.png')} alt="" style={{margin: '40px 0'}}/>
+                    <Image src={require('@/assets/temp/2.png')} alt="" style={{margin: '40px auto', width:'auto',maxHeight: 240}}/>
                   
                   <Button
                       className={styles.m_banner_btn}

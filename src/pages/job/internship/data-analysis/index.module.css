@@ -111,6 +111,12 @@
 }
 
 
+@media screen and (max-width: 768px) {
+    .m_banner_container {
+        height: 753px;
+    }
+}
+
 
 @media screen and (max-width: 1200px) {
     .banner_title {

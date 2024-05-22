@@ -214,6 +214,11 @@
     padding-bottom: 81px;
 }
 
+/* @media screen and (min-width: 450px) {
+    .m_internship_intro_section {
+        margin-top: 28vw;
+    }
+} */
 @media screen and (max-width: 1200px) {
     .internship_banner_container > .container {
         width: 86vw;
@@ -221,4 +226,22 @@
         max-width: 86vw;
     }
 }
- 
+
+@media screen and (max-width: 768px) {
+    .m_internship_intro_section {
+        margin-top: 140px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .m_internship_intro_section {
+        margin-top: 85px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .m_internship_intro_section {
+        margin-top: 80px;
+    }
+}
+
