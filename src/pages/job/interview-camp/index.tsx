@@ -25,7 +25,7 @@ import Link from 'next/link';
 import JobConsultModal from '@/components/JobConsultModal/JobConsultModal';
 import { campConsultModalData } from '@/data/job_consult';
 
-const nextCourceTime = new Date('2024-05-12');
+const nextCourceTime = new Date('2024-06-17');
 
 export const InterviewCampPage: NextPage = () => {
   const [jobConsultModalOpen, setJobConsultModalOpen] = useState<boolean>(false);
