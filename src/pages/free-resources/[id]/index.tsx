@@ -1,5 +1,5 @@
 import React, {useMemo} from 'react';
-import { NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import styles from './index.module.css';
 import Header, { Theme } from "@/components/Header/Header";
 import Footer from '@/components/Footer/Footer';
@@ -11,24 +11,24 @@ import Image from 'next/image';
 import useScreen from '@/components/useScreen/useScreen';
 import { FreeResourceData } from '../components/FreeResourceList/FreeResourceList';
 
-export const FreeResourceDetailPage: NextPage = () => {
+export const FreeResourceDetailPage: NextPage = ({...props}: Props) => {
     const { isMobile } = useScreen();
-    const router = useRouter();
-    const { id } = router.query;
+    // const router = useRouter();
+    // const { id } = router.query;
 
-    const currentArticle = useMemo(()=>{
-        if ( id != undefined) {
-            let idNum: number = parseInt(id as string);
+    // const currentArticle = useMemo(()=>{
+    //     if ( id != undefined) {
+    //         let idNum: number = parseInt(id as string);
     
-            return freeResourceListData.find((item)=>item.id+'' == id);
-        }
-        return null;
-    }, [freeResourceListData, id]);
+    //         return freeResourceListData.find((item)=>item.id+'' == id);
+    //     }
+    //     return null;
+    // }, [freeResourceListData, id]);
 
     return (
         <>
             <Head>
-                <title>{currentArticle?.title} - 免费资源 - Rexpand</title>
+                <title>{props?.article?.title} - 免费资源 - Rexpand</title>
                 <meta
                 name="description"
                 content="Learn more about My Company, our mission, and what we do."
@@ -53,16 +53,16 @@ export const FreeResourceDetailPage: NextPage = () => {
             </Head>
             <div>
                  {isMobile?.()? 
-                <MobileView currentArticle={currentArticle || undefined}/>
+                <MobileView {...props}/>
                 :
-                  <PCView currentArticle={currentArticle || undefined}/>
+                  <PCView {...props}/>
                   }
             </div>
         </>
     );
 }
 
-function MobileView ({currentArticle}: FreeResourceDetailPageProps) {
+function MobileView ({article}: Props) {
 
     return (
         <main className={clsx('bg-white m-main', styles.m_main)}>
@@ -71,21 +71,21 @@ function MobileView ({currentArticle}: FreeResourceDetailPageProps) {
                     <div className='flex justify-center'>
                         <div className='m-fr-article-box'>
                             <div className='m-fr-article'>
-                                {currentArticle ? 
+                                {article ? 
                                     <>
                                         <div className="m-fr-article-header">
-                                            <Image src={currentArticle?.image} 
-                                                alt={currentArticle?.title} 
+                                            <Image src={article?.image} 
+                                                alt={article?.title} 
                                                 sizes="100vw"
                                                 width={765} height={362} 
                                                 className={'m_head_image'}
                                                 />
-                                            <div className='m-fr-article-title'>{currentArticle?.title}</div>
-                                            <div className='m-fr-article-lastupdate'>最后更新时间: <span>{currentArticle?.lastUpdateDate}</span></div>
+                                            <div className='m-fr-article-title'>{article?.title}</div>
+                                            <div className='m-fr-article-lastupdate'>最后更新时间: <span>{article?.lastUpdateDate}</span></div>
                                         </div>
 
                                         <div className='m-fr-article-body'>
-                                            <div dangerouslySetInnerHTML={{ __html: currentArticle?.content?.join('') ?? '' }} />
+                                            <div dangerouslySetInnerHTML={{ __html: article?.content?.join('') ?? '' }} />
                                         </div>
                                     </>            
                                     :
@@ -102,7 +102,7 @@ function MobileView ({currentArticle}: FreeResourceDetailPageProps) {
     );
 }
 
-function PCView ({currentArticle}: FreeResourceDetailPageProps) {
+function PCView ({article}: Props) {
 
     return (
         <main className={clsx('bg-white', styles.main)}>
@@ -110,11 +110,11 @@ function PCView ({currentArticle}: FreeResourceDetailPageProps) {
             <div className='container mx-auto flex justify-center w-1/2'>
                 <div className='fr-article-box'>
                     <div className='fr-article'>
-                        {currentArticle ? 
+                        {article ? 
                             <>
                                 <div className="fr-article-header">
-                                    <Image src={currentArticle?.image} 
-                                        alt={currentArticle?.title} 
+                                    <Image src={article?.image} 
+                                        alt={article?.title} 
                                         sizes="100vw"
                                         style={{
                                             width: '100%',
@@ -123,12 +123,12 @@ function PCView ({currentArticle}: FreeResourceDetailPageProps) {
                                         }}
                                         width={765} height={362} 
                                         />
-                                    <div className='fr-article-title'>{currentArticle?.title}</div>
-                                    <div className='fr-article-lastupdate'>最后更新时间: <span>{currentArticle?.lastUpdateDate}</span></div>
+                                    <div className='fr-article-title'>{article?.title}</div>
+                                    <div className='fr-article-lastupdate'>最后更新时间: <span>{article?.lastUpdateDate}</span></div>
                                 </div>
 
                                 <div className='fr-article-body'>
-                                    <div dangerouslySetInnerHTML={{ __html: currentArticle?.content?.join('') ?? '' }} />
+                                    <div dangerouslySetInnerHTML={{ __html: article?.content?.join('') ?? '' }} />
                                 </div>
                             </>            
                             :
@@ -146,6 +146,25 @@ function PCView ({currentArticle}: FreeResourceDetailPageProps) {
 export default FreeResourceDetailPage;
 
 
-interface FreeResourceDetailPageProps {
-    currentArticle?: FreeResourceData;
+interface Props {
+    article?: FreeResourceData;
+}
+
+
+export const getStaticPaths:GetStaticPaths = async () => {
+    const paths = freeResourceListData?.map((item) => ({
+      params: { id: item.id + '' },
+    }))
+   
+    return { paths, fallback: false }
+}
+
+export const getStaticProps: GetStaticProps<Props> = ({ params }) => {
+    const freeResourceData = freeResourceListData?.find((item)=>item.id+'' === params?.id);
+    
+    return { props: { article: freeResourceData } }
+}
+
+interface ParamsProps {
+    id: string;
 }
