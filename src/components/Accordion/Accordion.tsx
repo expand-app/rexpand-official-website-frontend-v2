@@ -44,7 +44,7 @@ const MobileView = ({data, className, checkedIndxs = [0],}: Props) => {
     };
 
     const onTitleEnter = (index: number)=>{
-        setCheckedIndexes([index]);
+        // setCheckedIndexes([index]);
     };
 
     return (
@@ -98,7 +98,7 @@ const PCView = ({data, className}: Props) => {
     };
 
     const onTitleEnter = (index: number)=>{
-        setCheckedIndexes([index]);
+        //setCheckedIndexes([index]);
     };
 
     return (
