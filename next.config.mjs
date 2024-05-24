@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "export",
 
-  // basePath: process.env.NODE_ENV === 'production'? '/rexpand-official-website-frontend-v2' : null,
+  basePath: process.env.BATH_PATH,
   images: {
     unoptimized: true,
   },
