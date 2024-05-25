@@ -7,7 +7,7 @@
 
 }
 .indicator {
-    position: absolute;
+    position: fixed;
     left: 50%;
     width: 10px;
     height: 10px;
@@ -141,7 +141,7 @@
     width: 305px;
 }
 .indicator_left {
-    position: absolute;
+    position: fixed;
     right:0;
     top: 50%;
     transform: translateY(-50%);
@@ -224,7 +224,7 @@
 
 /* right */
 .indicator_right {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 50%;
     transform: translateY(-50%);
@@ -303,7 +303,7 @@
 
 /* bottom */
 .bottom_indicator {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 50%;
     width: 10px;

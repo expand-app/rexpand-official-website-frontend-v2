@@ -52,7 +52,7 @@ const MobileView = () => {
                     </div>
                 </foreignObject>
 
-                <foreignObject x="15" y="-5" width="310" height="160">
+                <foreignObject x="15" y="8" width="310" height="160">
                     <Indicator 
                             type='left'
                             sn='1'
@@ -61,7 +61,7 @@ const MobileView = () => {
                         />
                 </foreignObject>
 
-                <foreignObject x="-8" y="142" width="310" height="160">
+                <foreignObject x="-8" y="158" width="310" height="160">
                     <Indicator 
                         type='right'
                         sn='2'
@@ -71,7 +71,7 @@ const MobileView = () => {
                     
                 </foreignObject>
 
-                <foreignObject x="15" y="296" width="310" height="160">
+                <foreignObject x="15" y="310" width="310" height="160">
                     <Indicator 
                         type='left'
                         sn='3'
@@ -81,7 +81,7 @@ const MobileView = () => {
                 </foreignObject>
 
 
-                <foreignObject x="-8" y="445" width="310" height="160">
+                <foreignObject x="-8" y="458" width="310" height="160">
                     <Indicator 
                         type='right'
                         sn='4'
@@ -90,7 +90,7 @@ const MobileView = () => {
                         />
                 </foreignObject>
 
-                <foreignObject x="15" y="596" width="310" height="160">
+                <foreignObject x="15" y="612" width="310" height="160">
                     <Indicator 
                         type='left'
                         sn='5'
@@ -167,7 +167,7 @@ const PCView = () => {
                         />
                 </foreignObject>
 
-                <foreignObject x="550" y="439" width="315" height="290">
+                <foreignObject x="550" y="341" width="315" height="290">
                     <Indicator 
                         type='bottom'
                         sn='5'
