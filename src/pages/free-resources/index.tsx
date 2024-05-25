@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { NextPage } from "next";
 import styles from './index.module.css';
 import Header, { Theme } from "@/components/Header/Header";
@@ -8,7 +8,6 @@ import { freeResourceListData } from '@/data/free_resource';
 import LinkFilter from './components/LinkFilter/LinkFilter';
 import Head from 'next/head';
 import clsx from 'clsx';
-import { useRouter } from 'next/router';
 import useScreen from '@/components/useScreen/useScreen';
 
 
@@ -55,11 +54,18 @@ export const FreeResourcesPage: NextPage = () => {
 
 
 function MobileView () {
-    const [currentFilterIndex, setCurrentFilterIndex] = useState(0);
+    const [currentFilter, setCurrentFilter] = useState<string>('全部');
 
-    const handleFilterChange = (index: number) => {
-        setCurrentFilterIndex(index);
+    const handleFilterChange = (filterName: string) => {
+        setCurrentFilter(filterName);
     }
+    const filteredFreeResources = useMemo(()=>{
+        if (currentFilter === '全部') {
+            return freeResourceListData;
+        } else {
+            return freeResourceListData?.filter((item)=>item?.tags?.indexOf(currentFilter) != -1);
+        }
+    },[freeResourceListData, currentFilter]);
 
     return (
        <div>
@@ -70,12 +76,12 @@ function MobileView () {
                 <div className='container mx-auto m-section'>
                     <div className='py-24px px-20px'>
                         <LinkFilter 
-                            current={currentFilterIndex} 
+                            current={currentFilter} 
                             data={['全部','求职规划','面试技巧', '行业知识']} 
                             onChange={handleFilterChange}/>
                     </div>
                     <div>
-                        <FreeResourceList data={freeResourceListData} />
+                        <FreeResourceList data={filteredFreeResources} />
                     </div>
                 </div>
 
@@ -87,11 +93,19 @@ function MobileView () {
 }
 
 function PCView() {
-    const [currentFilterIndex, setCurrentFilterIndex] = useState(0);
+    const [currentFilter, setCurrentFilter] = useState<string>('全部');
 
-    const handleFilterChange = (index: number) => {
-        setCurrentFilterIndex(index);
+    const handleFilterChange = (filterName: string) => {
+        setCurrentFilter(filterName);
     }
+
+    const filteredFreeResources = useMemo(()=>{
+        if (currentFilter === '全部') {
+            return freeResourceListData;
+        } else {
+            return freeResourceListData?.filter((item)=>item?.tags?.indexOf(currentFilter) != -1);
+        }
+    },[freeResourceListData, currentFilter]);
 
     return (
        <div>
@@ -103,11 +117,11 @@ function PCView() {
                     <div className='pl-2 overflow-auto'>
                         <LinkFilter 
                             className={styles.filter}
-                            current={currentFilterIndex} 
+                            current={currentFilter} 
                             data={['全部','求职规划','面试技巧', '行业知识']} onChange={handleFilterChange}/>
                     </div>
                     <div className='pb-12'>
-                        <FreeResourceList data={freeResourceListData} />
+                        <FreeResourceList data={filteredFreeResources} />
                     </div>
                 </div>
 

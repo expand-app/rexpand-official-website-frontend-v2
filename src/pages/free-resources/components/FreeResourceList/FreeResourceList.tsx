@@ -94,5 +94,6 @@ export interface FreeResourceData {
     publishDate: string;
     
     lastUpdateDate?: string;
-    content?: Array<string>;
+    content?: string[];
+    tags?: string[],
 }
