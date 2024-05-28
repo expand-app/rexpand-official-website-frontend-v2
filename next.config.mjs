@@ -1,8 +1,9 @@
 /** @type {import('next').NextConfig} */
+
 const nextConfig = {
   output: "export",
 
-  basePath: process.env.BATH_PATH,
+  basePath: process.env.BASE_PATH,
   images: {
     unoptimized: true,
   },
@@ -11,5 +12,4 @@ const nextConfig = {
   //   publicDir: '/rexpand-official-website-frontend-v2/public'
   // }
 };
-
 export default nextConfig;
