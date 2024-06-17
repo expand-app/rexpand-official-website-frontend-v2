@@ -1,0 +1,52 @@
+.vertical_tabs{
+    overflow: hidden;
+}
+.tabs {
+    flex:4;
+}
+.tab_item {
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 39px 44px;
+
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 30.8px;
+    transition: all 0.25s ease;
+}
+.tab_item.active {
+    background: linear-gradient(180deg, #E8FAF2 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.contents {
+    flex: 5;
+    position: relative;
+}
+
+.content_item {
+    /* position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden; */
+    display: none;
+}
+.active {
+    display: block;    
+    font-size: 29px;
+    font-weight: 500;
+}
+.title {
+    font-family: 'PingFang_Medium';
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: 400;
+    color: #1B1B1B;
+    opacity: 60%;
+    transition: all 0.25s ease;
+}
+.active .subtitle{
+    font-size: 19px;
+}

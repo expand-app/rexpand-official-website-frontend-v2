@@ -1,0 +1,88 @@
+.card {
+    box-shadow: 3px 2px 17.8px 11px #008A270A;
+    border-radius: 8px;
+    margin-top: 56px;
+}
+.avatar {
+    display: block;
+    position: absolute;
+    top:0;
+    left:50%;
+    width: 80px;
+    height:80px;
+    transform: translate(-50%,-50%);
+}
+
+.username {
+}
+.job_title {
+    margin-bottom: 50px;
+}
+.field {
+    
+}
+
+/* m */
+.m_avatar {
+    display: block;
+    position: absolute;
+    top:0;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 57px;
+    height: 57px;
+
+}
+.m_header {
+    padding-top: 42px;
+    margin-bottom: 23px;
+}
+.m_username{
+    color: #333;
+    text-align: center;
+    font-family: 'PingFang_Medium';
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.m_job_title {
+    color: #1B1B1B;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 400;
+    opacity: 0.6;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* 限制为两行 */
+}
+.m_field_title {
+    font-family: 'PingFang_Medium';
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.m_field {
+    color: #333;
+    font-size: 11px;
+    font-weight: 300;
+    padding-left: 15px;
+    letter-spacing: 0.1px;
+}
+
+.m_field > li {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.m_card {
+    min-height: 220px;
+    border-radius: 4px;
+    border: 1px solid #FFF;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, #FFF 100%);
+    box-shadow: 3px 2px 17.8px 11px rgba(0, 138, 39, 0.04);
+    margin-bottom: 36px;
+    padding: 0 12px 14px 12px;
+}

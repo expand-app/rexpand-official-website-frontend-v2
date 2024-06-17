@@ -1,0 +1,182 @@
+.banner_container{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.swiper_container {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+    z-index: 1;
+}
+.swiper {
+    height: 100%;
+}
+/* .banner_container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+} */
+
+.banner_text{
+    font-family: 'PingFang_Semiblod';
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+.banner_button {
+    font-size: 16px;
+    font-weight: 500;
+    width: 220px;
+    height: 70px;
+}
+.section{
+    padding-bottom:87px;
+}
+.internship_project_section {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.section_title{
+    margin-top: 66px;
+    margin-bottom: 90px;
+}
+
+.interview_camp_cards{
+    margin-bottom: 160px;
+}
+
+
+@media screen and (max-width: 768px) {
+    .internship_project_section {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+
+/* m */
+.m_banner_container{
+    height: 653px;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.m_banner_title {
+    display: inline-block;
+    font-family: 'PingFang_Semiblod';
+    color: #FFF;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 60px;
+    pointer-events: none;
+}
+.m_banner_btn {
+    width: 124px;
+    height: 45px;
+    font-size: 14px;
+    /* margin-top: 282px; */
+    /* margin-bottom: 103px; */
+    position: absolute;
+    bottom: -444px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.m_banner_btn:hover{
+    
+    transform: translateX(-50%);
+}
+
+
+.m_banner_text {
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    top: 103px;
+    /* padding-top: 103px; */
+    height: 0;
+    overflow: visible;
+}
+.m_banner_text > h1 {
+    pointer-events: none; 
+}
+.m_banner_text > a {
+    pointer-events: auto;
+}
+
+.m_section1_title {
+    margin-top: 67px;
+    margin-bottom: 43px;
+}
+.m_section1 {
+    overflow: auto;
+}
+
+.section1_btn {
+    font-size:14px;
+    font-family: 'PingFang_Medium';
+    width: 106px;
+    height:37px;
+    margin-bottom: 46px;
+}
+
+.m_internship_project_section {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    /* background-position: 0 100%; */
+    padding-bottom: 67px;
+}
+
+.m_section2_title {
+    margin-top: 67px;
+    margin-bottom: 37px;
+}
+
+.m_section3_title {
+    margin-top: 33px;
+    margin-bottom: 47px;
+}
+
+.section3_btn {
+    width: 106px;
+    height: 37px;
+    color: #FFF;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'PingFang_Medium';
+    margin-top: 46px;
+    margin-bottom: 46px;
+}
+
+.m_swiper_container {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    
+    background-color: #ccc;
+    z-index: 0;
+}
+.m_swiper {
+    height: 100%;
+}
+
+
+

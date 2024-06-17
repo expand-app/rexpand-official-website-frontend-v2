@@ -1,0 +1,37 @@
+.title{
+    font-family: 'PingFang_Semiblod';
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 80px;
+    text-align: center;
+}
+
+.subtitle{
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 36px;
+    color: #1B1B1B;
+    text-align: center;
+}
+
+/* m */
+
+.m_title {
+    font-family: 'PingFang_Medium';
+    color: #1B1B1B;
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin-bottom: 10px;
+}
+
+.m_subtitle {
+    color: #333;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; 
+}

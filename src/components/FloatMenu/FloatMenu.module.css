@@ -1,0 +1,18 @@
+.float_menu {
+    display: none;
+    z-index: 50;
+}
+.show {
+    display: block;
+}
+.menu_item {
+    color: #008A27;
+    background-color: #fff;
+    border:1px solid #008A27;
+    margin-bottom: 12px;
+}
+
+.active {
+    color: #fff;
+    background-color: #008A27;
+}

@@ -1,0 +1,154 @@
+.banner_subtitle{
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+}
+.advantage_container {
+
+}
+.advantage_text_container{
+    margin-top: 93px;
+}
+.advantage_text {
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 37.4px;
+    text-align: center;
+    color: #333333;
+    opacity: 0.6;
+}
+
+.section1 {
+    padding-top: 85px;
+    padding-bottom: 182px;   
+}
+.section2 {
+    padding-top: 166px;
+    padding-bottom: 114px;   
+}
+.section3 {
+    padding-top:349px;
+    padding-bottom: 186px;  
+    background-size: cover;
+}
+.section4 {
+    padding-top:114px;
+    padding-bottom: 146px;  
+}
+
+/* m */
+.m_section1 {
+    padding-top: 48px;
+    padding-bottom: 100px;   
+}
+.m_section2 {
+    padding-top: 55px;
+    padding-bottom: 91px;   
+}
+
+.m_banner_title_img {
+    width: 60%;
+}
+.m_banner_subtitle {
+    font-family: 'PingFang_Medium';
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.m_left_quote {
+    align-self: flex-start;
+    width: 35px;
+    margin-top: -45px;
+}
+
+.m_right_quote {
+    align-self: flex-end;
+    width: 35px;
+    margin-bottom: -40px;
+}
+
+.m_advantage_text {
+    color: #333;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 170%;
+}
+
+
+.m_advantage_text_container{
+    margin-top: 76px;
+}
+
+.m_section2_card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.m_section2_card > img {
+    width: 34px;
+    height: 34px;
+    margin-bottom: 16px;
+}
+.m_section2_card > h1 {
+    font-family: 'PingFang_Medium';
+    color: #008A27;
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.m_section2_card > h2 {
+    color: #1B1B1B;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.m_section3 {
+    padding-top:72px;
+    padding-bottom: 127px;  
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.m_section3_card_list {
+    display: flex;
+    flex-direction: column;
+    gap: 65px;
+}
+.m_section3_card {
+    padding: 0 0 0 46px;
+}
+
+.m_section3_card h1 {
+    font-family: 'PingFang_Semiblod';
+    color: #FFF;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+}
+
+.m_section3_card h2 {
+    color: #FFF;
+    font-family: 'PingFang_Light';
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 21px;
+    padding-left: 30px;
+    padding-right: 2rem;
+}
+
+.m_section3_card img {
+    width: 19px;
+    height: auto;
+}
+.m_section4 {
+    padding-top:87px;
+    padding-bottom: 72px;   
+}
+
