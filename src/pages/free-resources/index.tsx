@@ -1,29 +1,27 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { NextPage } from "next";
 import styles from "./index.module.css";
 import Header, { Theme } from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import FreeResourceList from "./components/FreeResourceList/FreeResourceList";
+import FreeResourceList, {
+  FreeResourceData,
+} from "./components/FreeResourceList/FreeResourceList";
 import { freeResourceListData } from "@/data/free_resource";
 import LinkFilter from "./components/LinkFilter/LinkFilter";
 import clsx from "clsx";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
 
+export interface FreeResourcesPageViewProps {
+  filteredFreeResources: FreeResourceData[];
+  handleFilterChange: (filterName: string) => void;
+  currentFilter: string;
+}
+
 export const FreeResourcesPage: NextPage = () => {
   const { isMobile } = useScreen();
 
-  return (
-    <>
-      <Head />
-      <div>{isMobile?.() ? <MobileView /> : <PCView />}</div>
-    </>
-  );
-};
-
-function MobileView() {
   const [currentFilter, setCurrentFilter] = useState<string>("全部");
-
   const handleFilterChange = (filterName: string) => {
     setCurrentFilter(filterName);
   };
@@ -35,8 +33,35 @@ function MobileView() {
         (item) => item?.tags?.indexOf(currentFilter) != -1
       );
     }
-  }, [freeResourceListData, currentFilter]);
+  }, [currentFilter]);
 
+  return (
+    <>
+      <Head />
+      <div>
+        {isMobile?.() ? (
+          <MobileView
+            filteredFreeResources={filteredFreeResources}
+            currentFilter={currentFilter}
+            handleFilterChange={handleFilterChange}
+          />
+        ) : (
+          <PCView
+            filteredFreeResources={filteredFreeResources}
+            currentFilter={currentFilter}
+            handleFilterChange={handleFilterChange}
+          />
+        )}
+      </div>
+    </>
+  );
+};
+
+function MobileView({
+  filteredFreeResources,
+  currentFilter,
+  handleFilterChange,
+}: FreeResourcesPageViewProps) {
   return (
     <div>
       <main className={clsx("m-main", styles.m_main)}>
@@ -63,23 +88,11 @@ function MobileView() {
   );
 }
 
-function PCView() {
-  const [currentFilter, setCurrentFilter] = useState<string>("全部");
-
-  const handleFilterChange = (filterName: string) => {
-    setCurrentFilter(filterName);
-  };
-
-  const filteredFreeResources = useMemo(() => {
-    if (currentFilter === "全部") {
-      return freeResourceListData;
-    } else {
-      return freeResourceListData?.filter(
-        (item) => item?.tags?.indexOf(currentFilter) != -1
-      );
-    }
-  }, [currentFilter]);
-
+function PCView({
+  filteredFreeResources,
+  currentFilter,
+  handleFilterChange,
+}: FreeResourcesPageViewProps) {
   return (
     <div>
       <main className={clsx("", styles.main)}>
