@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Footer from "@/components/Footer/Footer";
 import Header, { Theme } from "@/components/Header/Header";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import styles from "./index.module.css";
 import Image from "next/image";
 import bannerRightImage from "@/assets/interview-camp/banner_right.png";
@@ -33,9 +33,13 @@ import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { campConsultModalData } from "@/data/job_consult";
 import Head from "@/components/Head";
 
-const nextCourceTime = new Date("2024-06-17");
+export interface InterviewCampPageProps {
+  nextCourseTime: string;
+}
 
-export const InterviewCampPage: NextPage = () => {
+export const InterviewCampPage: NextPage<InterviewCampPageProps> = ({
+  nextCourseTime,
+}) => {
   const [jobConsultModalOpen, setJobConsultModalOpen] =
     useState<boolean>(false);
   const { isMobile } = useScreen();
@@ -49,9 +53,15 @@ export const InterviewCampPage: NextPage = () => {
       <Head />
       <div>
         {isMobile?.() ? (
-          <MobileView onBannerBtnClick={onBannerBtnClick} />
+          <MobileView
+            onBannerBtnClick={onBannerBtnClick}
+            nextCourseTime={nextCourseTime}
+          />
         ) : (
-          <PCView onBannerBtnClick={onBannerBtnClick} />
+          <PCView
+            onBannerBtnClick={onBannerBtnClick}
+            nextCourseTime={nextCourseTime}
+          />
         )}
 
         <JobConsultModal
@@ -65,7 +75,7 @@ export const InterviewCampPage: NextPage = () => {
   );
 };
 
-export const MobileView = ({ onBannerBtnClick }: Props) => {
+export const MobileView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   // const [courseDaysLeft, setCourseDaysLeft] = useState<number>(0);
 
@@ -74,8 +84,8 @@ export const MobileView = ({ onBannerBtnClick }: Props) => {
   };
 
   const courseDaysLeft = useMemo(() => {
-    return daysToNow(nextCourceTime);
-  }, []);
+    return daysToNow(nextCourseTime);
+  }, [nextCourseTime]);
 
   return (
     <div>
@@ -99,9 +109,7 @@ export const MobileView = ({ onBannerBtnClick }: Props) => {
               </h2>
               <h3 className={clsx(styles.m_banner_subtitle2)}>
                 下次开课：
-                <span className="font-w500 font-m">
-                  {formatDate(nextCourceTime)}
-                </span>{" "}
+                <span className="font-w500 font-m">{nextCourseTime}</span>
                 倒计时：
                 <span className={styles.m_count_down_num}>
                   {courseDaysLeft}
@@ -200,7 +208,7 @@ export const MobileView = ({ onBannerBtnClick }: Props) => {
   );
 };
 
-export const PCView = ({ onBannerBtnClick }: Props) => {
+export const PCView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   // const [courseDaysLeft, setCourseDaysLeft] = useState<number>(0);
 
@@ -209,8 +217,8 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
   };
 
   const courseDaysLeft = useMemo(() => {
-    return daysToNow(nextCourceTime);
-  }, []);
+    return daysToNow(nextCourseTime);
+  }, [nextCourseTime]);
 
   return (
     <div>
@@ -254,7 +262,7 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
                 )}
               >
                 下次开课：
-                <span className="font-w500">{formatDate(nextCourceTime)}</span>{" "}
+                <span className="font-w500">{nextCourseTime}</span>
                 倒计时：
                 <span className={styles.count_down_num}>{courseDaysLeft}</span>
                 天
@@ -361,6 +369,7 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
 
 export interface Props {
   onBannerBtnClick: () => void;
+  nextCourseTime: string;
 }
 
 export default InterviewCampPage;
@@ -372,3 +381,46 @@ export default InterviewCampPage;
 //     </InternshipLayout>
 //   )
 // }
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const res = await fetch(
+      "https://cms.staging.tuilink.io/api/repand-single-type"
+    );
+    const data = await res.json();
+    console.log(data, "===data");
+
+    if (
+      !data ||
+      !data.data ||
+      !data.data.attributes ||
+      !data.data.attributes.interview_countdown_date
+    ) {
+      throw new Error("Invalid data format");
+    }
+
+    const countdownDate = data.data.attributes.interview_countdown_date;
+
+    return {
+      props: {
+        nextCourseTime: countdownDate,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    // 默认情况下，设置当前日期的下一天
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() + 1);
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // 月份从 0 开始，需要加 1
+    const day = String(currentDate.getDate()).padStart(2, "0");
+
+    const formattedDate = `${year}-${month}-${day}`;
+
+    return {
+      props: {
+        nextCourseTime: formattedDate,
+      },
+    };
+  }
+};
