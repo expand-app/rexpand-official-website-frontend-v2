@@ -28,7 +28,6 @@ export interface BaseAPIProps {
   host?: string;
   prefix?: string;
   getAuthToken?: () => string | Promise<string>;
-  isLKAPI?: boolean;
 }
 
 export abstract class BaseAPI {
@@ -42,7 +41,6 @@ export abstract class BaseAPI {
     schema = DEFAULT_REQUEST_SCHEMA,
     host,
     getAuthToken,
-    isLKAPI,
   }: BaseAPIProps = {}) {
     this.schema = schema;
     this.host = host || "";
@@ -61,7 +59,6 @@ export abstract class BaseAPI {
       queryParams,
       logging = true,
       dataOnly = false,
-      enableSignInRedirectionOn401 = true,
       isBlob = false,
       isJsonContentType = true,
       isShowToast = true,

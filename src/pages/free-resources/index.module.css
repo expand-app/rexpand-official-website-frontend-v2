@@ -1,12 +1,25 @@
 .filter {
-    margin-top: 32px;
-    margin-bottom: 25px;
-}
-.main{
-    margin-top: 120px;
+    padding-top: 32px;
+    padding-bottom: 25px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 30%, rgba(0, 138, 39, 0.1) 80%, rgba(0, 138, 39, 0.2) 100%);
 }
 
-.m_main{
+.main {
+    margin-top: 114px
+}
+
+.page {
+    background: linear-gradient(to top, #F7FBF8 0%, #F7FBF8 80%, rgba(0, 138, 39, 0.3) 95%, rgba(0, 138, 39, 0.8) 100%)
+}
+
+.m_main {
     margin-top: 45px;
 }
 
+.rightContent {
+    border-radius: 4px;
+    height: 232px;
+    max-height: 232px;
+    overflow: hidden;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 138, 39, 0.05) 100%);
+}

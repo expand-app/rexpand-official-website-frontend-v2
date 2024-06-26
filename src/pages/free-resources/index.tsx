@@ -11,6 +11,8 @@ import LinkFilter from "./components/LinkFilter/LinkFilter";
 import clsx from "clsx";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
+import { CategoryTitle } from "./constant";
+import RightRecommendContent from "./components/RightRecommendContent";
 
 export interface FreeResourcesPageViewProps {
   filteredFreeResources: FreeResourceData[];
@@ -21,12 +23,14 @@ export interface FreeResourcesPageViewProps {
 export const FreeResourcesPage: NextPage = () => {
   const { isMobile } = useScreen();
 
-  const [currentFilter, setCurrentFilter] = useState<string>("全部");
+  const [currentFilter, setCurrentFilter] = useState<string>(
+    CategoryTitle.NewArticle
+  );
   const handleFilterChange = (filterName: string) => {
     setCurrentFilter(filterName);
   };
   const filteredFreeResources = useMemo(() => {
-    if (currentFilter === "全部") {
+    if (currentFilter === CategoryTitle.NewArticle) {
       return freeResourceListData;
     } else {
       return freeResourceListData?.filter(
@@ -100,16 +104,18 @@ function PCView({
           <Header theme={Theme.LIGHT} />
 
           <div className="container mx-auto w-3/4">
+            <div className="h-[86px] min-h-[86px]">content</div>
             <div className="pl-2 overflow-auto">
               <LinkFilter
                 className={styles.filter}
                 current={currentFilter}
-                data={["全部", "求职规划", "面试技巧", "行业知识"]}
+                data={Object.values(CategoryTitle)}
                 onChange={handleFilterChange}
               />
             </div>
-            <div className="pb-12">
+            <div className="pb-12 mt-6 flex space-x-4">
               <FreeResourceList data={filteredFreeResources} />
+              <RightRecommendContent></RightRecommendContent>
             </div>
           </div>
 
