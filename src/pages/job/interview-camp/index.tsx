@@ -388,7 +388,6 @@ export const getStaticProps: GetStaticProps = async () => {
       "https://cms.staging.tuilink.io/api/repand-single-type"
     );
     const data = await res.json();
-    console.log(data, "===data");
 
     if (
       !data ||
