@@ -122,21 +122,12 @@ export default FreeResourceDetailPage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   try {
-    const data = await freeResources.getUniversityList();
+    const data = await freeResources.getArticleList();
     const attributes = data.data[0].attributes;
 
     return {
       props: {
-        article: {
-          id: data.data[0].id,
-          content: attributes.content_rich_test,
-          image: attributes.company_logo?.data.attributes.formats.large.url,
-          lastUpdateDate: "2024-06-17",
-          publishDate: "2024-06-17",
-          tags: ["求职规划"],
-          summary: attributes.title,
-          title: attributes.title,
-        },
+        article: {},
       },
     };
   } catch (error) {

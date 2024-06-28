@@ -1,43 +1,56 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import styles from "./index.module.css";
 import Header, { Theme } from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
-import FreeResourceList, {
-  FreeResourceData,
-} from "./components/FreeResourceList/FreeResourceList";
+import FreeResourceList from "./components/FreeResourceList/FreeResourceList";
 import { freeResourceListData } from "@/data/free_resource";
 import LinkFilter from "./components/LinkFilter/LinkFilter";
 import clsx from "clsx";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
-import { CategoryTitle } from "./constant";
+import dayjs from "dayjs";
+import {
+  CategoryTitle,
+  CategoryType,
+  LATEST_DATE,
+  PAGE_SIZE,
+} from "./constant";
+import freeResourcesService from "@/services/FreeResources";
 import RightRecommendContent from "./components/RightRecommendContent";
+import { FreeResourceData, PageInfo } from "./type";
 
 export interface FreeResourcesPageViewProps {
   filteredFreeResources: FreeResourceData[];
-  handleFilterChange: (filterName: string) => void;
-  currentFilter: string;
+  handleFilterChange: (filterName: any) => void;
+  currentFilter: CategoryType;
 }
 
-export const FreeResourcesPage: NextPage = () => {
+export interface FreeResourcesPageProps {
+  articleList: FreeResourceData[];
+}
+
+export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
+  articleList,
+}) => {
   const { isMobile } = useScreen();
 
-  const [currentFilter, setCurrentFilter] = useState<string>(
-    CategoryTitle.NewArticle
+  const [currentFilter, setCurrentFilter] = useState<CategoryType>(
+    CategoryType.NewArticle
   );
-  const handleFilterChange = (filterName: string) => {
+  const handleFilterChange = (filterName: CategoryType) => {
     setCurrentFilter(filterName);
   };
   const filteredFreeResources = useMemo(() => {
-    if (currentFilter === CategoryTitle.NewArticle) {
-      return freeResourceListData;
-    } else {
-      return freeResourceListData?.filter(
-        (item) => item?.tags?.indexOf(currentFilter) != -1
+    if (currentFilter === CategoryType.NewArticle) {
+      return articleList?.filter((item) =>
+        dayjs(item.attributes.postDate).isAfter(dayjs(LATEST_DATE))
       );
     }
-  }, [currentFilter]);
+    return articleList?.filter(
+      (item) => item?.attributes.type?.indexOf(currentFilter) != -1
+    );
+  }, [articleList, currentFilter]);
 
   return (
     <>
@@ -76,7 +89,6 @@ function MobileView({
             <div className="py-24px px-20px">
               <LinkFilter
                 current={currentFilter}
-                data={["全部", "求职规划", "面试技巧", "行业知识"]}
                 onChange={handleFilterChange}
               />
             </div>
@@ -104,12 +116,13 @@ function PCView({
           <Header theme={Theme.LIGHT} />
 
           <div className="container mx-auto w-3/4">
-            <div className="h-[86px] min-h-[86px]">content</div>
-            <div className="pl-2 overflow-auto">
+            <div className="pt-6 pb-8 text-base text-white">
+              首页 &gt;&gt; 免费资源
+            </div>
+            <div className=" overflow-auto">
               <LinkFilter
                 className={styles.filter}
                 current={currentFilter}
-                data={Object.values(CategoryTitle)}
                 onChange={handleFilterChange}
               />
             </div>
@@ -127,3 +140,22 @@ function PCView({
 }
 
 export default FreeResourcesPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const data = await freeResourcesService.getArticleList();
+
+    return {
+      props: {
+        articleList: data.data,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        articleList: [],
+      },
+    };
+  }
+};

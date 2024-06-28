@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./LinkFilter.module.css";
 import clsx from "clsx";
 import useScreen from "@/components/useScreen/useScreen";
+import { CategoryTitle, CategoryType } from "../../constant";
 
 export const LinkFilter = ({ ...props }: Props) => {
   const { isMobile } = useScreen();
@@ -11,8 +12,8 @@ export const LinkFilter = ({ ...props }: Props) => {
   );
 };
 
-const MobileView = ({ current, data, className, onChange }: Props) => {
-  const handleClick = (filterName: string) => {
+const MobileView = ({ current, className, onChange }: Props) => {
+  const onTitleTypeMouseEnter = (filterName: any) => {
     onChange?.(filterName);
   };
 
@@ -23,25 +24,23 @@ const MobileView = ({ current, data, className, onChange }: Props) => {
   );
   return (
     <div className={combinedClassName}>
-      {data?.map((item, index) => {
-        return (
-          <div
-            key={index}
-            className={clsx(styles.m_link, {
-              [styles.m_active]: current === item,
-            })}
-            onClick={() => handleClick(item)}
-          >
-            {item}
-          </div>
-        );
-      })}
+      {Object.keys(CategoryTitle)?.map((key, index) => (
+        <div
+          key={index}
+          className={clsx("text-black cursor-pointer", {
+            [styles.active]: current === key,
+          })}
+          onMouseEnter={() => onTitleTypeMouseEnter(key)}
+        >
+          {CategoryTitle[key as keyof typeof CategoryTitle]}
+        </div>
+      ))}
     </div>
   );
 };
 
-const PCView = ({ current, data, className, onChange }: Props) => {
-  const handleClick = (filterName: string) => {
+const PCView = ({ current, className, onChange }: Props) => {
+  const onTitleTypeMouseEnter = (filterName: any) => {
     onChange?.(filterName);
   };
 
@@ -50,29 +49,28 @@ const PCView = ({ current, data, className, onChange }: Props) => {
     styles.link_filter,
     className
   );
+  console.log(current, "+=current=");
+
   return (
     <div className={combinedClassName}>
-      {data?.map((item, index) => {
-        return (
-          <div
-            key={index}
-            className={clsx("text-black cursor-pointer", {
-              [styles.active]: current === item,
-            })}
-            onClick={() => handleClick(item)}
-          >
-            {item}
-          </div>
-        );
-      })}
+      {Object.keys(CategoryTitle)?.map((key, index) => (
+        <div
+          key={index}
+          className={clsx("text-black cursor-pointer", {
+            [styles.active]: current === key,
+          })}
+          onMouseEnter={() => onTitleTypeMouseEnter(key)}
+        >
+          {CategoryTitle[key as keyof typeof CategoryTitle]}
+        </div>
+      ))}
     </div>
   );
 };
 export default LinkFilter;
 
 export interface Props {
-  current: string; // current fiter name
-  data: Array<string>;
+  current: CategoryType; // current fiter name
   className?: string;
   onChange: (filterName: string) => void;
 }

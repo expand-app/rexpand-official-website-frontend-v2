@@ -53,6 +53,7 @@ export abstract class BaseAPI {
     options: RequestOption
   ): Promise<Response> {
     let url = [this.schema, this.host, this.prefix, path].join("");
+
     let token;
     const {
       withAuthToken = true,

@@ -1,4 +1,6 @@
+import { ThemeProvider } from "@mui/material/styles";
 import { Metadata } from "next";
+import theme from "@/utils/theme";
 import { Html, Head, Main, NextScript } from "next/document";
 
 export const metadata: Metadata = {
@@ -11,7 +13,10 @@ export default function Document() {
     <Html>
       <Head />
       <body>
-        <Main />
+        <ThemeProvider theme={theme}>
+          <Main />
+        </ThemeProvider>
+
         <NextScript />
       </body>
     </Html>

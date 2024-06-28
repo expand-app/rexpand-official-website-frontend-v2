@@ -2,36 +2,42 @@ import clsx from "clsx";
 import styles from "../../index.module.css";
 import Image from "next/image";
 import qrDaeImg from "@/assets/qr_dae.png";
+import tagSvg from "@/assets/free-resources/tag.svg";
+import { RightArticleType } from "../../constant";
 interface RightRecommendContentProps {}
 
 const RightRecommendContent: React.FC<RightRecommendContentProps> = () => {
   return (
-    <div>
-      <div className={clsx("py-8 px-5 min-w-80 ", styles.rightContent)}>
-        <div className="text-xl  font-semibold">扫码1V1求职攻略咨询</div>
-        <div className="mt-2  flex py-5 items-center px-5 rounded-sm bg-custom-green-0.2">
-          <div className="text-base ">
-            <div className="font-semibold mb-1 text-custom-green  ">
-              扫描右侧二维码
+    <div className="min-w-80  w-80">
+      <div className={clsx("py-8 px-5", styles.rightContent)}>
+        <div className=" rounded-sm bg-custom-green-0.2">
+          <div className="text-xl text-center ">
+            <div className="font-semibold ">
+              扫描二维码或者<span className="text-custom-green ">点击这里</span>
             </div>
-            <div>上千名校友内推群等你来</div>
           </div>
-          <div className="mt-6">
+          <div className="mt-6 flex justify-center">
             <Image
               src={qrDaeImg}
               alt={"qr_code_img"}
               className={clsx("w-24 h-24")}
             />
           </div>
+          <div className="mt-3 text-center">上千名校友内推群等你来</div>
         </div>
       </div>
       <div className="mt-6 py-8 px-5 bg-white">
         <div className="flex justify-between text-base font-semibold ">
-          <div className="hover:text-xl font-semibold cursor-pointer ">
-            热门文章
-          </div>
-          <div>推荐文章</div>
-          <div>随机文章</div>
+          {Object.keys(RightArticleType).map((key) => {
+            return (
+              <div
+                key={key}
+                className={` cursor-pointer transition-all duration-300 hover:text-xl hover:font-semibold `}
+              >
+                {RightArticleType[key as keyof typeof RightArticleType]}
+              </div>
+            );
+          })}
         </div>
         <ul className="mt-8">
           <li className="flex  mt-6 ">
@@ -49,23 +55,9 @@ const RightRecommendContent: React.FC<RightRecommendContentProps> = () => {
         </ul>
       </div>
       <div className="mt-6 py-8 px-5 bg-white flex  flex-wrap gap-4">
-        <div className="rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid">
-          求职
-        </div>
-        <div className="rounded text-base border-[1px] py-1 px-2 border-custom-black-0.1 border-solid">
-          就业
-        </div>
-        <div className="rounded text-base border-[1px] py-1 px-2 border-custom-black-0.1 border-solid">
-          面试
-        </div>
-        <div className="rounded text-base border-[1px] py-1 px-2 border-custom-black-0.1 border-solid">
-          面试技巧
-        </div>
-        <div className="rounded text-base border-[1px] py-1 px-2 border-custom-black-0.1 border-solid">
-          面试时间
-        </div>
-        <div className="rounded text-base border-[1px] py-1 px-2 border-custom-black-0.1 border-solid">
-          求职时间线
+        <div className="flex gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid">
+          <Image src={tagSvg} alt="求职"></Image>
+          <span>求职</span>
         </div>
       </div>
     </div>
