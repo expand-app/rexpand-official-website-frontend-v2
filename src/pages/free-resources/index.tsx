@@ -10,36 +10,51 @@ import clsx from "clsx";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
 import dayjs from "dayjs";
-import {
-  CategoryTitle,
-  CategoryType,
-  LATEST_DATE,
-  PAGE_SIZE,
-} from "./constant";
+import { LATEST_DATE, PAGE_SIZE } from "./constant";
 import freeResourcesService from "@/services/FreeResources";
 import RightRecommendContent from "./components/RightRecommendContent";
-import { FreeResourceData, PageInfo } from "./type";
+import {
+  ContentTypes,
+  FreeResourceData,
+  PageInfo,
+  CategoryTitle,
+  CategoryType,
+  TitleShowType,
+} from "./type";
 
 export interface FreeResourcesPageViewProps {
   filteredFreeResources: FreeResourceData[];
   handleFilterChange: (filterName: any) => void;
   currentFilter: CategoryType;
+  contentTypes: ContentTypes;
+  handleTitleTypeClick: (val: TitleShowType) => void;
+  titleShowType: TitleShowType;
+  breadcrumb: string;
 }
 
 export interface FreeResourcesPageProps {
   articleList: FreeResourceData[];
+  contentTypes: ContentTypes;
 }
 
 export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
   articleList,
+  contentTypes,
 }) => {
   const { isMobile } = useScreen();
 
   const [currentFilter, setCurrentFilter] = useState<CategoryType>(
     CategoryType.NewArticle
   );
+  const [titleShowType, setTitleShowType] = useState<TitleShowType>(
+    TitleShowType.default
+  );
   const handleFilterChange = (filterName: CategoryType) => {
     setCurrentFilter(filterName);
+  };
+
+  const handleTitleTypeClick = (val: TitleShowType) => {
+    setTitleShowType(val);
   };
   const filteredFreeResources = useMemo(() => {
     if (currentFilter === CategoryType.NewArticle) {
@@ -52,6 +67,24 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
     );
   }, [articleList, currentFilter]);
 
+  const breadcrumb = useMemo(() => {
+    let subText = "";
+
+    switch (titleShowType) {
+      case TitleShowType.single:
+        subText = `${CategoryTitle[currentFilter]}`;
+        break;
+      case TitleShowType.label:
+        subText = `label`;
+        break;
+      default:
+        break;
+    }
+    let text = `首页 >> 免费资源 >> ${subText}`;
+
+    return text;
+  }, [currentFilter, titleShowType]);
+
   return (
     <>
       <Head />
@@ -61,12 +94,20 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
             filteredFreeResources={filteredFreeResources}
             currentFilter={currentFilter}
             handleFilterChange={handleFilterChange}
+            contentTypes={contentTypes}
+            handleTitleTypeClick={handleTitleTypeClick}
+            titleShowType={titleShowType}
+            breadcrumb={breadcrumb}
           />
         ) : (
           <PCView
             filteredFreeResources={filteredFreeResources}
             currentFilter={currentFilter}
             handleFilterChange={handleFilterChange}
+            contentTypes={contentTypes}
+            handleTitleTypeClick={handleTitleTypeClick}
+            titleShowType={titleShowType}
+            breadcrumb={breadcrumb}
           />
         )}
       </div>
@@ -108,6 +149,10 @@ function PCView({
   filteredFreeResources,
   currentFilter,
   handleFilterChange,
+  contentTypes,
+  handleTitleTypeClick,
+  titleShowType,
+  breadcrumb,
 }: FreeResourcesPageViewProps) {
   return (
     <div>
@@ -116,19 +161,19 @@ function PCView({
           <Header theme={Theme.LIGHT} />
 
           <div className="container mx-auto w-3/4">
-            <div className="pt-6 pb-8 text-base text-white">
-              首页 &gt;&gt; 免费资源
-            </div>
+            <div className="pt-6 pb-8 text-base text-white">{breadcrumb}</div>
             <div className=" overflow-auto">
               <LinkFilter
                 className={styles.filter}
                 current={currentFilter}
                 onChange={handleFilterChange}
+                handleTitleTypeClick={handleTitleTypeClick}
+                titleShowType={titleShowType}
               />
             </div>
             <div className="pb-12 mt-6 flex space-x-4">
               <FreeResourceList data={filteredFreeResources} />
-              <RightRecommendContent></RightRecommendContent>
+              <RightRecommendContent contentTypes={contentTypes} />
             </div>
           </div>
 
@@ -144,10 +189,11 @@ export default FreeResourcesPage;
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const data = await freeResourcesService.getArticleList();
-
+    const contentType = await freeResourcesService.getArticleType();
     return {
       props: {
         articleList: data.data,
+        contentTypes: contentType.data.schema.attributes,
       },
     };
   } catch (error) {
@@ -155,6 +201,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: {
         articleList: [],
+        contentTypes: [],
       },
     };
   }

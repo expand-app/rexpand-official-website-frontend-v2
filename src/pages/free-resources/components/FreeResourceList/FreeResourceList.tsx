@@ -102,7 +102,6 @@ const PCView = ({ data, pageInfo, setPageInfo }: Props) => {
             favoriteCount,
             likeCount,
             readCount,
-
             postDate,
             postName,
             summaryEditor,
@@ -126,7 +125,13 @@ const PCView = ({ data, pageInfo, setPageInfo }: Props) => {
                 className={`rounded relative flex   bg-white py-6 px-5 cursor-pointer  `}
               >
                 <div className={styles.img_container}>
-                  <Image src={image} alt={title} width={275} height={183} />
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={275}
+                    height={183}
+                    className={clsx("w-full", styles.img)}
+                  />
                 </div>
                 <div
                   className={clsx(

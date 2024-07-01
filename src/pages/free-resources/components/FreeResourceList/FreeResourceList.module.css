@@ -8,11 +8,14 @@
 }
 
 .title {
-
     font-weight: 500;
     line-height: 24px;
     text-align: left;
     margin-bottom: 4px;
+}
+
+.card:hover .title {
+    color: #008A27;
 }
 
 .summary_container {

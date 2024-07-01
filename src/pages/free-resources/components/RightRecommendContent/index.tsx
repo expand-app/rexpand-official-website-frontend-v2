@@ -3,10 +3,15 @@ import styles from "../../index.module.css";
 import Image from "next/image";
 import qrDaeImg from "@/assets/qr_dae.png";
 import tagSvg from "@/assets/free-resources/tag.svg";
-import { RightArticleType } from "../../constant";
-interface RightRecommendContentProps {}
+import { RightArticleType, TagType } from "../../type";
+import { ContentTypes } from "../../type";
+interface RightRecommendContentProps {
+  contentTypes: ContentTypes;
+}
 
-const RightRecommendContent: React.FC<RightRecommendContentProps> = () => {
+const RightRecommendContent: React.FC<RightRecommendContentProps> = ({
+  contentTypes,
+}) => {
   return (
     <div className="min-w-80  w-80">
       <div className={clsx("py-8 px-5", styles.rightContent)}>
@@ -27,14 +32,14 @@ const RightRecommendContent: React.FC<RightRecommendContentProps> = () => {
         </div>
       </div>
       <div className="mt-6 py-8 px-5 bg-white">
-        <div className="flex justify-between text-base font-semibold ">
-          {Object.keys(RightArticleType).map((key) => {
+        <div className="flex justify-between text-base ">
+          {contentTypes.articleType.enum.map((key) => {
             return (
               <div
                 key={key}
                 className={` cursor-pointer transition-all duration-300 hover:text-xl hover:font-semibold `}
               >
-                {RightArticleType[key as keyof typeof RightArticleType]}
+                {RightArticleType[key]}
               </div>
             );
           })}
@@ -54,10 +59,19 @@ const RightRecommendContent: React.FC<RightRecommendContentProps> = () => {
           </li>
         </ul>
       </div>
-      <div className="mt-6 py-8 px-5 bg-white flex  flex-wrap gap-4">
-        <div className="flex gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid">
-          <Image src={tagSvg} alt="求职"></Image>
-          <span>求职</span>
+      <div className="mt-6 py-8 px-5 bg-white ">
+        <div className="text-xl font-medium "> 热门标签</div>
+        <div className=" mt-6 flex  flex-wrap gap-4">
+          {contentTypes.tagType.enum.map((key) => {
+            return (
+              <div
+                className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
+              >
+                <Image src={tagSvg} alt={TagType[key]}></Image>
+                <span>{TagType[key]}</span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

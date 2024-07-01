@@ -1,5 +1,34 @@
-import { CategoryType } from "./constant";
+export enum CategoryType {
+  NewArticle = "NewArticle",
+  JobStrategy = "JobStrategy",
+  InterviewSkills = "InterviewSkills",
+  IndustryKnowledge = "IndustryKnowledge",
+  LiveBookings = "LiveBookings",
+  // NewArticle = "最新文章",
+  // JobStrategy = "求职攻略",
+  // InterviewSkills = "面试技巧",
+  // IndustryKnowledge = "行业知识",
+  // LiveBookings = "直播预约",
+}
+export enum CategoryTitle {
+  NewArticle = "最新文章",
+  JobStrategy = "求职攻略",
+  InterviewSkills = "面试技巧",
+  IndustryKnowledge = "行业知识",
+  LiveBookings = "直播预约",
+}
 
+export enum RightArticleType {
+  hot = "热门文章",
+  recommend = "推荐文章",
+  random = "随机文章",
+}
+
+export enum TagType {
+  Job = "求职",
+  career = "就业",
+  interview = "面试",
+}
 export interface PageInfo {
   page: number;
   pages: number;
@@ -19,6 +48,20 @@ export interface ParagraphBlock {
 export interface FreeResourceData {
   id: number;
   attributes: Attributes;
+}
+
+export enum TitleShowType {
+  default = "default",
+  single = "single",
+  label = "label",
+}
+export interface ContentTypes {
+  tagType: {
+    enum: Array<keyof typeof TagType>;
+  };
+  articleType: {
+    enum: Array<keyof typeof RightArticleType>;
+  };
 }
 
 export interface Attributes {
