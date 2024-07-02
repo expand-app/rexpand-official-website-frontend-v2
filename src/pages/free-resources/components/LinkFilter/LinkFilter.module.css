@@ -16,7 +16,7 @@
 
 /* m */
 .m_link_filter {
-    gap: 20px;
+    gap: 16px;
 }
 
 .m_link {
@@ -31,4 +31,8 @@
     border-radius: 4px;
     color: #008A27;
     background: rgba(0, 138, 39, 0.1);
+}
+
+.desc {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, #FFF 100%);
 }

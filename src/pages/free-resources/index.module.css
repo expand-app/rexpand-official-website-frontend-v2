@@ -12,14 +12,10 @@
     background: linear-gradient(to top, #F7FBF8 0%, #F7FBF8 80%, rgba(0, 138, 39, 0.3) 95%, rgba(0, 138, 39, 0.8) 100%)
 }
 
-.m_main {
-    margin-top: 45px;
+.m_page {
+    background: linear-gradient(to top, #F7FBF8 0%, #F7FBF8 80%, rgba(0, 138, 39, 0.3) 95%, rgba(0, 138, 39, 0.8) 100%)
 }
 
-.rightContent {
-    border-radius: 4px;
-    height: 232px;
-    max-height: 232px;
-    overflow: hidden;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.00) 0%, rgba(0, 138, 39, 0.05) 100%);
+.m_main {
+    margin-top: 45px;
 }

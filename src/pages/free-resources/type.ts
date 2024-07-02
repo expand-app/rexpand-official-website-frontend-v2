@@ -28,6 +28,7 @@ export enum TagType {
   Job = "求职",
   career = "就业",
   interview = "面试",
+  internalReferral = "内推",
 }
 export interface PageInfo {
   page: number;
@@ -53,7 +54,7 @@ export interface FreeResourceData {
 export enum TitleShowType {
   default = "default",
   single = "single",
-  label = "label",
+  tag = "tag",
 }
 export interface ContentTypes {
   tagType: {
@@ -73,6 +74,7 @@ export interface Attributes {
   postDate: string;
   postName: string;
   type: CategoryType;
+  tagType: TagType;
   summaryJSONRrich: Array<ParagraphBlock>;
   summaryEditor: string;
   articleCover: {

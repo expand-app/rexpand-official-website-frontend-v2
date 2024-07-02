@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { GetStaticProps, NextPage } from "next";
 import styles from "./index.module.css";
 import Header, { Theme } from "@/components/Header/Header";
@@ -20,7 +20,11 @@ import {
   CategoryTitle,
   CategoryType,
   TitleShowType,
+  TagType,
 } from "./type";
+import Link from "next/link";
+import { FreeResourcesContextProvider } from "./ContextProvider";
+import useFreeResourcesContext from "./context";
 
 export interface FreeResourcesPageViewProps {
   filteredFreeResources: FreeResourceData[];
@@ -30,6 +34,7 @@ export interface FreeResourcesPageViewProps {
   handleTitleTypeClick: (val: TitleShowType) => void;
   titleShowType: TitleShowType;
   breadcrumb: string;
+  setTagType: React.Dispatch<React.SetStateAction<keyof typeof TagType | null>>;
 }
 
 export interface FreeResourcesPageProps {
@@ -49,6 +54,7 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
   const [titleShowType, setTitleShowType] = useState<TitleShowType>(
     TitleShowType.default
   );
+  const [tagType, setTagType] = useState<keyof typeof TagType | null>(null);
   const handleFilterChange = (filterName: CategoryType) => {
     setCurrentFilter(filterName);
   };
@@ -57,15 +63,21 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
     setTitleShowType(val);
   };
   const filteredFreeResources = useMemo(() => {
-    if (currentFilter === CategoryType.NewArticle) {
-      return articleList?.filter((item) =>
-        dayjs(item.attributes.postDate).isAfter(dayjs(LATEST_DATE))
+    if (titleShowType === TitleShowType.tag && tagType) {
+      return articleList?.filter(
+        (item) => item?.attributes.tagType.indexOf(tagType) != -1
+      );
+    } else {
+      if (currentFilter === CategoryType.NewArticle) {
+        return articleList?.filter((item) =>
+          dayjs(item.attributes.postDate).isAfter(dayjs(LATEST_DATE))
+        );
+      }
+      return articleList?.filter(
+        (item) => item?.attributes.type?.indexOf(currentFilter) != -1
       );
     }
-    return articleList?.filter(
-      (item) => item?.attributes.type?.indexOf(currentFilter) != -1
-    );
-  }, [articleList, currentFilter]);
+  }, [articleList, currentFilter, titleShowType, tagType]);
 
   const breadcrumb = useMemo(() => {
     let subText = "";
@@ -74,68 +86,66 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
       case TitleShowType.single:
         subText = `${CategoryTitle[currentFilter]}`;
         break;
-      case TitleShowType.label:
-        subText = `label`;
+      case TitleShowType.tag:
+        if (tagType) {
+          subText = `${TagType[tagType]}`;
+        }
+
         break;
       default:
         break;
     }
-    let text = `首页 >> 免费资源 >> ${subText}`;
 
-    return text;
-  }, [currentFilter, titleShowType]);
+    return subText;
+  }, [currentFilter, tagType, titleShowType]);
 
   return (
     <>
       <Head />
-      <div>
-        {isMobile?.() ? (
-          <MobileView
-            filteredFreeResources={filteredFreeResources}
-            currentFilter={currentFilter}
-            handleFilterChange={handleFilterChange}
-            contentTypes={contentTypes}
-            handleTitleTypeClick={handleTitleTypeClick}
-            titleShowType={titleShowType}
-            breadcrumb={breadcrumb}
-          />
-        ) : (
-          <PCView
-            filteredFreeResources={filteredFreeResources}
-            currentFilter={currentFilter}
-            handleFilterChange={handleFilterChange}
-            contentTypes={contentTypes}
-            handleTitleTypeClick={handleTitleTypeClick}
-            titleShowType={titleShowType}
-            breadcrumb={breadcrumb}
-          />
-        )}
-      </div>
+      <FreeResourcesContextProvider
+        filteredFreeResources={filteredFreeResources}
+        currentFilter={currentFilter}
+        handleFilterChange={handleFilterChange}
+        contentTypes={contentTypes}
+        handleTitleTypeClick={handleTitleTypeClick}
+        titleShowType={titleShowType}
+        breadcrumb={breadcrumb}
+        setTagType={setTagType}
+        tagType={tagType}
+      >
+        {isMobile?.() ? <MobileView /> : <PCView />}
+      </FreeResourcesContextProvider>
     </>
   );
 };
 
-function MobileView({
-  filteredFreeResources,
-  currentFilter,
-  handleFilterChange,
-}: FreeResourcesPageViewProps) {
+function MobileView({}) {
+  const { handleTitleTypeClick, titleShowType, breadcrumb } =
+    useFreeResourcesContext();
   return (
     <div>
       <main className={clsx("m-main", styles.m_main)}>
-        <div className={styles.page}>
+        <div className={styles.m_page}>
           <Header theme={Theme.LIGHT} />
 
-          <div className="container mx-auto m-section">
-            <div className="py-24px px-20px">
-              <LinkFilter
-                current={currentFilter}
-                onChange={handleFilterChange}
-              />
+          <div className="container mx-auto m-section px-3 ">
+            <div className="pt-2 pb-6 text-base text-white">
+              <Link href="/">首页</Link> &gt;&gt;
+              <span
+                className="cursor-pointer ml-1"
+                onClick={() => {
+                  handleTitleTypeClick(TitleShowType.default);
+                }}
+              >
+                免费资源
+              </span>
+              {breadcrumb ? ` >> ${breadcrumb}` : ""}
             </div>
-            <div>
-              <FreeResourceList data={filteredFreeResources} />
-            </div>
+
+            <LinkFilter />
+
+            <FreeResourceList />
+            {titleShowType !== TitleShowType.tag && <RightRecommendContent />}
           </div>
 
           <Footer />
@@ -145,15 +155,9 @@ function MobileView({
   );
 }
 
-function PCView({
-  filteredFreeResources,
-  currentFilter,
-  handleFilterChange,
-  contentTypes,
-  handleTitleTypeClick,
-  titleShowType,
-  breadcrumb,
-}: FreeResourcesPageViewProps) {
+function PCView() {
+  const { handleTitleTypeClick, titleShowType, breadcrumb } =
+    useFreeResourcesContext();
   return (
     <div>
       <main className={clsx("", styles.main)}>
@@ -161,19 +165,26 @@ function PCView({
           <Header theme={Theme.LIGHT} />
 
           <div className="container mx-auto w-3/4">
-            <div className="pt-6 pb-8 text-base text-white">{breadcrumb}</div>
-            <div className=" overflow-auto">
-              <LinkFilter
-                className={styles.filter}
-                current={currentFilter}
-                onChange={handleFilterChange}
-                handleTitleTypeClick={handleTitleTypeClick}
-                titleShowType={titleShowType}
-              />
+            <div className="pt-6 pb-8 text-base text-white">
+              <Link href="/">首页</Link> &gt;&gt;
+              <span
+                className="cursor-pointer "
+                onClick={() => {
+                  handleTitleTypeClick(TitleShowType.default);
+                }}
+              >
+                免费资源
+              </span>
+              {breadcrumb ? ` >> ${breadcrumb}` : ""}
             </div>
-            <div className="pb-12 mt-6 flex space-x-4">
-              <FreeResourceList data={filteredFreeResources} />
-              <RightRecommendContent contentTypes={contentTypes} />
+
+            <div className=" overflow-auto">
+              <LinkFilter />
+            </div>
+
+            <div className={`pb-12 mt-6 flex space-x-4`}>
+              <FreeResourceList />
+              {titleShowType !== TitleShowType.tag && <RightRecommendContent />}
             </div>
           </div>
 
