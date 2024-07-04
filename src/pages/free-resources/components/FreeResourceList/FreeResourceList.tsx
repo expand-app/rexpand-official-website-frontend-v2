@@ -13,7 +13,7 @@ import useScreen from "@/components/useScreen/useScreen";
 import { FreeResourceData, PageInfo } from "../../type";
 import { PAGE_SIZE } from "../../constant";
 import { NextPage } from "next";
-import useFreeResourcesContext from "../../context";
+import useFreeResourcesContext from "../../Context";
 
 export interface FreeResourceListProp {}
 

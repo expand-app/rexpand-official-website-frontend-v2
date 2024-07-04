@@ -6,6 +6,7 @@ import {
   CategoryType,
   TitleShowType,
   TagType,
+  RightArticleType,
 } from "./type";
 export interface FreeResourcesContextProps {
   filteredFreeResources: FreeResourceData[];
@@ -17,6 +18,11 @@ export interface FreeResourcesContextProps {
   breadcrumb: string;
   setTagType: React.Dispatch<React.SetStateAction<keyof typeof TagType | null>>;
   tagType: keyof typeof TagType | null;
+  articleType: keyof typeof RightArticleType;
+  setArticleType: React.Dispatch<
+    React.SetStateAction<keyof typeof RightArticleType>
+  >;
+  filteredFreeResourcesByArticleType: FreeResourceData[];
 }
 
 export const FreeResourcesContext =

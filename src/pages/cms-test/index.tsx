@@ -8,9 +8,9 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
-import RichTextDisplay, { ParagraphBlock } from "./ParseBlocksText";
-import { FreeResourceData } from "../free-resources/components/FreeResourceList/FreeResourceList";
+import RichTextDisplay, { ParagraphBlock } from "@/components/ParseBlocksText";
 import freeResources from "@/services/FreeResources";
+import { FreeResourceData } from "../free-resources/type";
 
 // 定义 Props 的类型
 interface Props {

@@ -5,20 +5,34 @@ import qrDaeImg from "@/assets/qr_dae.png";
 import tagSvg from "@/assets/free-resources/tag.svg";
 import { RightArticleType, TagType, TitleShowType } from "../../type";
 import { ContentTypes } from "../../type";
-import useFreeResourcesContext from "../../context";
+import useFreeResourcesContext from "../../Context";
 import useScreen from "@/components/useScreen/useScreen";
+import Link from "next/link";
 interface RightRecommendContentProps {}
 
 const PCView: React.FC = () => {
-  const { contentTypes, setTagType, handleTitleTypeClick } =
-    useFreeResourcesContext();
+  const {
+    contentTypes,
+    setTagType,
+    handleTitleTypeClick,
+    articleType,
+    setArticleType,
+    filteredFreeResourcesByArticleType,
+  } = useFreeResourcesContext();
   return (
     <div className="min-w-80  w-80">
       <div className={clsx("py-8 px-5", styles.rightContent)}>
         <div className=" rounded-sm bg-custom-green-0.2">
           <div className="text-xl text-center ">
             <div className="font-semibold ">
-              扫描二维码或者<span className="text-custom-green ">点击这里</span>
+              扫描二维码或者{" "}
+              <Link
+                className="text-custom-green "
+                href="https://work.weixin.qq.com/ca/cawcde49bb005d5c7d"
+                target="_blank"
+              >
+                点击这里
+              </Link>
             </div>
           </div>
           <div className="mt-6 flex justify-center">
@@ -37,26 +51,34 @@ const PCView: React.FC = () => {
             return (
               <div
                 key={key}
-                className={` cursor-pointer transition-all duration-300 hover:text-xl hover:font-semibold `}
+                onClick={() => {
+                  setArticleType(key);
+                }}
+                className={clsx(
+                  `cursor-pointer transition-all duration-300 ${
+                    key === articleType ? "text-xl  font-semibold" : ""
+                  }`
+                )}
               >
                 {RightArticleType[key]}
               </div>
             );
           })}
         </div>
+
         <ul className="mt-8">
-          <li className="flex  mt-6 ">
-            <div>
-              <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
-            </div>
-            <div>6月12日下午4时许，山西省临汾市安泽县</div>
-          </li>
-          <li className="flex mt-6  ">
-            <div>
-              <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
-            </div>
-            <div>6月12日下午4时许，山西省临汾市安泽县</div>
-          </li>
+          {filteredFreeResourcesByArticleType.map((item) => {
+            return (
+              <Link href={`/free-resources/${item.id}`} key={item.id}>
+                <li key={item.id} className="flex  mt-6 ">
+                  <div>
+                    <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
+                  </div>
+                  <div className="line-clamp-2">{item.attributes.title}</div>
+                </li>
+              </Link>
+            );
+          })}
         </ul>
       </div>
       <div className="mt-6 py-8 px-5 bg-white ">
@@ -84,15 +106,28 @@ const PCView: React.FC = () => {
 };
 
 const MobileView: React.FC = () => {
-  const { contentTypes, setTagType, handleTitleTypeClick } =
-    useFreeResourcesContext();
+  const {
+    contentTypes,
+    setTagType,
+    handleTitleTypeClick,
+    articleType,
+    filteredFreeResourcesByArticleType,
+  } = useFreeResourcesContext();
+
   return (
     <div className="">
       <div className={clsx("py-8 px-5", styles.rightContent)}>
         <div className=" rounded-sm bg-custom-green-0.2">
           <div className="text-xl  ">
             <div className="font-semibold ">
-              扫描二维码或者<span className="text-custom-green ">点击这里</span>
+              扫描二维码或者
+              <Link
+                className="text-custom-green "
+                href="https://work.weixin.qq.com/ca/cawcde49bb005d5c7d"
+                target="_blank"
+              >
+                点击这里
+              </Link>
             </div>
           </div>
           <div className="mt-6 flex gap-10 items-center ">
@@ -114,7 +149,11 @@ const MobileView: React.FC = () => {
             return (
               <div
                 key={key}
-                className={` cursor-pointer transition-all duration-300 hover:text-xl hover:font-semibold `}
+                className={clsx(
+                  `cursor-pointer transition-all duration-300 ${
+                    key === articleType ? "text-xl  font-semibold" : ""
+                  }`
+                )}
               >
                 {RightArticleType[key]}
               </div>
@@ -122,18 +161,18 @@ const MobileView: React.FC = () => {
           })}
         </div>
         <ul className="mt-8">
-          <li className="flex  mt-6 ">
-            <div>
-              <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
-            </div>
-            <div>6月12日下午4时许，山西省临汾市安泽县</div>
-          </li>
-          <li className="flex mt-6  ">
-            <div>
-              <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
-            </div>
-            <div>6月12日下午4时许，山西省临汾市安泽县</div>
-          </li>
+          {filteredFreeResourcesByArticleType.map((item) => {
+            return (
+              <Link href={`/free-resources/${item.id}`} key={item.id}>
+                <li className="flex  mt-6 ">
+                  <div>
+                    <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
+                  </div>
+                  <div className="line-clamp-2">{item.attributes.title}</div>
+                </li>
+              </Link>
+            );
+          })}
         </ul>
       </div>
       <div className="mt-6 py-8 px-5 bg-white mb-6 ">

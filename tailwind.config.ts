@@ -15,6 +15,7 @@ const config: Config = {
       },
       colors: {
         "custom-green-0.2": "rgba(233, 241, 235, 0.2)",
+        "custom-green-0.4": "rgba(233, 241, 235, 0.4)",
         "custom-green": "#008A27",
         "custom-black-0.1": "rgba(0, 0, 0, .1)",
       },

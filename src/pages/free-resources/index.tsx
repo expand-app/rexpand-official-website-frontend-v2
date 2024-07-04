@@ -21,10 +21,11 @@ import {
   CategoryType,
   TitleShowType,
   TagType,
+  RightArticleType,
 } from "./type";
 import Link from "next/link";
 import { FreeResourcesContextProvider } from "./ContextProvider";
-import useFreeResourcesContext from "./context";
+import useFreeResourcesContext from "./Context";
 
 export interface FreeResourcesPageViewProps {
   filteredFreeResources: FreeResourceData[];
@@ -54,6 +55,8 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
   const [titleShowType, setTitleShowType] = useState<TitleShowType>(
     TitleShowType.default
   );
+  const [articleType, setArticleType] =
+    useState<keyof typeof RightArticleType>("hot");
   const [tagType, setTagType] = useState<keyof typeof TagType | null>(null);
   const handleFilterChange = (filterName: CategoryType) => {
     setCurrentFilter(filterName);
@@ -99,6 +102,12 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
     return subText;
   }, [currentFilter, tagType, titleShowType]);
 
+  const filteredFreeResourcesByArticleType = useMemo(() => {
+    return articleList?.filter(
+      (item) => item?.attributes.articleType === articleType
+    );
+  }, [articleList, articleType]);
+
   return (
     <>
       <Head />
@@ -112,6 +121,9 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
         breadcrumb={breadcrumb}
         setTagType={setTagType}
         tagType={tagType}
+        articleType={articleType}
+        setArticleType={setArticleType}
+        filteredFreeResourcesByArticleType={filteredFreeResourcesByArticleType}
       >
         {isMobile?.() ? <MobileView /> : <PCView />}
       </FreeResourcesContextProvider>
@@ -127,7 +139,6 @@ function MobileView({}) {
       <main className={clsx("m-main", styles.m_main)}>
         <div className={styles.m_page}>
           <Header theme={Theme.LIGHT} />
-
           <div className="container mx-auto m-section px-3 ">
             <div className="pt-2 pb-6 text-base text-white">
               <Link href="/">首页</Link> &gt;&gt;

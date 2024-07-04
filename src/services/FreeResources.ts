@@ -1,7 +1,19 @@
+import { FreeResourceData, Attributes } from "@/pages/free-resources/type";
 import { BaseAPI } from "@/utils/base-api";
+
+export interface APIResponse<T = any> {
+  data: T;
+  error?: string;
+}
+
 class FreeResourcesAPI extends BaseAPI {
-  getArticleList = (): Promise<any> => {
+  getArticleList = (): Promise<APIResponse<Array<FreeResourceData>>> => {
     return this.get(`/api/restaurants?populate=*`, {
+      withAuthToken: false,
+    });
+  };
+  getArticleById = (id: number): Promise<APIResponse<FreeResourceData>> => {
+    return this.get(`/api/restaurants/${id}`, {
       withAuthToken: false,
     });
   };
@@ -12,6 +24,19 @@ class FreeResourcesAPI extends BaseAPI {
         withAuthToken: false,
       }
     );
+  };
+  setArticle = ({
+    id,
+    likeCount,
+  }: any): Promise<APIResponse<FreeResourceData>> => {
+    return this.put(`/api/restaurants/${id}`, {
+      body: JSON.stringify({
+        data: {
+          likeCount,
+        },
+      }),
+      withAuthToken: false,
+    });
   };
 }
 

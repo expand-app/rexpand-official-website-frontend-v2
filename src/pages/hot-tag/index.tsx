@@ -34,7 +34,7 @@ const PCView: React.FC<HotTagProps> = ({ contentTypes }) => {
                 return (
                   <div
                     key={key}
-                    className={`flex cursor-pointer gap-1 rounded text-base border-[1px] px-4 items-center h-[50px] w-[180px] border-custom-black-0.1 border-solid`}
+                    className={`flex cursor-pointer gap-1 text-[#33333399]  rounded text-base border-[1px] px-4 items-center h-[50px] w-[180px] border-custom-black-0.1 border-solid`}
                   >
                     <Image
                       src={tagSvg}
@@ -75,7 +75,7 @@ const MobileView: React.FC<HotTagProps> = ({ contentTypes }) => {
                   <div
                     key={key}
                     className={clsx(
-                      `flex cursor-pointer gap-1 rounded text-base border-[1px] px-4 items-center  border-custom-black-0.1 border-solid`,
+                      `flex cursor-pointer gap-1 rounded text-sm text-[#33333399]    border-[1px] px-4 items-center  border-custom-black-0.1 border-solid`,
                       {
                         [styles.m_itemTag]:
                           index !== contentTypes.tagType.enum.length - 1,

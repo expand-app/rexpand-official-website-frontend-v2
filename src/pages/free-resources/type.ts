@@ -1,3 +1,5 @@
+import type { BlocksContent } from "@strapi/blocks-react-renderer";
+
 export enum CategoryType {
   NewArticle = "NewArticle",
   JobStrategy = "JobStrategy",
@@ -75,8 +77,10 @@ export interface Attributes {
   postName: string;
   type: CategoryType;
   tagType: TagType;
+  articleType: keyof typeof RightArticleType;
   summaryJSONRrich: Array<ParagraphBlock>;
   summaryEditor: string;
+  content: BlocksContent;
   articleCover: {
     data: {
       id: number;

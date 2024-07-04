@@ -1,21 +1,16 @@
-.fr-article {
-}
+.fr-article {}
 
-.fr-article-header {
+.fr-article-header {}
 
-}
 .fr-article-header .fr-article-title {
-    width:100%;
-    font-size: 39px;
+    width: 100%;
+    font-size: 40px;
     font-weight: 600;
-    margin: 31px 0 8px 0;
+    margin: 32px 0 24px 0;
+    color: #fff;
 }
-.fr-article-header .fr-article-lastupdate {
-    font-size: 16px;
-    font-weight: 400;
-    opacity: 0.6;
-    margin-bottom: 40px;
-}
+
+
 
 .fr-article-box {
     padding-top: 50px;
@@ -23,28 +18,27 @@
 }
 
 
-.fr-article-body {
-    
-}
+.fr-article-body {}
 
-.fr-article .fr-article-body p{
+.fr-article .fr-article-body p {
     font-size: 17px;
     font-weight: 400;
     line-height: 30.6px;
 }
 
-.fr-article .fr-article-body h1{
+.fr-article .fr-article-body h1 {
     font-size: 26px;
     font-weight: 600;
     margin: 2rem 0;
 }
 
-.fr-article .fr-article-body h2{
+.fr-article .fr-article-body h2 {
     font-size: 17px;
     font-weight: 600;
     margin: 2rem 0;
 }
-.fr-article .fr-article-body p a{
+
+.fr-article .fr-article-body p a {
     color: #008A27;
 
 }
@@ -58,14 +52,12 @@
 
 .m-fr-article-box {
     padding-bottom: 73px;
-    
+
     padding: 24px 24px 52px 24px;
 }
 
 
-.m-fr-article-header {
-
-}
+.m-fr-article-header {}
 
 .m-fr-article-header .m_head_image {
     margin-bottom: 17px;
@@ -81,6 +73,7 @@
     font-weight: 500;
     margin-bottom: 6px;
 }
+
 .m-fr-article-header .m-fr-article-lastupdate {
     color: #1B1B1B;
     font-size: 12px;
@@ -95,13 +88,13 @@
     font-weight: 400;
 }
 
-.m-fr-article .m-fr-article-body p{
+.m-fr-article .m-fr-article-body p {
     color: #333;
     font-size: 14px;
     font-weight: 400;
 }
 
-.m-fr-article .m-fr-article-body h1{
+.m-fr-article .m-fr-article-body h1 {
     font-family: 'PingFang_Medium';
     color: #333;
     font-size: 18px;
@@ -109,14 +102,15 @@
     padding: 40px 0;
 }
 
-.m-fr-article .m-fr-article-body h2{
+.m-fr-article .m-fr-article-body h2 {
     font-family: 'PingFang_Medium';
     color: #333;
     font-size: 16px;
     font-weight: 500;
     margin-bottom: 34px;
 }
-.m-fr-article .m-fr-article-body p a{
+
+.m-fr-article .m-fr-article-body p a {
     color: #008A27;
 
 }
@@ -126,4 +120,3 @@
     margin: 32px 0;
     border-radius: 4px;
 }
-

@@ -1,9 +1,14 @@
-.main{
+.main {
     margin-top: 120px;
 }
+
 .m_main {
     margin-top: 45px;
 }
 
-
-
+.page {
+    background-image: url(../../../assets/free-resources/bg_green_white.svg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
