@@ -11,7 +11,7 @@ import {
   TagType,
   TitleShowType,
 } from "../../type";
-import useFreeResourcesContext from "../../context";
+import useFreeResourcesContext from "../../Context";
 
 export const LinkFilter = () => {
   const { isMobile } = useScreen();

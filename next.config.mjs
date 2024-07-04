@@ -7,7 +7,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  
+  pageExtensions: [ 'jsx', 'tsx'],
   // publicRuntimeConfig: {
   //   publicDir: '/rexpand-official-website-frontend-v2/public'
   // }

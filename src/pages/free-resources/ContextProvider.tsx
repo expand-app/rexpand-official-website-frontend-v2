@@ -1,3 +1,4 @@
+"use client";
 import React, { Dispatch, SetStateAction, createContext } from "react";
 
 import {
@@ -25,8 +26,27 @@ export interface FreeResourcesContextProps {
   filteredFreeResourcesByArticleType: FreeResourceData[];
 }
 
-export const FreeResourcesContext =
-  createContext<FreeResourcesContextProps | null>(null);
+export const FreeResourcesContext = createContext<FreeResourcesContextProps>({
+  articleType: "hot",
+  contentTypes: {
+    articleType: {
+      enum: ["hot", "recommend", "random"],
+    },
+    tagType: {
+      enum: ["Job", "career", "interview", "interview"],
+    },
+  },
+  handleTitleTypeClick: () => {},
+  handleFilterChange: () => {},
+  currentFilter: CategoryType.NewArticle,
+  filteredFreeResources: [],
+  titleShowType: TitleShowType.default,
+  breadcrumb: "",
+  setTagType: () => {},
+  tagType: "Job",
+  setArticleType: () => {},
+  filteredFreeResourcesByArticleType: [],
+});
 
 export interface FreeResourcesContextProviderProps
   extends FreeResourcesContextProps {
@@ -42,3 +62,5 @@ export const FreeResourcesContextProvider: React.FC<
     </FreeResourcesContext.Provider>
   );
 };
+
+export default FreeResourcesContextProvider;
