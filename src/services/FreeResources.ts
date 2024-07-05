@@ -8,18 +8,18 @@ export interface APIResponse<T = any> {
 
 class FreeResourcesAPI extends BaseAPI {
   getArticleList = (): Promise<APIResponse<Array<FreeResourceData>>> => {
-    return this.get(`/api/restaurants?populate=*`, {
+    return this.get(`/api/articles?populate=*`, {
       withAuthToken: false,
     });
   };
   getArticleById = (id: number): Promise<APIResponse<FreeResourceData>> => {
-    return this.get(`/api/restaurants/${id}`, {
+    return this.get(`/api/articles/${id}`, {
       withAuthToken: false,
     });
   };
   getArticleType = (): Promise<any> => {
     return this.get(
-      `/api/content-type-builder/content-types/api::restaurant.restaurant`,
+      `/api/content-type-builder/content-types/api::article.article`,
       {
         withAuthToken: false,
       }
@@ -29,7 +29,7 @@ class FreeResourcesAPI extends BaseAPI {
     id,
     likeCount,
   }: any): Promise<APIResponse<FreeResourceData>> => {
-    return this.put(`/api/restaurants/${id}`, {
+    return this.put(`/api/articles/${id}`, {
       body: JSON.stringify({
         data: {
           likeCount,

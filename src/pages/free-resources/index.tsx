@@ -68,7 +68,7 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
   const filteredFreeResources = useMemo(() => {
     if (titleShowType === TitleShowType.tag && tagType) {
       return articleList?.filter(
-        (item) => item?.attributes.tagType.indexOf(tagType) != -1
+        (item) => item?.attributes.type.indexOf(tagType) != -1
       );
     } else {
       if (currentFilter === CategoryType.NewArticle) {
@@ -77,7 +77,7 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
         );
       }
       return articleList?.filter(
-        (item) => item?.attributes.type?.indexOf(currentFilter) != -1
+        (item) => item?.attributes.category?.indexOf(currentFilter) != -1
       );
     }
   }, [articleList, currentFilter, titleShowType, tagType]);

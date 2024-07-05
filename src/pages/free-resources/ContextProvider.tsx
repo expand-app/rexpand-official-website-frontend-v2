@@ -32,8 +32,8 @@ export const FreeResourcesContext = createContext<FreeResourcesContextProps>({
     articleType: {
       enum: ["hot", "recommend", "random"],
     },
-    tagType: {
-      enum: ["Job", "career", "interview", "interview"],
+    tag: {
+      enum: ["JobSeeking", "Interview", "Employment", "InternalReferral"],
     },
   },
   handleTitleTypeClick: () => {},
@@ -43,7 +43,7 @@ export const FreeResourcesContext = createContext<FreeResourcesContextProps>({
   titleShowType: TitleShowType.default,
   breadcrumb: "",
   setTagType: () => {},
-  tagType: "Job",
+  tagType: "JobSeeking",
   setArticleType: () => {},
   filteredFreeResourcesByArticleType: [],
 });

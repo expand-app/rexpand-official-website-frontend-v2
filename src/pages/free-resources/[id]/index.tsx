@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import styles from "./index.module.css";
 import Header, { Theme } from "@/components/Header/Header";
@@ -8,6 +8,7 @@ import qrDaeImg from "@/assets/qr_dae.png";
 import freeResourcesService from "@/services/FreeResources";
 import Image from "next/image";
 import tagSvg from "@/assets/free-resources/tag.svg";
+import qrRexpandImg from "@/assets/qr_rexpand.png";
 import like_svg from "@/assets/free-resources/link_white.svg";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
@@ -16,6 +17,10 @@ import Link from "next/link";
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import { useRouter } from "next/router";
 import RightContent from "./RightContent";
+import { Button, Popover, Popper } from "@mui/material";
+import theme from "@/utils/theme";
+import dayjs from "dayjs";
+import { TIME_FORMAT } from "../constant";
 
 interface Props {
   article: FreeResourceData;
@@ -64,6 +69,9 @@ function MobileView({
   articleList,
 }: FreeResourceDetailViewPage) {
   const { attributes } = article;
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null
+  );
   return (
     <main className={clsx("bg-white m-main", styles.m_main)}>
       <Header theme={Theme.LIGHT} />
@@ -72,22 +80,36 @@ function MobileView({
           <div className={clsx("container mx-auto  w-2/3")}>
             <div className="pt-6 pb-8 text-base text-white">
               <Link href="/">首页</Link> &gt;&gt;
-              <span className="cursor-pointer ml-1" onClick={() => {}}>
-                免费资源
-              </span>
+              <Link href={"/free-resources"}>免费资源</Link>
               &nbsp;&gt;&gt; 详情
             </div>
             <div className="justify-center">
               <div className="">
-                <div className="fr-article-header">
-                  <div className="fr-article-title">{attributes.title}</div>
-                  <div className="mb-6 text-xl flex gap-2 text-white">
-                    <span>{attributes.postDate}</span>
-                    <span>|</span>
-                    <span>{attributes.postName}</span>
-                    <span>|</span>
-                    <span>关注公众号</span>
-                  </div>
+                <div className="fr-article-title">{attributes.title}</div>
+                <div className="mb-6 text-xl flex gap-2 text-white items-center">
+                  <span>{attributes.postDate}</span>
+                  <span>|</span>
+                  <span>{attributes.author}</span>
+                  <span>|</span>
+                  <Button
+                    sx={{
+                      fontSize: 20,
+                      p: 0,
+                      fontWeight: 400,
+                    }}
+                    onClick={(event) => {
+                      setAnchorEl(anchorEl ? null : event.currentTarget);
+                    }}
+                  >
+                    关注公众号
+                  </Button>
+                  <Popper
+                    open={Boolean(anchorEl)}
+                    anchorEl={anchorEl}
+                    placement={"right-start"}
+                  >
+                    <Image src={qrRexpandImg} alt="微信公众号" />
+                  </Popper>
                 </div>
 
                 <div className="flex gap-6">
@@ -98,11 +120,10 @@ function MobileView({
                       ></BlocksRenderer>
                     </div>
                     <div className="text-center mt-10  mb-14 flex justify-center">
-                      <div
+                      <Button
                         onClick={() => {
                           addLikeCount(attributes.likeCount);
                         }}
-                        className="flex gap-3 bg-custom-green p-6 rounded-[40px] text-white "
                       >
                         <Image
                           src={like_svg}
@@ -112,7 +133,7 @@ function MobileView({
                           height={22}
                         ></Image>
                         <span>点赞{attributes.likeCount}</span>
-                      </div>
+                      </Button>
                     </div>
                     <div className="flex justify-center items-center py-2 px-3  rounded-[40px] mb-8  ">
                       <div className="bg-custom-green-0.4  py-2 px-3  rounded-[40px]   flex gap-2 justify-center items-center  ">
@@ -132,7 +153,7 @@ function MobileView({
                       />
                     </div>
                     <div className="mt-20 mb-20 flex  gap-5 justify-center">
-                      {contentTypes.tagType.enum.map((key) => {
+                      {contentTypes.tag.enum.map((key) => {
                         return (
                           <div
                             className=" gap-1 flex items-center  bg-[#0000000f] rounded py-1 px-3"
@@ -148,6 +169,14 @@ function MobileView({
                           </div>
                         );
                       })}
+                    </div>
+                    <div className="mt-24">
+                      <Image
+                        alt="bg"
+                        src={
+                          "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/thumbnail_Group_427318709_f9d02f34ab.png?updatedAt=2024-07-04T08%3A57%3A12.406Z"
+                        }
+                      ></Image>
                     </div>
                   </div>
                   {Object.keys(contentTypes).length > 0 &&
@@ -175,44 +204,68 @@ function PCView({
   articleList,
 }: FreeResourceDetailViewPage) {
   const { attributes } = article;
+  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
+    null
+  );
+
   return (
     <main className={clsx("bg-white", styles.main)}>
       <Header theme={Theme.LIGHT} />
-      <div className={clsx(styles.page)}>
+      <div className={clsx(styles.page, "bg-white rounded relative")}>
+        {/* <div className={clsx("absolute top-0 ",styles.absolute)}> </div> */}
         <div className={clsx("container mx-auto  w-2/3")}>
-          <div className="pt-6 pb-8 text-base text-white">
+          <div className="pt-6 text-base text-white">
             <Link href="/">首页</Link> &gt;&gt;
-            <span className="cursor-pointer ml-1" onClick={() => {}}>
-              免费资源
-            </span>
+            <Link href={"/free-resources"}>免费资源</Link>
             &nbsp;&gt;&gt; 详情
           </div>
           <div className="justify-center">
-            <div className="">
-              <div className="fr-article-header">
-                <div className="fr-article-title">{attributes.title}</div>
-                <div className="mb-6 text-xl flex gap-2 text-white">
-                  <span>{attributes.postDate}</span>
-                  <span>|</span>
-                  <span>{attributes.postName}</span>
-                  <span>|</span>
-                  <span>关注公众号</span>
-                </div>
+            <div className="fr-article-header">
+              <div className="fr-article-title">{attributes.title}</div>
+              <div className="mb-6 text-xl flex gap-3 text-white items-center">
+                <span>{dayjs(attributes.postDate).format(TIME_FORMAT)}</span>
+                <span>|</span>
+                <span>{attributes.author}</span>
+                <span>|</span>
+                <Button
+                  sx={{
+                    fontSize: 20,
+                    p: 0,
+                    fontWeight: 400,
+                  }}
+                  onClick={(event) => {
+                    setAnchorEl(anchorEl ? null : event.currentTarget);
+                  }}
+                >
+                  关注公众号
+                </Button>
+                <Popper
+                  open={Boolean(anchorEl)}
+                  anchorEl={anchorEl}
+                  placement={"right-start"}
+                >
+                  <Image src={qrRexpandImg} alt="微信公众号" />
+                </Popper>
               </div>
 
               <div className="flex gap-6">
-                <div className="flex-1">
+                <div className="flex-1  pt-8 pb-10 px-6  rounded">
                   <div className="fr-article-body">
                     <BlocksRenderer
                       content={attributes.content}
                     ></BlocksRenderer>
                   </div>
-                  <div className="text-center mt-10  mb-14 flex justify-center">
-                    <div
+                  <div className="text-center mt-20  mb-14 flex justify-center">
+                    <Button
                       onClick={() => {
                         addLikeCount(attributes.likeCount);
                       }}
-                      className="flex gap-3 bg-custom-green p-6 rounded-[40px] text-white "
+                      variant="contained"
+                      sx={{
+                        borderRadius: 10,
+                        padding: theme.spacing(6, 5),
+                      }}
+                      className="flex gap-3 bg-custom-green  text-white "
                     >
                       <Image
                         src={like_svg}
@@ -222,7 +275,7 @@ function PCView({
                         height={22}
                       ></Image>
                       <span>点赞{attributes.likeCount}</span>
-                    </div>
+                    </Button>
                   </div>
                   <div className="flex justify-center items-center py-2 px-3  rounded-[40px] mb-8  ">
                     <div className="bg-custom-green-0.4  py-2 px-3  rounded-[40px]   flex gap-2 justify-center items-center  ">
@@ -241,8 +294,8 @@ function PCView({
                       className={clsx("w-24 h-24")}
                     />
                   </div>
-                  <div className="mt-20 mb-20 flex  gap-5 justify-center">
-                    {contentTypes.tagType.enum.map((key) => {
+                  <div className="mt-24 mb-20 flex  gap-5 justify-center">
+                    {contentTypes.tag.enum.map((key) => {
                       return (
                         <div
                           className=" gap-1 flex items-center  bg-[#0000000f] rounded py-1 px-3"
@@ -258,6 +311,17 @@ function PCView({
                         </div>
                       );
                     })}
+                  </div>
+                  <div className="mt-24">
+                    <Image
+                      alt="bg"
+                      width={500}
+                      height={500}
+                      layout="responsive"
+                      src={
+                        "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/Group_427318709_3d9757ca53.svg"
+                      }
+                    ></Image>
                   </div>
                 </div>
                 {Object.keys(contentTypes).length > 0 &&

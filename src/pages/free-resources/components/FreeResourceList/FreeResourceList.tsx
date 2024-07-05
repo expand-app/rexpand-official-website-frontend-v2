@@ -67,13 +67,11 @@ const MobileView = ({ data, pageInfo, setPageInfo }: Props) => {
             likeCount,
             readCount,
             postDate,
-            postName,
-            summaryEditor,
-            summaryJSONRrich,
-            articleCover,
+            author,
+            cover,
           },
         } = item;
-        const image = articleCover?.data.attributes.formats.large.url;
+        const image = cover?.data.attributes.formats.large.url;
 
         return (
           <div
@@ -105,7 +103,7 @@ const MobileView = ({ data, pageInfo, setPageInfo }: Props) => {
                 </div>
                 <div className="flex text-xs justify-between flex-row items-center mt-2 ">
                   <div className="flex justify-between flex-row items-center gap-1">
-                    <span className="font-medium">{postName}</span>
+                    <span className="font-medium">{author}</span>
                     <span>|</span>
                     <div className="opacity-60">{postDate}</div>
                   </div>
@@ -180,13 +178,12 @@ const PCView = ({ data, pageInfo, setPageInfo }: Props) => {
             likeCount,
             readCount,
             postDate,
-            postName,
-            summaryEditor,
-            summaryJSONRrich,
-            articleCover,
+            author,
+            summary,
+            cover,
           },
         } = item;
-        const image = articleCover?.data.attributes.formats.large.url;
+        const image = cover?.data.attributes.formats.large.url;
 
         return (
           <div
@@ -221,14 +218,12 @@ const PCView = ({ data, pageInfo, setPageInfo }: Props) => {
                       {title}
                     </div>
                     <div className={clsx("", styles.summary_container)}>
-                      <div className={clsx("", styles.summary)}>
-                        {summaryEditor}
-                      </div>
+                      <div className={clsx("", styles.summary)}>{summary}</div>
                     </div>
                   </div>
                   <div className="flex justify-between flex-row items-center text-sm">
                     <div className="flex justify-between flex-row items-center gap-1">
-                      <span className="font-medium">{postName}</span>
+                      <span className="font-medium">{author}</span>
                       <span>|</span>
                       <div className="opacity-60">{postDate}</div>
                     </div>

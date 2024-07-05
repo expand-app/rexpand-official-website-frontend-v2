@@ -2,10 +2,10 @@ import type { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export enum CategoryType {
   NewArticle = "NewArticle",
-  JobStrategy = "JobStrategy",
-  InterviewSkills = "InterviewSkills",
+  JobSearchGuide = "JobSearchGuide",
+  InterviewTips = "InterviewTips",
   IndustryKnowledge = "IndustryKnowledge",
-  LiveBookings = "LiveBookings",
+  LiveStreamBooking = "LiveStreamBooking",
   // NewArticle = "最新文章",
   // JobStrategy = "求职攻略",
   // InterviewSkills = "面试技巧",
@@ -14,10 +14,10 @@ export enum CategoryType {
 }
 export enum CategoryTitle {
   NewArticle = "最新文章",
-  JobStrategy = "求职攻略",
-  InterviewSkills = "面试技巧",
+  JobSearchGuide = "求职攻略",
+  InterviewTips = "面试技巧",
   IndustryKnowledge = "行业知识",
-  LiveBookings = "直播预约",
+  LiveStreamBooking = "直播预约",
 }
 
 export enum RightArticleType {
@@ -27,10 +27,10 @@ export enum RightArticleType {
 }
 
 export enum TagType {
-  Job = "求职",
-  career = "就业",
-  interview = "面试",
-  internalReferral = "内推",
+  JobSeeking = "求职",
+  Employment = "就业",
+  Interview = "面试",
+  InternalReferral = "内推",
 }
 export interface PageInfo {
   page: number;
@@ -59,7 +59,7 @@ export enum TitleShowType {
   tag = "tag",
 }
 export interface ContentTypes {
-  tagType: {
+  tag: {
     enum: Array<keyof typeof TagType>;
   };
   articleType: {
@@ -69,19 +69,17 @@ export interface ContentTypes {
 
 export interface Attributes {
   title: string;
-  companyName: string | null;
   favoriteCount: number;
   likeCount: number;
   readCount: number;
   postDate: string;
-  postName: string;
-  type: CategoryType;
-  tagType: TagType;
+  author: string;
+  category: CategoryType;
+  type: TagType;
   articleType: keyof typeof RightArticleType;
-  summaryJSONRrich: Array<ParagraphBlock>;
-  summaryEditor: string;
+  summary: string;
   content: BlocksContent;
-  articleCover: {
+  cover: {
     data: {
       id: number;
       attributes: {

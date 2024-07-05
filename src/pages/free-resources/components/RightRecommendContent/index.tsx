@@ -1,10 +1,9 @@
 import clsx from "clsx";
-import styles from "../../index.module.css";
+import styles from "./index.module.css";
 import Image from "next/image";
 import qrDaeImg from "@/assets/qr_dae.png";
 import tagSvg from "@/assets/free-resources/tag.svg";
 import { RightArticleType, TagType, TitleShowType } from "../../type";
-import { ContentTypes } from "../../type";
 import useFreeResourcesContext from "../../Context";
 import useScreen from "@/components/useScreen/useScreen";
 import Link from "next/link";
@@ -25,7 +24,7 @@ const PCView: React.FC = () => {
         <div className=" rounded-sm bg-custom-green-0.2">
           <div className="text-xl text-center ">
             <div className="font-semibold ">
-              扫描二维码或者{" "}
+              扫描二维码或者
               <Link
                 className="text-custom-green "
                 href="https://work.weixin.qq.com/ca/cawcde49bb005d5c7d"
@@ -84,7 +83,7 @@ const PCView: React.FC = () => {
       <div className="mt-6 py-8 px-5 bg-white ">
         <div className="text-xl font-medium "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
-          {contentTypes.tagType.enum.map((key) => {
+          {contentTypes.tag.enum.map((key) => {
             return (
               <div
                 key={key}
@@ -92,7 +91,7 @@ const PCView: React.FC = () => {
                   handleTitleTypeClick(TitleShowType.tag);
                   setTagType(key);
                 }}
-                className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
+                className={`transition-all  flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
               >
                 <Image src={tagSvg} alt={TagType[key]}></Image>
                 <span>{TagType[key]}</span>
@@ -178,7 +177,7 @@ const MobileView: React.FC = () => {
       <div className="mt-6 py-8 px-5 bg-white mb-6 ">
         <div className="text-xl font-medium "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
-          {contentTypes.tagType.enum.map((key) => {
+          {contentTypes.tag.enum.map((key) => {
             return (
               <div
                 key={key}
