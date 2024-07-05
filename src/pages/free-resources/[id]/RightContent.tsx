@@ -272,9 +272,7 @@ const RightContentContent: React.FC<RightContentContentProps> = (props) => {
     if (!filteredFreeResources) {
       return [];
     }
-    return filteredFreeResources?.filter(
-      (item) => item?.attributes.articleType === "hot"
-    );
+    return filteredFreeResources?.filter((item) => item?.attributes.isPopular);
   }, [filteredFreeResources]);
 
   const filteredFreeResourcesOfRecommend = useMemo(() => {
@@ -282,7 +280,7 @@ const RightContentContent: React.FC<RightContentContentProps> = (props) => {
       return [];
     }
     return filteredFreeResources?.filter(
-      (item) => item?.attributes.articleType === "recommend"
+      (item) => item?.attributes.isRecommended
     );
   }, [filteredFreeResources]);
 

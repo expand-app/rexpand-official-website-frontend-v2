@@ -108,7 +108,7 @@ const MobileView = ({ data, pageInfo, setPageInfo }: Props) => {
                     <div className="opacity-60">{postDate}</div>
                   </div>
                   <div className="flex gap-2 items-center">
-                    <div className="flex gap-1 items-center ">
+                    {/* <div className="flex gap-1 items-center ">
                       <Image
                         src={read}
                         width={14}
@@ -125,7 +125,7 @@ const MobileView = ({ data, pageInfo, setPageInfo }: Props) => {
                         alt="收藏"
                       ></Image>
                       {favoriteCount}
-                    </div>
+                    </div> */}
                     <div className="flex gap-1 items-center">
                       <Image
                         src={like}
@@ -228,14 +228,14 @@ const PCView = ({ data, pageInfo, setPageInfo }: Props) => {
                       <div className="opacity-60">{postDate}</div>
                     </div>
                     <div className="flex gap-2 items-center">
-                      <div className="flex gap-1">
+                      {/* <div className="flex gap-1">
                         <Image src={read} alt="阅读量"></Image>
                         {readCount}
                       </div>
                       <div className="flex gap-1">
                         <Image src={favorite} alt="收藏"></Image>
                         {favoriteCount}
-                      </div>
+                      </div> */}
                       <div className="flex gap-1">
                         <Image src={like} alt="点赞"></Image>
                         {likeCount}

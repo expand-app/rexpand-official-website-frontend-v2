@@ -75,10 +75,12 @@ export interface Attributes {
   postDate: string;
   author: string;
   category: CategoryType;
-  type: TagType;
-  articleType: keyof typeof RightArticleType;
+  tag: TagType;
   summary: string;
   content: BlocksContent;
+  isPopular: boolean | null;
+  isRecommended: boolean | null;
+  isRandom: boolean | null;
   cover: {
     data: {
       id: number;
