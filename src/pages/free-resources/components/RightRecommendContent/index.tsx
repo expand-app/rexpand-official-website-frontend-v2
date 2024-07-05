@@ -46,12 +46,12 @@ const PCView: React.FC = () => {
       </div>
       <div className="mt-6 py-8 px-5 bg-white">
         <div className="flex justify-between text-base ">
-          {contentTypes.articleType.enum.map((key) => {
+          {Object.keys(RightArticleType).map((key) => {
             return (
               <div
                 key={key}
                 onClick={() => {
-                  setArticleType(key);
+                  setArticleType(key as keyof typeof RightArticleType);
                 }}
                 className={clsx(
                   `cursor-pointer transition-all duration-300 ${
@@ -59,7 +59,7 @@ const PCView: React.FC = () => {
                   }`
                 )}
               >
-                {RightArticleType[key]}
+                {RightArticleType[key as keyof typeof RightArticleType]}
               </div>
             );
           })}
@@ -110,6 +110,7 @@ const MobileView: React.FC = () => {
     setTagType,
     handleTitleTypeClick,
     articleType,
+    setArticleType,
     filteredFreeResourcesByArticleType,
   } = useFreeResourcesContext();
 
@@ -144,17 +145,20 @@ const MobileView: React.FC = () => {
       </div>
       <div className="mt-6 py-8 px-5 bg-white">
         <div className="flex justify-between text-base ">
-          {contentTypes.articleType.enum.map((key) => {
+          {Object.keys(RightArticleType).map((key) => {
             return (
               <div
                 key={key}
+                onClick={() => {
+                  setArticleType(key as keyof typeof RightArticleType);
+                }}
                 className={clsx(
                   `cursor-pointer transition-all duration-300 ${
                     key === articleType ? "text-xl  font-semibold" : ""
                   }`
                 )}
               >
-                {RightArticleType[key]}
+                {RightArticleType[key as keyof typeof RightArticleType]}
               </div>
             );
           })}

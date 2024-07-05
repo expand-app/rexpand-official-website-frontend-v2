@@ -27,6 +27,7 @@ const MobileView = () => {
     titleShowType,
     tagType,
     filteredFreeResources,
+    categoryDescriptionData,
   } = useFreeResourcesContext();
   const onTitleTypeMouseEnter = (filterName: any) => {
     handleFilterChange?.(filterName);
@@ -67,7 +68,7 @@ const MobileView = () => {
               styles.desc
             )}
           >
-            描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述。
+            {categoryDescriptionData.attributes[tagType!]}
           </div>
         </div>
       </div>
@@ -103,6 +104,7 @@ const PCView = () => {
     titleShowType,
     tagType,
     filteredFreeResources,
+    categoryDescriptionData,
   } = useFreeResourcesContext();
   const onTitleTypeMouseEnter = (filterName: any) => {
     handleFilterChange?.(filterName);
@@ -135,7 +137,7 @@ const PCView = () => {
             </span>
           </div>
           <div className="mt-5">
-            描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述描述这是一段描述。
+            {categoryDescriptionData.attributes[tagType!]}
           </div>
         </div>
         <div className="flex flex-col items-center">

@@ -11,7 +11,9 @@ import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
 import dayjs from "dayjs";
 import { LATEST_DATE, PAGE_SIZE } from "./constant";
-import freeResourcesService from "@/services/FreeResources";
+import freeResourcesService, {
+  CategoryDescriptionData,
+} from "@/services/FreeResources";
 import RightRecommendContent from "./components/RightRecommendContent";
 import {
   ContentTypes,
@@ -41,11 +43,13 @@ export interface FreeResourcesPageViewProps {
 export interface FreeResourcesPageProps {
   articleList: FreeResourceData[];
   contentTypes: ContentTypes;
+  categoryDescriptionData: CategoryDescriptionData;
 }
 
 export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
   articleList,
   contentTypes,
+  categoryDescriptionData,
 }) => {
   const { isMobile } = useScreen();
 
@@ -129,6 +133,7 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
         articleType={articleType}
         setArticleType={setArticleType}
         filteredFreeResourcesByArticleType={filteredFreeResourcesByArticleType}
+        categoryDescriptionData={categoryDescriptionData}
       >
         {isMobile?.() ? <MobileView /> : <PCView />}
       </FreeResourcesContextProvider>
@@ -217,10 +222,13 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const data = await freeResourcesService.getArticleList();
     const contentType = await freeResourcesService.getArticleType();
+    const categoryDescriptionData =
+      await freeResourcesService.getCategoryDescriptionData();
     return {
       props: {
         articleList: data.data,
         contentTypes: contentType.data.schema.attributes,
+        categoryDescriptionData: categoryDescriptionData.data,
       },
     };
   } catch (error) {
@@ -229,6 +237,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         articleList: [],
         contentTypes: [],
+        categoryDescriptionData: [],
       },
     };
   }

@@ -1,9 +1,16 @@
-import { FreeResourceData, Attributes } from "@/pages/free-resources/type";
+import { FreeResourceData, TagType } from "@/pages/free-resources/type";
 import { BaseAPI } from "@/utils/base-api";
 
 export interface APIResponse<T = any> {
   data: T;
   error?: string;
+}
+
+export interface CategoryDescriptionData {
+  id: number;
+  attributes: {
+    [K in keyof typeof TagType]?: string;
+  };
 }
 
 class FreeResourcesAPI extends BaseAPI {
@@ -35,6 +42,13 @@ class FreeResourcesAPI extends BaseAPI {
           likeCount,
         },
       }),
+      withAuthToken: false,
+    });
+  };
+  getCategoryDescriptionData = (): Promise<
+    APIResponse<CategoryDescriptionData>
+  > => {
+    return this.get(`/api/category-description`, {
       withAuthToken: false,
     });
   };

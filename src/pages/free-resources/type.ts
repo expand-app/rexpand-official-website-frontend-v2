@@ -62,9 +62,9 @@ export interface ContentTypes {
   tag: {
     enum: Array<keyof typeof TagType>;
   };
-  articleType: {
-    enum: Array<keyof typeof RightArticleType>;
-  };
+  // articleType: {
+  //   enum: Array<keyof typeof RightArticleType>;
+  // };
 }
 
 export interface Attributes {

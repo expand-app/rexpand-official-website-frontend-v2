@@ -30,7 +30,7 @@ const PCView: React.FC<HotTagProps> = ({ contentTypes }) => {
               标签归档
             </div>
             <div className=" mt-6 flex  flex-wrap gap-4">
-              {contentTypes.tagType.enum.map((key) => {
+              {contentTypes.tag.enum.map((key) => {
                 return (
                   <div
                     key={key}
@@ -70,7 +70,7 @@ const MobileView: React.FC<HotTagProps> = ({ contentTypes }) => {
               标签归档
             </div>
             <div className={clsx("mt-6 flex  flex-wrap gap-4")}>
-              {contentTypes.tagType.enum.map((key, index) => {
+              {contentTypes.tag.enum.map((key, index) => {
                 return (
                   <div
                     key={key}
@@ -78,7 +78,7 @@ const MobileView: React.FC<HotTagProps> = ({ contentTypes }) => {
                       `flex cursor-pointer gap-1 rounded text-sm text-[#33333399]    border-[1px] px-4 items-center  border-custom-black-0.1 border-solid`,
                       {
                         [styles.m_itemTag]:
-                          index !== contentTypes.tagType.enum.length - 1,
+                          index !== contentTypes.tag.enum.length - 1,
                       }
                     )}
                   >

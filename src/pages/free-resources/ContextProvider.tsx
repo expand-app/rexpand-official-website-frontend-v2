@@ -9,6 +9,7 @@ import {
   TagType,
   RightArticleType,
 } from "./type";
+import { CategoryDescriptionData } from "@/services/FreeResources";
 export interface FreeResourcesContextProps {
   filteredFreeResources: FreeResourceData[];
   handleFilterChange: (filterName: any) => void;
@@ -24,14 +25,15 @@ export interface FreeResourcesContextProps {
     React.SetStateAction<keyof typeof RightArticleType>
   >;
   filteredFreeResourcesByArticleType: FreeResourceData[];
+  categoryDescriptionData: CategoryDescriptionData;
 }
 
 export const FreeResourcesContext = createContext<FreeResourcesContextProps>({
   articleType: "hot",
   contentTypes: {
-    articleType: {
-      enum: ["hot", "recommend", "random"],
-    },
+    // articleType: {
+    //   enum: ["hot", "recommend", "random"],
+    // },
     tag: {
       enum: ["JobSeeking", "Interview", "Employment", "InternalReferral"],
     },
@@ -46,6 +48,10 @@ export const FreeResourcesContext = createContext<FreeResourcesContextProps>({
   tagType: "JobSeeking",
   setArticleType: () => {},
   filteredFreeResourcesByArticleType: [],
+  categoryDescriptionData: {
+    id: 1,
+    attributes: {},
+  },
 });
 
 export interface FreeResourcesContextProviderProps
