@@ -35,7 +35,7 @@ const SuccessCasesPage: NextPage = () => {
 };
 
 const bannerVideoUrl =
-  "http://resources.rexpandcareer.com/videos/cases/successful-cases.mov";
+  "https://resources.rexpandcareer.com/videos/cases/successful-cases.mp4";
 function MobileView() {
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
@@ -163,7 +163,7 @@ function PCView() {
             loop
           >
             <source
-              src="http://resources.rexpandcareer.com/videos/cases/successful-cases.mov"
+              src="https://resources.rexpandcareer.com/videos/cases/successful-cases.mp4"
               type="video/mp4"
             />
           </video>
