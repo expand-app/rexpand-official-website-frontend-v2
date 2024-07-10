@@ -4,144 +4,89 @@ import styles from "./index.module.css";
 import Header, { Theme } from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import FreeResourceList from "./components/FreeResourceList/FreeResourceList";
-import { freeResourceListData } from "@/data/free_resource";
+import FreeResourceLayout from "./components/FreeResourceLayout";
 import LinkFilter from "./components/LinkFilter/LinkFilter";
 import clsx from "clsx";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
 import dayjs from "dayjs";
-import { LATEST_DATE, PAGE_SIZE } from "./constant";
-import freeResourcesService, {
-  CategoryDescriptionData,
-} from "@/services/FreeResources";
-import RightRecommendContent from "./components/RightRecommendContent";
+import { LATEST_DATE } from "./constant";
+import freeResourcesService, { TagList } from "@/services/FreeResources";
 import {
-  ContentTypes,
   FreeResourceData,
-  PageInfo,
   CategoryTitle,
   CategoryType,
   TitleShowType,
-  TagType,
-  RightArticleType,
 } from "./type";
-import Link from "next/link";
-import { FreeResourcesContextProvider } from "./ContextProvider";
 import useFreeResourcesContext from "./Context";
-
-export interface FreeResourcesPageViewProps {
-  filteredFreeResources: FreeResourceData[];
-  handleFilterChange: (filterName: any) => void;
-  currentFilter: CategoryType;
-  contentTypes: ContentTypes;
-  handleTitleTypeClick: (val: TitleShowType) => void;
-  titleShowType: TitleShowType;
-  breadcrumb: string;
-  setTagType: React.Dispatch<React.SetStateAction<keyof typeof TagType | null>>;
-}
+import _ from "lodash";
+import Link from "next/link";
 
 export interface FreeResourcesPageProps {
-  articleList: FreeResourceData[];
-  contentTypes: ContentTypes;
-  categoryDescriptionData: CategoryDescriptionData;
+  articleList: FreeResourceData;
+  tagList: TagList;
 }
 
-export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = ({
-  articleList,
-  contentTypes,
-  categoryDescriptionData,
-}) => {
-  const { isMobile } = useScreen();
+export interface FreeResourcesPageViewProps extends FreeResourcesPageProps {
+  data: FreeResourceData;
+  currentFilter: CategoryType;
+  setCurrentFilter: React.Dispatch<React.SetStateAction<CategoryType>>;
+}
 
+export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = (props) => {
+  const { isMobile } = useScreen();
+  const { articleList, tagList } = props;
   const [currentFilter, setCurrentFilter] = useState<CategoryType>(
     CategoryType.NewArticle
   );
-  const [titleShowType, setTitleShowType] = useState<TitleShowType>(
-    TitleShowType.default
-  );
-  const [articleType, setArticleType] =
-    useState<keyof typeof RightArticleType>("hot");
-  const [tagType, setTagType] = useState<keyof typeof TagType | null>(null);
-  const handleFilterChange = (filterName: CategoryType) => {
-    setCurrentFilter(filterName);
-  };
-
-  const handleTitleTypeClick = (val: TitleShowType) => {
-    setTitleShowType(val);
-  };
   const filteredFreeResources = useMemo(() => {
-    if (titleShowType === TitleShowType.tag && tagType) {
-      return articleList?.filter(
-        (item) => item?.attributes.tag.indexOf(tagType) != -1
-      );
-    } else {
-      if (currentFilter === CategoryType.NewArticle) {
-        return articleList?.filter((item) =>
-          dayjs(item.attributes.postDate).isAfter(dayjs(LATEST_DATE))
-        );
-      }
-      return articleList?.filter(
-        (item) => item?.attributes.category?.indexOf(currentFilter) != -1
+    if (currentFilter === CategoryType.NewArticle) {
+      return articleList?.filter((item) =>
+        dayjs(item.attributes.postDate).isAfter(dayjs(LATEST_DATE))
       );
     }
-  }, [articleList, currentFilter, titleShowType, tagType]);
-
-  const breadcrumb = useMemo(() => {
-    let subText = "";
-
-    switch (titleShowType) {
-      case TitleShowType.single:
-        subText = `${CategoryTitle[currentFilter]}`;
-        break;
-      case TitleShowType.tag:
-        if (tagType) {
-          subText = `${TagType[tagType]}`;
-        }
-
-        break;
-      default:
-        break;
-    }
-
-    return subText;
-  }, [currentFilter, tagType, titleShowType]);
-
-  const filteredFreeResourcesByArticleType = useMemo(() => {
-    if (articleType === "hot") {
-      return articleList?.filter((item) => item?.attributes.isPopular);
-    } else if (articleType === "recommend") {
-      return articleList?.filter((item) => item?.attributes.isRecommended);
-    } else if (articleType === "random") {
-      return articleList?.filter((item) => item?.attributes.isRandom);
-    }
-    return [];
-  }, [articleList, articleType]);
-
+    return articleList?.filter(
+      (item) => item?.attributes.category?.indexOf(currentFilter) != -1
+    );
+  }, [articleList, currentFilter]);
   return (
     <>
       <Head />
-      <FreeResourcesContextProvider
-        filteredFreeResources={filteredFreeResources}
+      <FreeResourceLayout
+        title={CategoryTitle.NewArticle}
+        type={TitleShowType.default}
+        articleList={articleList}
+        tagList={tagList}
+        data={filteredFreeResources}
         currentFilter={currentFilter}
-        handleFilterChange={handleFilterChange}
-        contentTypes={contentTypes}
-        handleTitleTypeClick={handleTitleTypeClick}
-        titleShowType={titleShowType}
-        breadcrumb={breadcrumb}
-        setTagType={setTagType}
-        tagType={tagType}
-        articleType={articleType}
-        setArticleType={setArticleType}
-        filteredFreeResourcesByArticleType={filteredFreeResourcesByArticleType}
-        categoryDescriptionData={categoryDescriptionData}
-      >
-        {isMobile?.() ? <MobileView /> : <PCView />}
-      </FreeResourcesContextProvider>
+        setCurrentFilter={setCurrentFilter}
+      />
+      {/* {isMobile?.() ? (
+        <MobileView
+          {...props}
+          data={filteredFreeResources}
+          currentFilter={currentFilter}
+          setCurrentFilter={setCurrentFilter}
+        />
+      ) : (
+        <PCView
+          {...props}
+          data={filteredFreeResources}
+          currentFilter={currentFilter}
+          setCurrentFilter={setCurrentFilter}
+        />
+      )} */}
     </>
   );
 };
 
-function MobileView({}) {
+const MobileView: React.FC<FreeResourcesPageViewProps> = ({
+  articleList,
+  tagList,
+  data,
+  currentFilter,
+  setCurrentFilter,
+}) => {
   const { handleTitleTypeClick, titleShowType, breadcrumb } =
     useFreeResourcesContext();
   return (
@@ -163,10 +108,15 @@ function MobileView({}) {
               {breadcrumb ? ` >> ${breadcrumb}` : ""}
             </div>
 
-            <LinkFilter />
+            <LinkFilter
+              type={TitleShowType.default}
+              title={CategoryTitle.NewArticle}
+              currentFilter={currentFilter}
+              setCurrentFilter={setCurrentFilter}
+              data={articleList}
+            />
 
-            <FreeResourceList />
-            {titleShowType !== TitleShowType.tag && <RightRecommendContent />}
+            <FreeResourceList data={data} />
           </div>
 
           <Footer />
@@ -174,61 +124,38 @@ function MobileView({}) {
       </main>
     </div>
   );
-}
+};
 
-function PCView() {
-  const { handleTitleTypeClick, titleShowType, breadcrumb } =
-    useFreeResourcesContext();
+const PCView: React.FC<FreeResourcesPageViewProps> = ({
+  articleList,
+  tagList,
+  data,
+  currentFilter,
+  setCurrentFilter,
+}) => {
   return (
-    <div>
-      <main className={clsx("", styles.main)}>
-        <div className={styles.page}>
-          <Header theme={Theme.LIGHT} />
-
-          <div className="container mx-auto w-3/4">
-            <div className="pt-6 pb-8 text-base text-white">
-              <Link href="/">首页</Link> &gt;&gt;
-              <span
-                className="cursor-pointer "
-                onClick={() => {
-                  handleTitleTypeClick(TitleShowType.default);
-                }}
-              >
-                免费资源
-              </span>
-              {breadcrumb ? ` >> ${breadcrumb}` : ""}
-            </div>
-
-            <div className=" overflow-auto">
-              <LinkFilter />
-            </div>
-
-            <div className={`pb-12 mt-6 flex space-x-4`}>
-              <FreeResourceList />
-              {titleShowType !== TitleShowType.tag && <RightRecommendContent />}
-            </div>
-          </div>
-
-          <Footer />
-        </div>
-      </main>
-    </div>
+    <FreeResourceLayout
+      title={CategoryTitle.NewArticle}
+      type={TitleShowType.default}
+      articleList={articleList}
+      tagList={tagList}
+      data={data}
+      currentFilter={currentFilter}
+      setCurrentFilter={setCurrentFilter}
+    />
   );
-}
+};
 
 export default FreeResourcesPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
     const data = await freeResourcesService.getArticleList();
-    const contentType = await freeResourcesService.getArticleType();
-    const categoryDescriptionData =
-      await freeResourcesService.getCategoryDescriptionData();
+    const tagData = await freeResourcesService.getArticleTag();
     return {
       props: {
         articleList: data.data,
-        contentTypes: contentType.data.schema.attributes,
-        categoryDescriptionData: categoryDescriptionData.data,
+        tagList: tagData.data,
       },
     };
   } catch (error) {
@@ -236,8 +163,7 @@ export const getStaticProps: GetStaticProps = async () => {
     return {
       props: {
         articleList: [],
-        contentTypes: [],
-        categoryDescriptionData: [],
+        tagList: [],
       },
     };
   }

@@ -7,15 +7,17 @@ import useScreen from "@/components/useScreen/useScreen";
 import { useRef, useState } from "react";
 import styles from "./index.module.css";
 import tagSvg from "@/assets/free-resources/tag.svg";
-import freeResourcesService from "@/services/FreeResources";
+import freeResourcesService, { TagList } from "@/services/FreeResources";
 import Header, { Theme } from "@/components/Header/Header";
-import { ContentTypes, TagType } from "../free-resources/type";
+import { FreeResourceData } from "../free-resources/type";
 import Link from "next/link";
+import _ from "lodash";
 interface HotTagProps {
-  contentTypes: ContentTypes;
+  articleList: FreeResourceData;
+  tagList: TagList;
 }
 
-const PCView: React.FC<HotTagProps> = ({ contentTypes }) => {
+const PCView: React.FC<HotTagProps> = ({ tagList }) => {
   return (
     <main className={clsx("", styles.main)}>
       <div className={styles.page}>
@@ -30,20 +32,23 @@ const PCView: React.FC<HotTagProps> = ({ contentTypes }) => {
               标签归档
             </div>
             <div className=" mt-6 flex  flex-wrap gap-4">
-              {contentTypes.tag.enum.map((key) => {
+              {tagList.map((item) => {
                 return (
-                  <div
-                    key={key}
-                    className={`flex cursor-pointer gap-1 text-[#33333399]  rounded text-base border-[1px] px-4 items-center h-[50px] w-[180px] border-custom-black-0.1 border-solid`}
-                  >
-                    <Image
-                      src={tagSvg}
-                      alt={TagType[key]}
-                      width={18}
-                      height={18}
-                    ></Image>
-                    <span className="text-lg ml-2">{TagType[key]}</span>
-                  </div>
+                  <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
+                    <div
+                      className={`flex cursor-pointer gap-1 text-[#33333399]  rounded text-base border-[1px] px-4 items-center h-[50px] w-[180px] border-custom-black-0.1 border-solid`}
+                    >
+                      <Image
+                        src={tagSvg}
+                        alt={item.attributes.title}
+                        width={18}
+                        height={18}
+                      ></Image>
+                      <span className="text-lg ml-2">
+                        {item.attributes.title}
+                      </span>
+                    </div>
+                  </Link>
                 );
               })}
             </div>
@@ -56,7 +61,7 @@ const PCView: React.FC<HotTagProps> = ({ contentTypes }) => {
   );
 };
 
-const MobileView: React.FC<HotTagProps> = ({ contentTypes }) => {
+const MobileView: React.FC<HotTagProps> = ({ tagList }) => {
   return (
     <div className={styles.page}>
       <Header theme={Theme.LIGHT} />
@@ -70,26 +75,23 @@ const MobileView: React.FC<HotTagProps> = ({ contentTypes }) => {
               标签归档
             </div>
             <div className={clsx("mt-6 flex  flex-wrap gap-4")}>
-              {contentTypes.tag.enum.map((key, index) => {
+              {tagList.map((item) => {
                 return (
-                  <div
-                    key={key}
-                    className={clsx(
-                      `flex cursor-pointer gap-1 rounded text-sm text-[#33333399]    border-[1px] px-4 items-center  border-custom-black-0.1 border-solid`,
-                      {
-                        [styles.m_itemTag]:
-                          index !== contentTypes.tag.enum.length - 1,
-                      }
-                    )}
-                  >
-                    <Image
-                      src={tagSvg}
-                      alt={TagType[key]}
-                      width={18}
-                      height={18}
-                    ></Image>
-                    <span className="text-lg ml-2">{TagType[key]}</span>
-                  </div>
+                  <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
+                    <div
+                      className={`flex cursor-pointer gap-1 text-[#33333399]  rounded text-base border-[1px] px-4 items-center h-[50px] w-[180px] border-custom-black-0.1 border-solid`}
+                    >
+                      <Image
+                        src={tagSvg}
+                        alt={item.attributes.title}
+                        width={18}
+                        height={18}
+                      ></Image>
+                      <span className="text-lg ml-2">
+                        {item.attributes.title}
+                      </span>
+                    </div>
+                  </Link>
                 );
               })}
             </div>
@@ -103,6 +105,7 @@ const MobileView: React.FC<HotTagProps> = ({ contentTypes }) => {
 
 const HotTag: NextPage<HotTagProps> = (props) => {
   const { isMobile } = useScreen();
+
   return (
     <div>
       <Head />
@@ -117,17 +120,20 @@ export default HotTag;
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const contentType = await freeResourcesService.getArticleType();
+    const data = await freeResourcesService.getArticleList();
+    const tagData = await freeResourcesService.getArticleTag();
     return {
       props: {
-        contentTypes: contentType.data.schema.attributes,
+        articleList: data.data,
+        tagList: tagData.data,
       },
     };
   } catch (error) {
     console.error("Error fetching data:", error);
     return {
       props: {
-        contentTypes: [],
+        articleList: [],
+        tagList: [],
       },
     };
   }

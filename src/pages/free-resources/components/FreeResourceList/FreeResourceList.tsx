@@ -15,10 +15,17 @@ import { PAGE_SIZE } from "../../constant";
 import { NextPage } from "next";
 import useFreeResourcesContext from "../../Context";
 
-export interface FreeResourceListProp {}
+export interface FreeResourceListProp {
+  data: FreeResourceData;
+}
 
-const FreeResourceList: NextPage<FreeResourceListProp> = () => {
-  const { filteredFreeResources: data } = useFreeResourcesContext();
+export interface FreeResourceListViewProps {
+  data: FreeResourceData;
+  pageInfo: PageInfo;
+  setPageInfo: React.Dispatch<React.SetStateAction<PageInfo>>;
+}
+
+const FreeResourceList: NextPage<FreeResourceListProp> = ({ data }) => {
   const [pageInfo, setPageInfo] = useState<PageInfo>({
     page: 1,
     pageSize: PAGE_SIZE,
@@ -37,7 +44,7 @@ const FreeResourceList: NextPage<FreeResourceListProp> = () => {
     const { page, pageSize } = pageInfo;
     const startIndex = (page - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    return data.slice(startIndex, endIndex) || [];
+    return data?.slice(startIndex, endIndex) || [];
   }, [data, pageInfo]);
 
   return isMobile() ? (
@@ -55,7 +62,11 @@ const FreeResourceList: NextPage<FreeResourceListProp> = () => {
   );
 };
 
-const MobileView = ({ data, pageInfo, setPageInfo }: Props) => {
+const MobileView = ({
+  data,
+  pageInfo,
+  setPageInfo,
+}: FreeResourceListViewProps) => {
   return (
     <div className={clsx("flex flex-col flex-1", styles.free_resource_list)}>
       {data?.map((item, index) => {
@@ -166,7 +177,7 @@ const MobileView = ({ data, pageInfo, setPageInfo }: Props) => {
   );
 };
 
-const PCView = ({ data, pageInfo, setPageInfo }: Props) => {
+const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
   return (
     <div className={clsx("flex flex-col flex-1", styles.free_resource_list)}>
       {data?.map((item, index) => {
@@ -272,9 +283,3 @@ const PCView = ({ data, pageInfo, setPageInfo }: Props) => {
   );
 };
 export default FreeResourceList;
-
-export interface Props {
-  data: Array<FreeResourceData>;
-  pageInfo: PageInfo;
-  setPageInfo: React.Dispatch<React.SetStateAction<PageInfo>>;
-}

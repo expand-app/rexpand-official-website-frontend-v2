@@ -8,13 +8,25 @@ export interface APIResponse<T = any> {
 
 export interface CategoryDescriptionData {
   id: number;
+  attributes: Record<string, string>;
+}
+
+export interface StrapiCommonData {
+  id: number;
+  attributes: Record<string, any>;
+}
+
+export interface Tag {
+  id: number;
   attributes: {
-    [K in keyof typeof TagType]?: string;
+    title: string;
+    description: string;
   };
 }
 
+export type TagList = Array<Tag>;
 class FreeResourcesAPI extends BaseAPI {
-  getArticleList = (): Promise<APIResponse<Array<FreeResourceData>>> => {
+  getArticleList = (): Promise<APIResponse<FreeResourceData>> => {
     return this.get(`/api/articles?populate=*`, {
       withAuthToken: false,
     });
@@ -24,6 +36,7 @@ class FreeResourcesAPI extends BaseAPI {
       withAuthToken: false,
     });
   };
+
   getArticleType = (): Promise<any> => {
     return this.get(
       `/api/content-type-builder/content-types/api::article.article`,
@@ -31,6 +44,11 @@ class FreeResourcesAPI extends BaseAPI {
         withAuthToken: false,
       }
     );
+  };
+  getArticleTag = (): Promise<APIResponse<TagList>> => {
+    return this.get(`/api/tags`, {
+      withAuthToken: false,
+    });
   };
   setArticle = ({
     id,
@@ -45,18 +63,11 @@ class FreeResourcesAPI extends BaseAPI {
       withAuthToken: false,
     });
   };
-  getCategoryDescriptionData = (): Promise<
-    APIResponse<CategoryDescriptionData>
-  > => {
-    return this.get(`/api/category-description`, {
-      withAuthToken: false,
-    });
-  };
 }
 
 const freeResources = new FreeResourcesAPI({
-  host: "cms.staging.tuilink.io",
-  schema: "https://",
+  host: "localhost:3001",
+  schema: "http://",
 });
 
 export default freeResources;

@@ -26,6 +26,7 @@ export interface FreeResourcesContextProps {
   >;
   filteredFreeResourcesByArticleType: FreeResourceData[];
   categoryDescriptionData: CategoryDescriptionData;
+  articleTagType: Record<string, any>;
 }
 
 export const FreeResourcesContext = createContext<FreeResourcesContextProps>({
@@ -52,6 +53,7 @@ export const FreeResourcesContext = createContext<FreeResourcesContextProps>({
     id: 1,
     attributes: {},
   },
+  articleTagType: {},
 });
 
 export interface FreeResourcesContextProviderProps

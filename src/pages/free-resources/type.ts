@@ -1,4 +1,6 @@
+import { TagList } from "@/services/FreeResources";
 import type { BlocksContent } from "@strapi/blocks-react-renderer";
+import { type } from "os";
 
 export enum CategoryType {
   NewArticle = "NewArticle",
@@ -18,6 +20,13 @@ export enum CategoryTitle {
   InterviewTips = "面试技巧",
   IndustryKnowledge = "行业知识",
   LiveStreamBooking = "直播预约",
+}
+
+export enum CategoryPath {
+  JobSearchGuide = "/free-resources/job-hunting",
+  InterviewTips = "/free-resources/interview",
+  IndustryKnowledge = "/free-resources/news",
+  LiveStreamBooking = "/free-resources/live-broadcast",
 }
 
 export enum RightArticleType {
@@ -48,10 +57,11 @@ export interface ParagraphBlock {
   children: TextChild[];
 }
 
-export interface FreeResourceData {
+export interface FreeResource {
   id: number;
   attributes: Attributes;
 }
+export type FreeResourceData = Array<FreeResource>;
 
 export enum TitleShowType {
   default = "default",
@@ -66,6 +76,10 @@ export interface ContentTypes {
   //   enum: Array<keyof typeof RightArticleType>;
   // };
 }
+export interface Tag {
+  title: string;
+  desc: string;
+}
 
 export interface Attributes {
   title: string;
@@ -75,12 +89,15 @@ export interface Attributes {
   postDate: string;
   author: string;
   category: CategoryType;
-  tag: TagType;
+  tag: string;
   summary: string;
   content: BlocksContent;
   isPopular: boolean | null;
   isRecommended: boolean | null;
   isRandom: boolean | null;
+  tags: {
+    data: TagList;
+  };
   cover: {
     data: {
       id: number;

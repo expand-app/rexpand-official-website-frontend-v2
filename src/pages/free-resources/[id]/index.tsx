@@ -21,11 +21,14 @@ import { Button, Popover, Popper } from "@mui/material";
 import theme from "@/utils/theme";
 import dayjs from "dayjs";
 import { TIME_FORMAT } from "../constant";
+import _ from "lodash";
+import { STRAPI_PRIVATE_PROP } from "@/constant";
 
 interface Props {
   article: FreeResourceData;
   articleList: Array<FreeResourceData>;
   contentTypes: ContentTypes;
+  articleTagType: any;
 }
 
 interface FreeResourceDetailViewPage extends Props {
@@ -67,6 +70,7 @@ function MobileView({
   contentTypes,
   addLikeCount,
   articleList,
+  articleTagType,
 }: FreeResourceDetailViewPage) {
   const { attributes } = article;
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
@@ -153,7 +157,7 @@ function MobileView({
                       />
                     </div>
                     <div className="mt-20 mb-20 flex  gap-5 justify-center">
-                      {contentTypes.tag.enum.map((key) => {
+                      {Object.keys(articleTagType).map((key, index) => {
                         return (
                           <div
                             className=" gap-1 flex items-center  bg-[#0000000f] rounded py-1 px-3"
@@ -163,9 +167,9 @@ function MobileView({
                               src={tagSvg}
                               width={16}
                               height={16}
-                              alt={TagType[key]}
+                              alt={articleTagType[key]}
                             ></Image>
-                            {TagType[key]}
+                            {articleTagType[key]}
                           </div>
                         );
                       })}
@@ -202,6 +206,7 @@ function PCView({
   contentTypes,
   addLikeCount,
   articleList,
+  articleTagType,
 }: FreeResourceDetailViewPage) {
   const { attributes } = article;
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(
@@ -295,7 +300,7 @@ function PCView({
                     />
                   </div>
                   <div className="mt-24 mb-20 flex  gap-5 justify-center">
-                    {contentTypes.tag.enum.map((key) => {
+                    {Object.keys(articleTagType).map((key, index) => {
                       return (
                         <div
                           className=" gap-1 flex items-center  bg-[#0000000f] rounded py-1 px-3"
@@ -305,9 +310,9 @@ function PCView({
                             src={tagSvg}
                             width={16}
                             height={16}
-                            alt={TagType[key]}
+                            alt={articleTagType[key]}
                           ></Image>
-                          {TagType[key]}
+                          {articleTagType[key]}
                         </div>
                       );
                     })}
@@ -357,11 +362,17 @@ export const getStaticProps = async ({ params }: any) => {
     if (params?.id) {
       const data = await freeResourcesService.getArticleList();
       const contentType = await freeResourcesService.getArticleType();
+      const articleTagTypeData = await freeResourcesService.getArticleTag();
+      const articleTagType = _.omit(
+        articleTagTypeData.data.attributes,
+        STRAPI_PRIVATE_PROP
+      );
       return {
         props: {
           article: data.data.find((item) => item.id === +params.id) || [],
           articleList: data.data,
           contentTypes: contentType.data.schema.attributes,
+          articleTagType,
         },
       };
     }
@@ -372,6 +383,7 @@ export const getStaticProps = async ({ params }: any) => {
         article: [],
         articleList: [],
         contentTypes: {},
+        articleTagType: {},
       },
     };
   }
