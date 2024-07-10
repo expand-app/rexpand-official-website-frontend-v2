@@ -12,21 +12,22 @@ import {
 import useScreen from "@/components/useScreen/useScreen";
 import { useMemo } from "react";
 import Link from "next/link";
+import { TagList } from "@/services/FreeResources";
 interface RightContentContentProps {
-  filteredFreeResources: FreeResourceData[];
-  contentTypes: ContentTypes;
+  filteredFreeResources: FreeResourceData;
+  tagList: TagList;
 }
 
 interface RightContentContentViewProps {
-  filteredFreeResourcesOfHot: FreeResourceData[];
-  filteredFreeResourcesOfRecommend: FreeResourceData[];
-  contentTypes: ContentTypes;
+  filteredFreeResourcesOfHot: FreeResourceData;
+  filteredFreeResourcesOfRecommend: FreeResourceData;
+  tagList: TagList;
 }
 
 const PCView: React.FC<RightContentContentViewProps> = ({
   filteredFreeResourcesOfRecommend,
   filteredFreeResourcesOfHot,
-  contentTypes,
+  tagList,
 }) => {
   return (
     <div className="min-w-80  w-80  ">
@@ -101,15 +102,16 @@ const PCView: React.FC<RightContentContentViewProps> = ({
       <div className="mt-6 py-8 px-5 bg-white ">
         <div className="text-xl font-bold "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
-          {contentTypes?.tag?.enum.map((key) => {
+          {tagList.map((item) => {
             return (
-              <div
-                key={key}
-                className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
-              >
-                <Image src={tagSvg} alt={TagType[key]}></Image>
-                <span>{TagType[key]}</span>
-              </div>
+              <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
+                <div
+                  className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
+                >
+                  <Image src={tagSvg} alt={item.attributes.title}></Image>
+                  <span>{item.attributes.title}</span>
+                </div>
+              </Link>
             );
           })}
         </div>
@@ -147,7 +149,7 @@ const PCView: React.FC<RightContentContentViewProps> = ({
 const MobileView: React.FC<RightContentContentViewProps> = ({
   filteredFreeResourcesOfRecommend,
   filteredFreeResourcesOfHot,
-  contentTypes,
+  tagList,
 }) => {
   return (
     <div className="min-w-80  w-80 py-8 px-5">
@@ -222,15 +224,16 @@ const MobileView: React.FC<RightContentContentViewProps> = ({
       <div className="mt-6 py-8 px-5 bg-white ">
         <div className="text-xl font-medium "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
-          {contentTypes?.tag?.enum.map((key) => {
+          {tagList.map((item) => {
             return (
-              <div
-                key={key}
-                className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
-              >
-                <Image src={tagSvg} alt={TagType[key]}></Image>
-                <span>{TagType[key]}</span>
-              </div>
+              <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
+                <div
+                  className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
+                >
+                  <Image src={tagSvg} alt={item.attributes.title}></Image>
+                  <span>{item.attributes.title}</span>
+                </div>
+              </Link>
             );
           })}
         </div>
@@ -288,13 +291,13 @@ const RightContentContent: React.FC<RightContentContentProps> = (props) => {
     <MobileView
       filteredFreeResourcesOfRecommend={filteredFreeResourcesOfRecommend}
       filteredFreeResourcesOfHot={filteredFreeResourcesOfHot}
-      contentTypes={props.contentTypes}
+      tagList={props.tagList}
     />
   ) : (
     <PCView
       filteredFreeResourcesOfRecommend={filteredFreeResourcesOfRecommend}
       filteredFreeResourcesOfHot={filteredFreeResourcesOfHot}
-      contentTypes={props.contentTypes}
+      tagList={props.tagList}
     />
   );
 };

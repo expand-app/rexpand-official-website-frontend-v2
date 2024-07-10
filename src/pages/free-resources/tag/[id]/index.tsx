@@ -12,7 +12,6 @@ import {
 } from "../../type";
 import FreeResourceLayout from "../../components/FreeResourceLayout";
 import _ from "lodash";
-import { STRAPI_PRIVATE_PROP } from "@/constant";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 interface JobJuntingProps {

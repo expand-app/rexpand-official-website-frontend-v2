@@ -89,7 +89,6 @@ export interface Attributes {
   postDate: string;
   author: string;
   category: CategoryType;
-  tag: string;
   summary: string;
   content: BlocksContent;
   isPopular: boolean | null;

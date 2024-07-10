@@ -1,4 +1,8 @@
-import { FreeResourceData, TagType } from "@/pages/free-resources/type";
+import {
+  FreeResource,
+  FreeResourceData,
+  TagType,
+} from "@/pages/free-resources/type";
 import { BaseAPI } from "@/utils/base-api";
 
 export interface APIResponse<T = any> {
@@ -50,11 +54,8 @@ class FreeResourcesAPI extends BaseAPI {
       withAuthToken: false,
     });
   };
-  setArticle = ({
-    id,
-    likeCount,
-  }: any): Promise<APIResponse<FreeResourceData>> => {
-    return this.put(`/api/articles/${id}`, {
+  setArticle = ({ id, likeCount }: any): Promise<APIResponse<FreeResource>> => {
+    return this.put(`/api/articles/${id}?populate=*`, {
       body: JSON.stringify({
         data: {
           likeCount,
