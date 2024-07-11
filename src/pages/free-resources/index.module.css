@@ -1,7 +1,7 @@
 .filter {
     padding-top: 32px;
     padding-bottom: 25px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 30%, rgba(0, 138, 39, 0.1) 80%, rgba(0, 138, 39, 0.2) 100%);
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, 65%, rgba(0, 138, 39, 0.1) 80%);
 }
 
 .main {
@@ -9,11 +9,11 @@
 }
 
 .page {
-    background: linear-gradient(to top, #F7FBF8 0%, #F7FBF8 80%, rgba(0, 138, 39, 0.3) 95%, rgba(0, 138, 39, 0.8) 100%)
+    background: linear-gradient(to top, #F7F7F7 80%, rgba(0, 138, 39, 0.2) 83%, rgba(0, 138, 39, 0.8) 100%)
 }
 
 .m_page {
-    background: linear-gradient(to top, #F7FBF8 0%, #F7FBF8 80%, rgba(0, 138, 39, 0.3) 95%, rgba(0, 138, 39, 0.8) 100%)
+    background: linear-gradient(to top, #F7F7F7 60%, rgba(0, 138, 39, 0.2) 70%, rgba(0, 138, 39, 0.8) 100%)
 }
 
 .m_main {

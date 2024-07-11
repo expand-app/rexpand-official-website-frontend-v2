@@ -1,6 +1,5 @@
 import { TagList } from "@/services/FreeResources";
 import type { BlocksContent } from "@strapi/blocks-react-renderer";
-import { type } from "os";
 
 export enum CategoryType {
   NewArticle = "NewArticle",

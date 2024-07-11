@@ -3,23 +3,11 @@ import styles from "./index.module.css";
 import Image from "next/image";
 import qrDaeImg from "@/assets/qr_dae.png";
 import tagSvg from "@/assets/free-resources/tag.svg";
-import {
-  ContentTypes,
-  FreeResourceData,
-  RightArticleType,
-  TagType,
-  TitleShowType,
-} from "../../type";
-import useFreeResourcesContext from "../../Context";
+import { FreeResourceData, RightArticleType } from "../../type";
 import useScreen from "@/components/useScreen/useScreen";
-import freeResourcesService, {
-  CategoryDescriptionData,
-  TagList,
-} from "@/services/FreeResources";
+import { TagList } from "@/services/FreeResources";
 import Link from "next/link";
-import _ from "lodash";
-import { STRAPI_PRIVATE_PROP } from "@/constant";
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import { useMemo, useState } from "react";
 interface RightRecommendContentProps {
   articleList: FreeResourceData;
@@ -41,9 +29,14 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
 }) => {
   return (
     <div className="min-w-80  w-80">
-      <div className={clsx("py-8 px-5", styles.rightContent)}>
-        <div className=" rounded-sm bg-custom-green-0.2">
-          <div className="text-xl text-center ">
+      <div
+        className={clsx(
+          "h-[232px]  min-h-[232px] px-5 flex items-center text-center rounded",
+          styles.rightContent
+        )}
+      >
+        <div className="flex-1">
+          <div className="text-xl  ">
             <div className="font-semibold ">
               扫描二维码或者
               <Link
@@ -55,14 +48,16 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
               </Link>
             </div>
           </div>
-          <div className="mt-6 flex justify-center">
-            <Image
-              src={qrDaeImg}
-              alt={"qr_code_img"}
-              className={clsx("w-24 h-24")}
-            />
+          <div className="rounded-sm bg-custom-green-0.2 pb-1">
+            <div className="mt-6 flex justify-center ">
+              <Image
+                src={qrDaeImg}
+                alt={"qr_code_img"}
+                className={clsx("w-24 h-24")}
+              />
+            </div>
+            <div className="mt-3 text-center">上千名校友内推群等你来</div>
           </div>
-          <div className="mt-3 text-center">上千名校友内推群等你来</div>
         </div>
       </div>
       <div className="mt-6 py-8 px-5 bg-white">
@@ -129,14 +124,14 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
   data,
 }) => {
   return (
-    <div className="">
+    <div className=" px-3 ">
       <div
         className={clsx(
-          "py-4 px-3 rounded overflow-hidden bg-custom-green-0.2",
+          "py-4 px-3  rounded overflow-hidden bg-custom-green-0.2",
           styles.rightContent
         )}
       >
-        <div className="text-xl  ">
+        <div className="text-lg  ">
           <div className="font-semibold ">
             扫描二维码或者
             <Link
@@ -161,7 +156,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
         </div>
       </div>
 
-      <div className="mt-6 py-4 px-3 bg-white">
+      <div className="mt-6 py-4 px-3  bg-white rounded">
         <div className="flex justify-between text-base ">
           {Object.keys(RightArticleType).map((key) => {
             return (
@@ -196,7 +191,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
           })}
         </ul>
       </div>
-      <div className="mt-6 py-4 px-3 bg-white mb-6 ">
+      <div className="mt-6 py-4  px-3 bg-white mb-6  rounded">
         <div className="text-xl font-medium "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList.map((item) => {

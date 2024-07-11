@@ -1,19 +1,16 @@
 import React, { useEffect, useMemo, useState } from "react";
 import styles from "./FreeResourceList.module.css";
-import Image, { StaticImageData } from "next/image";
-import timeIconImg from "@/assets/icon_time.png";
+import Image from "next/image";
 import clsx from "clsx";
-import favorite from "@/assets/free-resources/favorite.svg";
 import read from "@/assets/free-resources/read.svg";
 import like from "@/assets/free-resources/like.svg";
+import favorite from "@/assets/free-resources/favorite.svg";
 import Pagination from "@mui/material/Pagination";
-import PaginationItem from "@mui/material/PaginationItem";
 import Link from "next/link";
 import useScreen from "@/components/useScreen/useScreen";
 import { FreeResourceData, PageInfo } from "../../type";
 import { PAGE_SIZE } from "../../constant";
 import { NextPage } from "next";
-import useFreeResourcesContext from "../../Context";
 
 export interface FreeResourceListProp {
   data: FreeResourceData;
@@ -89,10 +86,9 @@ const MobileView = ({
             key={id}
             className={clsx(`${index !== data.length - 1 ? "mb-3" : ""}`)}
           >
-            {/* <Link href={`/free-resources/${item.id}`}> */}
             <Link href={`/free-resources/${id}`}>
               <div
-                className={`rounded relative text-[#1B1B1B]   bg-white py-3 px-3 cursor-pointer  `}
+                className={`rounded relative text-[#1B1B1B] px-3  bg-white py-3  cursor-pointer  `}
               >
                 <div className="flex gap-2">
                   <div className="w-[110px] h-[73px] ">
@@ -119,7 +115,7 @@ const MobileView = ({
                     <div className="opacity-60">{postDate}</div>
                   </div>
                   <div className="flex gap-2 items-center">
-                    {/* <div className="flex gap-1 items-center ">
+                    <div className="flex gap-1 items-center ">
                       <Image
                         src={read}
                         width={14}
@@ -136,7 +132,7 @@ const MobileView = ({
                         alt="收藏"
                       ></Image>
                       {favoriteCount}
-                    </div> */}
+                    </div>
                     <div className="flex gap-1 items-center">
                       <Image
                         src={like}
@@ -154,7 +150,7 @@ const MobileView = ({
         );
       })}
       {pageInfo.pages > 1 && (
-        <div className={"flex justify-center my-8"}>
+        <div className={"flex justify-center mt-8"}>
           <Pagination
             count={pageInfo.pages}
             page={pageInfo.page}
@@ -220,7 +216,7 @@ const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
                 </div>
                 <div
                   className={clsx(
-                    "flex flex-col justify-between",
+                    "flex flex-col justify-between flex-1",
                     styles.bottom
                   )}
                 >
@@ -238,15 +234,15 @@ const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
                       <span>|</span>
                       <div className="opacity-60">{postDate}</div>
                     </div>
-                    <div className="flex gap-2 items-center">
-                      {/* <div className="flex gap-1">
+                    <div className="flex gap-5 items-center">
+                      <div className="flex gap-1">
                         <Image src={read} alt="阅读量"></Image>
                         {readCount}
                       </div>
                       <div className="flex gap-1">
                         <Image src={favorite} alt="收藏"></Image>
                         {favoriteCount}
-                      </div> */}
+                      </div>
                       <div className="flex gap-1">
                         <Image src={like} alt="点赞"></Image>
                         {likeCount}

@@ -13,12 +13,11 @@ import {
   Tag,
   TitleShowType,
 } from "../../type";
-import useFreeResourcesContext from "../../Context";
 import Link from "next/link";
 
 export interface LinkFilterProps {
   type: TitleShowType;
-  title: string;
+  title?: string;
   currentFilter?: CategoryType;
   setCurrentFilter?: React.Dispatch<React.SetStateAction<CategoryType>>;
   tag?: Tag;

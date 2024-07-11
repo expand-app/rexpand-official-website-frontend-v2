@@ -14,7 +14,7 @@ import { TagList } from "@/services/FreeResources";
 import useScreen from "@/components/useScreen/useScreen";
 
 interface IndexPCProps {
-  title: string;
+  title?: string;
   type: TitleShowType;
   data: FreeResourceData;
   tagList: TagList;
@@ -53,8 +53,7 @@ const PCView: React.FC<IndexPCProps> = ({
             <div className="pt-6 pb-8 text-base text-white">
               <Link href="/">Rexpand</Link> &gt;&gt;
               <Link href="/free-resources"> 免费资源</Link>
-              &gt;&gt;&nbsp;
-              {title}
+              {title && <span>&gt;&gt;&nbsp;{title}</span>}
             </div>
 
             <LinkFilter
@@ -95,15 +94,14 @@ const MobileView: React.FC<IndexPCProps> = ({
 }) => {
   return (
     <div>
-      <main className={clsx("m-main", styles.m_main)}>
-        <div className={styles.m_page}>
-          <Header theme={Theme.LIGHT} />
-          <div className="container mx-auto m-section px-3 ">
+      <main className={clsx("m-main bg-[#F7F7F7]", styles.m_main)}>
+        <Header theme={Theme.LIGHT} />
+        <div className="container mx-auto m-section  ">
+          <div className={clsx(styles.m_page, "px-3 pb-8")}>
             <div className="pt-2 pb-6 text-base text-white">
               <Link href="/">Rexpand</Link> &gt;&gt;
               <Link href="/free-resources"> 免费资源</Link>
-              &gt;&gt;&nbsp;
-              {title}
+              {title && <span>&gt;&gt;&nbsp;{title}</span>}
             </div>
 
             <div className=" overflow-auto">
@@ -117,19 +115,17 @@ const MobileView: React.FC<IndexPCProps> = ({
               />
             </div>
 
-            <div className={` flex space-y-4 flex-col`}>
-              <FreeResourceList data={data} />
-              {type !== TitleShowType.tag && (
-                <RightRecommendContent
-                  articleList={articleList}
-                  tagList={tagList}
-                />
-              )}
-            </div>
+            <FreeResourceList data={data} />
           </div>
-
-          <Footer />
+          {type !== TitleShowType.tag && (
+            <RightRecommendContent
+              articleList={articleList}
+              tagList={tagList}
+            />
+          )}
         </div>
+
+        <Footer />
       </main>
     </div>
   );

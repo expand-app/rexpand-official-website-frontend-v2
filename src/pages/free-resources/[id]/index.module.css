@@ -1,10 +1,12 @@
 .main {
     margin-top: 114px;
+    background-color: #F7F7F7
 }
 
 .m_main {
     margin-top: 45px;
     font-size: 12px;
+    background-color: #F7F7F7
 }
 
 .page {
@@ -12,7 +14,7 @@
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100%; */
-    background: linear-gradient(to bottom, rgba(0, 138, 39, 0.8) 0%, #fff 8%, #fff 100%);
+    background: linear-gradient(to bottom, rgba(0, 138, 39, 0.7) 0%, #fff 10%);
 }
 
 .absolutePage {
@@ -20,4 +22,8 @@
     height: 400px;
     width: 100%;
     background: linear-gradient(180deg, #F7FBF8 0%, #008A27 152.38%);
+}
+
+.m_dialog_bg {
+    background: linear-gradient(180deg, #CDF1D8 0%, #E5F2E9 16.78%, #EFF7F2 34.17%, #EEF6F8 82.37%, #ECF3F9 100%);
 }

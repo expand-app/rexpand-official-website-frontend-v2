@@ -3,12 +3,7 @@ import Image from "next/image";
 import qrDaeImg from "@/assets/qr_dae.png";
 import tagSvg from "@/assets/free-resources/tag.svg";
 import new_live from "@/assets/free-resources/new_live.svg";
-import {
-  ContentTypes,
-  FreeResourceData,
-  RightArticleType,
-  TagType,
-} from "../type";
+import { FreeResourceData, RightArticleType } from "../type";
 import useScreen from "@/components/useScreen/useScreen";
 import { useMemo } from "react";
 import Link from "next/link";
