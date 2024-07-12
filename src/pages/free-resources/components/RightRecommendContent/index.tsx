@@ -82,7 +82,7 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
         </div>
 
         <ul className="mt-8">
-          {data.map((item) => {
+          {data?.map((item) => {
             return (
               <Link href={`/free-resources/${item.id}`} key={item.id}>
                 <li key={item.id} className="flex  mt-6 ">
@@ -99,7 +99,7 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
       <div className="mt-6 py-8 px-5 bg-white ">
         <div className="text-xl font-medium "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
-          {tagList.map((item) => {
+          {tagList?.map((item) => {
             return (
               <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
                 <div
@@ -177,7 +177,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
           })}
         </div>
         <ul className="mt-8">
-          {data.map((item) => {
+          {data?.map((item) => {
             return (
               <Link href={`/free-resources/${item.id}`} key={item.id}>
                 <li key={item.id} className="flex  mt-6 ">
@@ -194,7 +194,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
       <div className="mt-6 py-4  px-3 bg-white mb-6  rounded">
         <div className="text-xl font-medium "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
-          {tagList.map((item) => {
+          {tagList?.map((item) => {
             return (
               <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
                 <div

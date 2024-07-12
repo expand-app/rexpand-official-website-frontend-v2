@@ -515,11 +515,12 @@ function PCView({
                   ></Image>
                 </div>
               </div>
-
-              <RightContent
-                filteredFreeResources={articleList}
-                tagList={tagList}
-              />
+              {tagList.length > 0 && (
+                <RightContent
+                  filteredFreeResources={articleList}
+                  tagList={tagList}
+                />
+              )}
             </div>
           </div>
         </div>

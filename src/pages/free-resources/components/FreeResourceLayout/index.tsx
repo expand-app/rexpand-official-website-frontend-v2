@@ -76,12 +76,14 @@ const PCView: React.FC<IndexPCProps> = ({
 
             <div className={`pb-12 mt-6 flex space-x-4`}>
               <FreeResourceList data={data} />
-              {type !== TitleShowType.tag && (
-                <RightRecommendContent
-                  articleList={articleList}
-                  tagList={tagList}
-                />
-              )}
+              {type !== TitleShowType.tag &&
+                tagList?.length > 0 &&
+                articleList?.length > 0 && (
+                  <RightRecommendContent
+                    articleList={articleList}
+                    tagList={tagList}
+                  />
+                )}
             </div>
           </div>
           <Footer />
@@ -128,12 +130,14 @@ const MobileView: React.FC<IndexPCProps> = ({
 
             <FreeResourceList data={data} />
           </div>
-          {type !== TitleShowType.tag && (
-            <RightRecommendContent
-              articleList={articleList}
-              tagList={tagList}
-            />
-          )}
+          {type !== TitleShowType.tag &&
+            tagList?.length > 0 &&
+            articleList?.length > 0 && (
+              <RightRecommendContent
+                articleList={articleList}
+                tagList={tagList}
+              />
+            )}
         </div>
 
         <Footer />

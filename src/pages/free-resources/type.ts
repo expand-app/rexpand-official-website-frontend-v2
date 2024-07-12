@@ -81,14 +81,16 @@ export interface Tag {
 }
 
 export type CategoryName = Exclude<CategoryTitle, CategoryTitle.NewArticle>;
+
 export interface Category {
-  data: {
-    id: number;
-    attributes: {
-      name: CategoryName;
-      path: string;
-    };
+  id: number;
+  attributes: {
+    name: CategoryName;
+    path: string;
   };
+}
+export interface CategoryData {
+  data: Category;
 }
 
 export type Categories = Array<Category>;
@@ -99,7 +101,7 @@ export interface Attributes {
   readCount: number;
   postDate: string;
   author: string;
-  category: Category | null;
+  category: CategoryData | null;
   summary: string;
   content: BlocksContent;
   isPopular: boolean | null;
