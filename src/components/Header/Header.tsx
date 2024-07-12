@@ -1,4 +1,4 @@
-import React, { MouseEventHandler, useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import Button, { ButtonColor, ButtonSize, ButtonType } from "../Button/Button";
 import Image from "next/image";
@@ -10,7 +10,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import useScreen from "../useScreen/useScreen";
 import mArrowUp from "@/assets/m_icon_menu_arrow_up.png";
-import mMenuClose from "@/assets/icon_menu_close.png";
 import { consultModalData } from "@/data/job_consult";
 
 const jobMenuLinks = [
@@ -211,7 +210,7 @@ const MobileView = ({ className, theme = Theme.TRANSPARENT }: Props) => {
               </li>
               <li className={clsx({ [styles.m_expand]: expand })}>
                 <Link href="/job/offer-guarantee" onClick={onLevel1MenuClick}>
-                  求职项目{" "}
+                  求职项目
                   <i>
                     <Image
                       alt=""

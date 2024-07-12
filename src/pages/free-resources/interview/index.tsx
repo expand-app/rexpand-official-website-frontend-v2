@@ -2,32 +2,38 @@ import { GetStaticProps, NextPage } from "next/types";
 
 import freeResourcesService, { TagList } from "@/services/FreeResources";
 import {
+  Categories,
   CategoryTitle,
-  CategoryType,
-  ContentTypes,
   FreeResourceData,
   TitleShowType,
 } from "../type";
 import FreeResourceLayout from "../components/FreeResourceLayout";
-import _ from "lodash";
+import { META_DATA } from "@/constant";
+import Head from "@/components/Head";
 
 interface Props {
   articleList: FreeResourceData;
   tagList: TagList;
+  categories: Categories;
 }
 
-const Index: NextPage<Props> = ({ articleList, tagList }) => {
+const Index: NextPage<Props> = ({ articleList, tagList, categories }) => {
   return (
-    <FreeResourceLayout
-      title={CategoryTitle.InterviewTips}
-      type={TitleShowType.single}
-      articleList={articleList}
-      tagList={tagList}
-      data={articleList?.filter(
-        (item) =>
-          item?.attributes.category?.indexOf(CategoryType.InterviewTips) != -1
-      )}
-    />
+    <>
+      <Head {...META_DATA.interview} />
+      <FreeResourceLayout
+        title={CategoryTitle.InterviewTips}
+        type={TitleShowType.single}
+        articleList={articleList}
+        tagList={tagList}
+        categories={categories}
+        data={articleList?.filter(
+          (item) =>
+            item?.attributes.category?.data?.attributes.name ===
+            CategoryTitle.InterviewTips
+        )}
+      />
+    </>
   );
 };
 
@@ -38,10 +44,12 @@ export const getStaticProps: GetStaticProps = async () => {
     const data = await freeResourcesService.getArticleList();
 
     const tagData = await freeResourcesService.getArticleTag();
+    const categories = await freeResourcesService.getArticleCategory();
     return {
       props: {
         articleList: data.data,
         tagList: tagData.data,
+        categories: categories.data,
       },
     };
   } catch (error) {
@@ -50,6 +58,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         articleList: [],
         tagList: [],
+        categories: [],
       },
     };
   }

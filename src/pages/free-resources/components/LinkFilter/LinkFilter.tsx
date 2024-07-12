@@ -6,9 +6,9 @@ import Image from "next/image";
 import useScreen from "@/components/useScreen/useScreen";
 import tag_green from "@/assets/free-resources/tag_green.svg";
 import {
+  Categories,
   CategoryPath,
   CategoryTitle,
-  CategoryType,
   FreeResourceData,
   Tag,
   TitleShowType,
@@ -18,10 +18,11 @@ import Link from "next/link";
 export interface LinkFilterProps {
   type: TitleShowType;
   title?: string;
-  currentFilter?: CategoryType;
-  setCurrentFilter?: React.Dispatch<React.SetStateAction<CategoryType>>;
+  currentFilter?: CategoryTitle;
+  setCurrentFilter?: React.Dispatch<React.SetStateAction<CategoryTitle>>;
   tag?: Tag;
   data?: FreeResourceData;
+  categories?: Categories;
 }
 
 export const LinkFilter: React.FC<LinkFilterProps> = (props) => {
@@ -39,6 +40,7 @@ const MobileView = ({
   setCurrentFilter,
   tag,
   data,
+  categories,
 }: LinkFilterProps) => {
   const onTitleTypeMouseEnter = (filterName: any) => {
     setCurrentFilter?.(filterName);
@@ -74,40 +76,32 @@ const MobileView = ({
   }
   return (
     <div className={combinedClassName}>
-      {Object.keys(CategoryTitle)?.map((key, index) => {
-        if (
-          CategoryTitle[key as keyof typeof CategoryTitle] ===
-          CategoryTitle.NewArticle
-        ) {
-          return (
-            <div
-              key={key}
-              className={clsx(
-                "text-black rounded whitespace-nowrap text-base cursor-pointer min-w-[90px] min-h-[38px]  bg-white flex justify-center items-center",
-                {
-                  [styles.active]: currentFilter === key,
-                },
-                currentFilter !== key ? "opacity-40" : ""
-              )}
-              onMouseEnter={() => onTitleTypeMouseEnter(key)}
-            >
-              {CategoryTitle.NewArticle}
-            </div>
-          );
-        }
+      <div
+        className={clsx(
+          "text-black rounded whitespace-nowrap text-base cursor-pointer min-w-[90px] min-h-[38px]  bg-white flex justify-center items-center",
+          {
+            [styles.active]: currentFilter === CategoryTitle.NewArticle,
+          },
+          currentFilter !== CategoryTitle.NewArticle ? "opacity-40" : ""
+        )}
+        onMouseEnter={() => onTitleTypeMouseEnter(CategoryTitle.NewArticle)}
+      >
+        {CategoryTitle.NewArticle}
+      </div>
+      {categories?.map((item) => {
         return (
-          <Link href={CategoryPath[key as keyof typeof CategoryPath]} key={key}>
+          <Link href={CategoryPath[item.attributes.name]} key={item.id}>
             <div
               className={clsx(
                 "text-black rounded whitespace-nowrap text-base cursor-pointer min-w-[90px] min-h-[38px]  bg-white flex justify-center items-center",
                 {
-                  [styles.active]: currentFilter === key,
+                  [styles.active]: currentFilter === item.attributes.name,
                 },
-                currentFilter !== key ? "opacity-40" : ""
+                currentFilter !== item.attributes.name ? "opacity-40" : ""
               )}
-              onMouseEnter={() => onTitleTypeMouseEnter(key)}
+              onMouseEnter={() => onTitleTypeMouseEnter(item.attributes.name)}
             >
-              {CategoryTitle[key as keyof typeof CategoryTitle]}
+              {item.attributes.name}
             </div>
           </Link>
         );
@@ -123,6 +117,7 @@ const PCView = ({
   setCurrentFilter,
   tag,
   data,
+  categories,
 }: LinkFilterProps) => {
   const onTitleTypeMouseEnter = (filterName: any) => {
     setCurrentFilter?.(filterName);
@@ -159,32 +154,24 @@ const PCView = ({
   }
   return (
     <div className={combinedClassName}>
-      {Object.keys(CategoryTitle)?.map((key, index) => {
-        if (
-          CategoryTitle[key as keyof typeof CategoryTitle] ===
-          CategoryTitle.NewArticle
-        ) {
-          return (
-            <div
-              key={key}
-              className={clsx("text-black cursor-pointer", {
-                [styles.active]: currentFilter === key,
-              })}
-              onMouseEnter={() => onTitleTypeMouseEnter(key)}
-            >
-              {CategoryTitle.NewArticle}
-            </div>
-          );
-        }
+      <div
+        className={clsx("text-black cursor-pointer", {
+          [styles.active]: currentFilter === CategoryTitle.NewArticle,
+        })}
+        onMouseEnter={() => onTitleTypeMouseEnter(CategoryTitle.NewArticle)}
+      >
+        {CategoryTitle.NewArticle}
+      </div>
+      {categories?.map((item) => {
         return (
-          <Link href={CategoryPath[key as keyof typeof CategoryPath]} key={key}>
+          <Link href={CategoryPath[item.attributes.name]} key={item.id}>
             <div
               className={clsx("text-black cursor-pointer", {
-                [styles.active]: currentFilter === key,
+                [styles.active]: currentFilter === item.attributes.name,
               })}
-              onMouseEnter={() => onTitleTypeMouseEnter(key)}
+              onMouseEnter={() => onTitleTypeMouseEnter(item.attributes.name)}
             >
-              {CategoryTitle[key as keyof typeof CategoryTitle]}
+              {item.attributes.name}
             </div>
           </Link>
         );

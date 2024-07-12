@@ -22,10 +22,10 @@ export enum CategoryTitle {
 }
 
 export enum CategoryPath {
-  JobSearchGuide = "/free-resources/job-hunting",
-  InterviewTips = "/free-resources/interview",
-  IndustryKnowledge = "/free-resources/news",
-  LiveStreamBooking = "/free-resources/live-broadcast",
+  "求职攻略" = "/free-resources/job-hunting",
+  "面试技巧" = "/free-resources/interview",
+  "行业知识" = "/free-resources/news",
+  "直播预约" = "/free-resources/live-broadcast",
 }
 
 export enum RightArticleType {
@@ -80,6 +80,18 @@ export interface Tag {
   desc: string;
 }
 
+export type CategoryName = Exclude<CategoryTitle, CategoryTitle.NewArticle>;
+export interface Category {
+  data: {
+    id: number;
+    attributes: {
+      name: CategoryName;
+      path: string;
+    };
+  };
+}
+
+export type Categories = Array<Category>;
 export interface Attributes {
   title: string;
   favoriteCount: number;
@@ -87,7 +99,7 @@ export interface Attributes {
   readCount: number;
   postDate: string;
   author: string;
-  category: CategoryType;
+  category: Category | null;
   summary: string;
   content: BlocksContent;
   isPopular: boolean | null;

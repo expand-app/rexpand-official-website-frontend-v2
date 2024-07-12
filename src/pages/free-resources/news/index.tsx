@@ -2,33 +2,37 @@ import { GetStaticProps, NextPage } from "next/types";
 
 import freeResourcesService, { TagList } from "@/services/FreeResources";
 import {
+  Categories,
   CategoryTitle,
-  CategoryType,
-  ContentTypes,
   FreeResourceData,
   TitleShowType,
 } from "../type";
+import { META_DATA } from "@/constant";
+import Head from "@/components/Head";
 import FreeResourceLayout from "../components/FreeResourceLayout";
-import _ from "lodash";
-import { STRAPI_PRIVATE_PROP } from "@/constant";
 interface Props {
   articleList: FreeResourceData;
   tagList: TagList;
+  categories: Categories;
 }
 
-const Index: NextPage<Props> = ({ articleList, tagList }) => {
+const Index: NextPage<Props> = ({ articleList, tagList, categories }) => {
   return (
-    <FreeResourceLayout
-      title={CategoryTitle.IndustryKnowledge}
-      type={TitleShowType.single}
-      articleList={articleList}
-      tagList={tagList}
-      data={articleList?.filter(
-        (item) =>
-          item?.attributes.category?.indexOf(CategoryType.IndustryKnowledge) !=
-          -1
-      )}
-    />
+    <>
+      <Head {...META_DATA.news} />
+      <FreeResourceLayout
+        title={CategoryTitle.IndustryKnowledge}
+        type={TitleShowType.single}
+        articleList={articleList}
+        tagList={tagList}
+        categories={categories}
+        data={articleList?.filter(
+          (item) =>
+            item?.attributes.category?.data?.attributes.name ===
+            CategoryTitle.IndustryKnowledge
+        )}
+      />
+    </>
   );
 };
 
@@ -38,10 +42,12 @@ export const getStaticProps: GetStaticProps = async () => {
   try {
     const data = await freeResourcesService.getArticleList();
     const tagData = await freeResourcesService.getArticleTag();
+    const categories = await freeResourcesService.getArticleCategory();
     return {
       props: {
         articleList: data.data,
         tagList: tagData.data,
+        categories: categories.data,
       },
     };
   } catch (error) {
@@ -50,6 +56,7 @@ export const getStaticProps: GetStaticProps = async () => {
       props: {
         articleList: [],
         tagList: [],
+        categories: [],
       },
     };
   }

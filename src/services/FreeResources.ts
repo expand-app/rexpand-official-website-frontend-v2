@@ -1,7 +1,7 @@
 import {
+  Categories,
   FreeResource,
   FreeResourceData,
-  TagType,
 } from "@/pages/free-resources/type";
 import { BaseAPI } from "@/utils/base-api";
 
@@ -61,6 +61,11 @@ class FreeResourcesAPI extends BaseAPI {
           likeCount,
         },
       }),
+      withAuthToken: false,
+    });
+  };
+  getArticleCategory = (): Promise<APIResponse<Categories>> => {
+    return this.get(`/api/categories`, {
       withAuthToken: false,
     });
   };

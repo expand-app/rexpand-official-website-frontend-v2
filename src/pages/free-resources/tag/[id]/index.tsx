@@ -1,17 +1,8 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next/types";
+import { GetStaticProps, NextPage } from "next/types";
 
-import freeResourcesService, {
-  CategoryDescriptionData,
-  TagList,
-} from "@/services/FreeResources";
-import {
-  CategoryTitle,
-  CategoryType,
-  FreeResourceData,
-  TitleShowType,
-} from "../../type";
+import freeResourcesService, { TagList } from "@/services/FreeResources";
+import { FreeResourceData, TitleShowType } from "../../type";
 import FreeResourceLayout from "../../components/FreeResourceLayout";
-import _ from "lodash";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 interface JobJuntingProps {
@@ -86,7 +77,6 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
       props: {
         articleList: [],
         articleTagType: {},
-        categoryDescriptionData: {},
       },
     };
   }

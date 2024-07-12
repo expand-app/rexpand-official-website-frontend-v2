@@ -9,7 +9,13 @@ import RightRecommendContent from "../RightRecommendContent";
 import Link from "next/link";
 
 import Footer from "@/components/Footer/Footer";
-import { CategoryType, FreeResourceData, Tag, TitleShowType } from "../../type";
+import {
+  Categories,
+  CategoryTitle,
+  FreeResourceData,
+  Tag,
+  TitleShowType,
+} from "../../type";
 import { TagList } from "@/services/FreeResources";
 import useScreen from "@/components/useScreen/useScreen";
 
@@ -19,9 +25,10 @@ interface IndexPCProps {
   data: FreeResourceData;
   tagList: TagList;
   articleList: FreeResourceData;
-  currentFilter?: CategoryType;
-  setCurrentFilter?: React.Dispatch<React.SetStateAction<CategoryType>>;
+  currentFilter?: CategoryTitle;
+  setCurrentFilter?: React.Dispatch<React.SetStateAction<CategoryTitle>>;
   tag?: Tag;
+  categories?: Categories;
 }
 
 const IndexPC: NextPage<IndexPCProps> = (props) => {
@@ -41,6 +48,7 @@ const PCView: React.FC<IndexPCProps> = ({
   currentFilter,
   setCurrentFilter,
   tag,
+  categories,
 }) => {
   return (
     <>
@@ -63,6 +71,7 @@ const PCView: React.FC<IndexPCProps> = ({
               setCurrentFilter={setCurrentFilter}
               tag={tag}
               data={articleList}
+              categories={categories}
             />
 
             <div className={`pb-12 mt-6 flex space-x-4`}>
@@ -91,6 +100,7 @@ const MobileView: React.FC<IndexPCProps> = ({
   currentFilter,
   setCurrentFilter,
   tag,
+  categories,
 }) => {
   return (
     <div>
@@ -112,6 +122,7 @@ const MobileView: React.FC<IndexPCProps> = ({
                 setCurrentFilter={setCurrentFilter}
                 tag={tag}
                 data={articleList}
+                categories={categories}
               />
             </div>
 

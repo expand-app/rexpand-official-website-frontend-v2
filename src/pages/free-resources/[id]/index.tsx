@@ -56,29 +56,53 @@ export const FreeResourceDetailPage: NextPage<Props> = ({
   };
 
   const relatedArticles = useMemo(() => {
+    const tagIds = article.attributes.tags.data.map((item) => item.id);
     if (id) {
       return articleList
         .filter((item) => {
           if (item.id === article.id) {
             return false;
           }
-          return item.attributes.tags.data.some((item) => item.id === +id);
+          return item.attributes.tags.data.some((item) =>
+            tagIds.includes(item.id)
+          );
         })
         .slice(0, 2);
     }
     return [];
-  }, [article.id, articleList, id]);
+  }, [article.attributes.tags.data, article.id, articleList, id]);
 
   const previousArticle = useMemo(() => {
     if (id) {
-      return articleList.find((item) => item.id === +id - 1) || null;
+      let currentId = +id - 1;
+      while (currentId >= 0) {
+        const article = articleList.find((item) => item.id === currentId);
+        if (article) {
+          return article;
+        }
+        currentId--;
+      }
     }
     return null;
   }, [articleList, id]);
 
   const nextArticle = useMemo(() => {
     if (id) {
-      return articleList.find((item) => item.id === +id + 1) || null;
+      let currentId = +id + 1;
+      const maxIdArticle = articleList.reduce(
+        (max, current) => {
+          return current.id > max.id ? current : max;
+        },
+        { id: 0 }
+      );
+
+      while (currentId <= maxIdArticle.id) {
+        const article = articleList.find((item) => item.id === currentId);
+        if (article) {
+          return article;
+        }
+        currentId++;
+      }
     }
     return null;
   }, [articleList, id]);
@@ -274,35 +298,38 @@ function MobileView({
             ></Image>
           </div>
           <div className="text-[#1B1B1B]">
-            <div className="mt-8 mb-3">
-              <div className=" text-lg font-semibold"> 相关阅读</div>
-              <div className="mt-3  rounded bg-white space-y-4">
-                {relatedArticles.map((item) => {
-                  return (
-                    <div
-                      key={item.id}
-                      className="p-4 flex justify-between gap-2"
-                    >
-                      <Image
-                        alt={item.attributes.title}
-                        width={176}
-                        height={117}
-                        className="max-h-[117px] rounded"
-                        src={
-                          item.attributes.cover.data.attributes.formats.large
-                            .url
-                        }
-                      />
-                      <div className="flex-1">
-                        <div className="text-sm line-clamp-2  mb-2">
-                          {item.attributes.title}
+            {relatedArticles.length > 0 && (
+              <div className="mt-8 mb-3">
+                <div className=" text-lg font-semibold"> 相关阅读</div>
+                <div className="mt-3  rounded bg-white space-y-4">
+                  {relatedArticles.map((item) => {
+                    return (
+                      <div
+                        key={item.id}
+                        className="p-4 flex justify-between gap-2"
+                      >
+                        <Image
+                          alt={item.attributes.title}
+                          width={176}
+                          height={117}
+                          className="max-h-[117px] rounded"
+                          src={
+                            item.attributes.cover.data.attributes.formats.large
+                              .url
+                          }
+                        />
+                        <div className="flex-1">
+                          <div className="text-sm line-clamp-2  mb-2">
+                            {item.attributes.title}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
-            </div>
+            )}
+
             {/* 上一篇 下一篇 */}
             <div className="flex   mb-8 mt-6 ">
               {previousArticle && (
@@ -498,37 +525,43 @@ function PCView({
         </div>
       </div>
       <div className="container mx-auto  mt-[90px]  w-2/3">
-        <div className="">
-          <div className=" text-[40px] font-semibold"> 相关阅读</div>
-          <div className="mt-10 py-6 px-11 rounded bg-white space-y-4">
-            {relatedArticles.map((item) => {
-              return (
-                <div key={item.id} className="py-8 flex justify-between gap-24">
-                  <div className="flex-1">
-                    <div className="text-xl font-medium mb-2">
-                      {item.attributes.title}
+        {relatedArticles.length > 0 && (
+          <div className="">
+            <div className=" text-[40px] font-semibold"> 相关阅读</div>
+            <div className="mt-10 py-6 px-11 rounded bg-white space-y-4">
+              {relatedArticles.map((item) => {
+                return (
+                  <div
+                    key={item.id}
+                    className="py-8 flex justify-between gap-24"
+                  >
+                    <div className="flex-1">
+                      <div className="text-xl font-medium mb-2">
+                        {item.attributes.title}
+                      </div>
+                      <div className="line-clamp-2">
+                        {item.attributes.summary}
+                      </div>
                     </div>
-                    <div className="line-clamp-2">
-                      {item.attributes.summary}
-                    </div>
+                    <Image
+                      alt={item.attributes.title}
+                      width={176}
+                      height={117}
+                      src={
+                        item.attributes.cover.data.attributes.formats.large.url
+                      }
+                    ></Image>
                   </div>
-                  <Image
-                    alt={item.attributes.title}
-                    width={176}
-                    height={117}
-                    src={
-                      item.attributes.cover.data.attributes.formats.large.url
-                    }
-                  ></Image>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
+        )}
+
         {/* 上一篇 下一篇 */}
         <div className="flex  gap-6 mb-[70px] mt-6">
           {previousArticle && (
-            <div className="basis-1/2 py-8 px-6 bg-white rounded ">
+            <div className="basis-1/2 py-8 px-6 bg-white rounded   flex flex-col justify-between">
               <div className="text-xl font-medium mb-16 ">
                 {previousArticle.attributes.title}
               </div>
@@ -547,7 +580,7 @@ function PCView({
             </div>
           )}
           {nextArticle && (
-            <div className="basis-1/2 py-8 px-6 bg-white rounded ">
+            <div className="basis-1/2 py-8 px-6 bg-white rounded flex flex-col justify-between ">
               <div className="text-xl font-medium mb-16">
                 {nextArticle.attributes.title}
               </div>
