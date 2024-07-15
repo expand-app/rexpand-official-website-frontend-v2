@@ -11,7 +11,7 @@ const CMS_API_DOMAIN_LOOKUP: Record<ServerEnv, string> = {
 };
 
 export const getAPIDomain = (): string => {
-  return (
-    CMS_API_DOMAIN_LOOKUP[process.env.NODE_ENV as ServerEnv] ?? `localhost`
-  );
+  console.log(process.env.APP_ENV, "+=process.env.NODE_ENV");
+
+  return CMS_API_DOMAIN_LOOKUP[process.env.APP_ENV as ServerEnv] ?? `localhost`;
 };

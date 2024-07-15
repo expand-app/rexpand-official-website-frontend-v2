@@ -87,7 +87,7 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
             return (
               <Link
                 href={`/free-resources/${
-                  process.env.NODE_ENV !== ServerEnv.Production
+                  process.env.APP_ENV !== ServerEnv.Production
                     ? item.id
                     : `${item.id}.html`
                 }`}
@@ -109,14 +109,7 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList?.map((item) => {
             return (
-              <Link
-                href={`/free-resources/${
-                  process.env.NODE_ENV !== ServerEnv.Production
-                    ? item.id
-                    : `${item.id}.html`
-                }`}
-                key={item.id}
-              >
+              <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
                 <div
                   className={`transition-all  flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
                 >
@@ -196,7 +189,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
             return (
               <Link
                 href={`/free-resources/${
-                  process.env.NODE_ENV !== ServerEnv.Production
+                  process.env.APP_ENV !== ServerEnv.Production
                     ? item.id
                     : `${item.id}.html`
                 }`}
@@ -218,14 +211,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList?.map((item) => {
             return (
-              <Link
-                href={`/free-resources/${
-                  process.env.NODE_ENV !== ServerEnv.Production
-                    ? item.id
-                    : `${item.id}.html`
-                }`}
-                key={item.id}
-              >
+              <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
                 <div
                   className={`transition-all  flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
                 >

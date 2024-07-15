@@ -89,9 +89,7 @@ const MobileView = ({
           >
             <Link
               href={`/free-resources/${
-                process.env.NODE_ENV !== ServerEnv.Production
-                  ? id
-                  : `${id}.html`
+                process.env.APP_ENV !== ServerEnv.Production ? id : `${id}.html`
               }`}
             >
               <div
@@ -209,9 +207,7 @@ const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
           >
             <Link
               href={`/free-resources/${
-                process.env.NODE_ENV !== ServerEnv.Production
-                  ? id
-                  : `${id}.html`
+                process.env.APP_ENV !== ServerEnv.Production ? id : `${id}.html`
               }`}
             >
               <div

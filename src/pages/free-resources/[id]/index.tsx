@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { GetStaticPaths, NextPage } from "next";
 import styles from "./index.module.css";
 import Header, { Theme } from "@/components/Header/Header";
@@ -24,6 +24,7 @@ import { TIME_FORMAT } from "../constant";
 import ArrowLeft from "@/assets/free-resources/arrow_left.svg";
 import ArrowRight from "@/assets/free-resources/arrow_right.svg";
 import ArrowClose from "@/assets/free-resources/arrow_close.svg";
+import { ServerEnv } from "@/utils/env";
 
 interface Props {
   article: FreeResource;
@@ -46,6 +47,10 @@ export const FreeResourceDetailPage: NextPage<Props> = ({
   const router = useRouter();
   const { id } = router.query;
   const [article, setArticle] = useState<FreeResource>(props.article);
+
+  useEffect(() => {
+    setArticle(props.article);
+  }, [props.article]);
 
   const addLikeCount = async (val: number) => {
     const data = await freeResourcesService.setArticle({
@@ -304,26 +309,32 @@ function MobileView({
                 <div className="mt-3  rounded bg-white space-y-4">
                   {relatedArticles.map((item) => {
                     return (
-                      <div
+                      <Link
                         key={item.id}
-                        className="p-4 flex justify-between gap-2"
+                        href={`/free-resources/${
+                          process.env.APP_ENV !== ServerEnv.Production
+                            ? item.id
+                            : `${item.id}.html`
+                        }`}
                       >
-                        <Image
-                          alt={item.attributes.title}
-                          width={176}
-                          height={117}
-                          className="max-h-[117px] rounded"
-                          src={
-                            item.attributes.cover.data.attributes.formats.large
-                              .url
-                          }
-                        />
-                        <div className="flex-1">
-                          <div className="text-sm line-clamp-2  mb-2">
-                            {item.attributes.title}
+                        <div className="p-4 flex justify-between gap-2">
+                          <Image
+                            alt={item.attributes.title}
+                            width={176}
+                            height={117}
+                            className="max-h-[117px] rounded"
+                            src={
+                              item.attributes.cover.data.attributes.formats
+                                .large.url
+                            }
+                          />
+                          <div className="flex-1">
+                            <div className="text-sm line-clamp-2  mb-2">
+                              {item.attributes.title}
+                            </div>
                           </div>
                         </div>
-                      </div>
+                      </Link>
                     );
                   })}
                 </div>
@@ -337,7 +348,13 @@ function MobileView({
                   <div className="text-sm  mb-14">
                     {previousArticle.attributes.title}
                   </div>
-                  <Link href={`/free-resources/${previousArticle.id}`}>
+                  <Link
+                    href={`/free-resources/${
+                      process.env.APP_ENV !== ServerEnv.Production
+                        ? previousArticle.id
+                        : `${previousArticle.id}.html`
+                    }`}
+                  >
                     <Button
                       fullWidth
                       variant="contained"
@@ -360,7 +377,13 @@ function MobileView({
                   <div className="text-sm  mb-14">
                     {nextArticle.attributes.title}
                   </div>
-                  <Link href={`/free-resources/${nextArticle.id}`}>
+                  <Link
+                    href={`/free-resources/${
+                      process.env.APP_ENV !== ServerEnv.Production
+                        ? nextArticle.id
+                        : `${nextArticle.id}.html`
+                    }`}
+                  >
                     <Button
                       sx={{ height: 60, fontWeight: 400, fontSize: 12 }}
                       fullWidth
@@ -532,27 +555,37 @@ function PCView({
             <div className="mt-10 py-6 px-11 rounded bg-white space-y-4">
               {relatedArticles.map((item) => {
                 return (
-                  <div
+                  <Link
                     key={item.id}
-                    className="py-8 flex justify-between gap-24"
+                    href={`/free-resources/${
+                      process.env.APP_ENV !== ServerEnv.Production
+                        ? item.id
+                        : `${item.id}.html`
+                    }`}
                   >
-                    <div className="flex-1">
-                      <div className="text-xl font-medium mb-2">
-                        {item.attributes.title}
+                    <div
+                      key={item.id}
+                      className="py-8 flex justify-between gap-24"
+                    >
+                      <div className="flex-1">
+                        <div className="text-xl font-medium mb-2">
+                          {item.attributes.title}
+                        </div>
+                        <div className="line-clamp-2">
+                          {item.attributes.summary}
+                        </div>
                       </div>
-                      <div className="line-clamp-2">
-                        {item.attributes.summary}
-                      </div>
+                      <Image
+                        alt={item.attributes.title}
+                        width={176}
+                        height={117}
+                        src={
+                          item.attributes.cover.data.attributes.formats.large
+                            .url
+                        }
+                      ></Image>
                     </div>
-                    <Image
-                      alt={item.attributes.title}
-                      width={176}
-                      height={117}
-                      src={
-                        item.attributes.cover.data.attributes.formats.large.url
-                      }
-                    ></Image>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -566,7 +599,13 @@ function PCView({
               <div className="text-xl font-medium mb-16 ">
                 {previousArticle.attributes.title}
               </div>
-              <Link href={`/free-resources/${previousArticle.id}`}>
+              <Link
+                href={`/free-resources/${
+                  process.env.APP_ENV !== ServerEnv.Production
+                    ? previousArticle.id
+                    : `${previousArticle.id}.html`
+                }`}
+              >
                 <Button fullWidth variant="contained" sx={{ height: 60 }}>
                   <Image
                     src={ArrowLeft}
@@ -585,7 +624,13 @@ function PCView({
               <div className="text-xl font-medium mb-16">
                 {nextArticle.attributes.title}
               </div>
-              <Link href={`/free-resources/${nextArticle.id}`}>
+              <Link
+                href={`/free-resources/${
+                  process.env.APP_ENV !== ServerEnv.Production
+                    ? nextArticle.id
+                    : `${nextArticle.id}.html`
+                }`}
+              >
                 <Button sx={{ height: 60 }} fullWidth variant="contained">
                   下一篇
                   <Image
@@ -636,8 +681,7 @@ export const getStaticProps = async ({ params }: any) => {
       props: {
         article: [],
         articleList: [],
-        contentTypes: {},
-        articleTagType: {},
+        tagList: [],
       },
     };
   }
