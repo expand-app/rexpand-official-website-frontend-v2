@@ -8,6 +8,7 @@ import useScreen from "@/components/useScreen/useScreen";
 import { useMemo } from "react";
 import Link from "next/link";
 import { TagList } from "@/services/FreeResources";
+import { ServerEnv } from "@/utils/env";
 interface RightContentContentProps {
   filteredFreeResources: FreeResourceData;
   tagList: TagList;
@@ -65,7 +66,14 @@ const PCView: React.FC<RightContentContentViewProps> = ({
         <ul className="mt-8 pl-2">
           {filteredFreeResourcesOfHot.map((item) => {
             return (
-              <Link href={`/free-resources/${item.id}`} key={item.id}>
+              <Link
+                href={`/free-resources/${
+                  process.env.NODE_ENV !== ServerEnv.Production
+                    ? item.id
+                    : `${item.id}.html`
+                }`}
+                key={item.id}
+              >
                 <li key={item.id} className="flex  mt-6 ">
                   <div>
                     <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
@@ -99,7 +107,14 @@ const PCView: React.FC<RightContentContentViewProps> = ({
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList?.map((item) => {
             return (
-              <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
+              <Link
+                href={`/free-resources/${
+                  process.env.NODE_ENV !== ServerEnv.Production
+                    ? item.id
+                    : `${item.id}.html`
+                }`}
+                key={item.id}
+              >
                 <div
                   className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
                 >
@@ -125,7 +140,14 @@ const PCView: React.FC<RightContentContentViewProps> = ({
         <ul className="mt-8 pl-2">
           {filteredFreeResourcesOfRecommend.map((item) => {
             return (
-              <Link href={`/free-resources/${item.id}`} key={item.id}>
+              <Link
+                href={`/free-resources/${
+                  process.env.NODE_ENV !== ServerEnv.Production
+                    ? item.id
+                    : `${item.id}.html`
+                }`}
+                key={item.id}
+              >
                 <li className="flex  mt-6 ">
                   <div>
                     <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
@@ -188,7 +210,14 @@ const MobileView: React.FC<RightContentContentViewProps> = ({
         <ul className="mt-8">
           {filteredFreeResourcesOfHot.map((item) => {
             return (
-              <Link href={`/free-resources/${item.id}`} key={item.id}>
+              <Link
+                href={`/free-resources/${
+                  process.env.NODE_ENV !== ServerEnv.Production
+                    ? item.id
+                    : `${item.id}.html`
+                }`}
+                key={item.id}
+              >
                 <li key={item.id} className="flex  mt-6 ">
                   <div>
                     <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />
@@ -221,7 +250,14 @@ const MobileView: React.FC<RightContentContentViewProps> = ({
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList?.map((item) => {
             return (
-              <Link href={`/free-resources/tag/${item.id}`} key={item.id}>
+              <Link
+                href={`/free-resources/${
+                  process.env.NODE_ENV !== ServerEnv.Production
+                    ? item.id
+                    : `${item.id}.html`
+                }`}
+                key={item.id}
+              >
                 <div
                   className={`flex cursor-pointer gap-1 rounded text-base border-[1px] py-1  px-2 border-custom-black-0.1 border-solid`}
                 >
@@ -247,7 +283,14 @@ const MobileView: React.FC<RightContentContentViewProps> = ({
         <ul className="mt-8">
           {filteredFreeResourcesOfRecommend.map((item) => {
             return (
-              <Link href={`/free-resources/${item.id}`} key={item.id}>
+              <Link
+                href={`/free-resources/${
+                  process.env.NODE_ENV !== ServerEnv.Production
+                    ? item.id
+                    : `${item.id}.html`
+                }`}
+                key={item.id}
+              >
                 <li className="flex  mt-6 ">
                   <div>
                     <i className=" inline-block  mt-2 w-1.5 h-1.5 rounded-sm bg-custom-green mr-4 " />

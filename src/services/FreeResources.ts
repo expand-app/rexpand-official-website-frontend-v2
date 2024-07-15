@@ -71,9 +71,6 @@ class FreeResourcesAPI extends BaseAPI {
   };
 }
 
-const freeResources = new FreeResourcesAPI({
-  host: "localhost:3001",
-  schema: "http://",
-});
+const freeResources = new FreeResourcesAPI();
 
 export default freeResources;

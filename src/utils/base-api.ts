@@ -1,4 +1,5 @@
 import { ApiError, isApiError } from "@/types/error";
+import { getAPIDomain } from "./env";
 
 export const DEFAULT_REQUEST_SCHEMA = "http://";
 export const DEFAULT_TIMEOUT = 30000; // 30秒默认超时时间
@@ -43,7 +44,7 @@ export abstract class BaseAPI {
     getAuthToken,
   }: BaseAPIProps = {}) {
     this.schema = schema;
-    this.host = host || "";
+    this.host = host || getAPIDomain();
     this.prefix = prefix ?? "";
     this.getAuthToken = getAuthToken || getDefaultToken;
   }

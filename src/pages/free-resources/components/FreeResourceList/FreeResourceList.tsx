@@ -11,6 +11,7 @@ import useScreen from "@/components/useScreen/useScreen";
 import { FreeResourceData, PageInfo } from "../../type";
 import { PAGE_SIZE } from "../../constant";
 import { NextPage } from "next";
+import { ServerEnv } from "@/utils/env";
 
 export interface FreeResourceListProp {
   data: FreeResourceData;
@@ -86,7 +87,13 @@ const MobileView = ({
             key={id}
             className={clsx(`${index !== data.length - 1 ? "mb-3" : ""}`)}
           >
-            <Link href={`/free-resources/${id}`}>
+            <Link
+              href={`/free-resources/${
+                process.env.NODE_ENV !== ServerEnv.Production
+                  ? id
+                  : `${id}.html`
+              }`}
+            >
               <div
                 className={`rounded relative text-[#1B1B1B] px-3  bg-white py-3  cursor-pointer  `}
               >
@@ -200,8 +207,13 @@ const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
               `${index !== data.length - 1 ? "mb-6" : ""}`
             )}
           >
-            {/* <Link href={`/free-resources/${item.id}`}> */}
-            <Link href={`/free-resources/${id}`}>
+            <Link
+              href={`/free-resources/${
+                process.env.NODE_ENV !== ServerEnv.Production
+                  ? id
+                  : `${id}.html`
+              }`}
+            >
               <div
                 className={`rounded relative flex   bg-white py-6 px-5 cursor-pointer  `}
               >

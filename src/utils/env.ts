@@ -1,17 +1,17 @@
 export enum ServerEnv {
   Local = "local",
-  Staging = "staging",
-  Production = "prod",
+  Development = "development",
+  Production = "production",
 }
 
 const CMS_API_DOMAIN_LOOKUP: Record<ServerEnv, string> = {
-  [ServerEnv.Staging]: "api.staging.tuilink.io",
-  [ServerEnv.Production]: "api.tuilink.io",
-  [ServerEnv.Local]: "localhost",
+  [ServerEnv.Development]: "localhost:3001",
+  [ServerEnv.Production]: "cms.tuilink.io",
+  [ServerEnv.Local]: "localhost:3001",
 };
 
-// export const getServerEnv = (): ServerEnv => import.meta.env.MODE as ServerEnv;
-// export const getAPIDomain = (): string => {
-
-//     return CMS_API_DOMAIN_LOOKUP[getServerEnv()] ?? `api.${window.location.hostname}`;
-//   };
+export const getAPIDomain = (): string => {
+  return (
+    CMS_API_DOMAIN_LOOKUP[process.env.NODE_ENV as ServerEnv] ?? `localhost`
+  );
+};
