@@ -32,14 +32,17 @@ import Link from "next/link";
 import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { campConsultModalData } from "@/data/job_consult";
 import Head from "@/components/Head";
+import {
+  TRAINING_CAMP_DATE,
+  daysUntilDate,
+  getClosestDate,
+} from "@/utils/Utils";
 
 export interface InterviewCampPageProps {
   nextCourseTime: string;
 }
 
-export const InterviewCampPage: NextPage<InterviewCampPageProps> = ({
-  nextCourseTime,
-}) => {
+export const InterviewCampPage: NextPage<InterviewCampPageProps> = () => {
   const [jobConsultModalOpen, setJobConsultModalOpen] =
     useState<boolean>(false);
   const { isMobile } = useScreen();
@@ -47,6 +50,9 @@ export const InterviewCampPage: NextPage<InterviewCampPageProps> = ({
   const onBannerBtnClick = () => {
     setJobConsultModalOpen(true);
   };
+  const nextCourceTime = useMemo(() => {
+    return getClosestDate(TRAINING_CAMP_DATE);
+  }, []);
 
   return (
     <>
@@ -55,12 +61,12 @@ export const InterviewCampPage: NextPage<InterviewCampPageProps> = ({
         {isMobile?.() ? (
           <MobileView
             onBannerBtnClick={onBannerBtnClick}
-            nextCourseTime={nextCourseTime}
+            nextCourseTime={nextCourceTime}
           />
         ) : (
           <PCView
             onBannerBtnClick={onBannerBtnClick}
-            nextCourseTime={nextCourseTime}
+            nextCourseTime={nextCourceTime}
           />
         )}
 
@@ -82,10 +88,6 @@ export const MobileView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
   const onFloatMenuChange = (newIndex: number) => {
     setActiveFloatMenuIndex(newIndex);
   };
-
-  const courseDaysLeft = useMemo(() => {
-    return daysToNow(nextCourseTime);
-  }, [nextCourseTime]);
 
   return (
     <div>
@@ -109,10 +111,10 @@ export const MobileView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
               </h2>
               <h3 className={clsx(styles.m_banner_subtitle2)}>
                 下次开课：
-                <span className="font-w500 font-m">{nextCourseTime}</span>
+                <span className="font-w500 font-m mr-1">{nextCourseTime}</span>
                 倒计时：
                 <span className={styles.m_count_down_num}>
-                  {courseDaysLeft}
+                  {daysUntilDate(nextCourseTime)}
                 </span>
                 天
               </h3>
@@ -216,10 +218,6 @@ export const PCView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
     setActiveFloatMenuIndex(newIndex);
   };
 
-  const courseDaysLeft = useMemo(() => {
-    return daysToNow(nextCourseTime);
-  }, [nextCourseTime]);
-
   return (
     <div>
       <Header theme={Theme.TRANSPARENT} />
@@ -262,9 +260,11 @@ export const PCView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
                 )}
               >
                 下次开课：
-                <span className="font-w500">{nextCourseTime}</span>
+                <span className="font-w500 mr-1"> {nextCourseTime}</span>
                 倒计时：
-                <span className={styles.count_down_num}>{courseDaysLeft}</span>
+                <span className={styles.count_down_num}>
+                  {daysUntilDate(nextCourseTime)}
+                </span>
                 天
               </h3>
 
@@ -381,45 +381,3 @@ export default InterviewCampPage;
 //     </InternshipLayout>
 //   )
 // }
-
-export const getStaticProps: GetStaticProps = async () => {
-  try {
-    const res = await fetch(
-      "https://cms.staging.tuilink.io/api/repand-single-type"
-    );
-    const data = await res.json();
-
-    if (
-      !data ||
-      !data.data ||
-      !data.data.attributes ||
-      !data.data.attributes.interview_countdown_date
-    ) {
-      throw new Error("Invalid data format");
-    }
-
-    const countdownDate = data.data.attributes.interview_countdown_date;
-
-    return {
-      props: {
-        nextCourseTime: countdownDate,
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    // 默认情况下，设置当前日期的下一天
-    const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() + 1);
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // 月份从 0 开始，需要加 1
-    const day = String(currentDate.getDate()).padStart(2, "0");
-
-    const formattedDate = `${year}-${month}-${day}`;
-
-    return {
-      props: {
-        nextCourseTime: formattedDate,
-      },
-    };
-  }
-};

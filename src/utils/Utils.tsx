@@ -1,3 +1,5 @@
+import dayjs from "dayjs";
+
 const chineseNumbers = [
   "零",
   "一",
@@ -52,14 +54,13 @@ export function numberToChinese(num: number) {
  * @param date
  * @returns
  */
-export function daysToNow(date: string) {
+export function daysToNow(date: Date) {
   const currentDate = new Date();
 
-  const difference = new Date(date).getTime() - currentDate.getTime();
+  const difference = date.getTime() - currentDate.getTime();
 
   // 计算差值对应的天数
   const daysDifference = Math.ceil(difference / (1000 * 3600 * 24));
-  console.log(difference, "==difference");
 
   // 如果差值大于 0，说明传入日期在当前日期之后，返回差值；否则返回 0
   return daysDifference > 0 ? daysDifference : 0;
@@ -74,4 +75,45 @@ export function formatDate(date: Date) {
   const formattedDate = `${year}年${month}月${day}日`;
 
   return formattedDate;
+}
+
+export const TRAINING_CAMP_DATE = [
+  "2024-07-22",
+  "2024-08-19",
+  "2024-09-16",
+  "2024-10-21",
+  "2024-11-18",
+  "2024-12-16",
+];
+
+export const getClosestDate = (dates: Array<string>) => {
+  const now = dayjs();
+  let closestDate = dayjs().add(2, "month").format("YYYY-MM-DD");
+  let minDiff = Infinity;
+
+  dates.forEach((dateStr) => {
+    console.log(dateStr, "+=dateStr");
+
+    const date = dayjs(dateStr, "YYYY-MM-DD");
+
+    const diff = date.diff(now, "d");
+
+    if (diff >= 0 && diff < minDiff) {
+      minDiff = diff;
+      closestDate = dayjs(dateStr).format("YYYY-MM-DD");
+    }
+  });
+
+  return closestDate;
+};
+
+export function daysUntilDate(dateStr: string): number | null {
+  const targetDate = dayjs(dateStr, "YYYY-MM-DD");
+  const now = dayjs();
+
+  if (targetDate.isBefore(now)) {
+    return null;
+  }
+
+  return targetDate.diff(now, "day");
 }
