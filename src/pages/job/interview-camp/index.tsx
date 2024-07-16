@@ -32,7 +32,11 @@ import Link from "next/link";
 import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { campConsultModalData } from "@/data/job_consult";
 import Head from "@/components/Head";
-import { TRAINING_CAMP_DATE, daysUntilDate, getClosestDate } from "./constant";
+import {
+  TRAINING_CAMP_DATE,
+  daysUntilDate,
+  getClosestDate,
+} from "@/utils/Utils";
 
 export interface InterviewCampPageProps {
   nextCourseTime: string;
