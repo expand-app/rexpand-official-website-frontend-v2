@@ -1,18 +1,6 @@
 import { TagList } from "@/services/FreeResources";
 import type { BlocksContent } from "@strapi/blocks-react-renderer";
 
-export enum CategoryType {
-  NewArticle = "NewArticle",
-  JobSearchGuide = "JobSearchGuide",
-  InterviewTips = "InterviewTips",
-  IndustryKnowledge = "IndustryKnowledge",
-  LiveStreamBooking = "LiveStreamBooking",
-  // NewArticle = "最新文章",
-  // JobStrategy = "求职攻略",
-  // InterviewSkills = "面试技巧",
-  // IndustryKnowledge = "行业知识",
-  // LiveBookings = "直播预约",
-}
 export enum CategoryTitle {
   NewArticle = "最新文章",
   JobSearchGuide = "求职攻略",
