@@ -1,7 +1,7 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Footer from "@/components/Footer/Footer";
 import Header, { Theme } from "@/components/Header/Header";
-import { NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import styles from "./index.module.css";
 import Image from "next/image";
 import bannerRightImage from "@/assets/interview-camp/banner_right.png";
@@ -32,10 +32,17 @@ import Link from "next/link";
 import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { campConsultModalData } from "@/data/job_consult";
 import Head from "@/components/Head";
+import {
+  TRAINING_CAMP_DATE,
+  daysUntilDate,
+  getClosestDate,
+} from "@/utils/Utils";
 
-const nextCourceTime = new Date("2024-06-17");
+export interface InterviewCampPageProps {
+  nextCourseTime: string;
+}
 
-export const InterviewCampPage: NextPage = () => {
+export const InterviewCampPage: NextPage<InterviewCampPageProps> = () => {
   const [jobConsultModalOpen, setJobConsultModalOpen] =
     useState<boolean>(false);
   const { isMobile } = useScreen();
@@ -43,15 +50,24 @@ export const InterviewCampPage: NextPage = () => {
   const onBannerBtnClick = () => {
     setJobConsultModalOpen(true);
   };
+  const nextCourceTime = useMemo(() => {
+    return getClosestDate(TRAINING_CAMP_DATE);
+  }, []);
 
   return (
     <>
       <Head />
       <div>
         {isMobile?.() ? (
-          <MobileView onBannerBtnClick={onBannerBtnClick} />
+          <MobileView
+            onBannerBtnClick={onBannerBtnClick}
+            nextCourseTime={nextCourceTime}
+          />
         ) : (
-          <PCView onBannerBtnClick={onBannerBtnClick} />
+          <PCView
+            onBannerBtnClick={onBannerBtnClick}
+            nextCourseTime={nextCourceTime}
+          />
         )}
 
         <JobConsultModal
@@ -65,17 +81,13 @@ export const InterviewCampPage: NextPage = () => {
   );
 };
 
-export const MobileView = ({ onBannerBtnClick }: Props) => {
+export const MobileView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   // const [courseDaysLeft, setCourseDaysLeft] = useState<number>(0);
 
   const onFloatMenuChange = (newIndex: number) => {
     setActiveFloatMenuIndex(newIndex);
   };
-
-  const courseDaysLeft = useMemo(() => {
-    return daysToNow(nextCourceTime);
-  }, []);
 
   return (
     <div>
@@ -99,12 +111,10 @@ export const MobileView = ({ onBannerBtnClick }: Props) => {
               </h2>
               <h3 className={clsx(styles.m_banner_subtitle2)}>
                 下次开课：
-                <span className="font-w500 font-m">
-                  {formatDate(nextCourceTime)}
-                </span>{" "}
+                <span className="font-w500 font-m mr-1">{nextCourseTime}</span>
                 倒计时：
                 <span className={styles.m_count_down_num}>
-                  {courseDaysLeft}
+                  {daysUntilDate(nextCourseTime)}
                 </span>
                 天
               </h3>
@@ -200,17 +210,13 @@ export const MobileView = ({ onBannerBtnClick }: Props) => {
   );
 };
 
-export const PCView = ({ onBannerBtnClick }: Props) => {
+export const PCView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
   const [activeFloatMenuIndex, setActiveFloatMenuIndex] = useState<number>();
   // const [courseDaysLeft, setCourseDaysLeft] = useState<number>(0);
 
   const onFloatMenuChange = (newIndex: number) => {
     setActiveFloatMenuIndex(newIndex);
   };
-
-  const courseDaysLeft = useMemo(() => {
-    return daysToNow(nextCourceTime);
-  }, []);
 
   return (
     <div>
@@ -254,9 +260,11 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
                 )}
               >
                 下次开课：
-                <span className="font-w500">{formatDate(nextCourceTime)}</span>{" "}
+                <span className="font-w500 mr-1"> {nextCourseTime}</span>
                 倒计时：
-                <span className={styles.count_down_num}>{courseDaysLeft}</span>
+                <span className={styles.count_down_num}>
+                  {daysUntilDate(nextCourseTime)}
+                </span>
                 天
               </h3>
 
@@ -361,6 +369,7 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
 
 export interface Props {
   onBannerBtnClick: () => void;
+  nextCourseTime: string;
 }
 
 export default InterviewCampPage;
