@@ -52,14 +52,13 @@ export function numberToChinese(num: number) {
  * @param date
  * @returns
  */
-export function daysToNow(date: string) {
+export function daysToNow(date: Date) {
   const currentDate = new Date();
 
-  const difference = new Date(date).getTime() - currentDate.getTime();
+  const difference = date.getTime() - currentDate.getTime();
 
   // 计算差值对应的天数
   const daysDifference = Math.ceil(difference / (1000 * 3600 * 24));
-  console.log(difference, "==difference");
 
   // 如果差值大于 0，说明传入日期在当前日期之后，返回差值；否则返回 0
   return daysDifference > 0 ? daysDifference : 0;
