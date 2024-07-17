@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import clsx from "clsx";
 import styles from "./CourseArrangement.module.css";
-import courseArraBannerImage from "@/assets/interview-camp/banner_course_arrangement.png";
-import mCourseArraBannerImage from "@/assets/interview-camp/m_banner_course_arrangement.png";
+import courseArraBannerImage from "@/assets/interview-camp/banner_course_arrangement_en-us.png";
+import mCourseArraBannerImage from "@/assets/interview-camp/m_banner_course_arrangement_en-us.png";
 import circlePlayIconImg from "@/assets/interview-camp/icon_play_circle.png";
 import Image from "next/image";
 import { numberToChinese } from "@/utils/Utils";

@@ -31,7 +31,7 @@ import CampBannerOverlayCard from "./CampBannerOverlayCard/CampBannerOverlayCard
 import Link from "next/link";
 import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { campConsultModalDataEnUs } from "@/data/job_consult";
-import Head from "@/components/Head";
+import Head from "next/head";
 import {
   TRAINING_CAMP_DATE,
   daysUntilDate,
@@ -61,24 +61,29 @@ export const InterviewCampPage: NextPage<InterviewCampPageProps> = () => {
           9 Years of Focus on Chinese International Student Job Search
         </title>
         <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        ></meta>
+        <meta
           name="description"
-          content="Learn more about My Company, our mission, and what we do."
+          content="9 Years of Focus on Chinese International Student Job Search"
         />
-        <meta property="og:title" content="About Us - My Company" />
+        <meta property="og:title" content="睿思班" />
         <meta
           property="og:description"
-          content="Learn more about My Company, our mission, and what we do."
+          content="9 Years of Focus on Chinese International Student Job Search"
         />
-        <meta property="og:url" content="https://www.yourwebsite.com/about" />
+        <meta property="og:url" content="https://rexpandcareer.com/about" />
         <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://www.yourwebsite.com/about" />
+        <link rel="canonical" href="https://rexpandcareer.com/about" />
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"></link>
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            name: "My Company",
-            url: "https://www.yourwebsite.com",
-            logo: "https://www.yourwebsite.com/logo.png",
+            name: "睿思班",
+            url: "https://rexpandcareer.com",
+            logo: "https://rexpandcareer.com/_next/static/media/logo_green.e3921224.svg",
           })}
         </script>
       </Head>
