@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Footer from "@/components/Footer/en-us/Footer";
 import Header, { Theme } from "@/components/Header/en-us/Header";
 import { GetStaticProps, NextPage } from "next";
-import styles from "../interview-camp/index.module.css";
+import styles from "./index.module.css";
 import Image from "next/image";
 import bannerRightImage from "@/assets/interview-camp/banner_right.png";
 import bannerBgImage from "@/assets/interview-camp/banner_bg.png";
@@ -23,7 +23,7 @@ import {
   interviewCampFAQData,
   whyJoinData,
 } from "@/data/en-us/interview_camp";
-import WhyJoinList from "../interview-camp/WhyJoinList/WhyJoinList";
+import WhyJoinList from "@/pages/job/interview-camp/WhyJoinList/WhyJoinList";
 import CourseArrangement from "./CourseArrangement/CourseArrangement";
 import BannerOverlayCard from "@/components/BannerOverlayCard/BannerOverlayCard";
 import useScreen from "@/components/useScreen/useScreen";
