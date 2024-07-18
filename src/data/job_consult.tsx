@@ -53,7 +53,7 @@ export const campConsultModalDataEnUs: ConsultModalData = {
           click here
         </Link>
       </div>
-      <div>Contact Rexpand Career Consultant for Career Consultation</div>
+      <div>Add Wechat to register for class</div>
     </>
   ),
 };
@@ -167,7 +167,7 @@ export const consultModalDataEnUs: ConsultModalData = {
           click here
         </Link>
       </div>
-      <div>Contact Rexpand Career Consultant for Career Consultation</div>
+      <div>Add Wechat to register for class</div>
     </>
   ),
 };
