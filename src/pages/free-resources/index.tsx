@@ -1,110 +1,91 @@
 import React, { useMemo, useState } from "react";
-import { NextPage } from "next";
-import styles from "./index.module.css";
-import Header, { Theme } from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
-import FreeResourceList from "./components/FreeResourceList/FreeResourceList";
-import { freeResourceListData } from "@/data/free_resource";
-import LinkFilter from "./components/LinkFilter/LinkFilter";
-import clsx from "clsx";
-import useScreen from "@/components/useScreen/useScreen";
+import { GetStaticProps, NextPage } from "next";
+import FreeResourceLayout from "./components/FreeResourceLayout";
 import Head from "@/components/Head";
+import dayjs from "dayjs";
+import { LATEST_DATE } from "./constant";
+import freeResourcesService, { TagList } from "@/services/FreeResources";
+import {
+  FreeResourceData,
+  TitleShowType,
+  CategoryTitle,
+  Categories,
+} from "./type";
 
-export const FreeResourcesPage: NextPage = () => {
-  const { isMobile } = useScreen();
+export interface FreeResourcesPageProps {
+  articleList: FreeResourceData;
+  tagList: TagList;
+  categories: Categories;
+}
+
+export interface FreeResourcesPageViewProps extends FreeResourcesPageProps {
+  data: FreeResourceData;
+  currentFilter: CategoryTitle;
+  setCurrentFilter: React.Dispatch<React.SetStateAction<CategoryTitle>>;
+}
+
+export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = (props) => {
+  const { articleList, tagList, categories } = props;
+  const [currentFilter, setCurrentFilter] = useState<CategoryTitle>(
+    CategoryTitle.NewArticle
+  );
+  const filteredFreeResources = useMemo(() => {
+    if (currentFilter === CategoryTitle.NewArticle) {
+      return articleList
+        ?.filter((item) =>
+          dayjs(item.attributes.postDate).isAfter(dayjs(LATEST_DATE))
+        )
+        .sort((a, b) => {
+          const timeA = dayjs(a.attributes.postDate);
+          const timeB = dayjs(b.attributes.postDate);
+          return timeB.diff(timeA); // 使用 dayjs 的 diff 方法进行比较
+        });
+    }
+    return articleList?.filter(
+      (item) =>
+        item?.attributes.category?.data?.attributes.name === currentFilter
+    );
+  }, [articleList, currentFilter]);
+  console.log(articleList, "+=articleList", categories, currentFilter);
 
   return (
     <>
       <Head />
-      <div>{isMobile?.() ? <MobileView /> : <PCView />}</div>
+      <FreeResourceLayout
+        type={TitleShowType.default}
+        articleList={articleList}
+        tagList={tagList}
+        data={filteredFreeResources}
+        currentFilter={currentFilter}
+        setCurrentFilter={setCurrentFilter}
+        categories={categories}
+      />
     </>
   );
 };
 
-function MobileView() {
-  const [currentFilter, setCurrentFilter] = useState<string>("全部");
-
-  const handleFilterChange = (filterName: string) => {
-    setCurrentFilter(filterName);
-  };
-  const filteredFreeResources = useMemo(() => {
-    if (currentFilter === "全部") {
-      return freeResourceListData;
-    } else {
-      return freeResourceListData?.filter(
-        (item) => item?.tags?.indexOf(currentFilter) != -1
-      );
-    }
-  }, [freeResourceListData, currentFilter]);
-
-  return (
-    <div>
-      <main className={clsx("m-main", styles.m_main)}>
-        <div className={styles.page}>
-          <Header theme={Theme.LIGHT} />
-
-          <div className="container mx-auto m-section">
-            <div className="py-24px px-20px">
-              <LinkFilter
-                current={currentFilter}
-                data={["全部", "求职规划", "面试技巧", "行业知识"]}
-                onChange={handleFilterChange}
-              />
-            </div>
-            <div>
-              <FreeResourceList data={filteredFreeResources} />
-            </div>
-          </div>
-
-          <Footer />
-        </div>
-      </main>
-    </div>
-  );
-}
-
-function PCView() {
-  const [currentFilter, setCurrentFilter] = useState<string>("全部");
-
-  const handleFilterChange = (filterName: string) => {
-    setCurrentFilter(filterName);
-  };
-
-  const filteredFreeResources = useMemo(() => {
-    if (currentFilter === "全部") {
-      return freeResourceListData;
-    } else {
-      return freeResourceListData?.filter(
-        (item) => item?.tags?.indexOf(currentFilter) != -1
-      );
-    }
-  }, [currentFilter]);
-
-  return (
-    <div>
-      <main className={clsx("", styles.main)}>
-        <div className={styles.page}>
-          <Header theme={Theme.LIGHT} />
-
-          <div className="container mx-auto w-3/4">
-            <div className="pl-2 overflow-auto">
-              <LinkFilter
-                className={styles.filter}
-                current={currentFilter}
-                data={["全部", "求职规划", "面试技巧", "行业知识"]}
-                onChange={handleFilterChange}
-              />
-            </div>
-            <div className="pb-12">
-              <FreeResourceList data={filteredFreeResources} />
-            </div>
-          </div>
-
-          <Footer />
-        </div>
-      </main>
-    </div>
-  );
-}
-
 export default FreeResourcesPage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  try {
+    const data = await freeResourcesService.getArticleList();
+    const tagData = await freeResourcesService.getArticleTag();
+    const categories = await freeResourcesService.getArticleCategory();
+    return {
+      props: {
+        articleList: data.data,
+        tagList: tagData.data,
+        categories: categories.data,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return {
+      props: {
+        articleList: [],
+        tagList: [],
+        categories: [],
+      },
+    };
+  }
+};

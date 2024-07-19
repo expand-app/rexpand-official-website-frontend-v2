@@ -5,16 +5,14 @@ import Button, {
   ButtonType,
 } from "@/components/Button/Button";
 import Footer from "@/components/Footer/Footer";
-import Header, { Theme } from "@/components/Header/Header";
+import Header from "@/components/Header/Header";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import clsx from "clsx";
 import { NextPage } from "next";
 import bannerImg from "@/assets/home/banner.png";
 import mBannerImg from "@/assets/home/m_banner.png";
-import offer1Img from "@/assets/home/offer_1.svg";
 import styles from "./index.module.css";
 import Image from "next/image";
-import VerticalTabs from "@/components/VerticalTabs/VerticalTabs";
 import {
   offerGuaranteeTabsData,
   internshipProjectCardsData,
@@ -27,20 +25,20 @@ import InternshipProjectCards from "./index/components/InternshipProjectCards/In
 import InterviewCamp from "./index/components/InterviewCamp/InterviewCamp";
 import Link from "next/link";
 import Head from "@/components/Head";
-import OfferGuarantee from "./project/offer-guarantee";
 import OfferGuaranteeView from "./index/components/OfferGuaranteeView/OfferGuaranteeView";
 import useScreen from "@/components/useScreen/useScreen";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import { META_DATA } from "@/constant";
 
 export const HomePage: NextPage = () => {
   const { isMobile } = useScreen();
 
   return (
     <>
-      <Head />
+      <Head {...META_DATA.index} />
       <div>{isMobile?.() ? <MobileView /> : <PCView />}</div>
     </>
   );

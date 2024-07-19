@@ -4,140 +4,174 @@
 
 @font-face {
     font-family: 'PingFang_Light';
-    src: url('../assets/fonts/PingFang_Light.ttf') format('truetype'); 
+    src: url('../assets/fonts/PingFang_Light.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'PingFang_Regular';
-    src: url('../assets/fonts/PingFang_Regular.ttf') format('truetype'); 
+    src: url('../assets/fonts/PingFang_Regular.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'PingFang_Medium';
-    src: url('../assets/fonts/PingFang_Medium.ttf') format('truetype'); 
-}
-@font-face {
-    font-family: 'PingFang_Semiblod';
-    src: url('../assets/fonts/PingFang_Semibold.ttf') format('truetype'); 
-}
-@font-face {
-    font-family: 'RobotoCondensed';
-    src: url('../assets/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype'); 
+    src: url('../assets/fonts/PingFang_Medium.ttf') format('truetype');
 }
 
-body{
+@font-face {
+    font-family: 'PingFang_Semiblod';
+    src: url('../assets/fonts/PingFang_Semibold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'RobotoCondensed';
+    src: url('../assets/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
     font-family: 'PingFang_Regular';
     background-color: #F7F7F7;
     letter-spacing: 0.2px;
-    font-size: 14px;
+    font-size: 16px;
     color: #333333;
 }
-.transition{
+
+.transition {
     transition: all 0.25 ease;
 }
-.font-l{
+
+.font-l {
     font-family: 'PingFang_Light';
 }
-.font-m{
+
+.font-m {
     font-family: 'PingFang_Medium';
 }
-.font-sb{
+
+.font-sb {
     font-family: 'PingFang_Semiblod';
 }
-.font-rc{
+
+.font-rc {
     font-family: 'RobotoCondensed';
 }
 
 
-.font-14{
+.font-14 {
     font-size: 14px;
 }
-.font-16{
+
+.font-16 {
     font-size: 16px;
 }
-.font-22{
+
+.font-22 {
     font-size: 22px;
 }
-.font-29{
+
+.font-29 {
     font-size: 29px;
 }
-.font-36{
+
+.font-36 {
     font-size: 36px;
 }
+
 .font-40 {
     font-size: 40px;
 }
-.font-42{
+
+.font-42 {
     font-size: 42px;
 }
-.font-46{
+
+.font-46 {
     font-size: 46px;
 }
 
-.font-48{
+.font-48 {
     font-size: 48px;
 }
+
 .font-w300 {
     font-weight: 300;
 }
+
 .font-w400 {
     font-weight: 400;
 }
+
 .font-w500 {
     font-weight: 500;
 }
+
 .font-w600 {
     font-weight: 600;
 }
-.opacity-60{
+
+.opacity-60 {
     opacity: 0.6;
 }
-.mb-7px{
+
+.mb-7px {
     margin-bottom: 7px;
 }
-.mb-8px{
+
+.mb-8px {
     margin-bottom: 8px;
 }
+
 .mb-10px {
     margin-bottom: 10px;
 }
+
 .mb-12px {
     margin-bottom: 12px;
 }
+
 .mb-16px {
     margin-bottom: 16px;
 }
+
 .mb-17px {
     margin-bottom: 17px;
 }
+
 .mb-24px {
     margin-bottom: 24px;
 }
+
 .mb-36px {
     margin-bottom: 36px;
 }
+
 .mb-37px {
     margin-bottom: 37px;
 }
+
 .mb-40px {
     margin-bottom: 40px;
 }
-.mb-55px{
+
+.mb-55px {
     margin-bottom: 55px;
 }
 
-.mb-60px{
+.mb-60px {
     margin-bottom: 60px;
 }
+
 .mb-82px {
     margin-bottom: 82px;
 }
+
 .ml-23px {
     margin-left: 23px;
 }
+
 .mr-12px {
     margin-right: 12px;
 }
+
 .mr-18px {
     margin-right: 18px;
 }
@@ -148,33 +182,42 @@ body{
     padding-left: 12px;
     padding-right: 12px;
 }
+
 .px-20px {
     padding-left: 20px;
     padding-right: 20px;
 }
+
 .px-22px {
     padding-left: 22px;
     padding-right: 22px;
 }
+
 .py-24px {
     padding-top: 24px;
     padding-bottom: 24px;
 }
+
 .gap-6px {
     gap: 6px;
 }
+
 .gap-12px {
     gap: 12px;
 }
+
 .gap-16px {
     gap: 16px;
 }
+
 .gap-55px {
-    gap:55px;
+    gap: 55px;
 }
+
 .w-p85 {
     width: 85%;
 }
+
 .radius-8 {
     border-radius: 8px;
 }
@@ -182,6 +225,7 @@ body{
 .flex-2 {
     flex: 2;
 }
+
 .flex-3 {
     flex: 3;
 }
@@ -194,39 +238,43 @@ body{
     background-color: #008A27;
 }
 
-.page-banner{
+.page-banner {
     height: 920px;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
-.main {
-    
-}
+
+.main {}
+
 .m-main {
     max-width: 100vw;
     overflow: hidden;
 }
-.m-page-banner{
+
+.m-page-banner {
     margin-top: 45px;
     height: 382px;
 }
-.banner_text{
+
+.banner_text {
     font-family: 'PingFang_Medium';
     font-size: 60px;
     line-height: 80px;
     font-weight: 600;
 }
-.m-banner-text{
+
+.m-banner-text {
     color: #FFF;
     text-align: center;
     font-family: 'PingFang_Semiblod';
     font-size: 30px;
     font-style: normal;
     font-weight: 600;
-    line-height: 55px; 
+    line-height: 55px;
     letter-spacing: 0.2px;
 }
+
 .m-banner-text2 {
     color: #FFF;
     text-align: center;
@@ -236,7 +284,8 @@ body{
     line-height: 130%;
     letter-spacing: 0.2px;
 }
-.banner_subtitle{
+
+.banner_subtitle {
     font-size: 20px;
     font-weight: 400;
     line-height: 26px;
@@ -246,6 +295,7 @@ body{
 .section {
     position: relative;
 }
+
 .m-section {
     position: relative;
 }
@@ -266,23 +316,24 @@ body{
 .list_dot {
     display: inline-block;
     width: 6px;
-    height:6px;
+    height: 6px;
     border-radius: 50%;
 }
 
-.list_dot.green{
-    background-color:#008A27;
+.list_dot.green {
+    background-color: #008A27;
 }
 
-.swiper-pagination-bullet{
-    background: rgba(255,255,255,0.6) !important;
+.swiper-pagination-bullet {
+    background: rgba(255, 255, 255, 0.6) !important;
     background-size: contain !important;
     width: 8px !important;
     height: 8px !important;
     margin-bottom: 8px !important;
     margin-right: 22px !important;
 }
-.swiper-pagination-bullets > .swiper-pagination-bullet-active {
+
+.swiper-pagination-bullets>.swiper-pagination-bullet-active {
     margin-bottom: 0px !important;
 }
 
@@ -295,14 +346,17 @@ body{
     background-repeat: no-repeat;
 }
 
-.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+.swiper-pagination-fraction,
+.swiper-pagination-custom,
+.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 58px !important;
 }
 
 
 @media screen and (max-width: 768px) {
-    .swiper-pagination-bullet{
-        background: rgba(255,255,255,0.6) !important;
+    .swiper-pagination-bullet {
+        background: rgba(255, 255, 255, 0.6) !important;
         background-size: contain !important;
         width: 4.6px !important;
         height: 4.6px !important;
@@ -312,22 +366,25 @@ body{
 
     .swiper-pagination-bullet-active {
         background: url('/assets/icon_swiper_pagination_active.png') !important;
-    
+
         background-size: contain !important;
         width: 14px !important;
         height: 14px !important;
         background-repeat: no-repeat;
     }
 
-    .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    .swiper-pagination-fraction,
+    .swiper-pagination-custom,
+    .swiper-horizontal>.swiper-pagination-bullets,
+    .swiper-pagination-bullets.swiper-pagination-horizontal {
         bottom: 25px !important;
     }
-    
+
 }
 
 @media screen and (max-width: 1024px) {
-    .section .container{ 
+    .section .container {
         width: 96%;
-        max-width:none;
+        max-width: none;
     }
 }

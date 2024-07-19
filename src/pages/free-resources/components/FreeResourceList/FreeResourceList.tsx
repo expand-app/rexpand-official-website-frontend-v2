@@ -1,99 +1,289 @@
-import React from 'react';
-import styles from './FreeResourceList.module.css';
-import Image, { StaticImageData } from 'next/image';
-import timeIconImg from '@/assets/icon_time.png';
-import clsx from 'clsx';
-import Link from 'next/link';
-import useScreen from '@/components/useScreen/useScreen';
+import React, { useEffect, useMemo, useState } from "react";
+import styles from "./FreeResourceList.module.css";
+import Image from "next/image";
+import clsx from "clsx";
+import read from "@/assets/free-resources/read.svg";
+import like from "@/assets/free-resources/like.svg";
+import favorite from "@/assets/free-resources/favorite.svg";
+import Pagination from "@mui/material/Pagination";
+import Link from "next/link";
+import useScreen from "@/components/useScreen/useScreen";
+import { FreeResourceData, PageInfo } from "../../type";
+import { PAGE_SIZE } from "../../constant";
+import { NextPage } from "next";
+import { ServerEnv } from "@/utils/env";
 
-const FreeResourceList = ({...props}: Props) => {
-    const { isMobile } = useScreen();
-   
-    return (
-        <div>
-            {isMobile?.()? 
-            <MobileView {...props} />
-            :
-            <PCView {...props} />
-            }
-        </div>
-    );
+export interface FreeResourceListProp {
+  data: FreeResourceData;
 }
 
-const MobileView = ({data}: Props) => {
-    return (
-        <div className={clsx('flex flex-wrap',styles.m_free_resource_list)}>
-            {data?.map((item)=>{
-                return <div key={item.id} className={clsx('', styles.m_card)}>
-                    {/* <Link href={`/free-resources/${item.id}`}> */}
-                    <Link href={`/free-resources/${item.id}`}>
-                        <div className={styles.img_container}>
-                            <Image src={item.image} alt={item.title} className={clsx('w-full', styles.img)}/>
-                        </div>
-                        <div className={styles.m_bottom}>
-                            <div className={clsx(styles.m_title)}>{item.title}</div>
-                            <div className={clsx('', styles.m_summary_container)}>
-                                <div className={clsx('opacity-60', styles.m_summary)}>
-                                {item.summary}
-                                </div>
-                            </div>
-                            <div className='flex flex-row items-center'>
-                                <Image src={timeIconImg} alt='发布时间' className={styles.m_publish_time_icon}/>
-                                <div className={styles.m_publish_time}>发布时间：{item.lastUpdateDate}</div>    
-                            </div>
-                        </div>
-                    </Link>
-                </div>;
-            })}
-        </div>
-    );
+export interface FreeResourceListViewProps {
+  data: FreeResourceData;
+  pageInfo: PageInfo;
+  setPageInfo: React.Dispatch<React.SetStateAction<PageInfo>>;
 }
 
+const FreeResourceList: NextPage<FreeResourceListProp> = ({ data }) => {
+  const [pageInfo, setPageInfo] = useState<PageInfo>({
+    page: 1,
+    pageSize: PAGE_SIZE,
+    pages: 1,
+  });
+  const { isMobile } = useScreen();
+  useEffect(() => {
+    setPageInfo({
+      ...pageInfo,
+      pages: Math.ceil(data.length / pageInfo.pageSize),
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
-const PCView = ({data}: Props) => {
-    return (
-        <div className={clsx('flex flex-wrap',styles.free_resource_list)}>
-            {data?.map((item)=>{
-                return <div key={item.id} className={clsx('lg:w-1/3 sm:w-1/2', styles.card)}>
-                    {/* <Link href={`/free-resources/${item.id}`}> */}
-                    <Link href={`/free-resources/${item.id}`}>
-                        <div className="rounded relative  bg-white p-1 cursor-pointer">
-                            <div className={styles.img_container}>
-                                <Image src={item.image} alt={item.title} className={clsx('w-full', styles.img)}/>
-                            </div>
-                            <div className={styles.bottom}>
-                                <div className={clsx('h-12 font-m ', styles.title)}>{item.title}</div>
-                                <div className={clsx('', styles.summary_container)}>
-                                    <div className={clsx('opacity-60', styles.summary)}>
-                                    {item.summary}
-                                    </div>
-                                </div>
-                                <div className='flex flex-row items-center gap-2'>
-                                    <Image src={timeIconImg} alt='发布时间' />
-                                    <div className='opacity-60'>发布时间：{item.publishDate}</div>    
-                                </div>
-                            </div>
-                        </div>
-                    </Link>
-                </div>;
-            })}
+  const displayedData = useMemo(() => {
+    const { page, pageSize } = pageInfo;
+    const startIndex = (page - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    return data?.slice(startIndex, endIndex) || [];
+  }, [data, pageInfo]);
+
+  return isMobile() ? (
+    <MobileView
+      data={displayedData}
+      pageInfo={pageInfo}
+      setPageInfo={setPageInfo}
+    />
+  ) : (
+    <PCView
+      data={displayedData}
+      pageInfo={pageInfo}
+      setPageInfo={setPageInfo}
+    />
+  );
+};
+
+const MobileView = ({
+  data,
+  pageInfo,
+  setPageInfo,
+}: FreeResourceListViewProps) => {
+  return (
+    <div className={clsx("flex flex-col flex-1", styles.free_resource_list)}>
+      {data?.map((item, index) => {
+        const {
+          id,
+          attributes: {
+            title,
+            favoriteCount,
+            likeCount,
+            readCount,
+            postDate,
+            author,
+            cover,
+          },
+        } = item;
+        const image = cover?.data.attributes.formats.large.url;
+
+        return (
+          <div
+            key={id}
+            className={clsx(`${index !== data.length - 1 ? "mb-3" : ""}`)}
+          >
+            <Link
+              href={`/free-resources/${
+                process.env.APP_ENV !== ServerEnv.Production ? id : `${id}.html`
+              }`}
+            >
+              <div
+                className={`rounded relative text-[#1B1B1B] px-3  bg-white py-3  cursor-pointer  `}
+              >
+                <div className="flex gap-2">
+                  <div className="w-[110px] h-[73px] ">
+                    <Image
+                      src={image}
+                      alt={title}
+                      width={110}
+                      height={73}
+                      className={clsx("w-full ", styles.img)}
+                    />
+                  </div>
+                  <div
+                    className={clsx("flex flex-col justify-between  flex-1")}
+                  >
+                    <div className={clsx(" text-sm ", styles.summary)}>
+                      {title}
+                    </div>
+                  </div>
+                </div>
+                <div className="flex text-xs justify-between flex-row items-center mt-2 ">
+                  <div className="flex justify-between flex-row items-center gap-1">
+                    <span className="font-medium">{author}</span>
+                    <span>|</span>
+                    <div className="opacity-60">{postDate}</div>
+                  </div>
+                  <div className="flex gap-2 items-center">
+                    <div className="flex gap-1 items-center ">
+                      <Image
+                        src={read}
+                        width={14}
+                        height={14}
+                        alt="阅读量"
+                      ></Image>
+                      {readCount}
+                    </div>
+                    <div className="flex gap-1 items-center">
+                      <Image
+                        src={favorite}
+                        width={14}
+                        height={14}
+                        alt="收藏"
+                      ></Image>
+                      {favoriteCount}
+                    </div>
+                    <div className="flex gap-1 items-center">
+                      <Image
+                        src={like}
+                        width={14}
+                        height={14}
+                        alt="点赞"
+                      ></Image>
+                      {likeCount}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        );
+      })}
+      {pageInfo.pages > 1 && (
+        <div className={"flex justify-center mt-8"}>
+          <Pagination
+            count={pageInfo.pages}
+            page={pageInfo.page}
+            hidePrevButton
+            sx={{
+              fontSize: 14,
+            }}
+            color="primary"
+            onChange={(_event, page: number) => {
+              setPageInfo({
+                ...pageInfo,
+                page,
+              });
+            }}
+            shape="rounded"
+          />
         </div>
-    );
-}
+      )}
+    </div>
+  );
+};
+
+const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
+  return (
+    <div className={clsx("flex flex-col flex-1", styles.free_resource_list)}>
+      {data?.map((item, index) => {
+        const {
+          id,
+          attributes: {
+            title,
+            favoriteCount,
+            likeCount,
+            readCount,
+            postDate,
+            author,
+            summary,
+            cover,
+          },
+        } = item;
+        const image = cover?.data.attributes.formats.large.url;
+
+        return (
+          <div
+            key={id}
+            className={clsx(
+              styles.card,
+              `${index !== data.length - 1 ? "mb-6" : ""}`
+            )}
+          >
+            <Link
+              href={`/free-resources/${
+                process.env.APP_ENV !== ServerEnv.Production ? id : `${id}.html`
+              }`}
+            >
+              <div
+                className={`rounded relative flex   bg-white py-6 px-5 cursor-pointer  `}
+              >
+                <div className={styles.img_container}>
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={275}
+                    height={183}
+                    className={clsx("w-full", styles.img)}
+                  />
+                </div>
+                <div
+                  className={clsx(
+                    "flex flex-col justify-between flex-1",
+                    styles.bottom
+                  )}
+                >
+                  <div>
+                    <div className={clsx(" font-m text-xl ", styles.title)}>
+                      {title}
+                    </div>
+                    <div className={clsx("", styles.summary_container)}>
+                      <div className={clsx("", styles.summary)}>{summary}</div>
+                    </div>
+                  </div>
+                  <div className="flex justify-between flex-row items-center text-sm">
+                    <div className="flex justify-between flex-row items-center gap-1">
+                      <span className="font-medium">{author}</span>
+                      <span>|</span>
+                      <div className="opacity-60">{postDate}</div>
+                    </div>
+                    <div className="flex gap-5 items-center">
+                      <div className="flex gap-1">
+                        <Image src={read} alt="阅读量"></Image>
+                        {readCount}
+                      </div>
+                      <div className="flex gap-1">
+                        <Image src={favorite} alt="收藏"></Image>
+                        {favoriteCount}
+                      </div>
+                      <div className="flex gap-1">
+                        <Image src={like} alt="点赞"></Image>
+                        {likeCount}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        );
+      })}
+      {pageInfo.pages > 1 && (
+        <div className={"flex justify-center mt-12"}>
+          <Pagination
+            count={pageInfo.pages}
+            page={pageInfo.page}
+            hidePrevButton
+            sx={{
+              fontSize: 14,
+            }}
+            color="primary"
+            onChange={(_event, page: number) => {
+              setPageInfo({
+                ...pageInfo,
+                page,
+              });
+            }}
+            shape="rounded"
+          />
+        </div>
+      )}
+    </div>
+  );
+};
 export default FreeResourceList;
-
-export interface Props {
-    data: FreeResourceData[];
-}
-
-export interface FreeResourceData {
-    id: number;
-    image: StaticImageData;
-    title: string;
-    summary: string;
-    publishDate: string;
-    
-    lastUpdateDate?: string;
-    content?: string[];
-    tags?: string[],
-}
