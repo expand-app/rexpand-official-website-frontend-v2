@@ -1,0 +1,83 @@
+.course_arrangement {
+    gap: 32px;
+}
+.left {
+}
+
+.right {
+    flex: 2;
+}
+.box {
+    padding: 26px 32px 27px 28px;
+}
+.active{
+    background: rgba(230, 246, 234,0.2);
+    color: #008A27;
+}
+
+.day_title {
+    font-family: 'PingFang_Medium';
+    font-size: 16px;
+    font-weight: 500;
+    padding-right: 45px;
+}
+
+.course_title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.course_subtitle {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* m */
+
+.m_course_arrangement {
+    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}
+.m_top {
+}
+
+.m_bottom {
+    padding: 0 11px;
+}
+.m_box {
+    margin-bottom: 36px;
+}
+/* .active{
+    background: rgba(230, 246, 234,0.2);
+    color: #008A27;
+} */
+
+.m_day_title {
+    font-family: 'PingFang_Medium';
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.m_course_title {
+    font-family: 'PingFang_Medium';
+    color: #333;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.m_course_subtitle {
+    color: #333;
+    font-size: 12px;
+    font-weight: 400;
+}
+.m_play_icon {
+    margin-top:-3px; 
+    width: 25px;
+    height: 25px;
+    margin: 0 6px 0 15px;
+}
