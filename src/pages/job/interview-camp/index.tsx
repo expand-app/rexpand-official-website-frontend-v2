@@ -112,11 +112,13 @@ export const MobileView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
               <h3 className={clsx(styles.m_banner_subtitle2)}>
                 下次开课：
                 <span className="font-w500 font-m mr-1">{nextCourseTime}</span>
-                倒计时：
-                <span className={styles.m_count_down_num}>
-                  {daysUntilDate(nextCourseTime)}
-                </span>
-                天
+                <div>
+                  倒计时：
+                  <span className={styles.m_count_down_num}>
+                    {daysUntilDate(nextCourseTime)}
+                  </span>
+                  天
+                </div>
               </h3>
 
               <Button
@@ -261,6 +263,13 @@ export const PCView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
               >
                 下次开课：
                 <span className="font-w500 mr-1"> {nextCourseTime}</span>
+              </h3>
+              <h3
+                className={clsx(
+                  " text-white font-16 font-w400",
+                  styles.banner_subtitle2
+                )}
+              >
                 倒计时：
                 <span className={styles.count_down_num}>
                   {daysUntilDate(nextCourseTime)}

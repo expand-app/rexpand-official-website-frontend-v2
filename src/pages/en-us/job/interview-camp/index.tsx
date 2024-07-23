@@ -144,11 +144,13 @@ export const MobileView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
               <h3 className={clsx(styles.m_banner_subtitle2)}>
                 Next Session:
                 <span className="font-w500 font-m mr-1">{nextCourseTime}</span>
-                Countdown:
-                <span className={clsx(styles.count_down_num, "ml-1")}>
-                  {daysUntilDate(nextCourseTime)}
-                </span>
-                {Number(daysUntilDate(nextCourseTime)) > 0 ? "days" : "day"}
+                <div>
+                  Countdown:
+                  <span className={clsx(styles.m_count_down_num, "ml-1")}>
+                    {daysUntilDate(nextCourseTime)}
+                  </span>
+                  {Number(daysUntilDate(nextCourseTime)) > 0 ? "days" : "day"}
+                </div>
               </h3>
 
               <Button
@@ -297,6 +299,8 @@ export const PCView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
               >
                 Next Session:
                 <span className="font-w500 mr-1"> {nextCourseTime}</span>
+              </h3>
+              <h3>
                 Countdown:
                 <span className={clsx(styles.count_down_num, "ml-1")}>
                   {daysUntilDate(nextCourseTime)}
