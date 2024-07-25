@@ -132,7 +132,11 @@ const PrivacyPolicyPage: NextPage = () => {
         <meta property="og:url" content="https://rexpandcareer.com/about" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://rexpandcareer.com/about" />
-        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"></link>
+        <link
+          rel="shortcut icon"
+          type="image/x-icon"
+          href="favicon_new.ico"
+        ></link>
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
