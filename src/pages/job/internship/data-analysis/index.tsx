@@ -342,7 +342,7 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
             <div className="z-10 pt-0 flex-1">
               <h1 className={clsx(styles.banner_title)}>数据分析实习</h1>
               <h2 className={clsx(styles.banner_subtitle)}>
-                使用SQL进行数据清理和分析，搭建客户需要的电子邮件营销数据管线，分析营销数据表现
+                使用SQL进行数据清理和分析，搭建客户需要的电子邮件营销数据管线，分析营销数据表现，并通过机器学习进行数据建模实践
               </h2>
 
               <Button
@@ -382,7 +382,7 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
               {
                 id: 2,
                 title: "适合学员",
-                content: "求职数据分析方向且缺少美国实习经验的留学生",
+                content: "求职数据分析、数据科学方向且缺少美国实习经验的留学生",
               },
               {
                 id: 3,
@@ -427,7 +427,7 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
                   部门任职，将负责协助企业客户从策略概念化到执行的全过程，构建和实施数字营销策略(Digital
                   Marketing)。通过数据驱动方法，为客户提供高效率的客户获取解决方案。工作职责包括使用SQL作为主要的数据处理和分析工具，构建必要的数据管线(Data
                   Pipeline)
-                  以支持工程化的市场营销活动。此外，利用Tableau和Excel等工具进行深入的营销数据分析和结果可视化(Visualization)，进一步优化并提升客户的数字营销效果。
+                  以支持工程化的市场营销活动。此外，利用Tableau和Excel等工具进行深入的营销数据分析和结果可视化(Visualization)，进一步优化并提升客户的数字营销效果。通过机器学习来进行数据建模，预测邮件表现，完善营销策略。
                 </div>
               </div>
             </div>
