@@ -112,7 +112,7 @@ export const dataAnalysisOutlineData: OutlineData = {
   subjects: [
     {
       subjectName: "项目启动和团队准备阶段",
-      subjectTags: ["上课频率:2周", "每周2节直播课", "每节课1小时"],
+      subjectTags: ["上课频率：2周", "每周2节直播课", "每节课1小时"],
       subjectDescription:
         "这部分主要涉及项目的启动阶段和准备工作。包括团队的介绍与沟通，市场调研的回顾和讨论，以及与客户的沟通和需求了解。",
       courseList: [
@@ -135,7 +135,7 @@ export const dataAnalysisOutlineData: OutlineData = {
     },
     {
       subjectName: "数据处理分析与营销策略优化",
-      subjectTags: ["上课频率:5周", "每周2节直播课", "每节课1小时"],
+      subjectTags: ["上课频率：5周", "每周2节直播课", "每节课1小时"],
       subjectDescription:
         "这部分主要围绕着数据处理和分析展开。从SQL基础的学习开始，到数据的清洗和分割，再到自动化数据管道的建立和实施，同时还包括了复盘整体数据维度表现，与经理讨论制定数据战略方案等。",
       courseList: [
@@ -180,7 +180,7 @@ export const dataAnalysisOutlineData: OutlineData = {
     },
     {
       subjectName: "数据科学与建模实践",
-      subjectTags: ["上课频率:3周", "每周2节直播课", "每节课1小时"],
+      subjectTags: ["上课频率：3周", "每周2节直播课", "每节课1小时"],
       subjectDescription:
         "这一部分课程将进入数据科学和建模的实际操作，通过Machine Learning来创建和训练模型，通过选择和转换关键特征来创建可用的数据集。",
       courseList: [

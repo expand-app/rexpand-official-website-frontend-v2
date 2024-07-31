@@ -135,7 +135,7 @@ const PrivacyPolicyPage: NextPage = () => {
         <link
           rel="shortcut icon"
           type="image/x-icon"
-          href="favicon_new.ico"
+          href="/favicon.ico"
         ></link>
         <script type="application/ld+json">
           {JSON.stringify({
