@@ -5,8 +5,8 @@ export enum ServerEnv {
 }
 
 const CMS_API_DOMAIN_LOOKUP: Record<ServerEnv, string> = {
-  [ServerEnv.Development]: "localhost:3001",
-  [ServerEnv.Production]: "cms.tuilink.io",
+  [ServerEnv.Development]: "cms.staging.tuilink.io",
+  [ServerEnv.Production]: "cms.staging.tuilink.io",
   [ServerEnv.Local]: "localhost:3001",
 };
 
