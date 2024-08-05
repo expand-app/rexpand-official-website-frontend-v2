@@ -80,13 +80,13 @@ const MobileView = ({
         className={clsx(
           "text-black rounded whitespace-nowrap text-base cursor-pointer min-w-[90px] min-h-[38px]  bg-white flex justify-center items-center",
           {
-            [styles.active]: currentFilter === CategoryTitle.NewArticle,
+            [styles.active]: currentFilter === CategoryTitle.All,
           },
-          currentFilter !== CategoryTitle.NewArticle ? "opacity-40" : ""
+          currentFilter !== CategoryTitle.All ? "opacity-40" : ""
         )}
-        onMouseEnter={() => onTitleTypeMouseEnter(CategoryTitle.NewArticle)}
+        onMouseEnter={() => onTitleTypeMouseEnter(CategoryTitle.All)}
       >
-        {CategoryTitle.NewArticle}
+        {CategoryTitle.All}
       </div>
       {categories?.map((item) => {
         return (
@@ -156,11 +156,11 @@ const PCView = ({
     <div className={combinedClassName}>
       <div
         className={clsx("text-black cursor-pointer", {
-          [styles.active]: currentFilter === CategoryTitle.NewArticle,
+          [styles.active]: currentFilter === CategoryTitle.All,
         })}
-        onMouseEnter={() => onTitleTypeMouseEnter(CategoryTitle.NewArticle)}
+        onMouseEnter={() => onTitleTypeMouseEnter(CategoryTitle.All)}
       >
-        {CategoryTitle.NewArticle}
+        {CategoryTitle.All}
       </div>
       {categories?.map((item) => {
         return (

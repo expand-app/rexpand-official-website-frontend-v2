@@ -466,7 +466,7 @@ function PCView({
 
             <div className="flex gap-6">
               <div className="flex-1  pt-8 pb-11 px-6  bg-white rounded">
-                <div className="fr-article-body">
+                <div className="text-[17px]">
                   <BlocksRenderer content={attributes.content}></BlocksRenderer>
                 </div>
                 <div className="text-center mt-20  mb-14 flex justify-center">
@@ -565,10 +565,10 @@ function PCView({
                   >
                     <div
                       key={item.id}
-                      className="py-8 flex justify-between gap-24"
+                      className="py-8 flex justify-between gap-24 "
                     >
                       <div className="flex-1">
-                        <div className="text-xl font-medium mb-2">
+                        <div className="text-xl font-semibold mb-2">
                           {item.attributes.title}
                         </div>
                         <div className="line-clamp-2">
@@ -596,7 +596,7 @@ function PCView({
         <div className="flex  gap-6 mb-[70px] mt-6">
           {previousArticle && (
             <div className="basis-1/2 py-8 px-6 bg-white rounded   flex flex-col justify-between">
-              <div className="text-xl font-medium mb-16 ">
+              <div className="text-xl font-semibold  mb-16 ">
                 {previousArticle.attributes.title}
               </div>
               <Link
@@ -621,7 +621,7 @@ function PCView({
           )}
           {nextArticle && (
             <div className="basis-1/2 py-8 px-6 bg-white rounded flex flex-col justify-between ">
-              <div className="text-xl font-medium mb-16">
+              <div className="text-xl font-semibold  mb-16">
                 {nextArticle.attributes.title}
               </div>
               <Link
