@@ -50,7 +50,7 @@ class FreeResourcesAPI extends BaseAPI {
     );
   };
   getArticleTag = (): Promise<APIResponse<TagList>> => {
-    return this.get(`/api/tags`, {
+    return this.get(`/api/tags?sort=id:asc`, {
       withAuthToken: false,
     });
   };
@@ -65,7 +65,7 @@ class FreeResourcesAPI extends BaseAPI {
     });
   };
   getArticleCategory = (): Promise<APIResponse<Categories>> => {
-    return this.get(`/api/categories`, {
+    return this.get(`/api/categories?sort=id:asc`, {
       withAuthToken: false,
     });
   };

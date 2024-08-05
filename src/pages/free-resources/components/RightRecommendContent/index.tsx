@@ -105,7 +105,7 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
         </ul>
       </div>
       <div className="mt-6 py-8 px-5 bg-white ">
-        <div className="text-xl font-medium "> 热门标签</div>
+        <div className="text-xl font-semibold "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList?.map((item) => {
             return (
@@ -207,7 +207,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
         </ul>
       </div>
       <div className="mt-6 py-4  px-3 bg-white mb-6  rounded">
-        <div className="text-xl font-medium "> 热门标签</div>
+        <div className="text-xl font-semibold "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList?.map((item) => {
             return (
