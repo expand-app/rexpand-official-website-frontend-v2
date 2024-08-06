@@ -493,7 +493,7 @@ function PCView({
                 </div>
                 <div className="flex justify-center items-center py-2 px-3  rounded-[40px] mb-8  ">
                   <div className="bg-custom-green-0.4  py-2 px-3  rounded-[40px]   flex gap-2 justify-center items-center  ">
-                    <div className="rounded-[40px] py-2 px-3 bg-custom-green text-white">
+                    <div className="rounded-[40px] py-2 px-3 bg-custom-green text-white whitespace-nowrap">
                       扫一扫
                     </div>
                     <div className="text-[#1B1B1B]">

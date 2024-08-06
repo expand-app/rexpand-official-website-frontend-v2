@@ -49,7 +49,7 @@ const PCView: React.FC<RightRecommendContentViewProps> = ({
               </Link>
             </div>
           </div>
-          <div className="rounded-sm bg-custom-green-0.2 pb-1">
+          <div className="rounded-sm pb-1">
             <div className="mt-6 flex justify-center ">
               <Image
                 src={qrDaeImg}
@@ -135,7 +135,7 @@ const MobileView: React.FC<RightRecommendContentViewProps> = ({
     <div className=" px-3 ">
       <div
         className={clsx(
-          "py-4 px-3  rounded overflow-hidden bg-custom-green-0.2",
+          "py-4 px-3  rounded overflow-hidden ",
           styles.rightContent
         )}
       >
