@@ -7,10 +7,8 @@ import Button, {
   ButtonType,
 } from "@/components/Button/Button";
 import Header from "@/components/Header/Header";
-import bannerImage from "@/assets/success-cases/banner.png";
 import mBannerImg from "@/assets/success-cases/m_banner_img.png";
 
-import Image from "next/image";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import greenGradientBgImg from "@/assets/success-cases/green_gradient.svg";
 import TopOfferList from "./components/TopOfferList/TopOfferList";
@@ -38,7 +36,9 @@ const bannerVideoUrl =
   "https://resources.rexpandcareer.com/videos/cases/successful-cases.mov";
 function MobileView() {
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
-  const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
+  const [videoModalPath, setVideoModalPath] = useState<string | undefined>(
+    bannerVideoUrl
+  );
 
   function onBannerBtnClick() {
     setVideoModalPath(bannerVideoUrl);

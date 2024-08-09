@@ -208,13 +208,15 @@ export const MobileView = ({ onBannerBtnClick }: Props) => {
           </div>
         </div>
 
-        <VideoModal
-          videoPath={videoModalPath}
-          open={videoModalOpen}
-          onClose={() => {
-            setVideoModalOpen(false);
-          }}
-        />
+        {videoModalPath && (
+          <VideoModal
+            videoPath={videoModalPath}
+            open={videoModalOpen}
+            onClose={() => {
+              setVideoModalOpen(false);
+            }}
+          />
+        )}
       </main>
 
       <Footer />
