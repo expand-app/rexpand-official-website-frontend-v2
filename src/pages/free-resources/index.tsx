@@ -27,19 +27,15 @@ export interface FreeResourcesPageViewProps extends FreeResourcesPageProps {
 export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = (props) => {
   const { articleList, tagList, categories } = props;
   const [currentFilter, setCurrentFilter] = useState<CategoryTitle>(
-    CategoryTitle.NewArticle
+    CategoryTitle.All
   );
   const filteredFreeResources = useMemo(() => {
-    if (currentFilter === CategoryTitle.NewArticle) {
-      return articleList
-        ?.filter((item) =>
-          dayjs(item.attributes.postDate).isAfter(dayjs(LATEST_DATE))
-        )
-        .sort((a, b) => {
-          const timeA = dayjs(a.attributes.postDate);
-          const timeB = dayjs(b.attributes.postDate);
-          return timeB.diff(timeA); // 使用 dayjs 的 diff 方法进行比较
-        });
+    if (currentFilter === CategoryTitle.All) {
+      return articleList.sort((a, b) => {
+        const timeA = dayjs(a.attributes.postDate);
+        const timeB = dayjs(b.attributes.postDate);
+        return timeB.diff(timeA); // 使用 dayjs 的 diff 方法进行比较
+      });
     }
     return articleList?.filter(
       (item) =>

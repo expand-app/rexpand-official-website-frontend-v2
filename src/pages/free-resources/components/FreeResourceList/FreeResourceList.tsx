@@ -115,9 +115,9 @@ const MobileView = ({
                 </div>
                 <div className="flex text-xs justify-between flex-row items-center mt-2 ">
                   <div className="flex justify-between flex-row items-center gap-1">
-                    <span className="font-medium">{author}</span>
+                    <span className="font-semibold">{author}</span>
                     <span>|</span>
-                    <div className="opacity-60">{postDate}</div>
+                    <div className="opacity-60 text-[#1B1B1B]">{postDate}</div>
                   </div>
                   <div className="flex gap-2 items-center">
                     <div className="flex gap-1 items-center ">
@@ -238,9 +238,11 @@ const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
                   </div>
                   <div className="flex justify-between flex-row items-center text-sm">
                     <div className="flex justify-between flex-row items-center gap-1">
-                      <span className="font-medium">{author}</span>
+                      <span className="font-semibold">{author}</span>
                       <span>|</span>
-                      <div className="opacity-60">{postDate}</div>
+                      <div className="opacity-60 text-[#1B1B1B]">
+                        {postDate}
+                      </div>
                     </div>
                     <div className="flex gap-5 items-center">
                       <div className="flex gap-1">

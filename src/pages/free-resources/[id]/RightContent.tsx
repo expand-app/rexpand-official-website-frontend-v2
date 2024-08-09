@@ -239,7 +239,7 @@ const MobileView: React.FC<RightContentContentViewProps> = ({
         </div>
       </div>
       <div className="mt-6 py-8 px-5 bg-white ">
-        <div className="text-xl font-medium "> 热门标签</div>
+        <div className="text-xl font-semibold "> 热门标签</div>
         <div className=" mt-6 flex  flex-wrap gap-4">
           {tagList?.map((item) => {
             return (

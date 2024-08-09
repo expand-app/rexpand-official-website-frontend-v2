@@ -2,18 +2,18 @@ import { TagList } from "@/services/FreeResources";
 import type { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export enum CategoryTitle {
-  NewArticle = "最新文章",
-  JobSearchGuide = "求职攻略",
+  All = "全部",
+  JobSearchGuide = "求职规划",
   InterviewTips = "面试技巧",
   IndustryKnowledge = "行业知识",
-  LiveStreamBooking = "直播预约",
+  // LiveStreamBooking = "直播预约",
 }
 
 export enum CategoryPath {
-  "求职攻略" = "/free-resources/job-hunting",
+  "求职规划" = "/free-resources/job-hunting",
   "面试技巧" = "/free-resources/interview",
   "行业知识" = "/free-resources/news",
-  "直播预约" = "/free-resources/live-broadcast",
+  // "直播预约" = "/free-resources/live-broadcast",
 }
 
 export enum RightArticleType {
@@ -68,7 +68,7 @@ export interface Tag {
   desc: string;
 }
 
-export type CategoryName = Exclude<CategoryTitle, CategoryTitle.NewArticle>;
+export type CategoryName = Exclude<CategoryTitle, CategoryTitle.All>;
 
 export interface Category {
   id: number;
