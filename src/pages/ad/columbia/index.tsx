@@ -4,8 +4,8 @@ import clsx from "clsx";
 import styles from "./index.module.css";
 import logo_green from "@/assets/logo_green.svg";
 import useScreen from "@/components/useScreen/useScreen";
-import Head from "@/components/Head";
-import Footer from "@/components/Footer/Footer";
+import Head from "@/components/Head/index.en";
+import Footer from "@/components/Footer/en-us/Footer";
 import columbia_code from "@/assets/ad/columbia_code.png";
 import theme from "@/utils/theme";
 import circle_green from "@/assets/ad/circle_green.svg";
@@ -50,29 +50,25 @@ const PCView = () => {
         component={"main"}
         sx={{ lineHeight: 1.3 }}
       >
-        <Box sx={{ pt: 8, px: 9, pb: 50 }} className={clsx(styles.topBg)}>
+        <Box sx={{ pt: 8, pb: 50 }} className={clsx(styles.topBg)}>
           <Image alt="logo" src={logo_green}></Image>
-          <Box className={"container mx-auto "}>
+          <Box className={"container mx-auto  "}>
             <Box
               className={clsx(
                 "pt-52 w-full flex items-center justify-between  "
               )}
             >
-              <Box>
-                <Box
-                  component="h1"
-                  fontSize={60}
-                  color={"#333"}
-                  fontWeight={"bolder"}
-                >
+              <Box fontFamily={"Poppins_Bold"}>
+                <Box component="h1" fontSize={60} color={"#333"}>
                   Private invitation
                 </Box>
-                <Box fontSize={60} color={"#333"} fontWeight={"bolder"}>
+                <Box fontSize={60} color={"#333"}>
                   to Columbia alumni group
                 </Box>
                 <Box
                   component={"ul"}
-                  className="list-disc mt-20 flex flex-col gap-6 text-xl font-medium ml-6"
+                  sx={{ fontFamily: "Poppins_Regular" }}
+                  className="list-disc mt-20 flex flex-col gap-6 text-xl ml-6"
                 >
                   <Box component={"li"}>Wechat based community</Box>
                   <Box component={"li"}>
@@ -152,53 +148,37 @@ const PCView = () => {
             <Box
               component={"h2"}
               fontSize={56}
-              fontWeight={"bolder"}
               className={styles.secondTitle}
               sx={{ textAlign: "center" }}
             >
               Executive level alumni participation
             </Box>
             <Box sx={{ mt: 20, height: 114, width: "100%" }}>
-              <Swiper
-                slidesPerView={5}
-                spaceBetween={30}
-                freeMode={true}
-                loop={true}
-                pagination={false}
-                autoplay={{
-                  disableOnInteraction: false,
-                }}
-                modules={[FreeMode, Pagination, Autoplay]}
-                className="mySwiperCompany"
-              >
-                {COMPANY_LIST.map((item, index) => {
-                  return (
-                    <SwiperSlide
-                      key={index}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        height: "100%",
-                      }}
-                    >
-                      <Image alt="company" src={item}></Image>
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
+              <Box className={styles.logos}>
+                <Box className={styles.logosSlide}>
+                  {COMPANY_LIST.map((item, index) => {
+                    return <Image alt="company" key={index} src={item}></Image>;
+                  })}
+                  {COMPANY_LIST.map((item, index) => {
+                    return <Image alt="company" key={index} src={item}></Image>;
+                  })}
+                </Box>
+              </Box>
             </Box>
             <Box sx={{ pt: 25, pb: 25 }}>
               <Swiper
                 slidesPerView={4}
+                touchStartPreventDefault={false}
+                allowTouchMove={true}
                 spaceBetween={30}
                 freeMode={true}
                 pagination={false}
                 ref={swiperRef}
                 modules={[FreeMode, Pagination]}
                 className={clsx("mySwiper")}
-                style={{ height: 400 }}
+                style={{ height: 368 }}
                 onSlideChange={handleSlideChange} // Listen to slide change events
+                onSliderMove={handleSlideChange}
               >
                 {REFERRALS_DATA.map((item) => {
                   return (
@@ -218,14 +198,16 @@ const PCView = () => {
                         >
                           {item.name}
                         </Avatar>
-                        <Stack fontSize={20}>
+                        <Stack fontSize={16}>
                           <Box fontWeight={600}>{item.name}</Box>
-                          <Box className="line-clamp-2" title={item.headerLine}>
+                          <Box className="line-clamp-1" title={item.headerLine}>
                             {item.headerLine}
                           </Box>
                         </Stack>
                       </Stack>
-                      <Box sx={{ mt: 5 }}>{item.bioIntro}</Box>
+                      <Box sx={{ mt: 5 }} fontSize={16}>
+                        {item.bioIntro}
+                      </Box>
                     </SwiperSlide>
                   );
                 })}
@@ -273,7 +255,12 @@ const MobileView = () => {
           </Box>
           <Box className={"container mx-auto "} sx={{ px: 8 }}>
             <Stack className={clsx("pt-14 w-full  ")}>
-              <Box component="h1" fontSize={30} color={"#333"} fontWeight={700}>
+              <Box
+                component="h1"
+                fontSize={30}
+                color={"#333"}
+                fontFamily={"Poppins_Bold"}
+              >
                 Private invitation to Columbia alumni group
               </Box>
               <Box
@@ -336,34 +323,16 @@ const MobileView = () => {
               Executive level alumni participation
             </Box>
             <Box sx={{ mt: 20, width: "100%" }}>
-              <Swiper
-                slidesPerView={3}
-                spaceBetween={30}
-                freeMode={true}
-                loop={true}
-                pagination={false}
-                autoplay={{
-                  disableOnInteraction: false,
-                }}
-                modules={[FreeMode, Pagination, Autoplay]}
-                className="mySwiperCompany"
-              >
-                {COMPANY_LIST.map((item, index) => {
-                  return (
-                    <SwiperSlide
-                      key={index}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        height: "100%",
-                      }}
-                    >
-                      <Image alt="company" src={item}></Image>
-                    </SwiperSlide>
-                  );
-                })}
-              </Swiper>
+              <Box className={styles.logos}>
+                <Box className={styles.logosSlide}>
+                  {COMPANY_LIST.map((item, index) => {
+                    return <Image alt="company" key={index} src={item}></Image>;
+                  })}
+                  {COMPANY_LIST.map((item, index) => {
+                    return <Image alt="company" key={index} src={item}></Image>;
+                  })}
+                </Box>
+              </Box>
             </Box>
             <Stack sx={{ pt: 14, pb: 10 }} spacing={4}>
               {REFERRALS_DATA.map((item) => {

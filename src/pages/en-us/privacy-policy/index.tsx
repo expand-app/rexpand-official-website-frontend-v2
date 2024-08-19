@@ -124,7 +124,7 @@ const PrivacyPolicyPage: NextPage = () => {
           name="description"
           content="9 Years of Focus on Chinese International Student Job Search"
         />
-        <meta property="og:title" content="睿思班" />
+        <meta property="og:title" content="Rexpand" />
         <meta
           property="og:description"
           content="9 Years of Focus on Chinese International Student Job Search"

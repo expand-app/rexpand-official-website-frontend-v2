@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": " APP_ENV=development next dev -p 3001",
-    "build": "next build",
+    "build": "APP_ENV=production  next build",
     "build:dev": "APP_ENV=development next build",
     "build:prod": " APP_ENV=production  next build",
     "start": "next start APP_ENV=production ",

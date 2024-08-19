@@ -27,6 +27,17 @@
     src: url('../assets/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Poppins_Bold';
+    src: url('/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins_Regular';
+    src: url('/Poppins-Regular.ttf') format('truetype');
+}
+
+
 body {
     font-family: 'PingFang_Regular';
     background-color: #F7F7F7;
