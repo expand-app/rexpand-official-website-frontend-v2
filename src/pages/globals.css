@@ -365,6 +365,11 @@ body {
     height: 100%;
 }
 
+.swiper-wrapper .swiper-slide {
+    height: auto;
+}
+
+
 .swiper-pagination-fraction,
 .swiper-pagination-custom,
 .swiper-horizontal>.swiper-pagination-bullets,

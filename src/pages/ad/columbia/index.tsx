@@ -56,7 +56,7 @@ const PCView = () => {
           <Box sx={{ px: 8 }}>
             <Image alt="logo" src={logo_green}></Image>
           </Box>
-          <Box className={"container mx-auto  "}>
+          <Box sx={{ maxWidth: "80%", margin: "auto" }}>
             <Box
               className={clsx(
                 "pt-52 w-full flex items-center justify-between gap-14  "
@@ -180,7 +180,6 @@ const PCView = () => {
                 ref={swiperRef}
                 modules={[FreeMode, Pagination]}
                 className={clsx("mySwiper")}
-                style={{ height: 368 }}
                 onSlideChange={handleSlideChange} // Listen to slide change events
                 onSliderMove={handleSlideChange}
               >
@@ -209,7 +208,7 @@ const PCView = () => {
                           </Box>
                         </Stack>
                       </Stack>
-                      <Box sx={{ mt: 5 }} fontSize={16}>
+                      <Box sx={{ mt: 5 }} fontSize={15}>
                         {item.bioIntro}
                       </Box>
                     </SwiperSlide>
