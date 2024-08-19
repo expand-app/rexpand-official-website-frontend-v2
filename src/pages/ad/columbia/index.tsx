@@ -59,7 +59,7 @@ const PCView = () => {
           <Box className={"container mx-auto  "}>
             <Box
               className={clsx(
-                "pt-52 w-full flex items-center justify-between  "
+                "pt-52 w-full flex items-center justify-between gap-14  "
               )}
             >
               <Box fontFamily={"Poppins_Bold"}>
@@ -72,7 +72,7 @@ const PCView = () => {
                 <Box
                   component={"ul"}
                   sx={{ fontFamily: "Poppins_Regular" }}
-                  className="list-disc mt-20 flex flex-col gap-6 text-xl ml-6"
+                  className="list-disc mt-20 flex flex-col gap-6 text-xl ml-6 "
                 >
                   <Box component={"li"}>Wechat based community</Box>
                   <Box component={"li"}>
@@ -102,7 +102,7 @@ const PCView = () => {
               <Stack
                 direction={"column"}
                 alignItems={"center"}
-                className="relative"
+                className="relative xl-custom:mr-0 mr-12"
               >
                 <Box
                   sx={{
