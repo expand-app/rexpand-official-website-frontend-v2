@@ -6,23 +6,31 @@ import logo_green from "@/assets/logo_green.svg";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
 import Footer from "@/components/Footer/Footer";
-import qr_rexpand from "@/assets/qr_rexpand.png";
+import columbia_code from "@/assets/ad/columbia_code.png";
 import theme from "@/utils/theme";
 import circle_green from "@/assets/ad/circle_green.svg";
 import circle_orange from "@/assets/ad/circle_orange.svg";
-import { COMPANY_LIST, REFERRALS_DATA } from "./data";
+import { AD_LINK, COMPANY_LIST, REFERRALS_DATA } from "./data";
 import { Swiper, SwiperRef, SwiperSlide, useSwiper } from "swiper/react";
-import arrow_unactive from "@/assets/ad/arrow_unactive.svg";
-import arrow_active from "@/assets/ad/arrow_active.svg";
 
-import { FreeMode, Pagination } from "swiper/modules";
-import { useRef } from "react";
+import { FreeMode, Pagination, Autoplay } from "swiper/modules";
+import { useRef, useState } from "react";
+import ArrowRight from "./SvgComponent/ArrowRight";
+import ArrowLeft from "./SvgComponent/ArrowLeft";
 
 interface ColumbiaProps {}
 
 const PCView = () => {
-  const swiperCompanyRef = useRef<SwiperRef>(null);
   const swiperRef = useRef<SwiperRef>(null);
+  const [isSwiperSlideEnd, setIsSwiperSlideEnd] = useState(false);
+  const [isSwiperSlideStart, setIsSwiperSlideStart] = useState(true);
+  const handleSlideChange = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      setIsSwiperSlideEnd(swiperRef.current.swiper.isEnd);
+
+      setIsSwiperSlideStart(swiperRef.current.swiper.isBeginning);
+    }
+  };
   const handlePrevSlide = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slidePrev();
@@ -34,13 +42,22 @@ const PCView = () => {
       swiperRef.current.swiper.slideNext();
     }
   };
+
   return (
     <>
-      <main className="overflow-hidden">
+      <Box
+        className="overflow-hidden"
+        component={"main"}
+        sx={{ lineHeight: 1.3 }}
+      >
         <Box sx={{ pt: 8, px: 9, pb: 50 }} className={clsx(styles.topBg)}>
           <Image alt="logo" src={logo_green}></Image>
           <Box className={"container mx-auto "}>
-            <Box className={clsx("pt-52 w-full flex items-center  ")}>
+            <Box
+              className={clsx(
+                "pt-52 w-full flex items-center justify-between  "
+              )}
+            >
               <Box>
                 <Box
                   component="h1"
@@ -48,7 +65,10 @@ const PCView = () => {
                   color={"#333"}
                   fontWeight={"bolder"}
                 >
-                  Private invitation to Columbia alumni group
+                  Private invitation
+                </Box>
+                <Box fontSize={60} color={"#333"} fontWeight={"bolder"}>
+                  to Columbia alumni group
                 </Box>
                 <Box
                   component={"ul"}
@@ -63,34 +83,45 @@ const PCView = () => {
                     Top alumni network sharing career and referral opportunities
                   </Box>
                 </Box>
-                <Button
-                  variant="contained"
-                  sx={{
-                    width: 180,
-                    height: 60,
-                    mt: 20,
-                    textTransform: "initial",
-                    fontSize: 18,
-                    borderRadius: 2,
-                  }}
-                >
-                  Join
-                </Button>
+                <Box component={"a"} href={AD_LINK} target="_blank">
+                  <Button
+                    variant="contained"
+                    sx={{
+                      width: 180,
+                      height: 60,
+                      mt: 20,
+                      textTransform: "initial",
+                      fontSize: 18,
+                      borderRadius: 2,
+                    }}
+                  >
+                    Join
+                  </Button>
+                </Box>
               </Box>
               <Stack
                 direction={"column"}
                 alignItems={"center"}
                 className="relative"
               >
-                <Image
-                  src={qr_rexpand}
-                  alt="ar_code"
-                  width={400}
-                  height={400}
-                ></Image>
+                <Box
+                  sx={{
+                    p: theme.spacing(4, 5),
+                    borderRadius: 3,
+                    boxShadow: "0px 4px 16.3px rgba(0, 138, 39, 0.18)",
+                    bgcolor: "#fff",
+                  }}
+                >
+                  <Image
+                    src={columbia_code}
+                    alt="ar_code"
+                    width={400}
+                    height={400}
+                  />
+                </Box>
                 <Image
                   alt="green_img"
-                  className="absolute bottom-20 -right-32 "
+                  className="absolute bottom-20 -right-28 "
                   src={circle_green}
                 ></Image>
                 <Image
@@ -106,6 +137,7 @@ const PCView = () => {
                     bgcolor: "#fff",
                     width: "auto",
                     color: "#636363",
+                    fontSize: 14,
                   }}
                 >
                   Scan the QR code 
@@ -131,12 +163,12 @@ const PCView = () => {
                 slidesPerView={5}
                 spaceBetween={30}
                 freeMode={true}
+                loop={true}
                 pagination={false}
-                ref={swiperRef}
                 autoplay={{
-                  delay: 5000,
+                  disableOnInteraction: false,
                 }}
-                modules={[FreeMode, Pagination]}
+                modules={[FreeMode, Pagination, Autoplay]}
                 className="mySwiperCompany"
               >
                 {COMPANY_LIST.map((item, index) => {
@@ -156,7 +188,7 @@ const PCView = () => {
                 })}
               </Swiper>
             </Box>
-            <Box sx={{ mt: 25 }}>
+            <Box sx={{ pt: 25, pb: 25 }}>
               <Swiper
                 slidesPerView={4}
                 spaceBetween={30}
@@ -164,14 +196,21 @@ const PCView = () => {
                 pagination={false}
                 ref={swiperRef}
                 modules={[FreeMode, Pagination]}
-                className="mySwiper"
+                className={clsx("mySwiper")}
+                style={{ height: 400 }}
+                onSlideChange={handleSlideChange} // Listen to slide change events
               >
                 {REFERRALS_DATA.map((item) => {
                   return (
                     <SwiperSlide key={item.id} className={styles.referralCard}>
-                      <Stack direction={"row"} spacing={4}>
+                      <Stack
+                        direction={"row"}
+                        spacing={4}
+                        alignItems={"center"}
+                      >
                         <Avatar
-                          alt="item.name"
+                          alt={item.name}
+                          sx={{ width: 50, height: 50 }}
                           src={
                             item.avatar ||
                             "https://resources.rexpandcareer.com/image/avatar_empty.png"
@@ -179,9 +218,14 @@ const PCView = () => {
                         >
                           {item.name}
                         </Avatar>
-                        <Box>{item.name}</Box>
+                        <Stack fontSize={20}>
+                          <Box fontWeight={600}>{item.name}</Box>
+                          <Box className="line-clamp-2" title={item.headerLine}>
+                            {item.headerLine}
+                          </Box>
+                        </Stack>
                       </Stack>
-                      <Box sx={{ mt: 7 }}>{item.bioIntro}</Box>
+                      <Box sx={{ mt: 5 }}>{item.bioIntro}</Box>
                     </SwiperSlide>
                   );
                 })}
@@ -196,27 +240,164 @@ const PCView = () => {
                 justifyContent={"flex-end"}
               >
                 <IconButton onClick={handlePrevSlide}>
-                  <Image
-                    style={{ color: "#008A27" }}
-                    src={arrow_active}
-                    alt="next"
-                  ></Image>
+                  <ArrowLeft
+                    svgColor={isSwiperSlideStart ? "#999999" : "#008A27"}
+                  ></ArrowLeft>
                 </IconButton>
                 <IconButton onClick={handleNextSlide}>
-                  <Image src={arrow_unactive} alt="prev"></Image>
+                  <ArrowRight
+                    svgColor={isSwiperSlideEnd ? "#999999" : "#008A27"}
+                  ></ArrowRight>
                 </IconButton>
               </Stack>
             </Box>
           </Box>
         </Box>
-      </main>
+      </Box>
       <Footer />
     </>
   );
 };
 
 const MobileView = () => {
-  return 11;
+  return (
+    <main className="m-main">
+      <Box
+        className="overflow-hidden"
+        component={"main"}
+        sx={{ lineHeight: 1.3 }}
+      >
+        <Box sx={{ pb: 16 }} className={clsx(styles.m_topBg)}>
+          <Box sx={{ py: 3, px: 8, borderBottom: "1px solid #D9D9D9" }}>
+            <Image alt="logo" src={logo_green}></Image>
+          </Box>
+          <Box className={"container mx-auto "} sx={{ px: 8 }}>
+            <Stack className={clsx("pt-14 w-full  ")}>
+              <Box component="h1" fontSize={30} color={"#333"} fontWeight={700}>
+                Private invitation to Columbia alumni group
+              </Box>
+              <Box
+                component={"ul"}
+                className="list-disc mt-7 flex flex-col gap-1 text-xs ml-6"
+              >
+                <Box component={"li"}>Wechat based community</Box>
+                <Box component={"li"}>
+                  Exclusive for Chinese young professionals developing career in
+                  US
+                </Box>
+                <Box component={"li"}>
+                  Top alumni network sharing career and referral opportunities
+                </Box>
+              </Box>
+
+              <Stack
+                direction={"column"}
+                alignItems={"center"}
+                justifyContent={"center"}
+                sx={{ mt: 1, position: "relative" }}
+                className={styles.columbia_code}
+              >
+                <Image
+                  src={columbia_code}
+                  alt="ar_code"
+                  width={172}
+                  height={172}
+                  style={{ marginTop: 60, marginRight: 4 }}
+                ></Image>
+                <Box component={"a"} href={AD_LINK} target="_blank">
+                  <Button
+                    variant="contained"
+                    sx={{
+                      width: 124,
+                      height: 44,
+                      mt: 6,
+                      textTransform: "initial",
+                      fontSize: 14,
+                      borderRadius: 1,
+                    }}
+                  >
+                    Join
+                  </Button>
+                </Box>
+              </Stack>
+            </Stack>
+          </Box>
+        </Box>
+
+        <Box sx={{ pt: 16, pb: 10, bgcolor: "#fff", px: 8 }}>
+          <Box className={"container mx-auto "}>
+            <Box
+              component={"h2"}
+              fontSize={28}
+              fontWeight={"bolder"}
+              className={styles.secondTitle}
+              sx={{ textAlign: "center" }}
+            >
+              Executive level alumni participation
+            </Box>
+            <Box sx={{ mt: 20, width: "100%" }}>
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={30}
+                freeMode={true}
+                loop={true}
+                pagination={false}
+                autoplay={{
+                  disableOnInteraction: false,
+                }}
+                modules={[FreeMode, Pagination, Autoplay]}
+                className="mySwiperCompany"
+              >
+                {COMPANY_LIST.map((item, index) => {
+                  return (
+                    <SwiperSlide
+                      key={index}
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        height: "100%",
+                      }}
+                    >
+                      <Image alt="company" src={item}></Image>
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </Box>
+            <Stack sx={{ pt: 14, pb: 10 }} spacing={4}>
+              {REFERRALS_DATA.map((item) => {
+                return (
+                  <Box key={item.id} className={styles.m_referralCard}>
+                    <Stack direction={"row"} spacing={4} alignItems={"center"}>
+                      <Avatar
+                        alt={item.name}
+                        sx={{ width: 50, height: 50 }}
+                        src={
+                          item.avatar ||
+                          "https://resources.rexpandcareer.com/image/avatar_empty.png"
+                        }
+                      >
+                        {item.name}
+                      </Avatar>
+                      <Stack>
+                        <Box fontWeight={600}>{item.name}</Box>
+                        <Box className="line-clamp-2" title={item.headerLine}>
+                          {item.headerLine}
+                        </Box>
+                      </Stack>
+                    </Stack>
+                    <Box sx={{ mt: 5 }}>{item.bioIntro}</Box>
+                  </Box>
+                );
+              })}
+            </Stack>
+          </Box>
+        </Box>
+      </Box>
+      <Footer />
+    </main>
+  );
 };
 
 const Columbia: React.FC<ColumbiaProps> = () => {

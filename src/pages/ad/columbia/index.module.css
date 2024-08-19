@@ -1,5 +1,10 @@
 .topBg {
     background: linear-gradient(120deg, #FFF 31.78%, #DEEFE3 98.54%);
+
+}
+
+.m_topBg {
+    background: linear-gradient(149deg, #FFF 11.38%, #DEEFE3 90.91%);
 }
 
 .secondTitle {
@@ -7,12 +12,30 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+
 }
 
 .referralCard {
     border-radius: 8px;
-    border: 1px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     background: #FFF;
     padding: 32px;
     box-shadow: 3px 2px 17.8px 11px rgba(18, 40, 24, 0.02);
+}
+
+
+.m_referralCard {
+    border-radius: 8px;
+    border: 1px solid #CED5D0;
+    background: #FFF;
+    padding: 16px;
+    font-size: 12px;
+
+}
+
+.columbia_code {
+    width: 100%;
+    height: 300px;
+    background: url('../../../assets/ad/m_bg_code.png') no-repeat;
+    background-position: center right 50px;
 }
