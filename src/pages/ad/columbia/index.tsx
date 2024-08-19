@@ -10,6 +10,8 @@ import columbia_code from "@/assets/ad/columbia_code.png";
 import theme from "@/utils/theme";
 import circle_green from "@/assets/ad/circle_green.svg";
 import circle_orange from "@/assets/ad/circle_orange.svg";
+import circle_green_m from "@/assets/ad/circle_green_m.svg";
+import circle_orange_m from "@/assets/ad/circle_orange_m.svg";
 import { AD_LINK, COMPANY_LIST, REFERRALS_DATA } from "./data";
 import { Swiper, SwiperRef, SwiperSlide, useSwiper } from "swiper/react";
 
@@ -51,7 +53,9 @@ const PCView = () => {
         sx={{ lineHeight: 1.3 }}
       >
         <Box sx={{ pt: 8, pb: 50 }} className={clsx(styles.topBg)}>
-          <Image alt="logo" src={logo_green}></Image>
+          <Box sx={{ px: 8 }}>
+            <Image alt="logo" src={logo_green}></Image>
+          </Box>
           <Box className={"container mx-auto  "}>
             <Box
               className={clsx(
@@ -280,17 +284,36 @@ const MobileView = () => {
               <Stack
                 direction={"column"}
                 alignItems={"center"}
-                justifyContent={"center"}
-                sx={{ mt: 1, position: "relative" }}
-                className={styles.columbia_code}
+                className="relative"
+                sx={{ mt: 14 }}
               >
-                <Image
-                  src={columbia_code}
-                  alt="ar_code"
-                  width={172}
-                  height={172}
-                  style={{ marginTop: 60, marginRight: 4 }}
-                ></Image>
+                <Box
+                  sx={{
+                    p: theme.spacing(4, 5),
+                    borderRadius: 3,
+                    boxShadow: "0px 4px 16.3px rgba(0, 138, 39, 0.18)",
+                    bgcolor: "#fff",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    src={columbia_code}
+                    alt="ar_code"
+                    width={172}
+                    height={172}
+                  />
+                  <Image
+                    alt="green_img"
+                    className="absolute bottom-0 -right-12 "
+                    src={circle_green_m}
+                  ></Image>
+                  <Image
+                    alt="green_img"
+                    className="absolute -top-6 right-4"
+                    src={circle_orange_m}
+                  ></Image>
+                </Box>
+
                 <Box component={"a"} href={AD_LINK} target="_blank">
                   <Button
                     variant="contained"
@@ -334,7 +357,7 @@ const MobileView = () => {
                 </Box>
               </Box>
             </Box>
-            <Stack sx={{ pt: 14, pb: 10 }} spacing={4}>
+            <Stack sx={{ pt: 14 }} spacing={4}>
               {REFERRALS_DATA.map((item) => {
                 return (
                   <Box key={item.id} className={styles.m_referralCard}>

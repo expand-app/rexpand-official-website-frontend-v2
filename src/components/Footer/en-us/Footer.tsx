@@ -76,11 +76,11 @@ const MobileView = () => {
           <h1>About Us</h1>
 
           <ul className={clsx("list-reset flex flex-row", styles.m_qr_list)}>
-            <li className="text-center">
+            <li className="text-left">
               <Image src={qrRexpandImg} alt="WeChat Official Account" />
               <div className={styles.qr_text}>WeChat Official Account</div>
             </li>
-            <li className="text-center">
+            <li className="text-left">
               <Image src={qrDaeImg} alt="WeChat Official Account" />
               <div className={styles.qr_text}>
                 Contact Career Consultant Dae
@@ -94,7 +94,6 @@ const MobileView = () => {
 
       <div className={`${styles.m_copy_right} py-4 text-sm`}>
         © 2022-2024 Rexpand All rights reserved. <br />
-        <a href="#">京ICP备2022032082号-1</a>
       </div>
     </footer>
   );
@@ -167,7 +166,7 @@ const PCView = () => {
 
           <div className="flex-1">
             <p className={styles.menu}>About Us</p>
-            <ul className="list-reset flex flex-row gap-10">
+            <ul className="list-reset flex flex-row  gap-10">
               <li className="mt-2 mr-2 md:block md:mr-0  w-20  items-center text-center">
                 <Image src={qrRexpandImg} alt="WeChat Official Account" />
                 <div className={styles.qr_text}>WeChat Official Account</div>
@@ -186,8 +185,7 @@ const PCView = () => {
       </div>
 
       <div className={`${styles.copy_right} py-4 text-sm`}>
-        © 2022-2024 Rexpand All rights reserved.{" "}
-        <a href="#">京ICP备2022032082号-1</a>
+        © 2022-2024 Rexpand All rights reserved.
       </div>
     </footer>
   );

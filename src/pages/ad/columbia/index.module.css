@@ -80,7 +80,7 @@
 /* Media query para dispositivos móviles */
 @media screen and (max-width: 767px) {
     .logosSlide {
-        animation-duration: 30s;
+        animation-duration: 10s;
         gap: 30px;
 
     }
