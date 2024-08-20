@@ -19,6 +19,9 @@ const config: Config = {
         "custom-green": "#008A27",
         "custom-black-0.1": "rgba(0, 0, 0, .1)",
       },
+      screens: {
+        "xl-custom": "1920px",
+      },
     },
   },
   plugins: [],

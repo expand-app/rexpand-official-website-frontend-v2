@@ -6,6 +6,9 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import "./internship.css";
 import "./free_resource.css";
 import "./offer-guarantee.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/free-mode";
 import theme from "@/utils/theme";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

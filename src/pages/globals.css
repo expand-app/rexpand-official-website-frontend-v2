@@ -27,6 +27,17 @@
     src: url('../assets/fonts/RobotoCondensed-VariableFont_wght.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Poppins_Bold';
+    src: url('/Poppins-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Poppins_Regular';
+    src: url('/Poppins-Regular.ttf') format('truetype');
+}
+
+
 body {
     font-family: 'PingFang_Regular';
     background-color: #F7F7F7;
@@ -345,6 +356,19 @@ body {
     height: 24px !important;
     background-repeat: no-repeat;
 }
+
+.mySwiperCompany .swiper-wrapper {
+    align-items: center;
+}
+
+.swiper-wrapper {
+    height: 100%;
+}
+
+.swiper-wrapper .swiper-slide {
+    height: auto;
+}
+
 
 .swiper-pagination-fraction,
 .swiper-pagination-custom,

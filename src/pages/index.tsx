@@ -29,8 +29,6 @@ import OfferGuaranteeView from "./index/components/OfferGuaranteeView/OfferGuara
 import useScreen from "@/components/useScreen/useScreen";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/pagination";
 import { META_DATA } from "@/constant";
 
 export const HomePage: NextPage = () => {
