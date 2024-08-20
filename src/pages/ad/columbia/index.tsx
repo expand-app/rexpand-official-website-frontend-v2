@@ -6,7 +6,7 @@ import logo_green from "@/assets/logo_green.svg";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head/index.en";
 import Footer from "@/components/Footer/en-us/Footer";
-import columbia_code from "@/assets/ad/columbia_code.png";
+import columbiaSvg from "@/assets/ad/columbia.svg";
 import theme from "@/utils/theme";
 import circle_green from "@/assets/ad/circle_green.svg";
 import circle_orange from "@/assets/ad/circle_orange.svg";
@@ -102,46 +102,13 @@ const PCView = () => {
               <Stack
                 direction={"column"}
                 alignItems={"center"}
-                className="relative xl-custom:mr-0 mr-12"
+                className="relative w-[400px] h-[400px]   xl-custom:w-[550px]  "
               >
-                <Box
-                  sx={{
-                    p: theme.spacing(4, 5),
-                    borderRadius: 3,
-                    boxShadow: "0px 4px 16.3px rgba(0, 138, 39, 0.18)",
-                    bgcolor: "#fff",
-                  }}
-                >
-                  <Image
-                    src={columbia_code}
-                    alt="ar_code"
-                    width={400}
-                    height={400}
-                  />
-                </Box>
                 <Image
-                  alt="green_img"
-                  className="absolute bottom-20 -right-28 "
-                  src={circle_green}
-                ></Image>
-                <Image
-                  alt="green_img"
-                  className="absolute -top-16 right-8"
-                  src={circle_orange}
-                ></Image>
-                <Box
-                  sx={{
-                    mt: 8,
-                    p: theme.spacing(2, 6),
-                    borderRadius: 2,
-                    bgcolor: "#fff",
-                    width: "auto",
-                    color: "#636363",
-                    fontSize: 14,
-                  }}
-                >
-                  Scan the QR code 
-                </Box>
+                  src={columbiaSvg}
+                  alt="ar_code"
+                  style={{ objectFit: "contain" }}
+                />
               </Stack>
             </Box>
           </Box>
@@ -286,32 +253,12 @@ const MobileView = () => {
                 className="relative"
                 sx={{ mt: 14 }}
               >
-                <Box
-                  sx={{
-                    p: theme.spacing(4, 5),
-                    borderRadius: 3,
-                    boxShadow: "0px 4px 16.3px rgba(0, 138, 39, 0.18)",
-                    bgcolor: "#fff",
-                    position: "relative",
-                  }}
-                >
-                  <Image
-                    src={columbia_code}
-                    alt="ar_code"
-                    width={172}
-                    height={172}
-                  />
-                  <Image
-                    alt="green_img"
-                    className="absolute bottom-0 -right-12 "
-                    src={circle_green_m}
-                  ></Image>
-                  <Image
-                    alt="green_img"
-                    className="absolute -top-6 right-4"
-                    src={circle_orange_m}
-                  ></Image>
-                </Box>
+                <Image
+                  src={columbiaSvg}
+                  alt="ar_code"
+                  width={230}
+                  height={204}
+                />
 
                 <Box component={"a"} href={AD_LINK} target="_blank">
                   <Button
