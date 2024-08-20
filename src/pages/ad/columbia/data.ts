@@ -1,3 +1,10 @@
+import GoldmanSachs_m from "@/assets/ad/godman.svg";
+import Amazon_m from "@/assets/ad/amazon.svg";
+import Google_m from "@/assets/ad/google.svg";
+import Meta_m from "@/assets/ad/meta.svg";
+import blackRock_m from "@/assets/ad/blackRock.svg";
+import payPal_m from "@/assets/ad/paypal.svg";
+
 import goldmanSachs from "@/assets/ad/GoldmanSachs.png";
 import Amazon from "@/assets/ad/amazon.png";
 import GoldmanSachs from "@/assets/ad/GoldmanSachs.png";
@@ -62,6 +69,14 @@ export const COMPANY_LIST = [
   Meta,
   blackRock,
   payPal,
+];
+export const COMPANY_LIST_MIN = [
+  GoldmanSachs_m,
+  Amazon_m,
+  Google_m,
+  Meta_m,
+  blackRock_m,
+  payPal_m,
 ];
 
 export const AD_LINK = "https://work.weixin.qq.com/ca/cawcdefd94f25391e3";
