@@ -56,7 +56,7 @@ const PCView = () => {
           <Box sx={{ px: 8 }}>
             <Image alt="logo" src={logo_green}></Image>
           </Box>
-          <Box sx={{ maxWidth: "80%", margin: "auto" }}>
+          <Box className={styles.container}>
             <Box
               className={clsx(
                 "pt-52 w-full flex items-center justify-between gap-14  "
@@ -148,7 +148,7 @@ const PCView = () => {
         </Box>
 
         <Box sx={{ pt: 38, pb: 10, bgcolor: "#fff" }}>
-          <Box className={"container mx-auto "}>
+          <Box className={styles.container}>
             <Box
               component={"h2"}
               fontSize={56}

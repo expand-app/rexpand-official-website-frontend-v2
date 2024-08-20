@@ -8,6 +8,12 @@
     font-family: "Poppins_Regular";
 }
 
+
+.container {
+    max-width: 80%;
+    margin: auto
+}
+
 .secondTitle {
     background: linear-gradient(90deg, #008A27 0%, #35C549 100%);
     background-clip: text;
