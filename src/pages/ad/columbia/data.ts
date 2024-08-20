@@ -11,7 +11,7 @@ export const REFERRALS_DATA = [
     id: 1,
     name: "Song Teng",
     avatar: "",
-    headerLine: "CEO at Haitong International Securities(USA)",
+    headLine: "CEO at Haitong International Securities(USA)",
     url: "https://www.linkedin.com/in/song-teng-30070154/",
     bioIntro:
       "Song Teng currently serves as the Chief Executive Officer at Haitong International Securities (USA). Throughout his career, he has held positions at several prestigious firms, including AQR Capital Management and Goldman Sachs. In 2004, he earned a Master’s degree in Computer Science from Columbia University. Song Teng works and resides in New York.",
@@ -20,7 +20,7 @@ export const REFERRALS_DATA = [
     id: 2,
     name: "Annabel Liu ",
     avatar: "https://resources.rexpandcareer.com/image/Annabel%20Liu.jpeg",
-    headerLine: "CTO and Co-founder at Curated",
+    headLine: "CTO and Co-founder at Curated",
     url: "https://www.linkedin.com/in/annabelliu/",
     bioIntro:
       "Annabel Liu is currently the CTO and Co-founder of Curated. Throughout her career, she has held roles at renowned companies such as LinkedIn and Ariba. In 1996, she earned a Bachelor’s degree in Computer Science from Columbia University. Annabel Liu works and resides in Mountain View, California.",
@@ -29,7 +29,7 @@ export const REFERRALS_DATA = [
     id: 3,
     name: "Feng Jing ",
     avatar: "",
-    headerLine: "Managing Director at Goldman Sachs",
+    headLine: "Managing Director at Goldman Sachs",
     url: "https://www.linkedin.com/in/jing-feng-54663b6/",
     bioIntro:
       "Feng Jing currently holds the position of Managing Director at Goldman Sachs. Feng has served in multiple positions within Goldman Sachs for about 18 years. In 2006, he earned a PhD in Electrical Engineering from Columbia University. Feng Jing works and resides in New York City.",
@@ -38,7 +38,7 @@ export const REFERRALS_DATA = [
     id: 4,
     name: "Nan Chen ",
     avatar: "",
-    headerLine:
+    headLine:
       "Head of Credit Modeling and Managing Director at Silicon Valley Bank",
     url: "https://www.linkedin.com/in/nan-chen-9828157/",
     bioIntro:
@@ -48,7 +48,7 @@ export const REFERRALS_DATA = [
     id: 5,
     name: "Shanji Xiong ",
     avatar: "https://resources.rexpandcareer.com/image/Shanji%20Xiong.jpeg",
-    headerLine: "SVP, Global Chief Scientist at Experian",
+    headLine: "SVP, Global Chief Scientist at Experian",
     url: "https://www.linkedin.com/in/shanji-xiong-bb3a20/",
     bioIntro:
       "Shanji Xiong currently holds the position of Global Chief Scientist at Experian. Over the course of his career, he has worked at renowned companies such as ID Analytics Inc. and Morgan Stanley. He earned a PhD in Electrical Mechanics from Columbia University. Shanji Xiong works and resides in San Diego, California.",

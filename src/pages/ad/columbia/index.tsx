@@ -203,8 +203,8 @@ const PCView = () => {
                         </Avatar>
                         <Stack fontSize={16}>
                           <Box fontWeight={600}>{item.name}</Box>
-                          <Box className="line-clamp-1" title={item.headerLine}>
-                            {item.headerLine}
+                          <Box className="line-clamp-1" title={item.headLine}>
+                            {item.headLine}
                           </Box>
                         </Stack>
                       </Stack>
@@ -373,8 +373,8 @@ const MobileView = () => {
                       </Avatar>
                       <Stack>
                         <Box fontWeight={600}>{item.name}</Box>
-                        <Box className="line-clamp-2" title={item.headerLine}>
-                          {item.headerLine}
+                        <Box className="line-clamp-2" title={item.headLine}>
+                          {item.headLine}
                         </Box>
                       </Stack>
                     </Stack>
