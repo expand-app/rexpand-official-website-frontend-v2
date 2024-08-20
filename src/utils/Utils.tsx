@@ -79,7 +79,7 @@ export function formatDate(date: Date) {
 
 export const TRAINING_CAMP_DATE = [
   "2024-07-29",
-  "2024-08-19",
+  "2024-08-26",
   "2024-09-16",
   "2024-10-21",
   "2024-11-18",
