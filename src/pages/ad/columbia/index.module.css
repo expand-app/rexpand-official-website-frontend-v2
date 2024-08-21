@@ -10,7 +10,7 @@
 
 
 .container {
-    max-width: 80%;
+    width: 80%;
     max-width: 1920px;
     margin: auto
 }
@@ -88,7 +88,6 @@
 @media screen and (max-width: 767px) {
     .logosSlide {
         animation-duration: 10s;
-        gap: 30px;
 
     }
 }

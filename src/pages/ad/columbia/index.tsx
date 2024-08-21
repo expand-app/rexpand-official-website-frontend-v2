@@ -8,11 +8,12 @@ import Head from "@/components/Head/index.en";
 import Footer from "@/components/Footer/en-us/Footer";
 import columbiaSvg from "@/assets/ad/columbia.svg";
 import theme from "@/utils/theme";
-import circle_green from "@/assets/ad/circle_green.svg";
-import circle_orange from "@/assets/ad/circle_orange.svg";
-import circle_green_m from "@/assets/ad/circle_green_m.svg";
-import circle_orange_m from "@/assets/ad/circle_orange_m.svg";
-import { AD_LINK, COMPANY_LIST, REFERRALS_DATA } from "./data";
+import {
+  AD_LINK,
+  COMPANY_LIST,
+  COMPANY_LIST_MIN,
+  REFERRALS_DATA,
+} from "./data";
 import { Swiper, SwiperRef, SwiperSlide, useSwiper } from "swiper/react";
 
 import { FreeMode, Pagination, Autoplay } from "swiper/modules";
@@ -93,6 +94,7 @@ const PCView = () => {
                       textTransform: "initial",
                       fontSize: 18,
                       borderRadius: 2,
+                      boxShadow: "none",
                     }}
                   >
                     Join
@@ -107,7 +109,7 @@ const PCView = () => {
                 <Image
                   src={columbiaSvg}
                   alt="ar_code"
-                  style={{ objectFit: "contain" }}
+                  style={{ width: "100%", height: "100%" }}
                 />
               </Stack>
             </Box>
@@ -235,7 +237,7 @@ const MobileView = () => {
               </Box>
               <Box
                 component={"ul"}
-                className="list-disc mt-7 flex flex-col gap-1 text-xs ml-6"
+                className="list-disc mt-7 flex flex-col gap-1 text-xs ml-4"
               >
                 <Box component={"li"}>Wechat based community</Box>
                 <Box component={"li"}>
@@ -270,6 +272,7 @@ const MobileView = () => {
                       textTransform: "initial",
                       fontSize: 14,
                       borderRadius: 1,
+                      boxShadow: "none",
                     }}
                   >
                     Join
@@ -293,11 +296,11 @@ const MobileView = () => {
             </Box>
             <Box sx={{ mt: 20, width: "100%" }}>
               <Box className={styles.logos}>
-                <Box className={styles.logosSlide}>
-                  {COMPANY_LIST.map((item, index) => {
+                <Box className={styles.logosSlide} sx={{ opacity: "0.4" }}>
+                  {COMPANY_LIST_MIN.map((item, index) => {
                     return <Image alt="company" key={index} src={item}></Image>;
                   })}
-                  {COMPANY_LIST.map((item, index) => {
+                  {COMPANY_LIST_MIN.map((item, index) => {
                     return <Image alt="company" key={index} src={item}></Image>;
                   })}
                 </Box>
