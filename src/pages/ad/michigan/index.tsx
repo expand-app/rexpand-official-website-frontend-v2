@@ -17,8 +17,8 @@ import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
 import { FreeMode, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
-import ArrowRight from "./SvgComponent/ArrowRight";
-import ArrowLeft from "./SvgComponent/ArrowLeft";
+import ArrowRight from "../SvgComponent/ArrowRight";
+import ArrowLeft from "../SvgComponent/ArrowLeft";
 
 interface ColumbiaProps {}
 
@@ -64,8 +64,7 @@ const PCView = () => {
             >
               <Box fontFamily={"Poppins_Bold"} sx={{ flex: 1 }}>
                 <Box component="h1" fontSize={60} color={"#333"}>
-                  Private invitation to University of University of Michigan
-                  alumni group
+                  Private invitation to University of Michigan alumni group
                 </Box>
 
                 <Box
@@ -107,7 +106,7 @@ const PCView = () => {
                 <Image
                   src={michiganSvg}
                   alt="ar_code"
-                  style={{ width: "100%", height: "100%" }}
+                  style={{ width: "100%" }}
                 />
               </Stack>
             </Box>

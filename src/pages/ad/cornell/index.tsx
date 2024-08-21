@@ -17,8 +17,8 @@ import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
 import { FreeMode, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
-import ArrowRight from "./SvgComponent/ArrowRight";
-import ArrowLeft from "./SvgComponent/ArrowLeft";
+import ArrowRight from "../SvgComponent/ArrowRight";
+import ArrowLeft from "../SvgComponent/ArrowLeft";
 
 interface ColumbiaProps {}
 
@@ -105,8 +105,8 @@ const PCView = () => {
               >
                 <Image
                   src={cornellSvg}
-                  alt="ar_code"
-                  style={{ width: "100%", height: "100%" }}
+                  alt="cornell University"
+                  style={{ width: "100%" }}
                 />
               </Stack>
             </Box>

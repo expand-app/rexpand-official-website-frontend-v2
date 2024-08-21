@@ -18,8 +18,8 @@ import { Swiper, SwiperRef, SwiperSlide, useSwiper } from "swiper/react";
 
 import { FreeMode, Pagination, Autoplay } from "swiper/modules";
 import { useRef, useState } from "react";
-import ArrowRight from "./SvgComponent/ArrowRight";
-import ArrowLeft from "./SvgComponent/ArrowLeft";
+import ArrowRight from "../SvgComponent/ArrowRight";
+import ArrowLeft from "../SvgComponent/ArrowLeft";
 
 interface ColumbiaProps {}
 
@@ -108,8 +108,8 @@ const PCView = () => {
               >
                 <Image
                   src={columbiaSvg}
-                  alt="ar_code"
-                  style={{ width: "100%", height: "100%" }}
+                  alt="columbia"
+                  style={{ width: "100%" }}
                 />
               </Stack>
             </Box>
