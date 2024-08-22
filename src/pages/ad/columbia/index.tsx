@@ -104,12 +104,12 @@ const PCView = () => {
               <Stack
                 direction={"column"}
                 alignItems={"center"}
-                className="relative w-[400px] h-[400px]   xl-custom:w-[550px]  "
+                className="relative w-[400px] h-[400px]   xl-custom:w-[550px] xl-custom:h-[500px]   "
               >
                 <Image
                   src={columbiaSvg}
                   alt="columbia"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", objectFit: "contain" }}
                 />
               </Stack>
             </Box>
