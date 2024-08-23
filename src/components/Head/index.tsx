@@ -25,7 +25,6 @@ const Head: React.FC<HeadProps> = ({
       <meta property="og:url" content="https://rexpandcareer.com/about" />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://rexpandcareer.com/about" />
-      <link rel="icon" href="/favicon.ico" type="image/x-icon"></link>
       <link
         rel="apple-touch-icon"
         sizes="180x180"
@@ -43,7 +42,11 @@ const Head: React.FC<HeadProps> = ({
         sizes="16x16"
         href="/favicon-16x16.png"
       />
-      <link rel="manifest" href="/site.webmanifest"></link>
+      <link rel="icon" href="/favicon.ico" type="image/x-icon"></link>
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+      <meta name="msapplication-TileColor" content="#00aba9" />
+      <meta name="theme-color" content="#ffffff" />
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",
