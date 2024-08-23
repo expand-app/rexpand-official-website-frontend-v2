@@ -25,7 +25,25 @@ const Head: React.FC<HeadProps> = ({
       <meta property="og:url" content="https://rexpandcareer.com/about" />
       <meta property="og:type" content="website" />
       <link rel="canonical" href="https://rexpandcareer.com/about" />
-      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"></link>
+      <link rel="icon" href="/favicon.ico" type="image/x-icon"></link>
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="manifest" href="/site.webmanifest"></link>
       <script type="application/ld+json">
         {JSON.stringify({
           "@context": "https://schema.org",

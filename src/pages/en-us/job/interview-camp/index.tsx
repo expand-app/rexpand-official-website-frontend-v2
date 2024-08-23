@@ -31,7 +31,7 @@ import CampBannerOverlayCard from "./CampBannerOverlayCard/CampBannerOverlayCard
 import Link from "next/link";
 import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { campConsultModalDataEnUs } from "@/data/job_consult";
-import Head from "next/head";
+import Head from "@/components/Head/index.en";
 import {
   TRAINING_CAMP_DATE,
   daysUntilDate,
@@ -56,41 +56,7 @@ export const InterviewCampPage: NextPage<InterviewCampPageProps> = () => {
 
   return (
     <>
-      <Head>
-        <title>
-          9 Years of Focus on Chinese International Student Job Search
-        </title>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
-        ></meta>
-        <meta
-          name="description"
-          content="9 Years of Focus on Chinese International Student Job Search"
-        />
-        <meta property="og:title" content="Rexpand" />
-        <meta
-          property="og:description"
-          content="9 Years of Focus on Chinese International Student Job Search"
-        />
-        <meta property="og:url" content="https://rexpandcareer.com/about" />
-        <meta property="og:type" content="website" />
-        <link rel="canonical" href="https://rexpandcareer.com/about" />
-        <link
-          rel="shortcut icon"
-          type="image/x-icon"
-          href="/favicon.ico"
-        ></link>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "睿思班",
-            url: "https://rexpandcareer.com",
-            logo: "https://rexpandcareer.com/_next/static/media/logo_green.e3921224.svg",
-          })}
-        </script>
-      </Head>
+      <Head />
       <div>
         {isMobile?.() ? (
           <MobileView
@@ -304,7 +270,12 @@ export const PCView = ({ onBannerBtnClick, nextCourseTime }: Props) => {
                 Next Session:
                 <span className="font-w500 mr-1"> {nextCourseTime}</span>
               </h3>
-              <h3>
+              <h3
+                className={clsx(
+                  " text-white font-16 font-w400",
+                  styles.banner_subtitle2
+                )}
+              >
                 Countdown:
                 <span className={clsx(styles.count_down_num, "ml-1")}>
                   {daysUntilDate(nextCourseTime)}
