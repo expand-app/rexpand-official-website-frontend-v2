@@ -6,8 +6,7 @@ import logo_green from "@/assets/logo_green.svg";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head/index.en";
 import Footer from "@/components/Footer/en-us/Footer";
-import columbiaSvg from "@/assets/ad/university/columbia.svg";
-import theme from "@/utils/theme";
+import UCLASVG from "@/assets/ad/university/UCLA.svg";
 import {
   AD_LINK,
   COMPANY_LIST,
@@ -68,7 +67,7 @@ const PCView = () => {
                   Private invitation
                 </Box>
                 <Box fontSize={60} color={"#333"}>
-                  to Columbia alumni group
+                  to University of California Los Angeles alumni group
                 </Box>
                 <Box
                   component={"ul"}
@@ -107,7 +106,7 @@ const PCView = () => {
                 className="relative w-[400px] h-[400px]   xl-custom:w-[550px] xl-custom:h-[500px]   "
               >
                 <Image
-                  src={columbiaSvg}
+                  src={UCLASVG}
                   alt="columbia"
                   style={{ width: "100%", objectFit: "contain" }}
                 />
@@ -233,7 +232,8 @@ const MobileView = () => {
                 color={"#333"}
                 fontFamily={"Poppins_Bold"}
               >
-                Private invitation to Columbia alumni group
+                Private invitation to University of California Los Angeles
+                alumni group
               </Box>
               <Box
                 component={"ul"}
@@ -255,12 +255,7 @@ const MobileView = () => {
                 className="relative"
                 sx={{ mt: 14 }}
               >
-                <Image
-                  src={columbiaSvg}
-                  alt="ar_code"
-                  width={230}
-                  height={204}
-                />
+                <Image src={UCLASVG} alt="ar_code" width={230} height={204} />
 
                 <Box component={"a"} href={AD_LINK} target="_blank">
                   <Button

@@ -6,7 +6,7 @@ import logo_green from "@/assets/logo_green.svg";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head/index.en";
 import Footer from "@/components/Footer/en-us/Footer";
-import michiganSvg from "@/assets/ad/michigan.svg";
+import michiganSvg from "@/assets/ad/university/michigan.svg";
 import {
   AD_LINK,
   COMPANY_LIST,
