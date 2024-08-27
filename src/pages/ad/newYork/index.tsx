@@ -6,17 +6,16 @@ import logo_green from "@/assets/logo_green.svg";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head/index.en";
 import Footer from "@/components/Footer/en-us/Footer";
-import columbiaSvg from "@/assets/ad/university/columbia.svg";
-import theme from "@/utils/theme";
+import NYUSvg from "@/assets/ad/university/NYU.svg";
 import {
   AD_LINK,
   COMPANY_LIST,
   COMPANY_LIST_MIN,
   REFERRALS_DATA,
 } from "./data";
-import { Swiper, SwiperRef, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 
-import { FreeMode, Pagination, Autoplay } from "swiper/modules";
+import { FreeMode, Pagination } from "swiper/modules";
 import { useRef, useState } from "react";
 import ArrowRight from "../SvgComponent/ArrowRight";
 import ArrowLeft from "../SvgComponent/ArrowLeft";
@@ -65,11 +64,9 @@ const PCView = () => {
             >
               <Box fontFamily={"Poppins_Bold"} sx={{ flex: 1 }}>
                 <Box component="h1" fontSize={60} color={"#333"}>
-                  Private invitation
+                  Private invitation to New York University alumni group
                 </Box>
-                <Box fontSize={60} color={"#333"}>
-                  to Columbia alumni group
-                </Box>
+
                 <Box
                   component={"ul"}
                   sx={{ fontFamily: "Poppins_Regular" }}
@@ -104,11 +101,11 @@ const PCView = () => {
               <Stack
                 direction={"column"}
                 alignItems={"center"}
-                className="relative w-[400px] h-[400px]   xl-custom:w-[550px] xl-custom:h-[500px]   "
+                className="relative w-[400px] h-[400px]   xl-custom:w-[550px]  xl-custom:h-[500px]  "
               >
                 <Image
-                  src={columbiaSvg}
-                  alt="columbia"
+                  src={NYUSvg}
+                  alt="ar_code"
                   style={{ width: "100%", objectFit: "contain" }}
                 />
               </Stack>
@@ -233,7 +230,7 @@ const MobileView = () => {
                 color={"#333"}
                 fontFamily={"Poppins_Bold"}
               >
-                Private invitation to Columbia alumni group
+                Private invitation to New York University alumni group
               </Box>
               <Box
                 component={"ul"}
@@ -255,12 +252,7 @@ const MobileView = () => {
                 className="relative"
                 sx={{ mt: 14 }}
               >
-                <Image
-                  src={columbiaSvg}
-                  alt="ar_code"
-                  width={230}
-                  height={204}
-                />
+                <Image src={NYUSvg} alt="ar_code" width={230} height={204} />
 
                 <Box component={"a"} href={AD_LINK} target="_blank">
                   <Button
