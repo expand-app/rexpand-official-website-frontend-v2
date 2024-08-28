@@ -56,13 +56,13 @@ export const REFERRALS_DATA = [
   },
   {
     id: 5,
-    name: "Yuwei Liu",
+    name: "Jeff Wang",
     avatar:
-      "https://resources.rexpandcareer.com/image/California%2C%20Berkeley/YuweiLiu.jpeg",
-    headLine: "Co-Founder & Chief Data Scientist at MetaEye",
-    url: "https://www.linkedin.com/in/yuweiliu/",
+      "https://resources.rexpandcareer.com/image/California%2C%20Berkeley/Jeff Wang.jpeg",
+    headLine: "CTO at Flex",
+    url: "https://www.linkedin.com/in/jeffwang11",
     bioIntro:
-      "Yuwei Liu currently serves as Co-Founder & Chief Data Scientist at MetaEye. Throughout his career, Yuwei has made significant contributions to renowned companies such as Facebook and Uber. He earned his Ph.D. in Climatology from the University of California, Berkeley, in 2014. Yuwei resides and works in San Francisco.",
+      "Jeff Wang currently serves as Chief Technology Officer at Flex. Throughout his career, Jeff has made significant contributions to renowned companies such as PayPal and Venmo. He earned his degree from the University of California, Berkeley, in 2000. Jeff resides and works in California.",
   },
 ];
 
