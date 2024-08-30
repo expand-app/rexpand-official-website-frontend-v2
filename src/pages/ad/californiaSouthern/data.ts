@@ -60,7 +60,7 @@ export const REFERRALS_DATA = [
     name: "Yumei Xiong",
     avatar:
       "https://resources.rexpandcareer.com/image/University%20of%20Southern%20California/Yumei%20Xiong.jpeg",
-    headLine: "https://www.linkedin.com/in/yumei-xiong-b8874339/",
+    headLine: "Managing Director at JPMorganChase",
     url: "https://www.linkedin.com/in/jeffwang11",
     bioIntro:
       "Yumei Xiong currently serves as Managing Director at JPMorgan Chase & Co. Throughout her career, Yumei has made significant contributions to renowned companies such as VMware and BMC Software. She earned her Master's degree in Electrical Engineering from the University of Southern California in 1999. Yumei resides and works in California.",
@@ -84,4 +84,4 @@ export const COMPANY_LIST_MIN = [
   payPal_m,
 ];
 
-export const AD_LINK = "https://work.weixin.qq.com/ca/cawcde633c6a485e5e";
+export const AD_LINK = "https://work.weixin.qq.com/ca/cawcde4899a7064d4a";
