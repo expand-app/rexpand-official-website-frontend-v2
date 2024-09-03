@@ -64,8 +64,8 @@ const PCView = () => {
             >
               <Box fontFamily={"Poppins_Bold"} sx={{ flex: 1 }}>
                 <Box component="h1" fontSize={60} color={"#333"}>
-                  Private invitation to UCSB-University of California, Santa
-                  Barbara alumni group
+                  Private invitation to University of California, Santa Barbara
+                  alumni group
                 </Box>
 
                 <Box
@@ -231,8 +231,8 @@ const MobileView = () => {
                 color={"#333"}
                 fontFamily={"Poppins_Bold"}
               >
-                Private invitation to UCSB-University of California, Santa
-                Barbara alumni group
+                Private invitation to University of California, Santa Barbara
+                alumni group
               </Box>
               <Box
                 component={"ul"}
