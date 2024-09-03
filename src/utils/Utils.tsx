@@ -77,10 +77,12 @@ export function formatDate(date: Date) {
   return formattedDate;
 }
 
+//集训营时间
+
 export const TRAINING_CAMP_DATE = [
   "2024-07-29",
   "2024-08-26",
-  "2024-09-16",
+  "2024-09-23",
   "2024-10-21",
   "2024-11-18",
   "2024-12-16",
