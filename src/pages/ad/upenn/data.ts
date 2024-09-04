@@ -82,4 +82,4 @@ export const COMPANY_LIST_MIN = [
   payPal_m,
 ];
 
-export const AD_LINK = "https://work.weixin.qq.com/ca/cawcde12c116bfd83d";
+export const AD_LINK = "https://work.weixin.qq.com/ca/cawcde03beea011349";
