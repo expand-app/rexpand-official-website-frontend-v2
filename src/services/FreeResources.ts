@@ -31,7 +31,7 @@ export interface Tag {
 export type TagList = Array<Tag>;
 class FreeResourcesAPI extends BaseAPI {
   getArticleList = (): Promise<APIResponse<FreeResourceData>> => {
-    return this.get(`/api/articles?populate=*`, {
+    return this.get(`/api/articles?populate=*&pagination[limit]=-1`, {
       withAuthToken: false,
     });
   };
