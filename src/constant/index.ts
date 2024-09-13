@@ -1,3 +1,7 @@
+import banner1 from "@/assets/home/banner1.jpg";
+import banner2 from "@/assets/home/banner2.jpg";
+import banner3 from "@/assets/home/banner3.jpg";
+
 export const STRAPI_PRIVATE_PROP = [
   "createdAt",
   "updatedAt",
@@ -49,3 +53,18 @@ export const META_DATA: MetaData = {
     keyword: "求职,面试,Mock interview,面试辅导,直播",
   },
 } as const;
+
+export const HOME_SWIPER_IMG = [
+  {
+    src: banner1,
+    url: "https://rexpandcareer.com/job/offer-guarantee",
+  },
+  {
+    src: banner2,
+    url: "https://rexpandcareer.com/job/interview-camp",
+  },
+  {
+    src: banner3,
+    url: "https://rexpandcareer.com/job/internship/quantitative-investment",
+  },
+];
