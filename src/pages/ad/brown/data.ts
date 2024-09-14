@@ -34,12 +34,12 @@ export const REFERRALS_DATA = [
   },
   {
     id: 3,
-    name: "Shaobo Tian",
+    name: "Kang Sun",
     avatar: "https://resources.rexpandcareer.com/image/Brown/image3.jpeg",
-    headLine: "Software Engineer at Microsoft",
+    headLine: "Chief Executive Officer at Amprius Technologies, Inc.",
     url: "https://www.linkedin.com/in/snc705/",
     bioIntro:
-      "Shaobo currently holds the position of Software Engineer Manager at Microsoft. Throughout his career, he has been associated with prestigious institutions such as Brown University and Amazon. Shaobo earned his Master of Science in Computer Science from Brown University in 2016. He is based in Washington, where he continues to advance his professional endeavors.",
+      "Kang Sun is currently the Chief Executive Officer at Amprius Technologies, Inc. Throughout his career, he has held positions at numerous prestigious companies. Kang earned a PhD in Materials Science and Physical Chemistry from Brown University. He resides and works in San Francisco.",
   },
   {
     id: 4,

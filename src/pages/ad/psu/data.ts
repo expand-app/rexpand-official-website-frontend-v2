@@ -43,12 +43,12 @@ export const REFERRALS_DATA = [
   },
   {
     id: 4,
-    name: "Changkun Zhao",
+    name: "Wenkang Qi",
     avatar: "https://resources.rexpandcareer.com/image/PSU/image4.jpeg",
-    headLine: "Staff Software Engineer at LinkedIn",
+    headLine: "Chief Operating Officer at VitalConnect",
     url: "https://www.linkedin.com/in/yong-liang-6a90b413/",
     bioIntro:
-      "Changkun currently holds the position of Staff Software Engineer at LinkedIn. Throughout his career, he has been associated with leading companies such as Vungle and IBM Watson Health Cloud. Changkun earned his PhD in Information Technology from Pennsylvania State University in 2016. He is based in San Francisco, where he continues to advance his professional career.",
+      "Wenkang is currently the Chief Operating Officer at VitalConnect. Throughout his career, he has held significant positions at well-known companies such as BAROnova and Clarity Medical Systems, Inc. Wenkang earned his PhD in Biomedical Engineering from Pennsylvania State University. He resides and works in San Francisco.",
   },
   {
     id: 5,
