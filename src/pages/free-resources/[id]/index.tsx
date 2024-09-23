@@ -25,6 +25,7 @@ import ArrowLeft from "@/assets/free-resources/arrow_left.svg";
 import ArrowRight from "@/assets/free-resources/arrow_right.svg";
 import ArrowClose from "@/assets/free-resources/arrow_close.svg";
 import { ServerEnv } from "@/utils/env";
+import { replaceCDNName } from "@/utils/Utils";
 
 interface Props {
   article: FreeResource;
@@ -323,10 +324,10 @@ function MobileView({
                             width={176}
                             height={117}
                             className="max-h-[117px] rounded"
-                            src={
+                            src={replaceCDNName(
                               item.attributes.cover.data.attributes.formats
                                 .large.url
-                            }
+                            )}
                           />
                           <div className="flex-1">
                             <div className="text-sm line-clamp-2  mb-2">
@@ -579,10 +580,10 @@ function PCView({
                         alt={item.attributes.title}
                         width={176}
                         height={117}
-                        src={
+                        src={replaceCDNName(
                           item.attributes.cover.data.attributes.formats.large
                             .url
-                        }
+                        )}
                       ></Image>
                     </div>
                   </Link>
@@ -666,6 +667,7 @@ export const getStaticProps = async ({ params }: any) => {
     if (params?.id) {
       const data = await freeResourcesService.getArticleList();
       const tagData = await freeResourcesService.getArticleTag();
+      console.log(params.id, "+===params=");
 
       return {
         props: {

@@ -119,3 +119,13 @@ export function daysUntilDate(dateStr: string): number | null {
 
   return targetDate.diff(now, "day");
 }
+
+export function replaceCDNName(url: string): string {
+  if (url) {
+    return url.replace(
+      "https://rexpand-cms-strapi-prod.s3.us-east-1.amazonaws.com",
+      "https://file.cms.tuilink.io"
+    );
+  }
+  return "";
+}

@@ -42,7 +42,6 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = (props) => {
         item?.attributes.category?.data?.attributes.name === currentFilter
     );
   }, [articleList, currentFilter]);
-  console.log(articleList, "+=articleList", categories, currentFilter);
 
   return (
     <>

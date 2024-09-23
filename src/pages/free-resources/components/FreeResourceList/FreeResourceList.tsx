@@ -12,6 +12,7 @@ import { FreeResourceData, PageInfo } from "../../type";
 import { PAGE_SIZE } from "../../constant";
 import { NextPage } from "next";
 import { ServerEnv } from "@/utils/env";
+import { replaceCDNName } from "@/utils/Utils";
 
 export interface FreeResourceListProp {
   data: FreeResourceData;
@@ -80,7 +81,7 @@ const MobileView = ({
             cover,
           },
         } = item;
-        const image = cover?.data.attributes.formats.large.url;
+        const image = replaceCDNName(cover?.data.attributes.formats.large.url);
 
         return (
           <div
@@ -195,7 +196,7 @@ const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
             cover,
           },
         } = item;
-        const image = cover?.data.attributes.formats.large.url;
+        const image = replaceCDNName(cover?.data.attributes.formats.large.url);
 
         return (
           <div
