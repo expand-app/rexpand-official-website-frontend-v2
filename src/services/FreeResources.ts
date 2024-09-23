@@ -3,12 +3,8 @@ import {
   FreeResource,
   FreeResourceData,
 } from "@/pages/free-resources/type";
+import { APIResponse } from "@/types/api";
 import { BaseAPI } from "@/utils/base-api";
-
-export interface APIResponse<T = any> {
-  data: T;
-  error?: string;
-}
 
 export interface CategoryDescriptionData {
   id: number;

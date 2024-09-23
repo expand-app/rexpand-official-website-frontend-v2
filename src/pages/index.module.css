@@ -1,4 +1,4 @@
-.banner_container{
+.banner_container {
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,15 +7,17 @@
 .swiper_container {
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     width: 100%;
     height: 100%;
     background-color: #ccc;
     z-index: 1;
 }
+
 .swiper {
     height: 100%;
 }
+
 /* .banner_container::before {
     content: "";
     position: absolute;
@@ -27,7 +29,7 @@
     z-index: 1;
 } */
 
-.banner_text{
+.banner_text {
     font-family: 'PingFang_Semiblod';
     font-size: 60px;
     line-height: 80px;
@@ -42,19 +44,22 @@
     width: 220px;
     height: 70px;
 }
-.section{
-    padding-bottom:87px;
+
+.section {
+    padding-bottom: 87px;
 }
+
 .internship_project_section {
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
-.section_title{
+
+.section_title {
     margin-top: 66px;
     margin-bottom: 90px;
 }
 
-.interview_camp_cards{
+.interview_camp_cards {
     margin-bottom: 160px;
 }
 
@@ -70,12 +75,13 @@
 
 
 /* m */
-.m_banner_container{
+.m_banner_container {
     height: 653px;
     position: relative;
     background-repeat: no-repeat;
     background-size: cover;
 }
+
 .m_banner_title {
     display: inline-block;
     font-family: 'PingFang_Semiblod';
@@ -86,6 +92,7 @@
     line-height: 60px;
     pointer-events: none;
 }
+
 .m_banner_btn {
     width: 124px;
     height: 45px;
@@ -97,8 +104,18 @@
     left: 50%;
     transform: translateX(-50%);
 }
-.m_banner_btn:hover{
-    
+
+.m_banner_btn_home {
+    width: 124px;
+    height: 45px;
+    font-size: 14px;
+    /* margin-top: 282px; */
+    /* margin-bottom: 103px; */
+
+}
+
+.m_banner_btn:hover {
+
     transform: translateX(-50%);
 }
 
@@ -112,10 +129,12 @@
     height: 0;
     overflow: visible;
 }
-.m_banner_text > h1 {
-    pointer-events: none; 
+
+.m_banner_text>h1 {
+    pointer-events: none;
 }
-.m_banner_text > a {
+
+.m_banner_text>a {
     pointer-events: auto;
 }
 
@@ -123,15 +142,16 @@
     margin-top: 67px;
     margin-bottom: 43px;
 }
+
 .m_section1 {
     overflow: auto;
 }
 
 .section1_btn {
-    font-size:14px;
+    font-size: 14px;
     font-family: 'PingFang_Medium';
     width: 106px;
-    height:37px;
+    height: 37px;
     margin-bottom: 46px;
 }
 
@@ -167,16 +187,14 @@
 .m_swiper_container {
     position: absolute;
     top: 0;
-    left:0;
+    left: 0;
     width: 100%;
     height: 100%;
-    
+
     background-color: #ccc;
     z-index: 0;
 }
+
 .m_swiper {
     height: 100%;
 }
-
-
-
