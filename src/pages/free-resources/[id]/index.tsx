@@ -298,9 +298,7 @@ function MobileView({
               width={500}
               height={500}
               layout="responsive"
-              src={
-                "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/Group_427318709_3d9757ca53.svg"
-              }
+              src={"https://file.cms.tuilink.io/Group_427318709_3d9757ca53.svg"}
             ></Image>
           </div>
           <div className="text-[#1B1B1B]">
@@ -534,7 +532,7 @@ function PCView({
                     height={500}
                     layout="responsive"
                     src={
-                      "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/Group_427318709_3d9757ca53.svg"
+                      "https://file.cms.tuilink.io/Group_427318709_0a6788f05b_033cce3786.svg"
                     }
                   ></Image>
                 </div>

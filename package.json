@@ -3,11 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": " APP_ENV=production next dev -p 3001",
+    "dev": " APP_ENV=development next dev -p 3001",
+    "prod": " APP_ENV=production next dev -p 3001",
     "build": "APP_ENV=production  next build",
     "build:dev": "APP_ENV=development next build",
     "build:prod": " APP_ENV=production  next build",
-    "start": "next start APP_ENV=production ",
+    "start": "next start APP_ENV=production  -p 3001",
     "lint": "next lint"
   },
   "dependencies": {
