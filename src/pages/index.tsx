@@ -80,11 +80,13 @@ export const MobileView: React.FC<ViewProps> = (props) => {
                 slidesPerView={1}
               >
                 {honeData.map((item, index) => (
-                  <SwiperSlide key={item.url} className="relative">
+                  <SwiperSlide key={item.url} className="relative w-full">
                     <Image
                       src={item.src}
                       alt={"banner_img"}
-                      style={{ width: "100%", objectFit: "contain" }}
+                      width={430}
+                      height={827}
+                      style={{ objectFit: "contain" }}
                     />
                     <Box
                       sx={{
@@ -248,10 +250,12 @@ export const PCView: React.FC<ViewProps> = (props) => {
                 className={styles.swiper}
               >
                 {honeData.map((item, index) => (
-                  <SwiperSlide key={item.url} className="relative">
+                  <SwiperSlide key={item.url} className="relative w-full">
                     <Image
                       src={item.src}
                       alt=""
+                      width={1329}
+                      height={695}
                       style={{ width: "100%", objectFit: "contain" }}
                     />
                     <Box

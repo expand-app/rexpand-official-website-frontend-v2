@@ -4,6 +4,7 @@ import Button, { ButtonColor, ButtonSize, ButtonType } from "../Button/Button";
 import Image from "next/image";
 import whiteLogoImg from "@/assets/logo_white.svg";
 import greenLogoImg from "@/assets/logo_green.svg";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import clsx from "clsx";
 import JobConsultModal from "../JobConsultModal/JobConsultModal";
 import Link from "next/link";
@@ -25,7 +26,10 @@ const Header = ({ ...props }: Props) => {
   const { isMobile } = useScreen();
 
   return (
-    <>{isMobile?.() ? <MobileView {...props} /> : <PCView {...props} />}</>
+    <>
+      <GoogleAnalytics gaId="G-JZDB0MH2WG" />
+      {isMobile?.() ? <MobileView {...props} /> : <PCView {...props} />}
+    </>
   );
 };
 
