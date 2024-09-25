@@ -94,8 +94,6 @@ export const getClosestDate = (dates: Array<string>) => {
   let minDiff = Infinity;
 
   dates.forEach((dateStr) => {
-    console.log(dateStr, "+=dateStr");
-
     const date = dayjs(dateStr, "YYYY-MM-DD");
 
     const diff = date.diff(now, "d");

@@ -49,7 +49,6 @@ const PCView: React.FC<UniversityProps> = (props) => {
       swiperRef.current.swiper.slideNext();
     }
   };
-  console.log(university, "+==university=");
 
   return (
     <>
@@ -356,7 +355,6 @@ export async function getStaticProps({ params }: any) {
   // 从 Strapi 自定义 API 获取数据
   const res = await universityService.getUniversity(params.urlName);
   const university = res.data[0];
-  console.log(res, "+===res");
 
   return {
     props: {

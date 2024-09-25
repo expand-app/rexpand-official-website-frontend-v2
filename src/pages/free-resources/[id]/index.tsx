@@ -665,7 +665,6 @@ export const getStaticProps = async ({ params }: any) => {
     if (params?.id) {
       const data = await freeResourcesService.getArticleList();
       const tagData = await freeResourcesService.getArticleTag();
-      console.log(params.id, "+===params=");
 
       return {
         props: {
