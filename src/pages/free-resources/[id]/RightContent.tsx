@@ -92,9 +92,7 @@ const PCView: React.FC<RightContentContentViewProps> = ({
         </div>
         <div className="mt-2">
           <Image
-            src={
-              "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/thumbnail_Rectangle_18936_600ff33efe.png"
-            }
+            src={"https://file.cms.tuilink.io/new_live_a7ccef6ef0.png"}
             alt="最新直播"
             width={267}
             height={132}
@@ -229,9 +227,7 @@ const MobileView: React.FC<RightContentContentViewProps> = ({
         </div>
         <div className="mt-2">
           <Image
-            src={
-              "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/thumbnail_Rectangle_18936_600ff33efe.png"
-            }
+            src={"https://file.cms.tuilink.io/new_live_a7ccef6ef0.png"}
             alt="最新直播"
             width={267}
             height={132}

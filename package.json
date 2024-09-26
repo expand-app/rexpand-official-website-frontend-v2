@@ -4,16 +4,18 @@
   "private": true,
   "scripts": {
     "dev": " APP_ENV=development next dev -p 3001",
+    "prod": " APP_ENV=production next dev -p 3001",
     "build": "APP_ENV=production  next build",
     "build:dev": "APP_ENV=development next build",
     "build:prod": " APP_ENV=production  next build",
-    "start": "next start APP_ENV=production ",
+    "start": "next start APP_ENV=production  -p 3001",
     "lint": "next lint"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.20",
+    "@next/third-parties": "^14.2.13",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "clsx": "^2.1.1",
     "dayjs": "^1.11.11",

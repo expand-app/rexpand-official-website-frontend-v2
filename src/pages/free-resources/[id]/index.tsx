@@ -25,6 +25,7 @@ import ArrowLeft from "@/assets/free-resources/arrow_left.svg";
 import ArrowRight from "@/assets/free-resources/arrow_right.svg";
 import ArrowClose from "@/assets/free-resources/arrow_close.svg";
 import { ServerEnv } from "@/utils/env";
+import { replaceCDNName } from "@/utils/Utils";
 
 interface Props {
   article: FreeResource;
@@ -297,9 +298,7 @@ function MobileView({
               width={500}
               height={500}
               layout="responsive"
-              src={
-                "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/Group_427318709_3d9757ca53.svg"
-              }
+              src={"https://file.cms.tuilink.io/Group_427318709_3d9757ca53.svg"}
             ></Image>
           </div>
           <div className="text-[#1B1B1B]">
@@ -323,10 +322,10 @@ function MobileView({
                             width={176}
                             height={117}
                             className="max-h-[117px] rounded"
-                            src={
+                            src={replaceCDNName(
                               item.attributes.cover.data.attributes.formats
                                 .large.url
-                            }
+                            )}
                           />
                           <div className="flex-1">
                             <div className="text-sm line-clamp-2  mb-2">
@@ -533,7 +532,7 @@ function PCView({
                     height={500}
                     layout="responsive"
                     src={
-                      "https://rexpand-cms-strapi.s3.us-east-1.amazonaws.com/Group_427318709_3d9757ca53.svg"
+                      "https://file.cms.tuilink.io/Group_427318709_0a6788f05b_033cce3786.svg"
                     }
                   ></Image>
                 </div>
@@ -579,10 +578,10 @@ function PCView({
                         alt={item.attributes.title}
                         width={176}
                         height={117}
-                        src={
+                        src={replaceCDNName(
                           item.attributes.cover.data.attributes.formats.large
                             .url
-                        }
+                        )}
                       ></Image>
                     </div>
                   </Link>

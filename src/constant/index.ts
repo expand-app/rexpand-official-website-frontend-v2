@@ -1,6 +1,10 @@
 import banner1 from "@/assets/home/banner1.jpg";
 import banner2 from "@/assets/home/banner2.jpg";
 import banner3 from "@/assets/home/banner3.jpg";
+import m_banner1 from "@/assets/home/m_banner1.jpg";
+import m_banner2 from "@/assets/home/m_banner2.jpg";
+import m_banner3 from "@/assets/home/m_banner3.jpg";
+import { StaticImageData } from "next/image";
 
 export const STRAPI_PRIVATE_PROP = [
   "createdAt",
@@ -54,17 +58,43 @@ export const META_DATA: MetaData = {
   },
 } as const;
 
-export const HOME_SWIPER_IMG = [
-  {
-    src: banner1,
-    url: "https://rexpandcareer.com/job/offer-guarantee",
-  },
-  {
-    src: banner2,
-    url: "https://rexpandcareer.com/job/interview-camp",
-  },
-  {
-    src: banner3,
-    url: "https://rexpandcareer.com/job/internship/quantitative-investment",
-  },
-];
+export interface HomeData {
+  src: StaticImageData;
+  url: string;
+  title: string;
+  subTilte: string[];
+}
+
+export type HomeDatas = Array<HomeData>;
+
+export const getHomeData = (isMobile: boolean): HomeDatas => {
+  return [
+    {
+      src: isMobile ? m_banner1 : banner1,
+      url: "https://rexpandcareer.com/job/offer-guarantee",
+      title: "保offer求职辅导项目",
+      subTilte: [
+        "实习补充、简历代投、名企内推、导师辅导等一站式求职项目服务",
+        "H1B签证保障，上岸率100%",
+      ],
+    },
+    {
+      src: isMobile ? m_banner2 : banner2,
+      url: "https://rexpandcareer.com/job/internship/quantitative-investment",
+      title: "量化投资实习项目",
+      subTilte: [
+        "本期项目时间：2024年9月-2024年11月",
+        "在美实习提高简历含金量，求职Quant & Risk方向首选",
+      ],
+    },
+    {
+      src: isMobile ? m_banner3 : banner3,
+      title: "面试集训营",
+      url: "https://rexpandcareer.com/job/interview-camp",
+      subTilte: [
+        "本期开营时间：2024年9月23日-9月27日",
+        "连续5天，每晚直播带你提升面试能力",
+      ],
+    },
+  ];
+};

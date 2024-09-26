@@ -1,4 +1,5 @@
 import { TagList } from "@/services/FreeResources";
+import { CMSImage } from "@/types/common";
 import type { BlocksContent } from "@strapi/blocks-react-renderer";
 
 export enum CategoryTitle {
@@ -98,17 +99,5 @@ export interface Attributes {
   tags: {
     data: TagList;
   };
-  cover: {
-    data: {
-      id: number;
-      attributes: {
-        formats: {
-          large: {
-            url: string;
-            name: string;
-          };
-        };
-      };
-    };
-  };
+  cover: CMSImage;
 }

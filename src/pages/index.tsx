@@ -13,6 +13,7 @@ import bannerImg from "@/assets/home/banner.png";
 import mBannerImg from "@/assets/home/m_banner.png";
 import styles from "./index.module.css";
 import Image from "next/image";
+import { Autoplay } from "swiper/modules";
 import {
   offerGuaranteeTabsData,
   internshipProjectCardsData,
@@ -29,20 +30,32 @@ import OfferGuaranteeView from "./index/components/OfferGuaranteeView/OfferGuara
 import useScreen from "@/components/useScreen/useScreen";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
-import { META_DATA } from "@/constant";
+import { HomeDatas, META_DATA, getHomeData } from "@/constant";
+import { Box, Stack, Typography } from "@mui/material";
+
+export interface ViewProps {
+  honeData: HomeDatas;
+}
 
 export const HomePage: NextPage = () => {
   const { isMobile } = useScreen();
-
+  const honeData = getHomeData(isMobile());
   return (
     <>
       <Head {...META_DATA.index} />
-      <div>{isMobile?.() ? <MobileView /> : <PCView />}</div>
+      <div>
+        {isMobile?.() ? (
+          <MobileView honeData={honeData} />
+        ) : (
+          <PCView honeData={honeData} />
+        )}
+      </div>
     </>
   );
 };
 
-export const MobileView = () => {
+export const MobileView: React.FC<ViewProps> = (props) => {
+  const { honeData } = props;
   return (
     <>
       <div>
@@ -57,54 +70,77 @@ export const MobileView = () => {
             <div className={styles.m_swiper_container}>
               <Swiper
                 pagination={true}
-                modules={[Pagination]}
+                modules={[Pagination, Autoplay]}
                 className={styles.m_swiper}
+                autoplay={{
+                  delay: 5000,
+                }}
+                speed={600}
+                loop={true}
+                slidesPerView={1}
               >
-                <SwiperSlide>
-                  <Image
-                    src={mBannerImg}
-                    alt=""
-                    style={{ height: "100%", width: "100%" }}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={mBannerImg}
-                    alt=""
-                    style={{ height: "100%", width: "100%" }}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={mBannerImg}
-                    alt=""
-                    style={{ height: "100%", width: "100%" }}
-                  />
-                </SwiperSlide>
+                {honeData.map((item, index) => (
+                  <SwiperSlide key={item.url} className="relative w-full">
+                    <Image
+                      src={item.src}
+                      alt={"banner_img"}
+                      width={430}
+                      height={827}
+                      style={{ objectFit: "contain" }}
+                    />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: "18%",
+                        px: 6,
+                        width: "100%",
+                        color: "#fff",
+                      }}
+                    >
+                      <Typography
+                        component={"h1"}
+                        sx={{ fontSize: 30, fontWeight: 600 }}
+                      >
+                        {item.title}
+                      </Typography>
+                      <Stack sx={{ mt: 4 }} spacing={1}>
+                        <Box
+                          sx={{ fontSize: 16, fontWeight: 600 }}
+                          key={item.subTilte[0]}
+                        >
+                          {item.subTilte[0]}
+                        </Box>
+                        <Box
+                          sx={{ fontSize: 14, fontWeight: 400 }}
+                          key={item.subTilte[1]}
+                        >
+                          {item.subTilte[1]}
+                        </Box>
+                      </Stack>
+                    </Box>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: "12%",
+                        px: 6,
+                        width: "100%",
+                        textAlign: "center",
+                      }}
+                    >
+                      <Link href={item.url}>
+                        <Button
+                          className={styles.m_banner_btn_home}
+                          type={ButtonType.SOLID}
+                          size={ButtonSize.MIDDLE}
+                          color={ButtonColor.WHITE}
+                          radius={ButtonRadius.NONE}
+                          text="了解更多"
+                        />
+                      </Link>
+                    </Box>
+                  </SwiperSlide>
+                ))}
               </Swiper>
-            </div>
-
-            <div className={styles.m_banner_text}>
-              <h1 className={clsx(styles.m_banner_title)}>
-                北美留学生
-                <br />
-                求职一站式服务
-              </h1>
-
-              <Link
-                href="/job/offer-guarantee"
-                className="z-10"
-                style={{ zIndex: 999 }}
-              >
-                <Button
-                  className={styles.m_banner_btn}
-                  type={ButtonType.BORDERED}
-                  size={ButtonSize.MIDDLE}
-                  color={ButtonColor.WHITE}
-                  radius={ButtonRadius.NONE}
-                  text="了解更多"
-                />
-              </Link>
             </div>
           </div>
 
@@ -190,7 +226,8 @@ export const MobileView = () => {
   );
 };
 
-export const PCView = () => {
+export const PCView: React.FC<ViewProps> = (props) => {
+  const { honeData } = props;
   return (
     <>
       <div>
@@ -200,48 +237,71 @@ export const PCView = () => {
           <div
             className={`flex flex-col items-center  justify-center page-banner ${styles.banner_container}`}
           >
-            <div className={styles.swiper_container}>
+            <div className="w-full">
               <Swiper
                 pagination={true}
-                modules={[Pagination]}
+                modules={[Pagination, Autoplay]}
+                loop={true}
+                autoplay={{
+                  delay: 5000,
+                }}
+                speed={600}
+                slidesPerView={1}
                 className={styles.swiper}
               >
-                <SwiperSlide>
-                  <Image
-                    src={bannerImg}
-                    alt=""
-                    style={{ height: "100%", width: "100%" }}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={bannerImg}
-                    alt=""
-                    style={{ height: "100%", width: "100%" }}
-                  />
-                </SwiperSlide>
-                <SwiperSlide>
-                  <Image
-                    src={bannerImg}
-                    alt=""
-                    style={{ height: "100%", width: "100%" }}
-                  />
-                </SwiperSlide>
+                {honeData.map((item, index) => (
+                  <SwiperSlide key={item.url} className="relative w-full">
+                    <Image
+                      src={item.src}
+                      alt=""
+                      width={1329}
+                      height={695}
+                      style={{ width: "100%", objectFit: "contain" }}
+                    />
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        top: "22%",
+                        left: "12%",
+                        color: "#fff",
+                      }}
+                    >
+                      <Typography
+                        component={"h1"}
+                        sx={{ fontSize: 60, fontWeight: 600 }}
+                      >
+                        {item.title}
+                      </Typography>
+                      <Stack sx={{ mt: 8 }} spacing={1}>
+                        <Typography
+                          sx={{ fontSize: 22, fontWeight: 500 }}
+                          key={item.subTilte[0]}
+                        >
+                          {item.subTilte[0]}
+                        </Typography>
+                        <Typography
+                          sx={{ fontSize: 16, fontWeight: 400 }}
+                          key={item.subTilte[1]}
+                        >
+                          {item.subTilte[1]}
+                        </Typography>
+                      </Stack>
+
+                      <Link href={item.url}>
+                        <Button
+                          className="mt-40"
+                          type={ButtonType.SOLID}
+                          size={ButtonSize.MIDDLE}
+                          color={ButtonColor.WHITE}
+                          radius={ButtonRadius.NONE}
+                          text="了解更多"
+                        />
+                      </Link>
+                    </Box>
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
-
-            <h1 className={clsx("text-white z-10", styles.banner_text)}>
-              北美留学生求职一站式服务
-            </h1>
-            <Link href="/job/offer-guarantee" className="z-10">
-              <Button
-                type={ButtonType.SOLID}
-                size={ButtonSize.MIDDLE}
-                color={ButtonColor.WHITE}
-                radius={ButtonRadius.NONE}
-                text="了解更多"
-              />
-            </Link>
           </div>
 
           <div className={clsx("bg-white section", styles.section)}>
