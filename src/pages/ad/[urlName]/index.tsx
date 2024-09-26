@@ -106,10 +106,10 @@ const PCView: React.FC<UniversityProps> = (props) => {
                 className="relative w-[400px] h-[400px]   xl-custom:w-[550px]  xl-custom:h-[500px]  "
               >
                 <Image
-                  src={image.data.attributes.url}
+                  src={image.data?.attributes.url || ""}
                   alt="ar_code"
-                  width={image.data.attributes.width}
-                  height={image.data.attributes.height}
+                  width={image.data?.attributes.width}
+                  height={image.data?.attributes.height}
                   style={{ width: "100%", objectFit: "contain" }}
                 />
               </Stack>
@@ -165,7 +165,7 @@ const PCView: React.FC<UniversityProps> = (props) => {
                           alt={attributes.name}
                           sx={{ width: 50, height: 50 }}
                           src={
-                            attributes.avatar.data.attributes.url ||
+                            attributes.avatar.data?.attributes.url ||
                             "https://resources.rexpandcareer.com/image/avatar_empty.png"
                           }
                         >
@@ -265,7 +265,7 @@ const MobileView: React.FC<UniversityProps> = (props) => {
                 sx={{ mt: 14 }}
               >
                 <Image
-                  src={image.data.attributes.url}
+                  src={image.data?.attributes.url || ""}
                   alt="ar_code"
                   width={230}
                   height={204}
@@ -324,7 +324,7 @@ const MobileView: React.FC<UniversityProps> = (props) => {
                         alt={attributes.name}
                         sx={{ width: 50, height: 50 }}
                         src={
-                          attributes.avatar.data.attributes.url ||
+                          attributes.avatar.data?.attributes.url ||
                           "https://resources.rexpandcareer.com/image/avatar_empty.png"
                         }
                       >
