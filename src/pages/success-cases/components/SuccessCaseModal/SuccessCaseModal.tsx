@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import styles from "./JobConsultModal.module.css";
+import styles from "./SuccessCaseModal.module.css";
 import clsx from "clsx";
-import Modal from "../Modal/Modal";
+import Modal from "@/components/Modal/Modal";
 import Image, { StaticImageData } from "next/image";
 import consultQrImg from "@/assets/qr_consult.png";
 import Link from "next/link";
-import useScreen from "../useScreen/useScreen";
+import useScreen from "@/components/useScreen/useScreen";
+import { ImageInfo } from "../..";
 
 export const JobConsultModal = ({ ...props }: Props) => {
   const { isMobile } = useScreen();
@@ -20,7 +21,7 @@ export const JobConsultModal = ({ ...props }: Props) => {
 };
 
 const MobileView = ({
-  qrImage,
+  imageInfo,
   content,
   open = false,
   onClose,
@@ -35,22 +36,25 @@ const MobileView = ({
     <Modal open={open} onClose={onClose}>
       <div className={clsx("flex flex-col items-center", styles.m_modal_body)}>
         <Image
-          src={qrImage}
-          alt=""
-          width={172}
-          height={172}
-          className={styles.qr_img}
+          src={imageInfo.url}
+          alt="offer_image"
+          width={imageInfo.width}
+          height={imageInfo.height}
+          layout="reponsive"
+          style={{ width: 320, objectFit: "contain", maxHeight: "80vh" }}
         />
-        <div className={clsx("text-sm text-center mt-8", styles.text)}>
-          {content}
-        </div>
+        {content && (
+          <div className={clsx("text-sm text-center mt-8", styles.text)}>
+            {content}
+          </div>
+        )}
       </div>
     </Modal>
   );
 };
 
 const PCView = ({
-  qrImage,
+  imageInfo,
   content,
   open = false,
   onClose,
@@ -65,12 +69,14 @@ const PCView = ({
     <Modal open={open} onClose={onClose}>
       <div className={clsx("flex flex-col items-center", styles.modal_body)}>
         <Image
-          src={qrImage}
+          src={imageInfo.url}
+          alt="offer_image"
+          width={imageInfo.width}
+          height={imageInfo.height}
           layout="reponsive"
-          alt="Rexpand课程顾问"
-          style={{ width: 172, height: 172 }}
+          style={{ width: "40vw", objectFit: "contain", maxHeight: "80vh" }}
         />
-        <div className="text-sm text-center mt-8">{content}</div>
+        {content && <div className="text-sm text-center mt-8">{content}</div>}
       </div>
     </Modal>
   );
@@ -79,8 +85,8 @@ const PCView = ({
 export default JobConsultModal;
 
 interface Props {
-  qrImage: StaticImageData;
-  content: JSX.Element;
+  imageInfo: ImageInfo;
+  content?: JSX.Element;
   open: boolean;
   onClose: Function;
   className?: string;

@@ -1,0 +1,21 @@
+.modal_body {
+    padding: 30px;
+
+}
+
+/*m*/
+.m_modal_body {
+    padding: 30px;
+}
+
+.qr_img {
+    width: 172px;
+    height: 172px;
+}
+
+.text {
+    color: #333;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 400;
+}

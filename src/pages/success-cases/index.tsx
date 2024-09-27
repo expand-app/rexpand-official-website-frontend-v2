@@ -18,7 +18,7 @@ import Footer from "@/components/Footer/Footer";
 import clsx from "clsx";
 import { useImmer } from "use-immer";
 import successCaseAPI from "@/services/successCase";
-import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
+import SuccessCaseModal from "./components/SuccessCaseModal/SuccessCaseModal";
 import useScreen from "@/components/useScreen/useScreen";
 import { useRef, useState } from "react";
 import VideoModal from "@/components/VideoModal/VideoModal";
@@ -27,19 +27,32 @@ import { StudentDataAPIData } from "./type";
 
 interface SuccessCasesPageProps {
   students: StudentDataAPIData;
-  onStudentOfferClick: (image: string) => void;
+  onStudentOfferClick: (image: ImageInfo) => void;
+}
+
+export interface ImageInfo {
+  url: string;
+  width: number | undefined;
+  height: number | undefined;
 }
 
 const SuccessCasesPage: NextPage<SuccessCasesPageProps> = (props) => {
   const { isMobile } = useScreen();
-  const [jobConsultModal, setJobConsultModal] = useImmer({
+  const [jobConsultModal, setJobConsultModal] = useImmer<{
+    open: boolean;
+    imageInfo: ImageInfo;
+  }>({
     open: false,
-    image: "",
+    imageInfo: {
+      url: "",
+      width: undefined,
+      height: undefined,
+    },
   });
-  const onStudentOfferClick = (image: string) => {
+  const onStudentOfferClick = (imageInfo: ImageInfo) => {
     setJobConsultModal((draft) => {
       draft.open = true;
-      draft.image = image;
+      draft.imageInfo = imageInfo;
     });
   };
   return (
@@ -52,14 +65,14 @@ const SuccessCasesPage: NextPage<SuccessCasesPageProps> = (props) => {
           <PCView {...props} onStudentOfferClick={onStudentOfferClick} />
         )}
       </div>
-      <JobConsultModal
+      <SuccessCaseModal
         open={jobConsultModal.open}
         onClose={() =>
           setJobConsultModal((draft) => {
             draft.open = false;
           })
         }
-        qrImage={jobConsultModal.image}
+        imageInfo={jobConsultModal.imageInfo}
       />
     </>
   );

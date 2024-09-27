@@ -6,6 +6,7 @@ import Avatar from "@/components/Avatar/Avatar";
 import Pagination from "@mui/material/Pagination";
 import useScreen from "@/components/useScreen/useScreen";
 import { PageInfo, StudentData, StudentDataAPIData } from "../../type";
+import { ImageInfo } from "../..";
 
 const topBorderStyles = [
   styles.tborder_deloitte,
@@ -66,7 +67,11 @@ const MobileView = ({ data, onStudentOfferClick }: ViewProps) => {
                   //   topBorderStyles[index]
                 )}
                 onClick={() => {
-                  onStudentOfferClick(offerImage.data?.attributes.url || "");
+                  onStudentOfferClick({
+                    url: offerImage.data?.attributes.url || "",
+                    width: offerImage.data?.attributes.width,
+                    height: offerImage.data?.attributes.height,
+                  });
                 }}
               >
                 <div
@@ -141,7 +146,11 @@ const PCView = ({
                 // topBorderStyles[index]
               )}
               onClick={() => {
-                onStudentOfferClick(offerImage.data?.attributes.url || "");
+                onStudentOfferClick({
+                  url: offerImage.data?.attributes.url || "",
+                  width: offerImage.data?.attributes.width,
+                  height: offerImage.data?.attributes.height,
+                });
               }}
             >
               <div
@@ -214,7 +223,7 @@ export default TopOfferList;
 
 export interface Props {
   data: StudentDataAPIData;
-  onStudentOfferClick: (image: string) => void;
+  onStudentOfferClick: (image: ImageInfo) => void;
 }
 
 export interface ViewProps extends Props {}
