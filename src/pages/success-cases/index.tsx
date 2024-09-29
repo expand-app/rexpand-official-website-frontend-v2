@@ -18,7 +18,7 @@ import Footer from "@/components/Footer/Footer";
 import clsx from "clsx";
 import { useImmer } from "use-immer";
 import successCaseAPI from "@/services/successCase";
-import SuccessCaseModal from "./components/SuccessCaseModal/SuccessCaseModal";
+import SuccessCaseModal from "./components/SuccessCaseModal/index";
 import useScreen from "@/components/useScreen/useScreen";
 import { useRef, useState } from "react";
 import VideoModal from "@/components/VideoModal/VideoModal";

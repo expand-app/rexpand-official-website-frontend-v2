@@ -22,6 +22,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "src", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "src", ".next/types/**/*.ts", "src/pages/success-cases/components/SuccessCaseModal/.tsx", "src/pages/success-cases/components/SuccessCaseModal/.tsx"],
   "exclude": ["node_modules"]
 }

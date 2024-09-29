@@ -81,9 +81,7 @@ const MobileView = ({
             cover,
           },
         } = item;
-        const image = replaceCDNName(
-          cover?.data?.attributes.formats.large.url || ""
-        );
+        const image = replaceCDNName(cover?.data?.attributes.url || "");
 
         return (
           <div
@@ -198,9 +196,8 @@ const PCView = ({ data, pageInfo, setPageInfo }: FreeResourceListViewProps) => {
             cover,
           },
         } = item;
-        const image = replaceCDNName(
-          cover?.data?.attributes.formats.large.url || ""
-        );
+
+        const image = replaceCDNName(cover?.data?.attributes.url || "");
 
         return (
           <div

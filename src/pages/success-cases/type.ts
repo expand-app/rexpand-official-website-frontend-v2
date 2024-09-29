@@ -10,6 +10,7 @@ export interface Student {
   weChatUrl: string;
   offerImage: CMSImage;
   companyLogo: CMSImage;
+  borderColor: string | null;
 }
 
 export interface StudentData {

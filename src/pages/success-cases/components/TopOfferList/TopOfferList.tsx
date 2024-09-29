@@ -8,15 +8,6 @@ import useScreen from "@/components/useScreen/useScreen";
 import { PageInfo, StudentData, StudentDataAPIData } from "../../type";
 import { ImageInfo } from "../..";
 
-const topBorderStyles = [
-  styles.tborder_deloitte,
-  styles.tborder_bain,
-  styles.tborder_goldmansachs,
-  styles.tborder_spotify,
-  styles.tborder_oracle,
-  styles.tborder_pwc,
-];
-
 const TopOfferList = (props: Props) => {
   const { data } = props;
   const { isMobile } = useScreen();
@@ -58,14 +49,20 @@ const MobileView = ({ data, onStudentOfferClick }: ViewProps) => {
               university,
               major,
               offerImage,
+              borderColor,
             } = attributes;
+
             return (
               <div
                 key={item.id}
                 className={clsx(
-                  styles.m_top_offer_item
+                  styles.m_top_offer_item,
+                  `border-t-2 border-solid`
                   //   topBorderStyles[index]
                 )}
+                style={{
+                  borderColor: borderColor || "",
+                }}
                 onClick={() => {
                   onStudentOfferClick({
                     url: offerImage.data?.attributes.url || "",
@@ -86,6 +83,8 @@ const MobileView = ({ data, onStudentOfferClick }: ViewProps) => {
                       alt={companyName}
                       width={companyLogo.data?.attributes.width}
                       height={companyLogo.data?.attributes.height}
+                      layout="reponsive"
+                      className="object-contain"
                     />
                   </div>
                   <div className={styles.m_company_name}>{companyName}</div>
@@ -96,9 +95,7 @@ const MobileView = ({ data, onStudentOfferClick }: ViewProps) => {
                   <Avatar className={styles.avatar} data={{ userName: name }} />
 
                   <div>
-                    <div className={styles.m_university}>
-                      {university || "xxx大学"}
-                    </div>
+                    <div className={styles.m_university}>{university}</div>
                     <div className={styles.m_major}>{major}</div>
                   </div>
                 </div>
@@ -137,14 +134,18 @@ const PCView = ({
             university,
             major,
             offerImage,
+            borderColor,
           } = attributes;
           return (
             <div
               key={item.id}
               className={clsx(
-                "relative w-1/6 bg-white flex flex-col border-t-2 border-solid  border-[red] ",
+                `relative w-1/6 bg-white flex flex-col border-t-2 border-solid  `,
                 styles.top_offer_item
               )}
+              style={{
+                borderColor: borderColor || "",
+              }}
               onClick={() => {
                 onStudentOfferClick({
                   url: offerImage.data?.attributes.url || "",
@@ -155,7 +156,7 @@ const PCView = ({
             >
               <div
                 className={clsx(
-                  "px-0 flex flex-col items-center justify-center",
+                  "px-0 flex flex-col items-center flex-1  justify-center",
                   styles.top
                 )}
               >
@@ -165,21 +166,19 @@ const PCView = ({
                     alt={companyName}
                     width={companyLogo.data?.attributes.width}
                     height={companyLogo.data?.attributes.height}
+                    layout="reponsive"
+                    className="object-contain"
                   />
                 </div>
                 <div className={styles.company_name}>{companyName}</div>
                 <div className={styles.job_title}>{jobTitle}</div>
               </div>
 
-              <div
-                className={clsx("w-full flex-1 relative px-2", styles.bottom)}
-              >
+              <div className={clsx("w-full relative px-2", styles.bottom)}>
                 <Avatar className={styles.avatar} data={{ userName: name }} />
 
                 <div>
-                  <div className={styles.university}>
-                    {university || "xxxx大学"}
-                  </div>
+                  <div className={styles.university}>{university}</div>
                   <div className={styles.major}>{major}</div>
                 </div>
               </div>
