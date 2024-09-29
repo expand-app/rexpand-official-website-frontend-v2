@@ -27,8 +27,6 @@ const MobileView = ({
   let containerClassNames = "";
 
   containerClassNames = clsx(containerClassNames);
-
-  useEffect(() => {}, []);
   return (
     <Modal open={open} onClose={onClose}>
       <div className={clsx("flex flex-col items-center", styles.m_modal_body)}>
@@ -50,7 +48,6 @@ const PCView = ({ imageInfo, open = false, onClose }: Props) => {
 
   containerClassNames = clsx(containerClassNames);
 
-  useEffect(() => {}, []);
   return (
     <Modal open={open} onClose={onClose}>
       <div className={clsx("flex flex-col items-center", styles.modal_body)}>
@@ -73,5 +70,5 @@ export default JobConsultModal;
 interface Props {
   imageInfo: ImageInfo;
   open: boolean;
-  onClose: Function;
+  onClose: () => void;
 }
