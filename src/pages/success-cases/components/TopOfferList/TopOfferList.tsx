@@ -84,7 +84,8 @@ const MobileView = ({ data, onStudentOfferClick }: ViewProps) => {
                     <Image
                       src={companyLogo.data?.attributes.url || ""}
                       alt={companyName}
-                      width={100}
+                      width={companyLogo.data?.attributes.width}
+                      height={companyLogo.data?.attributes.height}
                     />
                   </div>
                   <div className={styles.m_company_name}>{companyName}</div>
@@ -141,9 +142,8 @@ const PCView = ({
             <div
               key={item.id}
               className={clsx(
-                "relative w-1/6 bg-white flex flex-col",
+                "relative w-1/6 bg-white flex flex-col border-t-2 border-solid  border-[red] ",
                 styles.top_offer_item
-                // topBorderStyles[index]
               )}
               onClick={() => {
                 onStudentOfferClick({
@@ -163,7 +163,8 @@ const PCView = ({
                   <Image
                     src={companyLogo.data?.attributes.url || ""}
                     alt={companyName}
-                    width={100}
+                    width={companyLogo.data?.attributes.width}
+                    height={companyLogo.data?.attributes.height}
                   />
                 </div>
                 <div className={styles.company_name}>{companyName}</div>

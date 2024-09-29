@@ -41,7 +41,7 @@ const MobileView = ({
           width={imageInfo.width}
           height={imageInfo.height}
           layout="reponsive"
-          style={{ width: 320, objectFit: "contain", maxHeight: "80vh" }}
+          style={{ width: "100%", objectFit: "contain" }}
         />
         {content && (
           <div className={clsx("text-sm text-center mt-8", styles.text)}>
@@ -74,7 +74,8 @@ const PCView = ({
           width={imageInfo.width}
           height={imageInfo.height}
           layout="reponsive"
-          style={{ width: "40vw", objectFit: "contain", maxHeight: "80vh" }}
+          className="max-w-[400px] xl-custom:max-w-full "
+          style={{ width: "100%", objectFit: "contain" }}
         />
         {content && <div className="text-sm text-center mt-8">{content}</div>}
       </div>
