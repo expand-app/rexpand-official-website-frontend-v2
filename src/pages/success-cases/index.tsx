@@ -18,22 +18,16 @@ import Footer from "@/components/Footer/Footer";
 import clsx from "clsx";
 import { useImmer } from "use-immer";
 import successCaseAPI from "@/services/successCase";
-import SuccessCaseModal from "./components/SuccessCaseModal/index";
+import SuccessCaseModal from "./components/SuccessCaseModal/SuccessCaseModal";
 import useScreen from "@/components/useScreen/useScreen";
 import { useRef, useState } from "react";
 import VideoModal from "@/components/VideoModal/VideoModal";
 import Head from "@/components/Head";
-import { StudentDataAPIData } from "./type";
+import { ImageInfo, StudentDataAPIData } from "./type";
 
 interface SuccessCasesPageProps {
   students: StudentDataAPIData;
   onStudentOfferClick: (image: ImageInfo) => void;
-}
-
-export interface ImageInfo {
-  url: string;
-  width: number | undefined;
-  height: number | undefined;
 }
 
 const SuccessCasesPage: NextPage<SuccessCasesPageProps> = (props) => {
@@ -65,15 +59,17 @@ const SuccessCasesPage: NextPage<SuccessCasesPageProps> = (props) => {
           <PCView {...props} onStudentOfferClick={onStudentOfferClick} />
         )}
       </div>
-      <SuccessCaseModal
-        open={jobConsultModal.open}
-        onClose={() =>
-          setJobConsultModal((draft) => {
-            draft.open = false;
-          })
-        }
-        imageInfo={jobConsultModal.imageInfo}
-      />
+      {jobConsultModal.open && jobConsultModal.imageInfo && (
+        <SuccessCaseModal
+          open={jobConsultModal.open}
+          onClose={() =>
+            setJobConsultModal((draft) => {
+              draft.open = false;
+            })
+          }
+          imageInfo={jobConsultModal.imageInfo}
+        />
+      )}
     </>
   );
 };

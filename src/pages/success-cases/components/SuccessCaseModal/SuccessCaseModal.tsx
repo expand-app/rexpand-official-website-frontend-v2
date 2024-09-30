@@ -1,12 +1,18 @@
 import React, { useEffect, useState } from "react";
-import styles from "./index.module.css";
+import styles from "./SuccessCaseModal.module.css";
 import clsx from "clsx";
 import Modal from "@/components/Modal/Modal";
 import Image from "next/image";
 import useScreen from "@/components/useScreen/useScreen";
-import { ImageInfo } from "../..";
+import { ImageInfo } from "../../type";
 
-export const JobConsultModal = ({ ...props }: Props) => {
+interface Props {
+  imageInfo: ImageInfo;
+  open: boolean;
+  onClose: () => void;
+}
+
+const SuccessCaseModal = (props: Props) => {
   const { isMobile } = useScreen();
 
   return (
@@ -19,14 +25,11 @@ export const JobConsultModal = ({ ...props }: Props) => {
 };
 
 const MobileView = ({
-  imageInfo,
+  imageInfo = { url: "", width: 0, height: 0 },
 
   open = false,
   onClose,
 }: Props) => {
-  let containerClassNames = "";
-
-  containerClassNames = clsx(containerClassNames);
   return (
     <Modal open={open} onClose={onClose}>
       <div className={clsx("flex flex-col items-center", styles.m_modal_body)}>
@@ -43,11 +46,11 @@ const MobileView = ({
   );
 };
 
-const PCView = ({ imageInfo, open = false, onClose }: Props) => {
-  let containerClassNames = "";
-
-  containerClassNames = clsx(containerClassNames);
-
+const PCView = ({
+  imageInfo = { url: "", width: 0, height: 0 },
+  open = false,
+  onClose,
+}: Props) => {
   return (
     <Modal open={open} onClose={onClose}>
       <div className={clsx("flex flex-col items-center", styles.modal_body)}>
@@ -57,7 +60,7 @@ const PCView = ({ imageInfo, open = false, onClose }: Props) => {
           width={imageInfo.width}
           height={imageInfo.height}
           layout="reponsive"
-          className="max-w-[400px] xl-custom:max-w-full "
+          className="max-w-[460px] xl-custom:max-w-full "
           style={{ width: 664, objectFit: "contain" }}
         />
       </div>
@@ -65,10 +68,4 @@ const PCView = ({ imageInfo, open = false, onClose }: Props) => {
   );
 };
 
-export default JobConsultModal;
-
-interface Props {
-  imageInfo: ImageInfo;
-  open: boolean;
-  onClose: () => void;
-}
+export default SuccessCaseModal;

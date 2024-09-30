@@ -5,7 +5,7 @@
   "scripts": {
     "dev": " APP_ENV=development next dev -p 3001",
     "prod": " APP_ENV=production next dev -p 3001",
-    "build": "APP_ENV=production  next build",
+    "build": "APP_ENV=production  NEXT_DEBUG=true next build",
     "build:dev": "APP_ENV=development next build",
     "build:prod": " APP_ENV=production  next build",
     "start": "next start APP_ENV=production  -p 3001",

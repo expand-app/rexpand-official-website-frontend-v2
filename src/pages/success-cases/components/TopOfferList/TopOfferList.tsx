@@ -6,7 +6,7 @@ import Avatar from "@/components/Avatar/Avatar";
 import Pagination from "@mui/material/Pagination";
 import useScreen from "@/components/useScreen/useScreen";
 import { PageInfo, StudentData, StudentDataAPIData } from "../../type";
-import { ImageInfo } from "../..";
+import { ImageInfo } from "../../type";
 
 const TopOfferList = (props: Props) => {
   const { data } = props;
@@ -63,13 +63,6 @@ const MobileView = ({ data, onStudentOfferClick }: ViewProps) => {
                 style={{
                   borderColor: borderColor || "",
                 }}
-                onClick={() => {
-                  onStudentOfferClick({
-                    url: offerImage.data?.attributes.url || "",
-                    width: offerImage.data?.attributes.width,
-                    height: offerImage.data?.attributes.height,
-                  });
-                }}
               >
                 <div
                   className={clsx(
@@ -88,7 +81,18 @@ const MobileView = ({ data, onStudentOfferClick }: ViewProps) => {
                     />
                   </div>
                   <div className={styles.m_company_name}>{companyName}</div>
-                  <div className={styles.m_job_title}>{jobTitle}</div>
+                  <div
+                    className={clsx(styles.m_job_title)}
+                    onClick={() => {
+                      onStudentOfferClick({
+                        url: offerImage.data?.attributes.url || "",
+                        width: offerImage.data?.attributes.width,
+                        height: offerImage.data?.attributes.height,
+                      });
+                    }}
+                  >
+                    {jobTitle}
+                  </div>
                 </div>
 
                 <div className={clsx("flex-1 relative", styles.m_bottom)}>
@@ -140,18 +144,11 @@ const PCView = ({
             <div
               key={item.id}
               className={clsx(
-                `relative w-1/6 bg-white flex flex-col border-t-2 border-solid  `,
+                `h-[336px] relative w-1/6 bg-white flex flex-col border-t-2 border-solid  `,
                 styles.top_offer_item
               )}
               style={{
                 borderColor: borderColor || "",
-              }}
-              onClick={() => {
-                onStudentOfferClick({
-                  url: offerImage.data?.attributes.url || "",
-                  width: offerImage.data?.attributes.width,
-                  height: offerImage.data?.attributes.height,
-                });
               }}
             >
               <div
@@ -170,8 +167,21 @@ const PCView = ({
                     className="object-contain"
                   />
                 </div>
-                <div className={styles.company_name}>{companyName}</div>
-                <div className={styles.job_title}>{jobTitle}</div>
+                <div className="px-4">
+                  <div className={styles.company_name}>{companyName}</div>
+                  <div
+                    className={clsx("hover:underline", styles.job_title)}
+                    onClick={() => {
+                      onStudentOfferClick({
+                        url: offerImage.data?.attributes.url || "",
+                        width: offerImage.data?.attributes.width,
+                        height: offerImage.data?.attributes.height,
+                      });
+                    }}
+                  >
+                    {jobTitle}
+                  </div>
+                </div>
               </div>
 
               <div className={clsx("w-full relative px-2", styles.bottom)}>

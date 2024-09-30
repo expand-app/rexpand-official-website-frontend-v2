@@ -24,3 +24,9 @@ export interface PageInfo {
   pages: number;
   pageSize: number;
 }
+
+export interface ImageInfo {
+  url: string;
+  width: number | undefined;
+  height: number | undefined;
+}
