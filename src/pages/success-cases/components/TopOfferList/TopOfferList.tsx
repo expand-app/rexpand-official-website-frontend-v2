@@ -144,7 +144,7 @@ const PCView = ({
             <div
               key={item.id}
               className={clsx(
-                `h-[336px] relative w-1/6 bg-white flex flex-col border-t-2 border-solid  `,
+                `h-[336px] overflow-hidden relative w-1/6 bg-white flex flex-col border-t-2 border-solid  `,
                 styles.top_offer_item
               )}
               style={{

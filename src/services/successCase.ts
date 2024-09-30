@@ -5,7 +5,7 @@ import { BaseAPI } from "@/utils/base-api";
 class SuccessCaseAPI extends BaseAPI {
   getAllData = (): Promise<APIResponse<StudentDataAPIData>> => {
     return this.get(
-      `/api/success-cases?populate=*&pagination[limit]=-1&sort=id:asc`,
+      `/api/success-cases?populate=*&pagination[limit]=-1&sort=order:asc`,
       {
         withAuthToken: false,
       }
