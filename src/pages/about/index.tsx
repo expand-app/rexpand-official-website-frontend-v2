@@ -23,13 +23,14 @@ import { membersData } from "@/data/about";
 import clsx from "clsx";
 import useScreen from "@/components/useScreen/useScreen";
 import Head from "@/components/Head";
+import { META_DATA } from "@/constant";
 
 export const AboutPage: NextPage = () => {
   const { isMobile } = useScreen();
 
   return (
     <>
-      <Head />
+      <Head {...META_DATA.about} />
       <div>{isMobile?.() ? <MobileView /> : <PCView />}</div>
     </>
   );

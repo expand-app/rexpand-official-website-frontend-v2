@@ -11,6 +11,7 @@ import {
   CategoryTitle,
   Categories,
 } from "./type";
+import { META_DATA } from "@/constant";
 
 export interface FreeResourcesPageProps {
   articleList: FreeResourceData;
@@ -45,7 +46,7 @@ export const FreeResourcesPage: NextPage<FreeResourcesPageProps> = (props) => {
 
   return (
     <>
-      <Head />
+      <Head {...META_DATA.freeResources} />
       <FreeResourceLayout
         type={TitleShowType.default}
         articleList={articleList}

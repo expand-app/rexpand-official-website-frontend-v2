@@ -165,6 +165,7 @@ const PCView = ({
                     height={companyLogo.data?.attributes.height}
                     layout="reponsive"
                     className="object-contain"
+                    style={{ maxWidth: 203 }}
                   />
                 </div>
                 <div className="px-4">

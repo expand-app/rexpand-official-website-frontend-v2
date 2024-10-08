@@ -24,6 +24,7 @@ import { useRef, useState } from "react";
 import VideoModal from "@/components/VideoModal/VideoModal";
 import Head from "@/components/Head";
 import { ImageInfo, StudentDataAPIData } from "./type";
+import { META_DATA } from "@/constant";
 
 interface SuccessCasesPageProps {
   students: StudentDataAPIData;
@@ -51,7 +52,7 @@ const SuccessCasesPage: NextPage<SuccessCasesPageProps> = (props) => {
   };
   return (
     <>
-      <Head />
+      <Head {...META_DATA.successCase} />
       <div>
         {isMobile?.() ? (
           <MobileView {...props} onStudentOfferClick={onStudentOfferClick} />

@@ -35,6 +35,7 @@ import useScreen from "@/components/useScreen/useScreen";
 import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { fsdConsultModalData } from "@/data/job_consult";
 import Head from "@/components/Head";
+import { META_DATA } from "@/constant";
 
 export const FullStackDevPage: NextPage = () => {
   const [jobConsultModalOpen, setJobConsultModalOpen] =
@@ -45,7 +46,7 @@ export const FullStackDevPage: NextPage = () => {
   };
   return (
     <>
-      <Head />
+      <Head {...META_DATA.offerGuarantee} />
       <div>
         {isMobile?.() ? (
           <MobileView onBannerBtnClick={onBannerBtnClick} />
@@ -330,7 +331,6 @@ export const PCView = ({ onBannerBtnClick }: Props) => {
 
   return (
     <div>
-      <Head />
       <Header theme={Theme.TRANSPARENT} />
       <main className="">
         <div

@@ -35,6 +35,7 @@ import useScreen from "@/components/useScreen/useScreen";
 import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import { imConsultModalData } from "@/data/job_consult";
 import Head from "@/components/Head";
+import { META_DATA } from "@/constant";
 
 export const InvestmentBankingModelingPage: NextPage = () => {
   const [jobConsultModalOpen, setJobConsultModalOpen] =
@@ -47,7 +48,7 @@ export const InvestmentBankingModelingPage: NextPage = () => {
 
   return (
     <>
-      <Head />
+      <Head {...META_DATA.offerGuarantee} />
       <div>
         {isMobile?.() ? (
           <MobileView onBannerBtnClick={onBannerBtnClick} />

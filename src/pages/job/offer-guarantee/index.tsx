@@ -34,6 +34,7 @@ import JobConsultModal from "@/components/JobConsultModal/JobConsultModal";
 import Link from "next/link";
 import { offerGuaranteeConsultModalData } from "@/data/job_consult";
 import Head from "@/components/Head";
+import { META_DATA } from "@/constant";
 
 const OfferGuaranteePage: NextPage = () => {
   const [jobConsultModalOpen, setJobConsultModalOpen] =
@@ -46,7 +47,7 @@ const OfferGuaranteePage: NextPage = () => {
 
   return (
     <>
-      <Head />
+      <Head {...META_DATA.offerGuarantee} />
       <div>
         {isMobile?.() ? (
           <MobileView onBannerBtnClick={onBannerBtnClick} />
