@@ -37,6 +37,7 @@ import {
   daysUntilDate,
   getClosestDate,
 } from "@/utils/Utils";
+import { META_DATA } from "@/constant";
 
 export interface InterviewCampPageProps {
   nextCourseTime: string;
@@ -56,7 +57,7 @@ export const InterviewCampPage: NextPage<InterviewCampPageProps> = () => {
 
   return (
     <>
-      <Head />
+      <Head {...META_DATA.offerGuarantee} />
       <div>
         {isMobile?.() ? (
           <MobileView

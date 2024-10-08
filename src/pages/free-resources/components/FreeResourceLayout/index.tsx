@@ -52,7 +52,6 @@ const PCView: React.FC<IndexPCProps> = ({
 }) => {
   return (
     <>
-      <Head />
       <main className={clsx("", styles.main)}>
         <div className={styles.page}>
           <Header theme={Theme.LIGHT} />
