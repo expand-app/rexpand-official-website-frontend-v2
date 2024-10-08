@@ -13,5 +13,5 @@ export interface CMSImage {
       width: number;
       height: number;
     };
-  };
+  } | null;
 }

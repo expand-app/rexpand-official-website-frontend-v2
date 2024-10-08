@@ -7,9 +7,9 @@ interface HeadProps {
 }
 
 const Head: React.FC<HeadProps> = ({
-  title = "睿思班",
-  description = "睿思班 | 9年专注留学生求职",
-  keyword = "睿思班,求职简历,职业规划,面试",
+  title = "睿思班求职",
+  description = "睿思班求职 | 9年专注留学生求职",
+  keyword = "睿思班求职,求职简历,职业规划,面试",
 }) => {
   return (
     <NextHead>

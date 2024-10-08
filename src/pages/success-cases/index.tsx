@@ -12,29 +12,74 @@ import mBannerImg from "@/assets/success-cases/m_banner_img.png";
 import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import greenGradientBgImg from "@/assets/success-cases/green_gradient.svg";
 import TopOfferList from "./components/TopOfferList/TopOfferList";
-import { studentExperienceListData, topOffersData } from "@/data/success_cases";
+import { studentExperienceListData } from "@/data/success_cases";
 import StudentExperienceList from "./components/StudentExperienceList/StudentExperienceList";
 import Footer from "@/components/Footer/Footer";
 import clsx from "clsx";
+import { useImmer } from "use-immer";
+import successCaseAPI from "@/services/successCase";
+import SuccessCaseModal from "./components/SuccessCaseModal/SuccessCaseModal";
 import useScreen from "@/components/useScreen/useScreen";
 import { useRef, useState } from "react";
 import VideoModal from "@/components/VideoModal/VideoModal";
 import Head from "@/components/Head";
+import { ImageInfo, StudentDataAPIData } from "./type";
 
-const SuccessCasesPage: NextPage = () => {
+interface SuccessCasesPageProps {
+  students: StudentDataAPIData;
+  onStudentOfferClick: (image: ImageInfo) => void;
+}
+
+const SuccessCasesPage: NextPage<SuccessCasesPageProps> = (props) => {
   const { isMobile } = useScreen();
-
+  const [jobConsultModal, setJobConsultModal] = useImmer<{
+    open: boolean;
+    imageInfo: ImageInfo;
+  }>({
+    open: false,
+    imageInfo: {
+      url: "",
+      width: undefined,
+      height: undefined,
+    },
+  });
+  const onStudentOfferClick = (imageInfo: ImageInfo) => {
+    setJobConsultModal((draft) => {
+      draft.open = true;
+      draft.imageInfo = imageInfo;
+    });
+  };
   return (
     <>
       <Head />
-      <div>{isMobile?.() ? <MobileView /> : <PCView />}</div>
+      <div>
+        {isMobile?.() ? (
+          <MobileView {...props} onStudentOfferClick={onStudentOfferClick} />
+        ) : (
+          <PCView {...props} onStudentOfferClick={onStudentOfferClick} />
+        )}
+      </div>
+      {jobConsultModal.open && jobConsultModal.imageInfo && (
+        <SuccessCaseModal
+          open={jobConsultModal.open}
+          onClose={() =>
+            setJobConsultModal((draft) => {
+              draft.open = false;
+            })
+          }
+          imageInfo={jobConsultModal.imageInfo}
+        />
+      )}
     </>
   );
 };
 
 const bannerVideoUrl =
   "https://resources.rexpandcareer.com/videos/cases/successful-cases.mov";
-function MobileView() {
+const MobileView: React.FC<SuccessCasesPageProps> = ({
+  students,
+  onStudentOfferClick,
+}) => {
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>(
     bannerVideoUrl
@@ -90,7 +135,10 @@ function MobileView() {
             />
           </div>
           <div className={styles.m_top_offer_content}>
-            <TopOfferList data={topOffersData} />
+            <TopOfferList
+              data={students}
+              onStudentOfferClick={onStudentOfferClick}
+            />
           </div>
         </div>
 
@@ -122,9 +170,12 @@ function MobileView() {
       />
     </main>
   );
-}
+};
 
-function PCView() {
+const PCView: React.FC<SuccessCasesPageProps> = ({
+  students,
+  onStudentOfferClick,
+}) => {
   const [videoModalOpen, setVideoModalOpen] = useState<boolean>(false);
   const [videoModalPath, setVideoModalPath] = useState<string | undefined>();
   const [isBannerVideoPlaying, setBannerVideoPlaying] = useState<boolean>(true);
@@ -200,7 +251,10 @@ function PCView() {
             }}
           >
             <div className="container mx-auto">
-              <TopOfferList data={topOffersData} />
+              <TopOfferList
+                data={students}
+                onStudentOfferClick={onStudentOfferClick}
+              />
             </div>
           </div>
         </div>
@@ -242,6 +296,18 @@ function PCView() {
       />
     </main>
   );
+};
+
+export async function getStaticProps({ params }: any) {
+  // 从 Strapi 自定义 API 获取数据
+  const res = await successCaseAPI.getAllData();
+  const students = res.data;
+
+  return {
+    props: {
+      students,
+    },
+  };
 }
 
 export default SuccessCasesPage;

@@ -323,7 +323,7 @@ function MobileView({
                             height={117}
                             className="max-h-[117px] rounded"
                             src={replaceCDNName(
-                              item.attributes.cover.data.attributes.url
+                              item.attributes.cover?.data?.attributes.url || ""
                             )}
                           />
                           <div className="flex-1">
@@ -578,7 +578,7 @@ function PCView({
                         width={176}
                         height={117}
                         src={replaceCDNName(
-                          item.attributes.cover.data.attributes.url
+                          item.attributes.cover?.data?.attributes.url || ""
                         )}
                       ></Image>
                     </div>
