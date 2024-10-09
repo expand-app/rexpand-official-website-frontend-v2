@@ -43,8 +43,10 @@ const Head: React.FC<HeadProps> = ({
         href="/favicon-16x16.png"
       />
       <link rel="icon" href="/favicon.ico" type="image/x-icon"></link>
+      <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+      <link rel="shortcut icon" href="/favicon.ico" />
       <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       <meta name="msapplication-TileColor" content="#00aba9" />
       <meta name="theme-color" content="#ffffff" />
       <script type="application/ld+json">
